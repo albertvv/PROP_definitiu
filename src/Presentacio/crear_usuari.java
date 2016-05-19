@@ -16,12 +16,14 @@ import javax.swing.LayoutStyle;
  */
 public class crear_usuari extends javax.swing.JFrame {
     private static CtrlPresentacio ctr_pres;
+    JPanel panel;
     /**
      * Creates new form crear_usuari
      */
     public crear_usuari(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
     }
 
     /**
@@ -134,15 +136,15 @@ public class crear_usuari extends javax.swing.JFrame {
 
     private void botoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoActionPerformed
         String user = username.getText();
-        if(!expresio_regular.sense_espais(user) || (user.length() == 0)) 
-            resultat.setText("Format usuari incorrecte o no introduit");
+        if(!expresio_regular.sense_espais(user) || (user.length() == 0))
+            JOptionPane.showMessageDialog(panel, "Format usuari incorrecte o no introduit. Nomes lletres i numeros", "Error", JOptionPane.ERROR_MESSAGE);
         else{
             String pass = password.getText();
-            if(!expresio_regular.sense_espais(pass) || (pass.length() == 0)) 
-                resultat.setText("Format password incorrecte o no introduit");
+            if(!expresio_regular.sense_espais(pass) || (pass.length() == 0))
+                JOptionPane.showMessageDialog(panel, "Format password incorrecte o no introduit. Nomes lletres i numeros", "Error", JOptionPane.ERROR_MESSAGE);
             else{
                 if(ctr_pres.crear_usuari(user, pass, privilegiat.isSelected())) resultat.setText("Usuari creat");
-                else resultat.setText("L'usuari ja existia");
+                else JOptionPane.showMessageDialog(panel, "L'usuari ja existia", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_botoActionPerformed

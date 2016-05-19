@@ -20,9 +20,11 @@ public class modificar_relacio extends javax.swing.JFrame {
      * Creates new form modificar_relacio
      */
     private CtrlPresentacio ctr_pres;
+    JPanel panel;
     public modificar_relacio(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
     }
 
     /**
@@ -122,18 +124,30 @@ public class modificar_relacio extends javax.swing.JFrame {
 
     private void botoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoActionPerformed
         String nomAntic = nom_antic.getText();
-        if(nomAntic.equals("")) resposta.setText("Introdueix el nom antic de la relacio");
+        if(nomAntic.equals("")) JOptionPane.showMessageDialog(panel, "Introdueix el nom antic de la relacio", "Error", JOptionPane.ERROR_MESSAGE);
         else{
             String nomNou = nom_nou.getText();
-            if(nomNou.equals("")) nomNou = null;
-            String desc = descripcio.getText();
-            if(desc.equals("")) desc = null;
-            if(ctr_pres.modificar_relacio(nomAntic, nomNou, desc)){
-                resposta.setText("Relacio modificada");
-                ctr_pres.gestio_relacions();
-                setVisible(false);
+            if(!expresio_regular.sense_espais(nomNou)){
+                JOptionPane.showMessageDialog(panel, "Format del nom incorrecte, nomes lletres i numeros sense espais", "Error", JOptionPane.ERROR_MESSAGE);
+                nom_nou.setText("");
             }
-            else resposta.setText("La relacio no existia");
+            else {
+                if (nomNou.equals("")) nomNou = null;
+                String desc = descripcio.getText();
+                if(!expresio_regular.amb_espais(desc)){
+                    JOptionPane.showMessageDialog(panel, "Format de la descripcio incorrecte, nomes lletres, numeros i espais", "Error", JOptionPane.ERROR_MESSAGE);
+                    descripcio.setText("");
+                }
+                else {
+                    if (desc.equals("")) desc = null;
+                    if (ctr_pres.modificar_relacio(nomAntic, nomNou, desc)) {
+                        resposta.setText("Relacio modificada");
+                        ctr_pres.gestio_relacions();
+                        setVisible(false);
+                    } else
+                        JOptionPane.showMessageDialog(panel, "La relacio no existia", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_botoActionPerformed
 

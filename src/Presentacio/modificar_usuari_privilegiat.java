@@ -20,9 +20,11 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
      * Creates new form modificar_usuari_privilegiat
      */
     private CtrlPresentacio ctr_pres;
+    JPanel panel;
     public modificar_usuari_privilegiat(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
     }
 
     /**
@@ -165,11 +167,17 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
             String sex = this.sex.getText();
             if(sex.equals("")) sex = null;
             if(!expresio_regular.sense_espais(user_modificar)|| !expresio_regular.sense_espais(newPass)||!expresio_regular.sense_espais(name)||!expresio_regular.sense_espais(sex))
-                resposta.setText("Format incorrecte; nomes lletres i numeros");
+                JOptionPane.showMessageDialog(panel, "Format incorrecte; nomes lletres i numeros", "Error", JOptionPane.ERROR_MESSAGE);
             else{
-                if(ctr_pres.modificar_usuari_privilegiat(user_modificar, newPass, name, sex, date.getText()))
-                resposta.setText("Usuari modificat");
-                else resposta.setText("L'usuari no existeix");
+                if(ctr_pres.modificar_usuari_privilegiat(user_modificar, newPass, name, sex, date.getText())) {
+                    resposta.setText("Usuari modificat");
+                    this.newPass.setText("");
+                    this.name.setText("");
+                    this.sex.setText("");
+                    this.date.setText("");
+                }
+                else JOptionPane.showMessageDialog(panel, "L'usuari no existeix", "Error", JOptionPane.ERROR_MESSAGE);
+                this.user_modificar.setText("");
             }
         }
     }//GEN-LAST:event_botoActionPerformed

@@ -22,11 +22,13 @@ public class gestio_relacions extends javax.swing.JFrame {
      * Creates new form gestio_relacions
      */
     private int i = 0;
+    private JPanel panel;
     private CtrlPresentacio ctr_pres;
     public gestio_relacions(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
         introduir.setVisible(false);
+        panel = new JPanel();
     }
 
     /**
@@ -177,7 +179,7 @@ public class gestio_relacions extends javax.swing.JFrame {
                 resposta.setText("Relacio esborrada");
                 introduir.setVisible(false);
             }
-            else resposta.setText("La relacio no existia");
+            else JOptionPane.showMessageDialog(panel, "La relacio no existia", "Error", JOptionPane.ERROR_MESSAGE);
             introduir.setText("");
         }
     }//GEN-LAST:event_borrarActionPerformed

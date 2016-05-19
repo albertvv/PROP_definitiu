@@ -20,11 +20,13 @@ public class gestio_privilegiat extends javax.swing.JFrame {
      * Creates new form gestio_privilegiat
      */
     private int i = 0;
+    JPanel panel;
     private CtrlPresentacio ctr_pres;
     public gestio_privilegiat(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
         introduir.setVisible(false);
+        panel = new JPanel();
     }
 
     /**
@@ -214,7 +216,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
                     ctr_pres.inici();
                 }
             }
-            else resposta.setText("L'usuari no existia");
+            else JOptionPane.showMessageDialog(panel, "L'usuari no existia", "Error", JOptionPane.ERROR_MESSAGE);
             introduir.setText("");
         }
     }//GEN-LAST:event_borrarActionPerformed
@@ -227,7 +229,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
                 resposta.setText("L'usuari ara és privilegiat");
                 introduir.setVisible(false);
             }
-            else resposta.setText("L'usuari no existia o ja era privilegiat");
+            else JOptionPane.showMessageDialog(panel, "L'usuari no existia o ja era privilegiat", "Error", JOptionPane.ERROR_MESSAGE);
             introduir.setText("");
         }
     }//GEN-LAST:event_privilegisActionPerformed

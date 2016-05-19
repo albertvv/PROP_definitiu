@@ -16,12 +16,14 @@ import javax.swing.LayoutStyle;
  */
 public class loggin extends javax.swing.JFrame {
     private CtrlPresentacio ctr_pres;
+    JPanel panel;
     /**
      * Creates new form loggin
      */
     public loggin(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
     }
 
     /**
@@ -31,7 +33,7 @@ public class loggin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -132,7 +134,7 @@ public class loggin extends javax.swing.JFrame {
             setVisible(false);
         }
         else {
-            resultat.setText("Usuari o contrasenya incorrectes");
+            JOptionPane.showMessageDialog(panel, "Usuari o contrasenya incorrectes", "Error", JOptionPane.ERROR_MESSAGE);
             username.setText("");
             password.setText("");
         }
@@ -178,7 +180,7 @@ public class loggin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JTextField password;

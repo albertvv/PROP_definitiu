@@ -18,9 +18,11 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
      * Creates new form modificar_usuari_estandard
      */
     private CtrlPresentacio ctr_pres;
+    private JPanel panel;
     public modificar_usuari_estandard(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
     }
 
     /**
@@ -165,11 +167,17 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
             String sex = this.sex.getText();
             if(sex.equals("")) sex = null;
             if(!expresio_regular.sense_espais(oldPass)||!expresio_regular.sense_espais(newPass)||!expresio_regular.sense_espais(name)||!expresio_regular.sense_espais(sex))
-                resposta.setText("Format incorrecte; nomes lletres i numeros");
+                JOptionPane.showMessageDialog(panel, "Format incorrecte; nomes lletres i numeros", "Error", JOptionPane.ERROR_MESSAGE);
             else {
-                if(ctr_pres.modificar_usuari_estandard(oldPass, newPass, name, sex, date.getText()))
-                resposta.setText("Usuari modificat");
-                else resposta.setText("Contrasenya incorrecte");
+                if(ctr_pres.modificar_usuari_estandard(oldPass, newPass, name, sex, date.getText())) {
+                    resposta.setText("Usuari modificat");
+                    this.newPass.setText("");
+                    this.name.setText("");
+                    this.sex.setText("");
+                    this.date.setText("");
+                }
+                else JOptionPane.showMessageDialog(panel, "Contrasenya incorrecte", "Error", JOptionPane.ERROR_MESSAGE);
+                this.oldPass.setText("");
             }
         }
     }//GEN-LAST:event_botoActionPerformed

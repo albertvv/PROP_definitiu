@@ -20,9 +20,11 @@ public class crear_relacio extends javax.swing.JFrame {
      * Creates new form crear_relacio
      */
     private CtrlPresentacio ctr_pres;
+    JPanel panel;
     public crear_relacio(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
     }
 
     /**
@@ -148,13 +150,13 @@ public class crear_relacio extends javax.swing.JFrame {
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
         String name = nom.getText();
         if((name.equals("")) || (!expresio_regular.sense_espais(name))){
-            resposta.setText("Format de nom incorrecte; només lletres i numeros. O camp no omplert");
+            JOptionPane.showMessageDialog(panel, "Format de nom incorrecte; només lletres i numeros. O camp no omplert", "Error", JOptionPane.ERROR_MESSAGE);
             nom.setText("");
         }
         else{
             String description = descripcio.getText();
-            if(!expresio_regular.amb_espais(description)){ 
-                resposta.setText("Format de la descripcio incorrecte; només lletres, numero i espais");
+            if(!expresio_regular.amb_espais(description)){
+                JOptionPane.showMessageDialog(panel, "Format de la descripcio incorrecte; només lletres, numero i espais", "Error", JOptionPane.ERROR_MESSAGE);
                 descripcio.setText("");
             }
             else{                
@@ -165,7 +167,7 @@ public class crear_relacio extends javax.swing.JFrame {
                     nom.setText("");
                     descripcio.setText("");
                 }
-                else resposta.setText("Format path incorrecte o longitut menor que 3");
+                else JOptionPane.showMessageDialog(panel, "Format path incorrecte o longitut menor que 3", "Error", JOptionPane.ERROR_MESSAGE);
                 path.setText("");
             }
         }

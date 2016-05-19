@@ -1,0 +1,39 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:168:p, par c {comp clustbutton::c:p::p, comp reldirectbutton::c:p::p, comp impbutton::c:p::p, comp relbutton::c:p::p}}, seq l {space :::p, comp enrere:::p:96:p}}, space ::175:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp enrere:::p::p, space ::25:x, comp relbutton:::p::p, space u:::p, comp impbutton:::p::p, space :p:12:p, comp reldirectbutton:::p::p, space u:::p, comp clustbutton:::p::p, space :p:137:p}}"
+		} ) {
+			name: "frame"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "clustbutton"
+				"text": "Clustering"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "relbutton"
+				"text": "Cerca de Rellevància"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "impbutton"
+				"text": "Relacions Importants"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "enrere"
+				"text": "Enrere"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "EnrereActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrereActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "reldirectbutton"
+				"text": "Relacions Directes"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reldirectbuttonActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 0 )
+			"size": new java.awt.Dimension( 500, 400 )
+		} )
+	}
+}

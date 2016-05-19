@@ -1,0 +1,89 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, par t:::p {seq {space :p:104:p, comp infobutton:::p:80:p, space :::x, comp filtrbutton:::p:80:p}, seq {comp button1:::p:96:p, space :::p, par l:::p {comp label1::::230:x, comp scrollPane1::::230:x}}}, space ::81:x}}"
+			"$verticalGroup": "par l {seq {par b {comp button1::b:p::p, comp label1::b:p::p}, space s:::p, comp scrollPane1:::p::p, space s:::p, par l {comp filtrbutton:::p:47:p, comp infobutton:::::x}, space ::23:x}}"
+		} ) {
+			name: "frame"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Últims Resultats de Clustering"
+				"horizontalAlignment": 0
+				"font": new java.awt.Font( "Segoe UI", 0, 14 )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Enrere"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "EnrereActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "filtrbutton"
+				"text": "Filtra"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "filtrbuttonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "infobutton"
+				"text": "Info"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "infobuttonActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 185, 10 )
+			"size": new java.awt.Dimension( 435, 320 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space ::59:x, par l {seq t {comp label2:::p:97:p, space :p:135:p}, seq t {comp scrollPane2:::p:238:p, space :p:67:p}, seq t {comp button3:::p:84:p, space :p:146:p}}}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label2:::p:33:p, space u:::p, comp scrollPane2:::p:182:p, space :::x, comp button3:::p:44:p}}"
+		} ) {
+			name: "dialog1"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Resultat Detallat"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list2"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "OK"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 340 )
+			"size": new java.awt.Dimension( 380, 320 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space ::67:x, par l {seq t {comp button4:::p:84:p, space :p:130:p}, seq t {comp list3:::p:236:p, space :p:51:p}}}, seq l {space :p:126:p, comp label3:::p:97:p, space :0:131:x}}"
+			"$verticalGroup": "par l {seq {space ::9:x, comp label3:::p:33:p, space :::p, comp list3:::p:180:p, space :::p, comp button4:::p:44:p, space :::p}}"
+		} ) {
+			name: "dialog2"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "OK"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JList" ) {
+				name: "list3"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Resultat Filtrat"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 410, 340 )
+			"size": new java.awt.Dimension( 370, 320 )
+		} )
+	}
+}

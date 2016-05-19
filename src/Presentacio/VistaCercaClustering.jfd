@@ -1,0 +1,135 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_66" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp jPanel1::t:::x}"
+			"$verticalGroup": "par l {comp jPanel1::l:::x}"
+		} ) {
+			name: "frame"
+			"defaultCloseOperation": 3
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentMoved", "framewComponentMoved", true ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {comp jLabel2::l:p::p, comp jLabel3::l:p::p}, space :::p, par l {comp textfieldpath:::p:142:p, comp jScrollPane1:::p:247:p}}, seq {comp enrerebutton:::p:96:p, space :p:54:p, comp jLabel1:::p:109:p}}, space ::40:x}, seq t {par t {seq t {space :::p, comp jLabel4:::p::p, space u:::p, comp numgrupstext:::p:64:p, space :p:29:p, comp jLabel5:::p::p, space :::p, comp iteracionstext::::58:x}, seq {space :0:0:x, comp BotoAgrupa:::p::p}}, space :p:22:p}}"
+				"$verticalGroup": "par l {seq l {space :::p, par t {comp jLabel1:::p:28:p, comp enrerebutton:::p:32:p}, space :p:5:p, par b {comp jLabel3::b:p::p, comp textfieldpath::b:p::p}, space :p:6:p, par b {comp jLabel4::b:p::p, comp numgrupstext::b:p::p, comp jLabel5::b:p::p, comp iteracionstext::b:p::p}, space :::p, par l {seq l {comp jScrollPane1:::p:119:p, space :::p, comp BotoAgrupa:::p::p}, comp jLabel2::l:p:32:p}, space :::x}}"
+			} ) {
+				name: "jPanel1"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel1"
+					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"horizontalAlignment": 0
+					"text": "Clustering"
+					"toolTipText": ""
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel2"
+					"text": "Entitats a agrupar:"
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "jScrollPane1"
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "jTextArea1"
+						"columns": 20
+						"rows": 5
+					} )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel3"
+					"text": "Tipus de cerca:"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textfieldpath"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField1ActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "BotoAgrupa"
+					"text": "Agrupa"
+					"toolTipText": ""
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton1ActionPerformed", true ) )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BotoAgrupaActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel4"
+					"text": "Nombre de grups:"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "numgrupstext"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel5"
+					"text": "Nombre iteracions:"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "iteracionstext"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField3ActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "enrerebutton"
+					"text": "Enrere"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "EnrereActionPerformed", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 410, 315 )
+			"location": new java.awt.Point( 30, 0 )
+		} )
+		add( new FormContainer( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:87:p, comp jLabel6:::p:231:p, space ::86:x}, seq t {space ::24:x, par l {seq t {comp jScrollPane2:::p:347:p, space :p:33:p}, seq t {comp button2:::p:73:p, space :p:160:p}}}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp jLabel6:::p:29:p, space u:::p, comp jScrollPane2:::p:215:p, space u:::p, comp button2:::p:38:p, space :::x}}"
+		} ) {
+			name: "jDialog1"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "jScrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "jList1"
+					"model": new javax.swing.DefaultListModel {
+						addElement( "Item 1" )
+						addElement( "Item 2" )
+						addElement( "Item 3" )
+						addElement( "Item 4" )
+						addElement( "Item 5" )
+					}
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel6"
+				"horizontalAlignment": 0
+				"text": "Resultat del Clustering"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "OK"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 30, 326 )
+			"size": new java.awt.Dimension( 420, 349 )
+		} )
+		add( new FormWindow( "javax.swing.JWindow", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp label1::l::385:x}"
+			"$verticalGroup": "par l {comp label1::l::300:x}"
+		} ) {
+			name: "framew"
+			"opacity": 0.5f
+			"focusable": false
+			"focusableWindowState": false
+			"cursor": &Cursor0 new java.awt.Cursor( 3 )
+			"alwaysOnTop": true
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentMoved", "framewComponentMoved", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Presentacio/ajax-loader.gif" )
+				"horizontalAlignment": 0
+				"focusable": false
+				"cursor": #Cursor0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 535, 135 )
+			"size": new java.awt.Dimension( 385, 300 )
+		} )
+	}
+}

@@ -1,0 +1,118 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {comp panel2:::p::p, comp panel3::l:p::p, seq {space :::p, par l {comp panel5:::p:353:p, comp panel4:::::x}}}, space :::p}}"
+			"$verticalGroup": "par l {seq {comp panel2:::p::p, space :5:5:p, comp panel3:::p:47:p, space :::p, comp panel4:::p::p, space :::x, comp panel5:::p::p, space :p:33:p}}"
+		} ) {
+			name: "frame"
+			"defaultCloseOperation": 3
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentMoved", "framewComponentMoved", true ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {comp enrereButton:::p::p, space ::106:x, comp label1:::p:136:p, space :p:41:p}}"
+				"$verticalGroup": "par l {seq {space :26:26:p, par b {comp enrereButton::b:p::p, comp label1::b:p:32:p}}}"
+			} ) {
+				name: "panel2"
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "enrereButton"
+					"text": "Enrere"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrereButtonActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "CERCA RELLEVÀNCIA"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {comp label2:::p::p, space :::p, comp textField1:::p:290:p, space :p:92:p}}"
+				"$verticalGroup": "par l {seq {space :23:23:p, par b {comp label2::b:p::p, comp textField1::b:p::p}, space :p:12:p}}"
+			} ) {
+				name: "panel3"
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Tipus de cerca : "
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :p:42:p, comp label3:::p::p, space :::p, comp jScrollPane1:::p:285:p, space ::97:x}}"
+				"$verticalGroup": "par l {seq {par l {comp label3:::p::p, seq l {space :::p, comp jScrollPane1:::p:141:p}}, space ::35:x}}"
+			} ) {
+				name: "panel4"
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Entitats:"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "jScrollPane1"
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "textArea1"
+						"columns": 20
+						"rows": 5
+					} )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :p:283:p, comp cercaButton:::p::p, space :p:141:p}}"
+				"$verticalGroup": "par l {seq {space :14:14:p, comp cercaButton:::p::p}}"
+			} ) {
+				name: "panel5"
+				auxiliary() {
+					"JavaCodeGenerator.variableLocal": true
+				}
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "cercaButton"
+					"text": "Cerca"
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 500, 400 )
+		} )
+		add( new FormWindow( "javax.swing.JWindow", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp label4::l::485:x}"
+			"$verticalGroup": "par l {comp label4::t::370:x}"
+		} ) {
+			name: "framew"
+			"opacity": 0.5f
+			"focusable": false
+			"focusableWindowState": false
+			"cursor": &Cursor0 new java.awt.Cursor( 3 )
+			"alwaysOnTop": true
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentMoved", "framewComponentMoved", true ) )
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentMoved", "framewComponentMoved", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Presentacio/ajax-loader.gif" )
+				"horizontalAlignment": 0
+				"focusable": false
+				"cursor": #Cursor0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 485, 370 )
+			"location": new java.awt.Point( 565, 15 )
+		} )
+	}
+}

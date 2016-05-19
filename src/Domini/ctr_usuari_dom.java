@@ -194,6 +194,6 @@ public class ctr_usuari_dom {
     }
 
     public boolean privilegiat() {
-        return true;
+        return (user != null)&&user.getClass().getSimpleName().equals("usuari_privilegiat");
     }
 }

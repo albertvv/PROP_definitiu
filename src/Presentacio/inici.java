@@ -53,15 +53,13 @@ public class inici extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         log = new JButton();
         importarUsuaris = new JButton();
         guardarUsuaris = new JButton();
         error = new JLabel();
         resposta = new JLabel();
-        ImportarDades = new JButton();
-        GuardarDades = new JButton();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -85,14 +83,6 @@ public class inici extends javax.swing.JFrame {
 			guardarUsuarisActionPerformed(e);
 		});
 
-        //---- ImportarDades ----
-        ImportarDades.setText("Importar dades");
-        ImportarDades.addActionListener(e -> ImportarDadesActionPerformed(e));
-
-        //---- GuardarDades ----
-        GuardarDades.setText("Guardar dades");
-        GuardarDades.addActionListener(e -> GuardarDadesActionPerformed(e));
-
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -100,8 +90,6 @@ public class inici extends javax.swing.JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(145, 145, 145)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(GuardarDades, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ImportarDades, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(resposta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(guardarUsuaris, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(importarUsuaris, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -124,11 +112,7 @@ public class inici extends javax.swing.JFrame {
                             .addComponent(importarUsuaris)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(guardarUsuaris)))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(ImportarDades)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(GuardarDades)
-                    .addGap(88, 88, 88)
+                    .addGap(164, 164, 164)
                     .addComponent(resposta)
                     .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -199,13 +183,11 @@ public class inici extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JButton log;
     private JButton importarUsuaris;
     private JButton guardarUsuaris;
     private JLabel error;
     private JLabel resposta;
-    private JButton ImportarDades;
-    private JButton GuardarDades;
     // End of variables declaration//GEN-END:variables
 }

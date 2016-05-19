@@ -283,7 +283,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "back"
-				"text": "Gestio usuari"
+				"text": "Enrere"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {

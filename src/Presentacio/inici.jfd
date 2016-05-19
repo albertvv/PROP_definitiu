@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:145:p, par l:::p {comp GuardarDades:::::x, comp ImportarDades:::::x, comp resposta:::::x, comp guardarUsuaris::t:::x, comp importarUsuaris::l:::x, comp log::t:::x}, space u:::p, comp error:::p::p, space ::111:x}}"
-			"$verticalGroup": "par l {seq l {par l {seq {space :p:130:p, comp error:::p::p}, seq l {space :p:45:p, comp log:::p::p, space :::p, comp importarUsuaris:::p::p, space :::p, comp guardarUsuaris:::p::p}}, space :::p, comp ImportarDades:::p::p, space :::p, comp GuardarDades:::p::p, space :p:88:p, comp resposta:::p::p, space :::x}}"
+			"$horizontalGroup": "par l {seq l {space :p:145:p, par l:::p {comp resposta:::::x, comp guardarUsuaris::t:::x, comp importarUsuaris::l:::x, comp log::t:::x}, space u:::p, comp error:::p::p, space ::111:x}}"
+			"$verticalGroup": "par l {seq l {par l {seq {space :p:130:p, comp error:::p::p}, seq l {space :p:45:p, comp log:::p::p, space :::p, comp importarUsuaris:::p::p, space :::p, comp guardarUsuaris:::p::p}}, space :p:164:p, comp resposta:::p::p, space :::x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -31,16 +31,6 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "resposta"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "ImportarDades"
-				"text": "Importar dades"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ImportarDadesActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "GuardarDades"
-				"text": "Guardar dades"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "GuardarDadesActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 400, 300 )

@@ -31,7 +31,7 @@ public class crear_usuari extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -68,7 +68,7 @@ public class crear_usuari extends javax.swing.JFrame {
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
         //---- back ----
-        back.setText("Gestio privilegiat");
+        back.setText("Enrere");
         back.addActionListener(e -> backActionPerformed(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -90,7 +90,7 @@ public class crear_usuari extends javax.swing.JFrame {
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addGroup(contentPaneLayout.createSequentialGroup()
                                     .addComponent(boto)
-                                    .addContainerGap(134, Short.MAX_VALUE))
+                                    .addContainerGap(105, Short.MAX_VALUE))
                                 .addGroup(contentPaneLayout.createSequentialGroup()
                                     .addGroup(contentPaneLayout.createParallelGroup()
                                         .addComponent(username)
@@ -122,7 +122,7 @@ public class crear_usuari extends javax.swing.JFrame {
                         .addComponent(privilegiat))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(resultat)
-                    .addContainerGap(117, Short.MAX_VALUE))
+                    .addContainerGap(52, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -191,7 +191,7 @@ public class crear_usuari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JTextField password;

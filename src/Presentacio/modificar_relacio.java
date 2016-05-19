@@ -32,7 +32,7 @@ public class modificar_relacio extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -62,7 +62,7 @@ public class modificar_relacio extends javax.swing.JFrame {
         boto.addActionListener(e -> botoActionPerformed(e));
 
         //---- back ----
-        back.setText("Gestio relacions");
+        back.setText("Enrere");
         back.addActionListener(e -> backActionPerformed(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -77,7 +77,7 @@ public class modificar_relacio extends javax.swing.JFrame {
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addGroup(contentPaneLayout.createSequentialGroup()
                                     .addComponent(boto)
-                                    .addGap(0, 186, Short.MAX_VALUE))
+                                    .addGap(0, 156, Short.MAX_VALUE))
                                 .addComponent(descripcio)))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup()
@@ -114,7 +114,7 @@ public class modificar_relacio extends javax.swing.JFrame {
                     .addComponent(boto)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(resposta)
-                    .addContainerGap(92, Short.MAX_VALUE))
+                    .addContainerGap(20, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -177,7 +177,7 @@ public class modificar_relacio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;

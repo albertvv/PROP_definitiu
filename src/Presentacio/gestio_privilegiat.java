@@ -34,7 +34,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         crear = new JButton();
         modificar = new JButton();
@@ -132,7 +132,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
         //---- back ----
-        back.setText("Gestio usuari");
+        back.setText("Enrere");
         back.addActionListener(e -> backActionPerformed(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -288,7 +288,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JButton crear;
     private JButton modificar;
     private JButton borrar;

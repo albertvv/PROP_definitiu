@@ -32,7 +32,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         user_modificar = new JTextField();
         newPass = new JTextField();
@@ -80,7 +80,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
         //---- back ----
-        back.setText("Gestio privilegiat");
+        back.setText("Enrere");
         back.addActionListener(e -> backActionPerformed(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -121,7 +121,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(sortir)
                         .addComponent(back))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(user_modificar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1))
@@ -219,7 +219,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JTextField user_modificar;
     private JTextField newPass;
     private JTextField name;

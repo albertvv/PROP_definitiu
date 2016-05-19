@@ -32,7 +32,7 @@ public class crear_relacio extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -66,7 +66,7 @@ public class crear_relacio extends javax.swing.JFrame {
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
         //---- back ----
-        back.setText("Gestio relacions");
+        back.setText("Enrrere");
         back.addActionListener(e -> backActionPerformed(e));
 
         //---- crear ----
@@ -86,7 +86,7 @@ public class crear_relacio extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(path, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                .addComponent(path, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                                 .addComponent(nom))
                             .addGap(114, 114, 114))
                         .addGroup(contentPaneLayout.createSequentialGroup()
@@ -129,7 +129,7 @@ public class crear_relacio extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(crear)
                         .addComponent(resposta))
-                    .addContainerGap(97, Short.MAX_VALUE))
+                    .addContainerGap(33, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -210,7 +210,7 @@ public class crear_relacio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JTextField nom;

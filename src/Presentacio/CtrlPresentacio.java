@@ -185,43 +185,43 @@ public class CtrlPresentacio {
         return ctr_dom.usuari_actual();
     }
     void crear_relacio(){
-        crear_relacio = new crear_relacio(this);
+        if(crear_relacio== null) crear_relacio = new crear_relacio(this);
         crear_relacio.vista();
     }
     void crear_usuari(){
-        crear_usuari = new crear_usuari(this);
+        if(crear_usuari== null)crear_usuari = new crear_usuari(this);
         crear_usuari.vista();
     }
     void gestio_privilegiat(){
-        gestio_privilegiat = new gestio_privilegiat(this);
+        if(gestio_privilegiat==null)gestio_privilegiat = new gestio_privilegiat(this);
         gestio_privilegiat.vista();
     }
     void gestio_relacions(){
-        gestio_relacions = new gestio_relacions(this);
+        if(gestio_relacions== null) gestio_relacions = new gestio_relacions(this);
         gestio_relacions.vista();
     }
     void gestio_usuari(){
-        gestio_usuari = new gestio_usuari(this);
+        if(gestio_usuari== null)gestio_usuari = new gestio_usuari(this);
         gestio_usuari.vista();
     }
     void inici(){
-        inici = new inici(this);
+        if(inici==null)inici = new inici(this);
         inici.vista();
     }
     void loggin(){
-        loggin = new loggin(this);
+        if(loggin==null)loggin = new loggin(this);
         loggin.vista();
     }
     void modificar_relacio(){
-        modificar_relacio = new modificar_relacio(this);
+        if(modificar_relacio==null)modificar_relacio = new modificar_relacio(this);
         modificar_relacio.vista();
     }
     void modificar_usuari_estandard(){
-        modificar_usuari_estandard = new modificar_usuari_estandard(this);
+        if(modificar_usuari_estandard==null)modificar_usuari_estandard = new modificar_usuari_estandard(this);
         modificar_usuari_estandard.vista();
     }
     void modificar_usuari_privilegiat(){
-        modificar_usuari_privilegiat = new modificar_usuari_privilegiat(this);
+        if(modificar_usuari_privilegiat==null)modificar_usuari_privilegiat = new modificar_usuari_privilegiat(this);
         modificar_usuari_privilegiat.vista();
     }
 //    void relacions_directes(){
@@ -233,7 +233,7 @@ public class CtrlPresentacio {
     }
     boolean privilegiat(){return ctr_dom.privilegiat();}
     void principal(){
-        principal = new principal(this);
+        if(principal==null)principal = new principal(this);
         principal.vista();}
 
     public boolean cargar_graf() {

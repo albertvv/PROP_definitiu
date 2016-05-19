@@ -4,18 +4,11 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp resposta::t:::x, seq {space :::p, par l {seq {par l {comp jLabel1::::166:x, comp jLabel2:::::x, comp jLabel3:::::x, comp jLabel4:::::x, comp jLabel5:::::x}, space :::p, par l {par l {par l {par l {comp boto:::p::p, comp newPass::t:p:200:p}, comp name::t:p:200:p}, comp sex::t:p:200:p, comp date:::p:200:p}, comp oldPass::l:p:200:p}}, seq t {space :0:0:x, comp back:::p::p, space :::p, comp sortir:::p::p}}, space :::p}}"
-			"$verticalGroup": "par l {seq l {par b {comp sortir::b:p::p, comp back::b:p::p}, space :p:15:p, par b {comp oldPass::b:p::p, comp jLabel1::b:p::p}, space :::p, par b {comp jLabel2::b:p::p, comp newPass::b:p::p}, space :::p, par b {comp name::b:p::p, comp jLabel3::b:p::p}, space :::p, par b {comp jLabel4::b:p::p, comp sex::b:p::p}, space :::p, par l {comp jLabel5:::p::p, comp date:::p::p}, space :p:13:p, comp boto:::p::p, space :::p, comp resposta:::p:60:p, space :::x}}"
+			"$horizontalGroup": "par l {comp resposta::t:::x, seq {space :::p, par l {seq {par l {comp jLabel1::::166:x, comp jLabel2:::::x, comp jLabel3:::::x, comp jLabel4:::::x, comp jLabel5:::::x}, space :::p, par l:::p {comp boto:::p::p, comp name::l::200:x, comp sex::l::200:x, comp date::::200:x, comp oldPass::l::200:x, comp newPass::l::200:x}}, seq t {space :0:0:x, comp back:::p::p, space :::p, comp sortir:::p::p}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {par b {comp sortir::b:p::p, comp back::b:p::p}, space :p:17:p, par b {comp jLabel1::b:p::p, comp oldPass::b:p::p}, space :::p, par b {comp jLabel2::b:p::p, comp newPass::b:p::p}, space :::p, par b {comp name::b:p::p, comp jLabel3::b:p::p}, space :::p, par b {comp jLabel4::b:p::p, comp sex::b:p::p}, space :::p, par l {comp jLabel5:::p::p, comp date:::p::p}, space :p:13:p, comp boto:::p::p, space :::p, comp resposta:::p:60:p, space :::x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "oldPass"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "oldPassActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "newPass"
-			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "name"
 			} )
@@ -62,6 +55,12 @@ new FormModel {
 				name: "back"
 				"text": "Enrere"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "oldPass"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "newPass"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 400, 300 )

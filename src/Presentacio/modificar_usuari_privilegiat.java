@@ -37,7 +37,6 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
     // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         user_modificar = new JTextField();
-        newPass = new JTextField();
         name = new JTextField();
         sex = new JTextField();
         date = new JTextField();
@@ -50,6 +49,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
         jLabel5 = new JLabel();
         sortir = new JButton();
         back = new JButton();
+        newPass = new JPasswordField();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -99,13 +99,13 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel5))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(user_modificar)
-                                .addComponent(newPass)
                                 .addComponent(name)
                                 .addComponent(sex)
-                                .addComponent(date, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(date, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(newPass, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                         .addComponent(resposta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
@@ -128,10 +128,10 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
                         .addComponent(user_modificar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(newPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(jLabel2)
+                        .addComponent(newPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(name, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3))
@@ -229,7 +229,6 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JTextField user_modificar;
-    private JTextField newPass;
     private JTextField name;
     private JTextField sex;
     private JTextField date;
@@ -242,5 +241,6 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
     private JLabel jLabel5;
     private JButton sortir;
     private JButton back;
+    private JPasswordField newPass;
     // End of variables declaration//GEN-END:variables
 }

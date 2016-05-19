@@ -34,8 +34,6 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
-        oldPass = new JTextField();
-        newPass = new JTextField();
         name = new JTextField();
         sex = new JTextField();
         date = new JTextField();
@@ -48,13 +46,12 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
         resposta = new JLabel();
         sortir = new JButton();
         back = new JButton();
+        oldPass = new JPasswordField();
+        newPass = new JPasswordField();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container contentPane = getContentPane();
-
-        //---- oldPass ----
-        oldPass.addActionListener(e -> oldPassActionPerformed(e));
 
         //---- boto ----
         boto.setText("Cambiar");
@@ -99,16 +96,13 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
                                 .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addGroup(contentPaneLayout.createParallelGroup()
-                                    .addGroup(contentPaneLayout.createParallelGroup()
-                                        .addGroup(contentPaneLayout.createParallelGroup()
-                                            .addComponent(boto)
-                                            .addComponent(newPass, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(name, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(sex, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(date, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-                                .addComponent(oldPass, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(boto)
+                                .addComponent(name, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(sex, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(date, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(oldPass, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(newPass, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
                             .addComponent(back)
@@ -122,10 +116,10 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(sortir)
                         .addComponent(back))
-                    .addGap(15, 15, 15)
+                    .addGap(17, 17, 17)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(oldPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)
+                        .addComponent(oldPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
@@ -228,8 +222,6 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Bernat Diaz
-    private JTextField oldPass;
-    private JTextField newPass;
     private JTextField name;
     private JTextField sex;
     private JTextField date;
@@ -242,5 +234,7 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
     private JLabel resposta;
     private JButton sortir;
     private JButton back;
+    private JPasswordField oldPass;
+    private JPasswordField newPass;
     // End of variables declaration//GEN-END:variables
 }

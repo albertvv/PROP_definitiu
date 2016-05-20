@@ -15,7 +15,7 @@ import java.util.Vector;
  * Created by albert.val.vila on 10/05/2016.
  */
 public class CtrlPresentacio {
-    private VistaCerques vcerques = null;
+    private VistaCerques vcerques ;
     private ControladorCerques cc;
     private ControladorGrafo cg;
 //////////////////Constructor i metodes ini

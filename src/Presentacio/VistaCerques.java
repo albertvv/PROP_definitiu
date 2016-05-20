@@ -84,6 +84,7 @@ public class VistaCerques  {
 
         //======== frame ========
         {
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             Container frameContentPane = frame.getContentPane();
 
             //---- clustbutton ----

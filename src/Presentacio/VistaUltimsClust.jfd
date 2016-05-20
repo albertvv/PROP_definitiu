@@ -8,6 +8,8 @@ new FormModel {
 			"$verticalGroup": "par l {seq {par b {comp button1::b:p::p, comp label1::b:p::p}, space s:::p, comp scrollPane1:::p::p, space s:::p, par l {comp filtrbutton:::p:47:p, comp infobutton:::::x}, space ::23:x}}"
 		} ) {
 			name: "frame"
+			"defaultCloseOperation": 3
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "frameWindowClosed", true ) )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Últims Resultats de Clustering"

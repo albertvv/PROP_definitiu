@@ -85,6 +85,10 @@ public class VistaUltimsClust {
         frame.setFocusable(true);
     }
 
+    private void frameWindowClosed(WindowEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Albert Val
@@ -107,6 +111,13 @@ public class VistaUltimsClust {
 
         //======== frame ========
         {
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    frameWindowClosed(e);
+                }
+            });
             Container frameContentPane = frame.getContentPane();
 
             //---- label1 ----

@@ -8,6 +8,7 @@ new FormModel {
 			"$verticalGroup": "par l {seq t {space :::p, comp enrere:::p::p, space ::25:x, comp relbutton:::p::p, space u:::p, comp impbutton:::p::p, space :p:12:p, comp reldirectbutton:::p::p, space u:::p, comp clustbutton:::p::p, space :p:137:p}}"
 		} ) {
 			name: "frame"
+			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "clustbutton"
 				"text": "Clustering"

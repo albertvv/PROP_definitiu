@@ -33,7 +33,7 @@ public class loggin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Albert Val
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -61,7 +61,7 @@ public class loggin extends javax.swing.JFrame {
         username.addActionListener(e -> usernameActionPerformed(e));
 
         //---- jButton1 ----
-        jButton1.setText("Loggin");
+        jButton1.setText("Login");
         jButton1.addActionListener(e -> jButton1ActionPerformed(e));
 
         //---- back ----
@@ -87,7 +87,7 @@ public class loggin extends javax.swing.JFrame {
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                 .addComponent(password, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                 .addComponent(username))))
-                    .addContainerGap(106, Short.MAX_VALUE))
+                    .addContainerGap(82, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(back))
@@ -110,7 +110,7 @@ public class loggin extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
                         .addComponent(resultat))
-                    .addContainerGap(138, Short.MAX_VALUE))
+                    .addContainerGap(75, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -180,7 +180,7 @@ public class loggin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Albert Val
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JTextField password;

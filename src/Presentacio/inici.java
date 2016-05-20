@@ -53,7 +53,7 @@ public class inici extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Albert Val
     private void initComponents() {
         log = new JButton();
         importarUsuaris = new JButton();
@@ -66,7 +66,7 @@ public class inici extends javax.swing.JFrame {
         Container contentPane = getContentPane();
 
         //---- log ----
-        log.setText("Loggin");
+        log.setText("Login");
         log.addActionListener(e -> logActionPerformed(e));
 
         //---- importarUsuaris ----
@@ -183,7 +183,7 @@ public class inici extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Albert Val
     private JButton log;
     private JButton importarUsuaris;
     private JButton guardarUsuaris;

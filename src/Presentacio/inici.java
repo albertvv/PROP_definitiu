@@ -23,10 +23,6 @@ public class inici extends javax.swing.JFrame {
      * Creates new form inici
      */
     private CtrlPresentacio ctr_pres;
-    private void ImportarDadesActionPerformed(ActionEvent e) {
-        if(ctr_pres.cargar_graf()) error.setText("Dades carregades");
-        else error.setText("No es troben els fitxers de dades");
-    }
 
     private void importarActionPerformed(ActionEvent e) {
         // TODO add your code here

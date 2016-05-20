@@ -154,7 +154,7 @@ public class ControladorGrafo {
     }
 
     private boolean guardarRelPC() throws IOException {
-    /*    Vector<Conferencia> vectorConferencia = g.getConferencias();
+        Vector<Conferencia> vectorConferencia = g.getConferencias();
         Vector<Vector<String>> PC = new Vector<Vector<String>>();
         for (int i = 0; i < vectorConferencia.size(); ++i) {
             Vector<Entidad> vEnt = g.getRelacion(vectorConferencia.get(i).getId(), "Conferencia");
@@ -165,12 +165,11 @@ public class ControladorGrafo {
                 PC.add(vec);
             }
         }
-        return cgp.savePC(PC);*/
-        return true;
+        return cgp.savePC(PC);
     }
 
     private boolean guardarRelPT() throws IOException {
-      /*  Vector<Termino> vectorTermino = g.getTerminos();
+        Vector<Termino> vectorTermino = g.getTerminos();
         Vector<Vector<String>> PT = new Vector<Vector<String>>();
         for (int i = 0; i < vectorTermino.size(); ++i) {
             Vector<Entidad> vEnt = g.getRelacion(vectorTermino.get(i).getId(), "Termino");
@@ -181,8 +180,8 @@ public class ControladorGrafo {
                 PT.add(vec);
             }
         }
-        return cgp.savePT(PT);*/
-        return true;
+        return cgp.savePT(PT);
+
     }
 
     //CREADORA

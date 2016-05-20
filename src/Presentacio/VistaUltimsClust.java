@@ -8,8 +8,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Vector;
 import javax.swing.*;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
 import javafx.util.Pair;
 
 /**

@@ -228,19 +228,18 @@ public class CtrlPresentacio {
 //        relacions_directes = new relacions_directes(this);
 //        relacions_directes.vista();
 //    }
-    void carregar_ctr_dom(ctr_usuari_dom ctr){
-        ctr_dom = ctr;
-    }
     boolean privilegiat(){return ctr_dom.privilegiat();}
     void principal(){
         if(principal==null)principal = new principal(this);
         principal.vista();}
 
-    public boolean cargar_graf() {
-        return true;
-    }
 
     public boolean guardar_graf() {
+        try {
+            cg.guardarGrafo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 

@@ -276,7 +276,7 @@ public class VistaRellevancia {
         cercaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try{
-                    path = textField1.getText(); // aixo s'haurà de canviar amb els tipus de relació
+                    path = cp.getPath(textField1.getText()); // aixo s'haurà de canviar amb els tipus de relació
                     if (checked(cp.readTextArea(textArea1)) && path.length() == textArea1.getLineCount()) {
                             IniciaCerca();
 
@@ -292,8 +292,8 @@ public class VistaRellevancia {
                     else if(exc.getMessage()== "fix"){
                         JOptionPane.showMessageDialog(frame,
                                 "La primera i última Entitat han d'estar fixades","Error",JOptionPane.ERROR_MESSAGE);
-                    }else JOptionPane.showMessageDialog(frame,
-                            "EP aquí hi ha algún problema","Error",JOptionPane.ERROR_MESSAGE);
+                     }//else JOptionPane.showMessageDialog(frame,
+//                            "EP aquí hi ha algún problema","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

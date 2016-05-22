@@ -243,4 +243,10 @@ public class CtrlPresentacio {
         return true;
     }
 
+    public String getPath(String text) {
+        return "APA";
+    }
+    public boolean ExistsPath(String text){
+        return true; //S'HA DE CANVIAR!!! FALTA FUNCIÓ AL CONTROLADOR DE DOMINI DE USUARI
+    }
 }

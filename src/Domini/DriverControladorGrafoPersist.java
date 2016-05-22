@@ -33,6 +33,9 @@ public class DriverControladorGrafoPersist {
                     }
                     System.out.println("Quantitat linies: " + mP.size());
                     System.out.println("Quantitat labels: " + j);
+                    //DIRECCIO PROJECTE
+                    String path2 = System.getProperty("user.dir");
+                    System.out.println(path2);
                     break;
                 case 1:
                     Vector<Vector<String>> mA = cgp.getAutores();

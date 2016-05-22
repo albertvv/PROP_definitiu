@@ -11,30 +11,28 @@ import java.util.Vector;
 
 public class ControladorGrafoPersist {
 
-    private String paper;
-    private String author;
-    private String conf;
-    private String term;
-    private String paper_label;
-    private String author_label;
-    private String conf_label;
-    private String paper_author;
-    private String paper_conf;
-    private String paper_term;
+    private File paper;
+    private File author;
+    private File conf;
+    private File term;
+    private File paper_label;
+    private File author_label;
+    private File conf_label;
+    private File paper_author;
+    private File paper_conf;
+    private File paper_term;
 
     public ControladorGrafoPersist() {
-        //Direccions dels fitxers continguts a DBLP
-        String dir = "C:\\Users\\albert.val.vila\\DBLP_four_area\\";
-        this.paper = dir + "paper.txt";
-        this.author = dir + "author.txt";
-        this.conf = dir + "conf.txt";
-        this.term = dir + "term.txt";
-        this.paper_label = dir + "paper_label.txt";
-        this.author_label = dir + "author_label.txt";
-        this.conf_label = dir + "conf_label.txt";
-        this.paper_author = dir + "paper_author.txt";
-        this.paper_conf = dir + "paper_conf.txt";
-        this.paper_term = dir + "paper_term.txt";
+        this.paper = new File("DBLP_four_area", "paper.txt");
+        this.author = new File("DBLP_four_area", "author.txt");
+        this.conf = new File("DBLP_four_area", "conf.txt");
+        this.term = new File("DBLP_four_area", "term.txt");
+        this.paper_label = new File("DBLP_four_area", "paper_label.txt");
+        this.author_label = new File("DBLP_four_area", "author_label.txt");
+        this.conf_label = new File("DBLP_four_area", "conf_label.txt");
+        this.paper_author = new File("DBLP_four_area", "paper_author.txt");
+        this.paper_conf = new File("DBLP_four_area", "paper_conf.txt");
+        this.paper_term = new File("DBLP_four_area", "paper_term.txt");
 
     }
 
@@ -66,7 +64,7 @@ public class ControladorGrafoPersist {
                 return -1;
         }
     }
-    private void cargarEtiquetas(String archivo, HashMap<Integer, String> labels) throws IOException {
+    private void cargarEtiquetas(File archivo, HashMap<Integer, String> labels) throws IOException {
         String cadena;
         FileReader f = new FileReader(archivo);
         BufferedReader b = new BufferedReader(f);
@@ -89,10 +87,9 @@ public class ControladorGrafoPersist {
         b.close();
     }
 
-    public void saveEtiquetas(String archivo, Vector<Vector<String>> M) throws IOException {
-        File fichero = new File(archivo);
+    public void saveEtiquetas(File archivo, Vector<Vector<String>> M) throws IOException {
         BufferedWriter bw;
-        bw = new BufferedWriter(new FileWriter(fichero));
+        bw = new BufferedWriter(new FileWriter(archivo));
         for(int i = 0; i < M.size(); ++i) {
             if(M.get(i).size() == 3) {
                 int n = getNumEtiqueta(M.get(i).get(2));
@@ -312,9 +309,8 @@ public class ControladorGrafoPersist {
         if (Papers.size() == 0) return false;
         else {
             saveEtiquetas(paper_label, Papers);
-            File fichero = new File(paper);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(paper));
             for(int i = 0; i < Papers.size(); ++i) {
                 bw.write(Papers.get(i).get(0) + "    " + Papers.get(i).get(1));
                 bw.newLine();
@@ -327,9 +323,8 @@ public class ControladorGrafoPersist {
         if (Autores.size() == 0) return false;
         else {
             saveEtiquetas(author_label, Autores);
-            File fichero = new File(author);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(author));
             for(int i = 0; i < Autores.size(); ++i) {
                 bw.write(Autores.get(i).get(0) + "    " + Autores.get(i).get(1));
                 bw.newLine();
@@ -342,9 +337,8 @@ public class ControladorGrafoPersist {
         if (Conferencias.size() == 0) return false;
         else {
             saveEtiquetas(conf_label, Conferencias);
-            File fichero = new File(conf);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(conf));
             for(int i = 0; i < Conferencias.size(); ++i) {
                 bw.write(Conferencias.get(i).get(0) + "    " + Conferencias.get(i).get(1));
                 bw.newLine();
@@ -356,9 +350,8 @@ public class ControladorGrafoPersist {
     public boolean saveTerminos(Vector<Vector<String>> Terminos) throws IOException {
         if (Terminos.size() == 0) return false;
         else {
-            File fichero = new File(term);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(term));
             for(int i = 0; i < Terminos.size(); ++i) {
                 bw.write(Terminos.get(i).get(0) + "    " + Terminos.get(i).get(1));
                 bw.newLine();
@@ -370,9 +363,8 @@ public class ControladorGrafoPersist {
     public boolean savePA(Vector<Vector<String>> PA) throws IOException {
         if (PA.size() == 0) return false;
         else {
-            File fichero = new File(paper_author);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(paper_author));
             for(int i = 0; i < PA.size(); ++i) {
                 bw.write(PA.get(i).get(0) + "    " + PA.get(i).get(1));
                 bw.newLine();
@@ -384,9 +376,8 @@ public class ControladorGrafoPersist {
     public boolean savePC(Vector<Vector<String>> PC) throws IOException {
         if (PC.size() == 0) return false;
         else {
-            File fichero = new File(paper_conf);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(paper_conf));
             for(int i = 0; i < PC.size(); ++i) {
                 bw.write(PC.get(i).get(0) + "    " + PC.get(i).get(1));
                 bw.newLine();
@@ -398,9 +389,8 @@ public class ControladorGrafoPersist {
     public boolean savePT(Vector<Vector<String>> PT) throws IOException {
         if (PT.size() == 0) return false;
         else {
-            File fichero = new File(paper_term);
             BufferedWriter bw;
-            bw = new BufferedWriter(new FileWriter(fichero));
+            bw = new BufferedWriter(new FileWriter(paper_term));
             for(int i = 0; i < PT.size(); ++i) {
                 bw.write(PT.get(i).get(0) + "    " + PT.get(i).get(1));
                 bw.newLine();

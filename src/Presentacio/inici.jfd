@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_77" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:145:p, par l:::p {comp resposta:::::x, comp guardarUsuaris::t:::x, comp importarUsuaris::l:::x, comp log::t:::x}, space u:::p, comp error:::p::p, space ::111:x}}"
-			"$verticalGroup": "par l {seq l {par l {seq {space :p:130:p, comp error:::p::p}, seq l {space :p:45:p, comp log:::p::p, space :::p, comp importarUsuaris:::p::p, space :::p, comp guardarUsuaris:::p::p}}, space :p:164:p, comp resposta:::p::p, space :::x}}"
+			"$horizontalGroup": "par l {seq l {space :p:145:p, par l:::p {comp resposta:::::x, comp log::t::116:x}, space u:::p, comp error:::p::p, space ::111:x}}"
+			"$verticalGroup": "par l {seq l {par l {seq {space :p:130:p, comp error:::p::p}, seq l {space :p:45:p, comp log:::p::p}}, space :p:187:p, comp resposta:::p::p, space :::x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -13,18 +13,6 @@ new FormModel {
 				name: "log"
 				"text": "Login"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "importarUsuaris"
-				"text": "Importar usuaris"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "importarActionPerformed", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "importarUsuarisActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "guardarUsuaris"
-				"text": "Guardar usuaris"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "guardarActionPerformed", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "guardarUsuarisActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "error"

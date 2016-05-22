@@ -23,23 +23,21 @@ public class inici extends javax.swing.JFrame {
      * Creates new form inici
      */
     private CtrlPresentacio ctr_pres;
-
-    private void importarActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void guardarActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void GuardarDadesActionPerformed(ActionEvent e) {
-        if (ctr_pres.guardar_graf()) error.setText("Dades guardades");
-        else error.setText("No hi ha dades");
-    }
-
+    private JPanel panel;
     public inici(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
+        panel = new JPanel();
+        if(ctr_pres.isFirst()) {
+            ctr_pres.firstFalse();
+            try {
+                ctr_pres.carregar_usuaris();
+            } catch (IndexOutOfBoundsException e) {
+                JOptionPane.showMessageDialog(panel, "Fitxer corrumput", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (NullPointerException|IOException e) {
+                JOptionPane.showMessageDialog(panel, "No es troba el fitxer", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     /**
@@ -49,11 +47,9 @@ public class inici extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         log = new JButton();
-        importarUsuaris = new JButton();
-        guardarUsuaris = new JButton();
         error = new JLabel();
         resposta = new JLabel();
 
@@ -65,20 +61,6 @@ public class inici extends javax.swing.JFrame {
         log.setText("Login");
         log.addActionListener(e -> logActionPerformed(e));
 
-        //---- importarUsuaris ----
-        importarUsuaris.setText("Importar usuaris");
-        importarUsuaris.addActionListener(e -> {
-			importarActionPerformed(e);
-			importarUsuarisActionPerformed(e);
-		});
-
-        //---- guardarUsuaris ----
-        guardarUsuaris.setText("Guardar usuaris");
-        guardarUsuaris.addActionListener(e -> {
-			guardarActionPerformed(e);
-			guardarUsuarisActionPerformed(e);
-		});
-
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -87,9 +69,7 @@ public class inici extends javax.swing.JFrame {
                     .addGap(145, 145, 145)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(resposta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(guardarUsuaris, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(importarUsuaris, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(log, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(log, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(error)
                     .addContainerGap(111, Short.MAX_VALUE))
@@ -103,12 +83,8 @@ public class inici extends javax.swing.JFrame {
                             .addComponent(error))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGap(45, 45, 45)
-                            .addComponent(log)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(importarUsuaris)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(guardarUsuaris)))
-                    .addGap(164, 164, 164)
+                            .addComponent(log)))
+                    .addGap(187, 187, 187)
                     .addComponent(resposta)
                     .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -121,31 +97,7 @@ public class inici extends javax.swing.JFrame {
         ctr_pres.loggin();
     }//GEN-LAST:event_logActionPerformed
 
-    private void importarUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarActionPerformed
-        try{
-            ctr_pres.carregar_usuaris();
-            error.setText("Usuaris carregats");
-        }
-        catch(IndexOutOfBoundsException e){
-            error.setText("Fitxer corrumput");
-        }
-        catch(FileNotFoundException|NullPointerException e){
-            error.setText("No es troba el fitxer");
-        }
-    }//GEN-LAST:event_importarActionPerformed
 
-    private void guardarUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        try{
-            ctr_pres.guardar_usuaris();
-            error.setText("Usuaris guardats");
-        }
-        catch(FileNotFoundException|NullPointerException e){
-            error.setText("No es troba el fitxer");
-        }
-    }//GEN-LAST:event_guardarActionPerformed
-
-    /**
-     */
     public void vista() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -179,10 +131,8 @@ public class inici extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JButton log;
-    private JButton importarUsuaris;
-    private JButton guardarUsuaris;
     private JLabel error;
     private JLabel resposta;
     // End of variables declaration//GEN-END:variables

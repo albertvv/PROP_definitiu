@@ -126,7 +126,10 @@ public class CtrlPresentacio {
     private modificar_usuari_privilegiat modificar_usuari_privilegiat;
     private relacions_directes relacions_directes;
     private principal principal;
+    private boolean first = true;
 
+    boolean isFirst(){return first;}
+    void firstFalse(){first = false;}
     boolean loggin(String nom, String pass){
         return ctr_dom.loggin(nom, pass);
     }
@@ -175,7 +178,7 @@ public class CtrlPresentacio {
     void esborrar_relacio_graf(Integer primer, Integer segon, String tipus){
         ctr_dom.esborrar_relacio_graf(primer, segon, tipus);
     }
-    void carregar_usuaris() throws FileNotFoundException,NullPointerException{
+    void carregar_usuaris() throws NullPointerException,IOException{
         ctr_dom.carregar_usuaris();
     }
     void guardar_usuaris() throws FileNotFoundException,NullPointerException{
@@ -242,11 +245,13 @@ public class CtrlPresentacio {
         }
         return true;
     }
-
-    public String getPath(String text) {
-        return "APA";
+    public String getPath(String nom){
+        return ctr_dom.consultar_relacio(nom);
     }
-    public boolean ExistsPath(String text){
-        return true; //S'HA DE CANVIAR!!! FALTA FUNCIÓ AL CONTROLADOR DE DOMINI DE USUARI
+    public String get_nom_relacio(String path){
+        return ctr_dom.get_nom_relacio(path);
+    }
+    public boolean exist_relacio(String nom){
+        return ctr_dom.exist_relacio(nom);
     }
 }

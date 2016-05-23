@@ -3,6 +3,7 @@ package Domini;
 import Persistencia.ctr_usuari_pers;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class ctr_usuari_dom {
@@ -117,9 +118,23 @@ public class ctr_usuari_dom {
     }
 
     public String consultar_relacio(String nom) {
-        return user.getRelacion(nom).getPath();
+        TipoRelacion rel = user.getRelacion(nom);
+        if(rel!=null) return rel.getPath();
+        return null;
     }
-
+    public boolean exist_relacio(String nom){
+        return user.getRelacion(nom) != null;
+    }
+    public String get_nom_relacio(String path){
+        Map<String, TipoRelacion> map = user.getRelacions();
+        Iterator it = map.keySet().iterator();
+        while(it.hasNext()){
+            String key = (String)it.next();
+            TipoRelacion aux = map.get(key);
+            if(aux.getPath().equals(path)) return aux.getNombre();
+        }
+        return null;
+    }
     public void afegir_element(String nom,Integer id, String etiq, String tipus) {
         (aux((usuari_privilegiat) user)).afegir_element(nom, id, etiq, tipus, graf);
     }
@@ -136,7 +151,7 @@ public class ctr_usuari_dom {
         (aux((usuari_privilegiat) user)).esborrar_relacio_graf(primer, segon, tipus, graf);
     }
 
-    public void carregar_usuaris() throws FileNotFoundException,NullPointerException{
+    public void carregar_usuaris() throws FileNotFoundException,NullPointerException,IOException{
         ArrayList<ArrayList<String>> a =null;
         a = ctr_pers.carregar_usuaris();
         ArrayList<String> aux;

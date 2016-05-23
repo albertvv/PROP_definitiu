@@ -2,14 +2,17 @@ package Persistencia;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class ctr_usuari_pers {
-    public ArrayList<ArrayList<String>> carregar_usuaris() throws FileNotFoundException,NullPointerException{
-        URL url = getClass().getResource("usuaris.txt");
-        File file = new File(url.getPath());
-        Scanner sc = new Scanner(file);
+    private File usuaris = new File("usuaris.txt");
+    public ArrayList<ArrayList<String>> carregar_usuaris() throws NullPointerException,IOException{
+        Scanner sc = new Scanner(usuaris);
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
         ArrayList<String> array_aux;
         String aux = " ";
@@ -40,12 +43,9 @@ public class ctr_usuari_pers {
         return result;
     }
     public void guardar_usuaris(ArrayList<ArrayList<String>> users) throws FileNotFoundException,NullPointerException{
-        BufferedWriter writer = null;
         try {
-            URL url = getClass().getResource("usuaris.txt");
-            File file = new File(url.getPath());
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            writer = new BufferedWriter(fw);
+            FileWriter fw = new FileWriter(usuaris);
+            BufferedWriter writer = new BufferedWriter(fw);
             ArrayList<String> aux;
             String s;
             for(int i = 0;i < users.size(); ++i) {

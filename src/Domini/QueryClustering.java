@@ -22,9 +22,7 @@ public class QueryClustering extends Query {
     }
 
     public Vector<Vector<Integer>> Cerca(){
-        System.out.println(path);
         mat =cm.getMatrix(path,m1);
-        System.out.println(mat.columns());
         Vector<Vector<Integer>> vvs = new Vector<>();
         randommedioides(vvs);
         assignagrups(vvs);

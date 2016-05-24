@@ -23,7 +23,9 @@ public class CtrlMatrius {
             return mp.getMatrix(path);
         } catch (NullPointerException | IOException e) {
             System.out.println("catch");
-           return m.ComputarMetrica(path,m1);
+            Matrix  mat =m.ComputarMetrica(path,m1);
+            guardarMatriu(path, (CCSMatrix) mat); //problema :S
+            return mat;
         }
     }
     public void guardarMatriu(String path, CCSMatrix m){

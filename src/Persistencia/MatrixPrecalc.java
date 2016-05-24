@@ -31,9 +31,11 @@ public class MatrixPrecalc {
         boolean trobat = false;
         int x = 0;
         while(!trobat && x < paths.size()){
+            System.out.println(paths.get(x));
             if(path == paths.get(x)) trobat = true;
             ++x;
         }
+        System.out.println("hola trobat "+trobat);
         if (trobat) {
             String s;
             FileReader f = new FileReader(matsprec[x]);
@@ -68,9 +70,10 @@ public class MatrixPrecalc {
                     mat.set(Integer.parseInt(fila), Integer.parseInt(col), Double.parseDouble(rel));
                 }
             }
+            System.out.println("no peto");
             return mat;
         }
-        else return null;
+        else throw new NullPointerException();
     }
 
     public Void guardarMatrix(String path, CCSMatrix m) throws IOException {

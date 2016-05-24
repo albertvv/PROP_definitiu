@@ -31,10 +31,11 @@ public class inici extends javax.swing.JFrame {
         if(ctr_pres.isFirst()) {
             ctr_pres.firstFalse();
             try {
+                ctr_pres.carregar_graf();
                 ctr_pres.carregar_usuaris();
             } catch (IndexOutOfBoundsException e) {
                 JOptionPane.showMessageDialog(panel, "Fitxer corrumput", "Error", JOptionPane.ERROR_MESSAGE);
-            } catch (NullPointerException|IOException e) {
+            } catch (NullPointerException| IOException e) {
                 JOptionPane.showMessageDialog(panel, "No es troba el fitxer", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }

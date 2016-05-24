@@ -27,7 +27,7 @@ public class MatrixPrecalc {
         actualitzaPathsGuardats();
     }
 
-    public Matrix getMatrix(String path, int r, int c) throws IOException {/* throw exception si no es carrega*/
+    public Matrix getMatrix(String path) throws IOException,NullPointerException {/* throw exception si no es carrega*/
         boolean trobat = false;
         int x = 0;
         while(!trobat && x < paths.size()){
@@ -35,12 +35,18 @@ public class MatrixPrecalc {
             ++x;
         }
         if (trobat) {
-            Matrix mat = new CCSMatrix(r,c);
             String s;
             FileReader f = new FileReader(matsprec[x]);
             BufferedReader b = new BufferedReader(f);
+            s = b.readLine();
+            int i=0;
+            while(Character.isDigit(s.charAt(i))) ++i;
+            int r = Integer.parseInt(s.substring(0,i));
+            int c = Integer.parseInt(s.substring(i+1));
+            while(Character.isDigit(s.charAt(i))) ++i;
+            Matrix mat = new CCSMatrix(r,c);
             while((s = b.readLine())!=null) {
-                int i = 0;
+                i = 0;
                 String fila = new String();
                 while(Character.isDigit(s.charAt(i))) {
                     fila += s.charAt(i);
@@ -73,6 +79,8 @@ public class MatrixPrecalc {
         BufferedWriter bw;
         File fitxer = new File("Matrius_Precalculades", path + ".txt");
         bw = new BufferedWriter(new FileWriter(fitxer));
+        bw.write(Integer.toString(nrows)+"$"+Integer.toString(ncols));
+        bw.newLine();
         for(int i = 0; i < nrows; ++i) {
             boolean fila_escrita = false;
             for (int j = 0; j < ncols; j++) {

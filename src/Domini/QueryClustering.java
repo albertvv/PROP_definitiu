@@ -13,15 +13,18 @@ public class QueryClustering extends Query {
     private int ngrups;
     private int niteracions;
     private Matrix mat;
-
-    public QueryClustering(String path, int numgrups, Vector<Integer> vs, Matrix[] m1, Metrica m, int niteracions){
+    private CtrlMatrius cm;
+    public QueryClustering(String path, int numgrups, Vector<Integer> vs, Matrix[] m1, Metrica m, int niteracions,CtrlMatrius cm){
         super(path,vs,m,m1);
         this.ngrups = numgrups;
         this.niteracions = niteracions;
+        this.cm = cm;
     }
 
     public Vector<Vector<Integer>> Cerca(){
-        mat =m.ComputarMetrica(path,m1);
+        System.out.println(path);
+        mat =cm.getMatrix(path,m1);
+        System.out.println(mat.columns());
         Vector<Vector<Integer>> vvs = new Vector<>();
         randommedioides(vvs);
         assignagrups(vvs);
@@ -73,7 +76,6 @@ public class QueryClustering extends Query {
     }
 
     private double dist(Integer s, Integer s1) {
-        /*return m.ComputarMetrica(s,s1,path,m1); */
         return mat.get(s,s1);
     }
 

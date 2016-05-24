@@ -33,26 +33,29 @@ public class VistaCercaClustering {
 
     private void BotoAgrupaActionPerformed(ActionEvent e) {
         try{
-            path = textfieldpath.getText();
-            Vector<String> s = cp.readTextArea(jTextArea1);
-            if(path_valid()){
-                if(grup_valid()){
-                    if(it_valid()){
-                        if(checked(s)) IniciaCerca(s);
+            if(cp.exist_relacio(textfieldpath.getText())) {
+                path = cp.getPath(textfieldpath.getText());
+                Vector<String> s = cp.readTextArea(jTextArea1);
+                if (path_valid()) {
+                    if (grup_valid()) {
+                        if (it_valid()) {
+                            if (checked(s)) IniciaCerca(s);
 
-                    }
-                    else{
+                        } else {
+                            JOptionPane.showMessageDialog(frame,
+                                    "El nombre d'iteracions ha de ser superior a 0", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } else {
                         JOptionPane.showMessageDialog(frame,
-                                "El nombre d'iteracions ha de ser superior a 0","Error", JOptionPane.ERROR_MESSAGE);
+                                "El nombre de grups ha de ser inferior o igual al nombre d'entitats i ha de ser superior a 1", "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(frame,
-                            "El nombre de grups ha de ser inferior o igual al nombre d'entitats i ha de ser superior a 1","Error", JOptionPane.ERROR_MESSAGE);
+                            "Tipus de cerca invàlid, ha de tenir el mateix tipus d'entitat al principi i al final", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }
-            else {
+            }else{
                 JOptionPane.showMessageDialog(frame,
-                        "Tipus de cerca invàlid, ha de tenir el mateix tipus d'entitat al principi i al final","Error", JOptionPane.ERROR_MESSAGE);
+                        "Tipus de Relació incorrecte", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e1) {
             if(e1.getMessage() == "Entitats Repetides")
@@ -153,6 +156,18 @@ public class VistaCercaClustering {
         framew.setLocationRelativeTo(frame);
     }
 
+    private void jTextField1ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void jButton1ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void jTextField3ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     public VistaCercaClustering(CtrlPresentacio cp) {
         this.cp = cp;
         initComponents();
@@ -232,10 +247,14 @@ public class VistaCercaClustering {
                 //---- jLabel3 ----
                 jLabel3.setText("Tipus de cerca:");
 
+                //---- textfieldpath ----
+                textfieldpath.addActionListener(e -> jTextField1ActionPerformed(e));
+
                 //---- BotoAgrupa ----
                 BotoAgrupa.setText("Agrupa");
                 BotoAgrupa.setToolTipText("");
                 BotoAgrupa.addActionListener(e -> {
+			jButton1ActionPerformed(e);
 			BotoAgrupaActionPerformed(e);
 		});
 
@@ -244,6 +263,9 @@ public class VistaCercaClustering {
 
                 //---- jLabel5 ----
                 jLabel5.setText("Nombre iteracions:");
+
+                //---- iteracionstext ----
+                iteracionstext.addActionListener(e -> jTextField3ActionPerformed(e));
 
                 //---- enrerebutton ----
                 enrerebutton.setText("Enrere");

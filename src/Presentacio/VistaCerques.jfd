@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :p:168:p, par c {comp clustbutton::c:p::p, comp reldirectbutton::c:p::p, comp impbutton::c:p::p, comp relbutton::c:p::p}}, seq l {space :::p, comp enrere:::p:96:p}}, space ::175:x}}"
-			"$verticalGroup": "par l {seq t {space :::p, comp enrere:::p::p, space ::25:x, comp relbutton:::p::p, space u:::p, comp impbutton:::p::p, space :p:12:p, comp reldirectbutton:::p::p, space u:::p, comp clustbutton:::p::p, space :p:137:p}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:168:p, par c {comp clustbutton::c:p::p, comp reldirectbutton::c:p::p, comp impbutton::c:p::p, comp relbutton::c:p::p, comp recalcmat::c:p::p}}, seq l {space :::p, comp enrere:::p:96:p}}, space ::175:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp enrere:::p::p, space ::13:x, comp relbutton:::p::p, space u:::p, comp impbutton:::p::p, space :p:12:p, comp reldirectbutton:::p::p, space u:::p, comp clustbutton:::p::p, space :p:84:p, comp recalcmat:::p::p, space :p:33:p}}"
 		} ) {
 			name: "frame"
 			"defaultCloseOperation": 3
@@ -31,6 +31,11 @@ new FormModel {
 				name: "reldirectbutton"
 				"text": "Relacions Directes"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reldirectbuttonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "recalcmat"
+				"text": "Recalcula Matrius"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "recalcmatActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 5, 0 )

@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 
@@ -276,15 +277,18 @@ public class VistaRellevancia {
         cercaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try{
-                    path = cp.getPath(textField1.getText()); // aixo s'haurà de canviar amb els tipus de relació
-                    if (checked(cp.readTextArea(textArea1)) && path.length() == textArea1.getLineCount()) {
+                    if(cp.exist_relacio(textField1.getText())) {
+                        path = cp.getPath(textField1.getText());
+                        if (checked(cp.readTextArea(textArea1)) && path.length() == textArea1.getLineCount()) {
                             IniciaCerca();
 
-                    } else if (path.length() != textArea1.getLineCount()) {
-                        JOptionPane.showMessageDialog(frame,
-                                "Nombre d'entitats incorrecte (han de ser " + path.length() + ")", "Error",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
+                        } else if (path.length() != textArea1.getLineCount()) {
+                            JOptionPane.showMessageDialog(frame,
+                                    "Nombre d'entitats incorrecte (han de ser " + path.length() + ")", "Error",
+                                    JOptionPane.ERROR_MESSAGE);
+                        }
+                    }else JOptionPane.showMessageDialog(frame,
+                            "Tipus de Relació incorrecte","Error",JOptionPane.ERROR_MESSAGE);
                 }catch (Exception exc){
                     if(exc.getMessage() == "Entitats Repetides")
                         JOptionPane.showMessageDialog(frame,
@@ -292,8 +296,8 @@ public class VistaRellevancia {
                     else if(exc.getMessage()== "fix"){
                         JOptionPane.showMessageDialog(frame,
                                 "La primera i última Entitat han d'estar fixades","Error",JOptionPane.ERROR_MESSAGE);
-                     }//else JOptionPane.showMessageDialog(frame,
-//                            "EP aquí hi ha algún problema","Error",JOptionPane.ERROR_MESSAGE);
+                     }else JOptionPane.showMessageDialog(frame,
+                           "EP aquí hi ha algún problema","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -308,6 +312,7 @@ public class VistaRellevancia {
         class Computa implements Runnable{
             @Override
             public void run() {
+                DecimalFormat df = new DecimalFormat("#.#####");
                 enrereButton.setEnabled(false);
                 cercaButton.setEnabled(false);
                 Double d = cp.CercaRellevancia(path,vi);
@@ -316,7 +321,7 @@ public class VistaRellevancia {
                 cercaButton.setEnabled(true);
                 enrereButton.setEnabled(true);
                 JOptionPane.showMessageDialog(frame,
-                        "La rellevància és de " + d);
+                        "La rellevància és de " + df.format(d));
             }
         }
         Computa c = new Computa();

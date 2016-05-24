@@ -22,7 +22,6 @@ public class CtrlPresentacio {
     public CtrlPresentacio(){
         try {
             cg = new ControladorGrafo();
-            cg.cargarGrafo();
             cc = new ControladorCerques(cg);
             ctr_dom = new ctr_usuari_dom();
         } catch (IOException e) {
@@ -253,5 +252,19 @@ public class CtrlPresentacio {
     }
     public boolean exist_relacio(String nom){
         return ctr_dom.exist_relacio(nom);
+    }
+
+    public Vector<String> getLlistaPaths() {
+        return null; // crido a domini i converteixo dades
+    }
+
+    public void carrega_matriu(String f) {
+    }
+
+    public void guarda_matriu(String f) {
+    }
+
+    public void carregar_graf() throws IOException {
+        cg.cargarGrafo();
     }
 }

@@ -13,6 +13,7 @@ public class DriverMtrixPrecalc {
     public static void main(String[] args) throws IOException {
         MatrixPrecalc mp = new MatrixPrecalc();
         CCSMatrix m = new CCSMatrix(5,5);
+        m.set(0,4,0.9567);
         m.set(4,4,0.9567);
         m.set(4,0,0.9567);
         mp.guardarMatrix("hey", m);

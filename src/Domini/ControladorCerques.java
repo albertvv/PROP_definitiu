@@ -19,10 +19,12 @@ public class ControladorCerques {
     private ConjRes lr;
     private ControladorGrafo cg;
     private Matrix[] m1;
+    private CtrlMatrius cm;
     public ControladorCerques(ControladorGrafo cg) throws IOException {
         this.cg = cg;
         this.m= new Metrica();
         lr = new ConjRes();
+        this.cm = new CtrlMatrius();
         System.out.println("matrius");
         m1 = new Matrix[]{cg.getGrafo().getMatriz("Autor"),
                 cg.getGrafo().getMatriz("Conferencia"),cg.getGrafo().getMatriz("Termino")};
@@ -79,7 +81,7 @@ public class ControladorCerques {
         for (int i = 0; i < vs.size() ; i++) {
             vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(0)))); //id -> index
         }
-        QueryClustering c = new QueryClustering(path,numgrups,vs,m1,m,niteracions);
+        QueryClustering c = new QueryClustering(path,numgrups,vs,m1,m,niteracions,cm);
         Vector<Vector<Integer>> v = c.Cerca();
         for (int i = 0; i <v.size() ; i++) {
             for (int j = 0; j <v.get(i).size(); j++) {

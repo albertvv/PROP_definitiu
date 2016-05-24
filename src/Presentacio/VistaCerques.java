@@ -3,6 +3,7 @@ package Presentacio;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Vector;
 
 /**
  * Created by albert.val.vila on 10/05/2016.
@@ -68,6 +69,26 @@ public class VistaCerques  {
         frame.setVisible(false);
     }
 
+
+    private void recalcmatActionPerformed(ActionEvent e) {
+        Vector<String> s =cp.getLlistaPaths();
+        s.add(0,"Totes");
+        String [] m = new String[s.size()];
+        s.toArray(m);
+        String f = (String) JOptionPane.showInputDialog(frame,"Recalcular matrius",
+                "Escolleix que vols recalcular",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                m,
+                m[0]);
+        if(f.equals("Totes")){
+            for (int i = 1; i <s.size() ; i++) {
+                cp.guarda_matriu(s.get(i));
+            }
+        }
+        else if(f!=null) cp.guarda_matriu(f);
+    }
+
     private void EnrereActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
@@ -81,6 +102,7 @@ public class VistaCerques  {
         impbutton = new JButton();
         enrere = new JButton();
         reldirectbutton = new JButton();
+        recalcmat = new JButton();
 
         //======== frame ========
         {
@@ -107,6 +129,10 @@ public class VistaCerques  {
             reldirectbutton.setText("Relacions Directes");
             reldirectbutton.addActionListener(e -> reldirectbuttonActionPerformed(e));
 
+            //---- recalcmat ----
+            recalcmat.setText("Recalcula Matrius");
+            recalcmat.addActionListener(e -> recalcmatActionPerformed(e));
+
             GroupLayout frameContentPaneLayout = new GroupLayout(frameContentPane);
             frameContentPane.setLayout(frameContentPaneLayout);
             frameContentPaneLayout.setHorizontalGroup(
@@ -119,7 +145,8 @@ public class VistaCerques  {
                                     .addComponent(clustbutton)
                                     .addComponent(reldirectbutton)
                                     .addComponent(impbutton)
-                                    .addComponent(relbutton)))
+                                    .addComponent(relbutton)
+                                    .addComponent(recalcmat)))
                             .addGroup(frameContentPaneLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(enrere, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)))
@@ -130,7 +157,7 @@ public class VistaCerques  {
                     .addGroup(GroupLayout.Alignment.TRAILING, frameContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(enrere)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(relbutton)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(impbutton)
@@ -138,7 +165,9 @@ public class VistaCerques  {
                         .addComponent(reldirectbutton)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(clustbutton)
-                        .addGap(137, 137, 137))
+                        .addGap(84, 84, 84)
+                        .addComponent(recalcmat)
+                        .addGap(33, 33, 33))
             );
             frame.pack();
             frame.setLocationRelativeTo(frame.getOwner());
@@ -154,5 +183,6 @@ public class VistaCerques  {
     private JButton impbutton;
     private JButton enrere;
     private JButton reldirectbutton;
+    private JButton recalcmat;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

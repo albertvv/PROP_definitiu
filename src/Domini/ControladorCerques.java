@@ -15,16 +15,14 @@ import java.util.Vector;
  * Created by Albert on 15/04/2016.
  */
 public class ControladorCerques {
-    private Metrica m;
     private ConjRes lr;
     private ControladorGrafo cg;
     private Matrix[] m1;
     private CtrlMatrius cm;
-    public ControladorCerques(ControladorGrafo cg) throws IOException {
+    public ControladorCerques(ControladorGrafo cg, CtrlMatrius cm) throws IOException {
         this.cg = cg;
-        this.m= new Metrica();
         lr = new ConjRes();
-        this.cm = new CtrlMatrius();
+        this.cm = cm;
         System.out.println("matrius");
         m1 = new Matrix[]{cg.getGrafo().getMatriz("Autor"),
                 cg.getGrafo().getMatriz("Conferencia"),cg.getGrafo().getMatriz("Termino")};
@@ -35,7 +33,7 @@ public class ControladorCerques {
         for (int i = 0; i < vs.size() ; i++) {
            if(vs.get(i)!=null) vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(i))));
         }
-        QueryRellevancia qr = new QueryRellevancia(path,vs,m,m1);
+        QueryRellevancia qr = new QueryRellevancia(path,vs,m1,cm);
         return qr.Cerca();
     }
 
@@ -52,7 +50,7 @@ public class ControladorCerques {
         entitat1 = IDtoindex(entitat1,Entitatequivalent(path.charAt(0)));
         Vector<Integer> entitats = new Vector<>();
         entitats.add(entitat1);
-        QueryRelimportant qi= new QueryRelimportant(path,entitats,m,m1);
+        QueryRelimportant qi= new QueryRelimportant(path,entitats,m1,cm);
         SparseVector sv= qi.Cerca();
         SparseVector sv2= new CompressedVector(cg.getGrafo().getLastID()+1);
         VectorIterator it = sv.nonZeroIterator();
@@ -81,7 +79,7 @@ public class ControladorCerques {
         for (int i = 0; i < vs.size() ; i++) {
             vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(0)))); //id -> index
         }
-        QueryClustering c = new QueryClustering(path,numgrups,vs,m1,m,niteracions,cm);
+        QueryClustering c = new QueryClustering(path,numgrups,vs,m1,niteracions,cm);
         Vector<Vector<Integer>> v = c.Cerca();
         for (int i = 0; i <v.size() ; i++) {
             for (int j = 0; j <v.get(i).size(); j++) {

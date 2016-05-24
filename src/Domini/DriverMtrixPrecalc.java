@@ -3,6 +3,7 @@ package Domini;
 import Persistencia.MatrixPrecalc;
 import org.la4j.Matrix;
 import org.la4j.matrix.sparse.CCSMatrix;
+import org.la4j.matrix.sparse.CRSMatrix;
 
 import java.io.IOException;
 
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class DriverMtrixPrecalc {
     public static void main(String[] args) throws IOException {
         MatrixPrecalc mp = new MatrixPrecalc();
-        CCSMatrix m = new CCSMatrix(5,5);
+        CRSMatrix m = new CRSMatrix(5,5);
         m.set(4,4,0.9567);
         m.set(4,0,0.9567);
         mp.guardarMatrix("hey", m);

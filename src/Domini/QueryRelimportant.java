@@ -10,8 +10,8 @@ import java.util.Vector;
  */
 public class QueryRelimportant extends Query {
   //  private Integer entitat1;
-    public QueryRelimportant(String path, Vector<Integer> entitat1, Metrica m, Matrix[] m1) {
-        super(path,m,m1);
+    public QueryRelimportant(String path, Vector<Integer> entitat1, Matrix[] m1,CtrlMatrius cm) {
+        super(path,m1,cm);
         this.vs = entitat1;
         this.m1 = m1;
     }
@@ -19,7 +19,8 @@ public class QueryRelimportant extends Query {
         return vs.get(0);
     }
     public SparseVector Cerca(){  //vector ordenat de id de Entitats
-        return m.ComputarMetrica(vs.get(0),path,m1);
+      //  return m.ComputarMetrica(vs.get(0),path,m1);
+        return (SparseVector) cm.getMatrix(path,m1).getRow(vs.get(0));
     }
 
 }

@@ -1,6 +1,7 @@
 package Persistencia;
 import org.la4j.Matrix;
 import org.la4j.matrix.sparse.CCSMatrix;
+import org.la4j.matrix.sparse.CRSMatrix;
 
 import java.io.*;
 import java.util.Vector;
@@ -16,6 +17,7 @@ public class MatrixPrecalc {
 
     private void actualitzaPathsGuardats() {
         File dir = new File("Matrius_Precalculades");
+        dir.mkdir();
         matsprec = dir.listFiles();
         paths = new Vector<>(matsprec.length);
         for (int i = 0; i < matsprec.length; ++i){
@@ -32,8 +34,8 @@ public class MatrixPrecalc {
         int x = 0;
         while(!trobat && x < paths.size()){
             System.out.println(paths.get(x));
-            if(path == paths.get(x)) trobat = true;
-            ++x;
+            if(path.equals(paths.get(x))) trobat = true;
+            else ++x;
         }
         System.out.println("hola trobat "+trobat);
         if (trobat) {
@@ -76,7 +78,7 @@ public class MatrixPrecalc {
         else throw new NullPointerException();
     }
 
-    public Void guardarMatrix(String path, CCSMatrix m) throws IOException {
+    public void guardarMatrix(String path, Matrix m) throws IOException {
         int nrows = m.getColumn(0).length();
         int ncols = m.getRow(0).length();
         BufferedWriter bw;
@@ -104,7 +106,6 @@ public class MatrixPrecalc {
         }
         bw.close();
         actualitzaPathsGuardats();
-        return null;
     }
 
     public Vector<String> llistaPaths() {

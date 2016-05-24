@@ -12,10 +12,8 @@ import java.util.Vector;
 public class QueryClustering extends Query {
     private int ngrups;
     private int niteracions;
-    private Matrix mat;
-    private CtrlMatrius cm;
-    public QueryClustering(String path, int numgrups, Vector<Integer> vs, Matrix[] m1, Metrica m, int niteracions,CtrlMatrius cm){
-        super(path,vs,m,m1);
+    public QueryClustering(String path, int numgrups, Vector<Integer> vs, Matrix[] m1, int niteracions,CtrlMatrius cm){
+        super(path,vs,m1,cm);
         this.ngrups = numgrups;
         this.niteracions = niteracions;
         this.cm = cm;

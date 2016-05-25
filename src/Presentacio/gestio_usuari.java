@@ -6,6 +6,7 @@
 package Presentacio;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -19,10 +20,16 @@ public class gestio_usuari extends javax.swing.JFrame {
     /**
      * Creates new form gestio_usuari
      */
+    private void backActionPerformed(ActionEvent e) {
+        ctr_pres.principal();
+        setVisible(false);
+    }
+
     public gestio_usuari(CtrlPresentacio ctr) {
         initComponents();
         ctr_pres = ctr;
         if(!ctr_pres.privilegiat()) privilegiat.setVisible(false);
+
     }
 
     /**
@@ -32,13 +39,14 @@ public class gestio_usuari extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         modificar = new JButton();
         borrar = new JButton();
         privilegiat = new JButton();
         relacions = new JButton();
         sortir = new JButton();
+        back = new JButton();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -64,6 +72,10 @@ public class gestio_usuari extends javax.swing.JFrame {
         sortir.setText("Sortir");
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
+        //---- back ----
+        back.setText("Enrrere");
+        back.addActionListener(e -> backActionPerformed(e));
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -75,15 +87,19 @@ public class gestio_usuari extends javax.swing.JFrame {
                         .addComponent(borrar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(privilegiat, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(relacions, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(148, Short.MAX_VALUE))
+                    .addContainerGap(125, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addContainerGap()
+                    .addComponent(back)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                     .addComponent(sortir))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(sortir)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(sortir)
+                        .addComponent(back))
                     .addGap(27, 27, 27)
                     .addComponent(relacions)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -92,7 +108,7 @@ public class gestio_usuari extends javax.swing.JFrame {
                     .addComponent(borrar)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(privilegiat)
-                    .addContainerGap(135, Short.MAX_VALUE))
+                    .addContainerGap(50, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -159,11 +175,12 @@ public class gestio_usuari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JButton modificar;
     private JButton borrar;
     private JButton privilegiat;
     private JButton relacions;
     private JButton sortir;
+    private JButton back;
     // End of variables declaration//GEN-END:variables
 }

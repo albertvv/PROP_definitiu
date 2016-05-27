@@ -33,16 +33,15 @@ public class loggin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
-        password = new JTextField();
         username = new JTextField();
         jButton1 = new JButton();
         resultat = new JLabel();
         back = new JButton();
-        jButton2 = new JButton();
+        password = new JPasswordField();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -53,9 +52,6 @@ public class loggin extends javax.swing.JFrame {
 
         //---- jLabel2 ----
         jLabel2.setText("Introdueix la contrasenya");
-
-        //---- password ----
-        password.addActionListener(e -> passwordActionPerformed(e));
 
         //---- username ----
         username.addActionListener(e -> usernameActionPerformed(e));
@@ -74,20 +70,17 @@ public class loggin extends javax.swing.JFrame {
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(52, 52, 52)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createParallelGroup()
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addComponent(resultat, GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(resultat, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton1))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1))
-                            .addGap(18, 18, 18)
-                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(password, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                .addComponent(username))))
-                    .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addComponent(username, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addComponent(password, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addContainerGap(90, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(back))
@@ -104,19 +97,16 @@ public class loggin extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(password, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-                    .addGap(18, 18, 18)
+                            .addGap(18, 18, 18)
+                            .addComponent(password, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
                         .addComponent(resultat))
-                    .addContainerGap(75, Short.MAX_VALUE))
+                    .addContainerGap(77, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
-
-        //---- jButton2 ----
-        jButton2.setText("jButton2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
@@ -180,14 +170,13 @@ public class loggin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JLabel jLabel1;
     private JLabel jLabel2;
-    private JTextField password;
     private JTextField username;
     private JButton jButton1;
     private JLabel resultat;
     private JButton back;
-    private JButton jButton2;
+    private JPasswordField password;
     // End of variables declaration//GEN-END:variables
 }

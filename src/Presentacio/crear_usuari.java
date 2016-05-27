@@ -37,13 +37,13 @@ public class crear_usuari extends javax.swing.JFrame {
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
-        password = new JTextField();
         username = new JTextField();
         boto = new JButton();
         privilegiat = new JCheckBox();
         resultat = new JLabel();
         sortir = new JButton();
         back = new JButton();
+        password = new JPasswordField();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -94,9 +94,9 @@ public class crear_usuari extends javax.swing.JFrame {
                                     .addComponent(boto)
                                     .addContainerGap(105, Short.MAX_VALUE))
                                 .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addGroup(contentPaneLayout.createParallelGroup()
-                                        .addComponent(username)
-                                        .addComponent(password))
+                                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(password, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                        .addComponent(username))
                                     .addGap(53, 53, 53))))))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -114,17 +114,17 @@ public class crear_usuari extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1))
-                    .addGap(18, 18, 18)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addComponent(password, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
+                    .addGap(24, 24, 24)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(password, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(boto)
                         .addComponent(privilegiat))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(resultat)
-                    .addContainerGap(52, Short.MAX_VALUE))
+                    .addContainerGap(45, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -196,12 +196,12 @@ public class crear_usuari extends javax.swing.JFrame {
     // Generated using JFormDesigner Evaluation license - Bernat Diaz
     private JLabel jLabel1;
     private JLabel jLabel2;
-    private JTextField password;
     private JTextField username;
     private JButton boto;
     private JCheckBox privilegiat;
     private JLabel resultat;
     private JButton sortir;
     private JButton back;
+    private JPasswordField password;
     // End of variables declaration//GEN-END:variables
 }

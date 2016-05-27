@@ -7,6 +7,7 @@ package Presentacio;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -23,6 +24,16 @@ public class gestio_usuari extends javax.swing.JFrame {
     private void backActionPerformed(ActionEvent e) {
         ctr_pres.principal();
         setVisible(false);
+    }
+
+    private void saveActionPerformed(ActionEvent e) {
+        try{
+            ctr_pres.guardar_usuaris();
+            resposta.setText("Usuaris guardats");
+        }
+        catch(FileNotFoundException |NullPointerException e2){
+            resposta.setText("No es troba el fitxer");
+        }
     }
 
     public gestio_usuari(CtrlPresentacio ctr) {
@@ -47,6 +58,8 @@ public class gestio_usuari extends javax.swing.JFrame {
         relacions = new JButton();
         sortir = new JButton();
         back = new JButton();
+        save = new JButton();
+        resposta = new JLabel();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -76,39 +89,54 @@ public class gestio_usuari extends javax.swing.JFrame {
         back.setText("Enrrere");
         back.addActionListener(e -> backActionPerformed(e));
 
+        //---- save ----
+        save.setText("Guardar canvis");
+        save.addActionListener(e -> saveActionPerformed(e));
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(131, 131, 131)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(modificar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(borrar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(privilegiat, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(relacions, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(125, Short.MAX_VALUE))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(back)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
-                    .addComponent(sortir))
+                    .addGap(58, 58, 58)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(relacions)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                            .addComponent(sortir))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(borrar, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addComponent(modificar, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addComponent(save, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addComponent(privilegiat, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(resposta, GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addContainerGap())))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(sortir)
-                        .addComponent(back))
-                    .addGap(27, 27, 27)
-                    .addComponent(relacions)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(sortir)
+                            .addComponent(back))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addComponent(relacions)))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(modificar)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(borrar)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(borrar)
+                        .addComponent(resposta))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(save)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(privilegiat)
-                    .addContainerGap(50, Short.MAX_VALUE))
+                    .addContainerGap(48, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -182,5 +210,7 @@ public class gestio_usuari extends javax.swing.JFrame {
     private JButton relacions;
     private JButton sortir;
     private JButton back;
+    private JButton save;
+    private JLabel resposta;
     // End of variables declaration//GEN-END:variables
 }

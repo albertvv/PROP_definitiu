@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:47:p, par l {seq {comp resultat:::p::p, space :0:0:x}, seq {par l {comp jLabel2::l:p::p, comp jLabel1::l:p::p, comp privilegiat:::p::p}, space :::p, par l {seq {comp boto:::p::p, space ::105:x}, seq {par l {comp username:::::x, comp password:::::x}, space :p:53:p}}}}}, seq t {space :::x, comp back:::p::p, space :::p, comp sortir:::p::p}}"
-			"$verticalGroup": "par l {seq l {par b {comp sortir::b:p::p, comp back::b:p::p}, space :p:55:p, par b {comp username::b:p::p, comp jLabel1::b:p::p}, space s:::p, par t {comp password:::p::p, comp jLabel2:::p::p}, space s:::p, par b {comp boto::b:p::p, comp privilegiat::b:p::p}, space :::p, comp resultat:::p::p, space ::52:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:47:p, par l {seq {comp resultat:::p::p, space :0:0:x}, seq {par l {comp jLabel2::l:p::p, comp jLabel1::l:p::p, comp privilegiat:::p::p}, space :::p, par l {seq {comp boto:::p::p, space ::105:x}, seq {par t {comp password::::145:x, comp username:::::x}, space :p:53:p}}}}}, seq t {space :::x, comp back:::p::p, space :::p, comp sortir:::p::p}}"
+			"$verticalGroup": "par l {seq l {par b {comp sortir::b:p::p, comp back::b:p::p}, space :p:55:p, par b {comp username::b:p::p, comp jLabel1::b:p::p}, space :p:24:p, par b {comp jLabel2::b:p::p, comp password::b:p::p}, space s:::p, par b {comp boto::b:p::p, comp privilegiat::b:p::p}, space :::p, comp resultat:::p::p, space ::45:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -16,9 +16,6 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel2"
 				"text": "Introdueix la contrasenya"
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "password"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "username"
@@ -45,6 +42,9 @@ new FormModel {
 				name: "back"
 				"text": "Enrere"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "password"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 400, 300 )

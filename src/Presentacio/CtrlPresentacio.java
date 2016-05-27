@@ -9,7 +9,9 @@ import javafx.util.Pair;
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Vector;
 
 /**
@@ -142,10 +144,10 @@ public class CtrlPresentacio {
     boolean modificar_relacio(String nom, String nomNou, String descripcio){
         return ctr_dom.modificar_relacio(nom, nomNou, descripcio);
     }
-    boolean modificar_usuari_estandard(String oldPass, String pass, String nom, String sexe, String data){
+    boolean modificar_usuari_estandard(String oldPass, String pass, String nom, String sexe, String data) throws ParseException{
         return ctr_dom.modificar_usuari_estandard(oldPass, pass, nom, sexe, data);
     }
-    boolean modificar_usuari_privilegiat(String username, String pass, String nom, String sexe, String data ){
+    boolean modificar_usuari_privilegiat(String username, String pass, String nom, String sexe, String data ) throws ParseException{
         return ctr_dom.modificar_usuari_privilegiat(username, pass, nom, sexe, data);
     }
     ArrayList<ArrayList<String>> informacio_relacions(){
@@ -178,7 +180,7 @@ public class CtrlPresentacio {
     void esborrar_relacio_graf(Integer primer, Integer segon, String tipus){
         cg.esborrar_relacio_graf(primer, segon, tipus);
     }
-    void carregar_usuaris() throws NullPointerException,IOException{
+    void carregar_usuaris() throws ParseException,NullPointerException,IOException{
         ctr_dom.carregar_usuaris();
     }
     void guardar_usuaris() throws FileNotFoundException,NullPointerException{

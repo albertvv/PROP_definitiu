@@ -4,6 +4,7 @@ import Persistencia.ctr_usuari_pers;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 
 public class ctr_usuari_dom {
@@ -45,12 +46,14 @@ public class ctr_usuari_dom {
     public boolean modificar_relacio(String nom, String nomNou, String descripcio) {
         return user.modificar_relacio(nom, nomNou, descripcio);
     }
-    public boolean modificar_usuari_estandard(String oldPass, String pass, String nom, String sexe, String data){
-        Date date = transformar_data.stringToDate(data);
+    public boolean modificar_usuari_estandard(String oldPass, String pass, String nom, String sexe, String data) throws ParseException{
+        Date date = null;
+        if(data!=null) date = transformar_data.stringToDate(data);
         return user.modificar_usuari(oldPass, pass, nom, sexe, date);
     }
-    public boolean modificar_usuari_privilegiat(String username, String pass, String nom, String sexe, String data ){
-        Date date = transformar_data.stringToDate(data);
+    public boolean modificar_usuari_privilegiat(String username, String pass, String nom, String sexe, String data ) throws ParseException{
+        Date date = null;
+        if(data != null) date = transformar_data.stringToDate(data);
         return (aux((usuari_privilegiat) user)).modificar_usuari(username, pass, nom, sexe, date, cjt);
     }
 
@@ -135,7 +138,7 @@ public class ctr_usuari_dom {
         }
         return null;
     }
-    public void carregar_usuaris() throws FileNotFoundException,NullPointerException,IOException{
+    public void carregar_usuaris() throws ParseException,NullPointerException,IOException{
         ArrayList<ArrayList<String>> a =null;
         a = ctr_pers.carregar_usuaris();
         ArrayList<String> aux;

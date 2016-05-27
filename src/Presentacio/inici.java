@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -33,7 +34,7 @@ public class inici extends javax.swing.JFrame {
             try {
                 ctr_pres.carregar_graf();
                 ctr_pres.carregar_usuaris();
-            } catch (IndexOutOfBoundsException e) {
+            } catch (IndexOutOfBoundsException|ParseException e) {
                 JOptionPane.showMessageDialog(panel, "Fitxer corrumput", "Error", JOptionPane.ERROR_MESSAGE);
             } catch (NullPointerException| IOException e) {
                 JOptionPane.showMessageDialog(panel, "No es troba el fitxer", "Error", JOptionPane.ERROR_MESSAGE);

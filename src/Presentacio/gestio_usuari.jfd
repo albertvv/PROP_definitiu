@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:131:p, par l:::p {comp modificar:::::x, comp borrar::l:::x, comp privilegiat::l:::x, comp relacions:::::x}, space ::125:x}, seq t {space :::p, comp back:::p::p, space ::253:x, comp sortir:::p::p}}"
-			"$verticalGroup": "par l {seq l {par b {comp sortir::b:p::p, comp back::b:p::p}, space :p:27:p, comp relacions:::p::p, space u:::p, comp modificar:::p::p, space :::p, comp borrar:::p::p, space :::p, comp privilegiat:::p::p, space ::50:x}}"
+			"$horizontalGroup": "par l {seq l {space :::p, comp back:::p::p, space :p:58:p, par l {seq {comp relacions:::p::p, space ::67:x, comp sortir:::p::p}, seq {par l:::p {comp borrar::::128:x, comp modificar::::128:x, comp save::l::128:x, comp privilegiat::l::128:x}, space :::p, comp resposta::::113:x, space :::p}}}}"
+			"$verticalGroup": "par l {seq l {par l {par b {comp sortir::b:p::p, comp back::b:p::p}, seq l {space :p:29:p, comp relacions:::p::p}}, space :::p, comp modificar:::p::p, space :::p, par t {comp borrar:::p::p, comp resposta:::p::p}, space :::p, comp save:::p::p, space :::p, comp privilegiat:::p::p, space ::48:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -38,6 +38,14 @@ new FormModel {
 				name: "back"
 				"text": "Enrrere"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "save"
+				"text": "Guardar canvis"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "saveActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "resposta"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 400, 300 )

@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:52:p, par t:::p {seq {comp resultat:::::x, space u:::p, comp jButton1:::p::p}, seq {par l {comp jLabel2::l:p::p, comp jLabel1::l:p::p}, space s:::p, par l:::p {comp username::::100:x, comp password::::100:x}}}, space ::81:x}, seq t {space :0:0:x, comp back:::p::p}}"
-			"$verticalGroup": "par l {seq l {comp back:::p::p, space :p:47:p, par t {seq t {comp jLabel1:::p::p, space s:::p, par b {comp jLabel2::b:p::p, comp password::b:p::p}}, seq t {comp username:::p::p, space :p:36:p}}, par b {comp jButton1::b:p::p, comp resultat::b:p::p}, space ::90:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:52:p, par l {par l:t {comp jLabel2::l:p::p, comp jLabel1::l:p::p}, comp resultat::::136:x}, space :::p, par t:::p {comp jButton1:::p::p, comp username::l::100:x, comp password::l::100:x}, space ::90:x}, seq t {space :0:0:x, comp back:::p::p}}"
+			"$verticalGroup": "par l {seq l {comp back:::p::p, space :p:47:p, par t {seq t {comp jLabel1:::p::p, space s:::p, comp jLabel2:::p::p}, seq t {comp username:::p::p, space s:::p, comp password:::p::p, space :::p}}, par b {comp jButton1::b:p::p, comp resultat::b:p::p}, space ::77:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3

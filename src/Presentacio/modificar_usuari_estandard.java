@@ -6,6 +6,8 @@
 package Presentacio;
 
 import java.awt.*;
+import java.text.ParseException;
+import java.util.InputMismatchException;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -160,18 +162,26 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
             if(name.equals("")) name = null;
             String sex = this.sex.getText();
             if(sex.equals("")) sex = null;
+            String date = this.date.getText();
+            if(date.equals("")) date = null;
             if(!expresio_regular.sense_espais(oldPass)||!expresio_regular.sense_espais(newPass)||!expresio_regular.sense_espais(name)||!expresio_regular.sense_espais(sex))
                 JOptionPane.showMessageDialog(panel, "Format incorrecte; nomes lletres i numeros", "Error", JOptionPane.ERROR_MESSAGE);
             else {
-                if(ctr_pres.modificar_usuari_estandard(oldPass, newPass, name, sex, date.getText())) {
-                    resposta.setText("Usuari modificat");
-                    this.newPass.setText("");
-                    this.name.setText("");
-                    this.sex.setText("");
+                try {
+                    if (ctr_pres.modificar_usuari_estandard(oldPass, newPass, name, sex, date)) {
+                        resposta.setText("Usuari modificat");
+                        this.newPass.setText("");
+                        this.name.setText("");
+                        this.sex.setText("");
+                        this.date.setText("");
+                    } else
+                        JOptionPane.showMessageDialog(panel, "Contrasenya incorrecte", "Error", JOptionPane.ERROR_MESSAGE);
+                    this.oldPass.setText("");
+                }
+                catch (ParseException e) {
+                    JOptionPane.showMessageDialog(panel, "Format data incorrecte: dd/mm/aaaa", "Error", JOptionPane.ERROR_MESSAGE);
                     this.date.setText("");
                 }
-                else JOptionPane.showMessageDialog(panel, "Contrasenya incorrecte", "Error", JOptionPane.ERROR_MESSAGE);
-                this.oldPass.setText("");
             }
         }
     }//GEN-LAST:event_botoActionPerformed

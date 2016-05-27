@@ -28,7 +28,7 @@ public class VistaUltimsClust {
     private void mostraUltimsClust(Vector<Pair<String, Vector<Vector<Integer>>>> pairs) {
         Vector<String>v = new Vector<>();
         for (int i = 0; i <pairs.size() ; i++) {
-            v.add(pairs.get(i).getKey()); // necessito funció que passi de path a tipus relació
+            v.add(cp.get_nom_relacio(pairs.get(i).getKey())); // necessito funció que passi de path a tipus relació
         }
         list1.setListData(v.toArray(new String[v.size()]));
     }
@@ -91,7 +91,7 @@ public class VistaUltimsClust {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Albert Val
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame = new JFrame();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
@@ -277,7 +277,7 @@ public class VistaUltimsClust {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private JFrame frame;
     private JLabel label1;
     private JScrollPane scrollPane1;

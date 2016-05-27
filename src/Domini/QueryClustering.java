@@ -12,15 +12,15 @@ import java.util.Vector;
 public class QueryClustering extends Query {
     private int ngrups;
     private int niteracions;
-    public QueryClustering(String path, int numgrups, Vector<Integer> vs, Matrix[] m1, int niteracions,CtrlMatrius cm){
-        super(path,vs,m1,cm);
+    public QueryClustering(String path, int numgrups, Vector<Integer> vs, int niteracions,CtrlMatrius cm){
+        super(path,vs,cm);
         this.ngrups = numgrups;
         this.niteracions = niteracions;
         this.cm = cm;
     }
 
     public Vector<Vector<Integer>> Cerca(){
-        mat =cm.getMatrix(path,m1);
+        mat =cm.getMatrix(path);
         Vector<Vector<Integer>> vvs = new Vector<>();
         randommedioides(vvs);
         assignagrups(vvs);

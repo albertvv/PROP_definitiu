@@ -8,8 +8,8 @@ import java.util.Vector;
  * Created by Albert on 08/04/2016.
  */
 public class QueryRellevancia extends Query{
-    public QueryRellevancia(String path, Vector<Integer> vs, Matrix[] m1,CtrlMatrius cm) {
-        super(path, vs, m1,cm);
+    public QueryRellevancia(String path, Vector<Integer> vs,CtrlMatrius cm) {
+        super(path, vs,cm);
         this.m1 = m1;
     }
 
@@ -22,7 +22,7 @@ public class QueryRellevancia extends Query{
             iaux= i;
             ++i;
             while(vs.get(i)==null) ++i; // sabem que almenys l'ultim element no es null
-            res*=cm.getMatrix(path.substring(iaux,i+1),m1).get(aux,vs.get(i));
+            res*=cm.getMatrix(path.substring(iaux,i+1)).get(aux,vs.get(i));
             System.out.println("Estic calculant amb entitat1 :"+aux+"entitat2 :"+vs.get(i)+"path:"+path.substring(iaux,i+1));
           //  res *= m.ComputarMetrica(aux,vs.get(i),path.substring(iaux,i+1),m1); //haurem de tallar aquest path
         }

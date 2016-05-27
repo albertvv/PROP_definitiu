@@ -19,21 +19,21 @@ public class ControladorCerques {
     private ControladorGrafo cg;
     private Matrix[] m1;
     private CtrlMatrius cm;
-    public ControladorCerques(ControladorGrafo cg, CtrlMatrius cm) throws IOException {
+    public ControladorCerques(ControladorGrafo cg) throws IOException {
         this.cg = cg;
         lr = new ConjRes();
-        this.cm = cm;
         System.out.println("matrius");
         m1 = new Matrix[]{cg.getGrafo().getMatriz("Autor"),
                 cg.getGrafo().getMatriz("Conferencia"),cg.getGrafo().getMatriz("Termino")};
         System.out.println("fimatrius");
+        cm = new CtrlMatrius(m1);
     }
     public Double CercaRellevancia(String path, Vector<Integer> vs){
         System.out.println("mida vector :"+vs.size()+ " i path :"+path+" vector :"+vs);
         for (int i = 0; i < vs.size() ; i++) {
            if(vs.get(i)!=null) vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(i))));
         }
-        QueryRellevancia qr = new QueryRellevancia(path,vs,m1,cm);
+        QueryRellevancia qr = new QueryRellevancia(path,vs,cm);
         return qr.Cerca();
     }
 
@@ -50,7 +50,7 @@ public class ControladorCerques {
         entitat1 = IDtoindex(entitat1,Entitatequivalent(path.charAt(0)));
         Vector<Integer> entitats = new Vector<>();
         entitats.add(entitat1);
-        QueryRelimportant qi= new QueryRelimportant(path,entitats,m1,cm);
+        QueryRelimportant qi= new QueryRelimportant(path,entitats,cm);
         SparseVector sv= qi.Cerca();
         SparseVector sv2= new CompressedVector(cg.getGrafo().getLastID()+1);
         VectorIterator it = sv.nonZeroIterator();
@@ -79,7 +79,7 @@ public class ControladorCerques {
         for (int i = 0; i < vs.size() ; i++) {
             vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(0)))); //id -> index
         }
-        QueryClustering c = new QueryClustering(path,numgrups,vs,m1,niteracions,cm);
+        QueryClustering c = new QueryClustering(path,numgrups,vs,niteracions,cm);
         Vector<Vector<Integer>> v = c.Cerca();
         for (int i = 0; i <v.size() ; i++) {
             for (int j = 0; j <v.get(i).size(); j++) {
@@ -171,8 +171,8 @@ public class ControladorCerques {
     private Entidad getEntitat(Integer id, String tipus){
         return cg.getGrafo().getEntidad(id,tipus);
     }
-    public String Entitatequivalent(char c){ // exemple A -> Autor
-        switch(c){
+    public String Entitatequivalent(char c) { // exemple A -> Autor
+        switch (c) {
             case 'A':
                 return "Autor";
             case 'P':
@@ -183,5 +183,12 @@ public class ControladorCerques {
                 return "Termino";
         }
         return null;
+    }
+    public Vector<String> getLlistaMatrius(){
+        return cm.getLlistaMatrius();
+    }
+
+    public void recalcula_matriu(String f) throws IOException {
+       cm.recalcula_matriu(f);
     }
 }

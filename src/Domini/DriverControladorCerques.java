@@ -16,9 +16,8 @@ public class DriverControladorCerques {
         Scanner b = new Scanner(System.in);
         boolean exit = false;
         ControladorGrafo cg = new ControladorGrafo();
-        CtrlMatrius cm = new CtrlMatrius();
         cg.cargarGrafo();
-        ControladorCerques qc = new ControladorCerques(cg, cm);
+        ControladorCerques qc = new ControladorCerques(cg);
         while(!exit) {
             System.out.println("Escull cerca:");
             System.out.println("\t 1) Cerca de Rellevància");

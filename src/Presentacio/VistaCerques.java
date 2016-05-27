@@ -3,6 +3,8 @@ package Presentacio;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 /**
@@ -71,22 +73,45 @@ public class VistaCerques  {
 
 
     private void recalcmatActionPerformed(ActionEvent e) {
-        Vector<String> s =cp.getLlistaPaths();
-        s.add(0,"Totes");
-        String [] m = new String[s.size()];
-        s.toArray(m);
+        Vector<String> v = cp.getLlistaPaths();
+        v.add(0,"Totes");
+        String [] m = new String[v.size()];
+        v.copyInto(m); //copio
+        v.remove(0);
         String f = (String) JOptionPane.showInputDialog(frame,"Recalcular matrius",
                 "Escolleix que vols recalcular",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 m,
                 m[0]);
-        if(f.equals("Totes")){
-            for (int i = 1; i <s.size() ; i++) {
-                cp.guarda_matriu(s.get(i));
+        class Computa implements Runnable{
+            @Override
+            public void run() {
+                if(f.equals("Totes")){
+                    for (int i = 1; i <m.length ; i++) {
+                        try {
+                            cp.recalcula_matriu(m[i]);
+                        } catch (IOException e1) {
+                            JOptionPane.showMessageDialog(frame,
+                                    "No s'ha pogut recalcular "+m[i],"Error",JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+                else try {
+                    cp.recalcula_matriu(f);
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(frame,
+                            "No s'ha pogut recalcular "+f,"Error",JOptionPane.ERROR_MESSAGE);
+                }
+                JOptionPane.showMessageDialog(frame,
+                        "S'ha recalculat l'opció correctament","Matrius",JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        else if(f!=null) cp.guarda_matriu(f);
+        if(f!=null) {
+            Computa c = new Computa();
+            Thread t = new Thread(c);
+            t.start();
+        }
     }
 
     private void EnrereActionPerformed(ActionEvent e) {
@@ -95,7 +120,7 @@ public class VistaCerques  {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Albert Val
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame = new JFrame();
         clustbutton = new JButton();
         relbutton = new JButton();
@@ -131,7 +156,10 @@ public class VistaCerques  {
 
             //---- recalcmat ----
             recalcmat.setText("Recalcula Matrius");
-            recalcmat.addActionListener(e -> recalcmatActionPerformed(e));
+            recalcmat.addActionListener(e -> {
+			recalcmatActionPerformed(e);
+			recalcmatActionPerformed(e);
+		});
 
             GroupLayout frameContentPaneLayout = new GroupLayout(frameContentPane);
             frameContentPane.setLayout(frameContentPaneLayout);
@@ -176,7 +204,7 @@ public class VistaCerques  {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private JFrame frame;
     private JButton clustbutton;
     private JButton relbutton;

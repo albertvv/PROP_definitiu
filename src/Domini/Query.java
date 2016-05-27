@@ -13,16 +13,14 @@ public abstract class Query {
     protected Matrix [] m1;
     protected CtrlMatrius cm;
     protected Matrix mat;
-    protected Query(String path, Vector<Integer> vs, Matrix [] m1,CtrlMatrius cm) {
+    protected Query(String path, Vector<Integer> vs,CtrlMatrius cm) {
         this.path = path;
         this.vs = vs;
-        this.m1 = m1;
         this.cm = cm;
     }
 
-    protected Query(String path, Matrix[] m1,CtrlMatrius cm) {
+    protected Query(String path,CtrlMatrius cm) {
         this.path = path;
-        this.m1 = m1;
         this.cm = cm;
     }
 

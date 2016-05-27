@@ -14,11 +14,13 @@ import java.util.Vector;
 public class CtrlMatrius {
     private MatrixPrecalc mp;
     private Metrica m;
-    public CtrlMatrius(){
+    private Matrix[] m1; // matrius adj graf
+    public CtrlMatrius(Matrix[] m1){
+        this.m1 = m1;
         mp = new MatrixPrecalc();
         m = new Metrica();
     }
-    public Matrix getMatrix(String path,Matrix[] m1){
+    public Matrix getMatrix(String path){
         System.out.println("entro");
         try {
             System.out.println("try");
@@ -41,5 +43,10 @@ public class CtrlMatrius {
     }
     public Vector<String> getLlistaMatrius(){
         return mp.llistaPaths();
+    }
+
+    public void recalcula_matriu(String f) throws IOException {
+        System.out.println("Recalculo");
+        mp.guardarMatrix(f,m.ComputarMetrica(f,m1));
     }
 }

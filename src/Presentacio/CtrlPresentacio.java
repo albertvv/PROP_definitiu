@@ -19,13 +19,11 @@ public class CtrlPresentacio {
     private VistaCerques vcerques ;
     private ControladorCerques cc;
     private ControladorGrafo cg;
-    private CtrlMatrius cm;
 //////////////////Constructor i metodes ini
     public CtrlPresentacio(){
         try {
             cg = new ControladorGrafo();
-            cm = new CtrlMatrius();
-            cc = new ControladorCerques(cg,cm);
+            cc = new ControladorCerques(cg);
             ctr_dom = new ctr_usuari_dom();
         } catch (IOException e) {
             e.printStackTrace(); //no s'han pogut carregar les dades
@@ -258,13 +256,11 @@ public class CtrlPresentacio {
     }
 
     public Vector<String> getLlistaPaths() {
-        return cm.getLlistaMatrius(); // crido a domini i converteixo dades
+        return cc.getLlistaMatrius(); // crido a domini i converteixo dades
     }
 
-    public void carrega_matriu(String f) {
-    }
-
-    public void guarda_matriu(String f) {
+    public void recalcula_matriu(String f) throws IOException {
+        cc.recalcula_matriu(f);
     }
 
     public void carregar_graf() throws IOException {

@@ -36,6 +36,7 @@ new FormModel {
 				name: "recalcmat"
 				"text": "Recalcula Matrius"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "recalcmatActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "recalcmatActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 5, 0 )

@@ -167,16 +167,16 @@ public class CtrlPresentacio {
         return ctr_dom.informacio_usuaris();
     }
     void afegir_element(String nom, Integer id, String etiq, String tipus){
-        ctr_dom.afegir_element(nom, id, etiq, tipus);
+        cg.afegir_element(nom, id, etiq, tipus);
     }
     void afegir_relacio_graf(Integer primer, Integer segon, String tipus){
-        ctr_dom.afegir_relacio_graf(primer, segon, tipus);
+        cg.afegir_relacio_graf(primer, segon, tipus);
     }
     void esborrar_element(String nom, Integer id, String tipus){
-        ctr_dom.esborrar_element(nom, id, tipus);
+        cg.esborrar_element(nom, id, tipus);
     }
     void esborrar_relacio_graf(Integer primer, Integer segon, String tipus){
-        ctr_dom.esborrar_relacio_graf(primer, segon, tipus);
+        cg.esborrar_relacio_graf(primer, segon, tipus);
     }
     void carregar_usuaris() throws NullPointerException,IOException{
         ctr_dom.carregar_usuaris();

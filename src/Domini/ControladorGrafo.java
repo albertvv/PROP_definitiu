@@ -215,4 +215,20 @@ public class ControladorGrafo {
     public Grafo getGrafo() {
         return g;
     }
+
+    public void afegir_element(String nom, Integer id, String etiq, String tipus) {
+        g.addEntidad(nom,id,etiq, tipus);
+    }
+
+    public void afegir_relacio_graf(Integer primer, Integer segon, String tipus) {
+        g.addRelacion(primer,segon,tipus);
+    }
+
+    public void esborrar_element(String nom, Integer id, String tipus) {
+        g.deleteEntidad(nom, id, tipus);
+    }
+
+    public void esborrar_relacio_graf(Integer primer, Integer segon, String tipus) {
+        g.deleteRelacion(primer, segon, tipus);
+    }
 }

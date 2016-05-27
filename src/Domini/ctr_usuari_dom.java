@@ -135,22 +135,6 @@ public class ctr_usuari_dom {
         }
         return null;
     }
-    public void afegir_element(String nom,Integer id, String etiq, String tipus) {
-        (aux((usuari_privilegiat) user)).afegir_element(nom, id, etiq, tipus, graf);
-    }
-
-    public void afegir_relacio_graf(Integer primer, Integer segon, String tipus) {
-        (aux((usuari_privilegiat) user)).afegir_relacio_graf(primer, segon, tipus, graf);
-    }
-
-    public void esborrar_element(String nom, Integer id, String tipus) {
-        (aux((usuari_privilegiat) user)).esborrar_element(nom, id, tipus, graf);
-    }
-
-    public void esborrar_relacio_graf(Integer primer, Integer segon, String tipus) {
-        (aux((usuari_privilegiat) user)).esborrar_relacio_graf(primer, segon, tipus, graf);
-    }
-
     public void carregar_usuaris() throws FileNotFoundException,NullPointerException,IOException{
         ArrayList<ArrayList<String>> a =null;
         a = ctr_pers.carregar_usuaris();

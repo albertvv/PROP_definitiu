@@ -145,6 +145,8 @@ public class crear_usuari extends javax.swing.JFrame {
             else{
                 if(ctr_pres.crear_usuari(user, pass, privilegiat.isSelected())) resultat.setText("Usuari creat");
                 else JOptionPane.showMessageDialog(panel, "L'usuari ja existia", "Error", JOptionPane.ERROR_MESSAGE);
+                username.setText("");
+                password.setText("");
             }
         }
     }//GEN-LAST:event_botoActionPerformed

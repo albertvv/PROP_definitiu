@@ -1,0 +1,180 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "java.awt.Frame", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
+			"$columnSpecs": "default, labelcompgap, default"
+			"$rowSpecs": "default, linegap, default, linegap, default"
+		} ) {
+			name: "frame1"
+			"title": "Afegir relació directa"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel4:::p::p, comp panel9:::p::p, comp panel6:::p::p, comp panel5:::p::p}, space :10:10:p, comp panel3:::p::p}}"
+				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p:32:p, seq {comp panel4:::p::p, space :5:5:p, comp panel9:::p::p, space :5:5:p, comp panel6:::p::p, space :5:5:p, comp panel5:::p::p}, comp panel3:::p::p}}}"
+			} ) {
+				name: "panel1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp enrereButton:::p::p}"
+					"$verticalGroup": "par l {seq {comp enrereButton:::p::p, space :p:168:p}}"
+				} ) {
+					name: "panel2"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "enrereButton"
+						"text": "Enrere"
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:195:x}"
+				} ) {
+					name: "panel3"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp label1:::p::p, comp comboBox1:::p:310:p}"
+					"$verticalGroup": "par l {seq {space :2:2:p, comp label1:::p::p, space :7:7:p, comp comboBox1:::p::p}}"
+				} ) {
+					name: "panel4"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "comboBox1"
+						"model": new javax.swing.DefaultComboBoxModel {
+							selectedItem: "AP (Autor-Paper)"
+							addElement( "AP (Autor-Paper)" )
+							addElement( "PA (Paper-Autor)" )
+							addElement( "CP (Conferència-Paper)" )
+							addElement( "PC (Paper-Conferència)" )
+							addElement( "TP (Terme-Paper)" )
+							addElement( "PT (Paper-Terme)" )
+						}
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "Tipus de relació:"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp AFEGIRRELACIÓButton:::p:310:p}"
+					"$verticalGroup": "par l {comp AFEGIRRELACIÓButton:::p::p}"
+				} ) {
+					name: "panel5"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "AFEGIRRELACIÓButton"
+						"text": "AFEGIR RELACIÓ"
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {comp panel7:::p::p, space :10:10:p, comp panel8:::p::p}}"
+					"$verticalGroup": "par l {comp panel7:::p::p, comp panel8:::p::p}"
+				} ) {
+					name: "panel6"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {comp label3:::p::p, comp textField4:::p:150:p}"
+						"$verticalGroup": "par l {seq {space :2:2:p, comp label3:::p::p, space :7:7:p, comp textField4:::p::p}}"
+					} ) {
+						name: "panel7"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField4"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label3"
+							"text": "ID [1]"
+							auxiliary() {
+								"JavaCodeGenerator.variableLocal": true
+							}
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {comp label4:::p::p, comp textField3:::p:150:p}"
+						"$verticalGroup": "par l {seq {space :2:2:p, comp label4:::p::p, space :7:7:p, comp textField3:::p::p}}"
+					} ) {
+						name: "panel8"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField3"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label4"
+							"text": "ID [2]"
+							auxiliary() {
+								"JavaCodeGenerator.variableLocal": true
+							}
+						} )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {comp panel10:::p::p, space :10:10:p, comp panel11:::p::p}}"
+					"$verticalGroup": "par l {comp panel10:::p::p, comp panel11:::p::p}"
+				} ) {
+					name: "panel9"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {comp label5:::p::p, comp textField1:::p:150:p}"
+						"$verticalGroup": "par l {seq {space :2:2:p, comp label5:::p::p, space :7:7:p, comp textField1:::p::p}}"
+					} ) {
+						name: "panel10"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField1"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label5"
+							"text": "Nom [1]"
+							auxiliary() {
+								"JavaCodeGenerator.variableLocal": true
+							}
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {comp label6:::p::p, comp textField2:::p:150:p}"
+						"$verticalGroup": "par l {seq {space :2:2:p, comp label6:::p::p, space :7:7:p, comp textField2:::p::p}}"
+					} ) {
+						name: "panel11"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField2"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label6"
+							"text": "Nom [2]"
+							auxiliary() {
+								"JavaCodeGenerator.variableLocal": true
+							}
+						} )
+					} )
+				} )
+			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 190, 40 )
+			"size": new java.awt.Dimension( 425, 255 )
+		} )
+	}
+}

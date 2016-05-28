@@ -1,0 +1,95 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
+			"$columnSpecs": "default, labelcompgap, default"
+			"$rowSpecs": "default, linegap, default, linegap, default"
+		} ) {
+			name: "frame1"
+			"title": "Cerca relacions importants"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {comp panel1:::p::p, space :10:10:p, par l {comp panel2:::p::p, comp panel3:::p::p}, space :10:10:p, comp panel4:::p::p}}"
+				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel1:::p:32:p, seq {comp panel2:::p::p, space :5:5:p, comp panel3:::p::p}, comp panel4:::p::p}}}"
+			} ) {
+				name: "panel"
+				"border": new javax.swing.border.TitledBorder( "" )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp enrereButton:::p::p}"
+					"$verticalGroup": "par l {seq {comp enrereButton:::p::p, space :p:157:p}}"
+				} ) {
+					name: "panel1"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "enrereButton"
+						"text": "Enrere"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrereButtonActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp label2:::p::p, comp textField1:::p:150:p}"
+					"$verticalGroup": "par l {seq {space :22:22:p, comp label2:::p::p, space :7:7:p, comp textField1:::p::p}}"
+				} ) {
+					name: "panel2"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField1"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label2"
+						"text": "Path:"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {comp label3:::p::p, comp textField2:::p:150:p, seq {space :69:69:p, comp vSpacer3:::p:12:p}, comp button2:::p:150:p}"
+					"$verticalGroup": "par l {seq {space :2:2:p, comp label3:::p::p, space :7:7:p, comp textField2:::p::p, space :5:5:p, comp vSpacer3:::p:20:p, space :5:5:p, comp button2:::p::p}}"
+				} ) {
+					name: "panel3"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "Label"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField2"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "button2"
+						"text": "CERCA"
+					} )
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
+						name: "vSpacer3"
+						auxiliary() {
+							"JavaCodeGenerator.variableLocal": true
+						}
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:71:x}"
+				} ) {
+					name: "panel4"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 110, 0 )
+			"size": new java.awt.Dimension( 275, 250 )
+		} )
+	}
+}

@@ -9,20 +9,10 @@ import java.util.*;
 
 public class ctr_usuari_dom {
     private ConjuntoUsuarios cjt = new ConjuntoUsuarios();
-    private Grafo graf;
     private ctr_usuari_pers ctr_pers =new ctr_usuari_pers();
     private usuari_estandard user;
     private final int nusuaris = 6;
     private final int nrel = 3;
-    private final int nreldir = 3;
-
-    public void carregar_cjt_usuaris(ConjuntoUsuarios cjt) {
-        this.cjt = cjt;
-    }
-
-    public void carregar_graf(Grafo graf) {
-        this.graf = graf;
-    }
 
     public boolean loggin(String nom, String pass) {
         usuari_estandard user = cjt.getUsuario(nom);

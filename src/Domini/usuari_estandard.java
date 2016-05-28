@@ -49,5 +49,4 @@ public class usuari_estandard extends Usuario_generico {
     public void borrar_usuari(ConjuntoUsuarios cjt){
         cjt.deleteUsuario(getUsername());
     }
-    public Vector<Entidad> relacions_directes(Integer id, String tipus, Grafo graf){return graf.getRelacion(id, tipus);}
 }

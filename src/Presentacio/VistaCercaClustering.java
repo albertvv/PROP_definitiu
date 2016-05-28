@@ -33,7 +33,7 @@ public class VistaCercaClustering {
 
     private void BotoAgrupaActionPerformed(ActionEvent e) {
         try{
-            if(cp.exist_relacio(textfieldpath.getText())) {
+            if(cp.exist_relacio(textfieldpath.getText())){
                 path = cp.getPath(textfieldpath.getText());
                 Vector<String> s = cp.readTextArea(jTextArea1);
                 if (path_valid()) {
@@ -55,7 +55,7 @@ public class VistaCercaClustering {
                 }
             }else{
                 JOptionPane.showMessageDialog(frame,
-                        "Tipus de Relació incorrecte", "Error", JOptionPane.ERROR_MESSAGE);
+                        "Aquest tipus de relació no existeix", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e1) {
             if(e1.getMessage() == "Entitats Repetides")

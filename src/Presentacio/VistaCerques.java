@@ -1,5 +1,7 @@
 package Presentacio;
 
+import com.sun.awt.AWTUtilities;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -84,27 +86,48 @@ public class VistaCerques  {
                 null,
                 m,
                 m[0]);
+        AWTUtilities.setWindowOpaque(framew, false);
+        framew.setVisible(true);
+        framew.setEnabled(true);
         class Computa implements Runnable{
             @Override
             public void run() {
-                if(f.equals("Totes")){
+                clustbutton.setEnabled(false);
+                enrere.setEnabled(false);
+                relbutton.setEnabled(false);
+                reldirectbutton.setEnabled(false);
+                impbutton.setEnabled(false);
+                recalcmat.setEnabled(false);
+                if(f.equals("Totes")){  //canviar try catch i el disable del loading
                     for (int i = 1; i <m.length ; i++) {
                         try {
                             cp.recalcula_matriu(m[i]);
+                            JOptionPane.showMessageDialog(frame,
+                                    "S'ha recalculat l'opció correctament","Matrius",JOptionPane.INFORMATION_MESSAGE);
                         } catch (IOException e1) {
                             JOptionPane.showMessageDialog(frame,
                                     "No s'ha pogut recalcular "+m[i],"Error",JOptionPane.ERROR_MESSAGE);
                         }
                     }
+                    if(m.length==1)JOptionPane.showMessageDialog(frame,
+                            "No hi ha cap Matriu guardada","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 else try {
                     cp.recalcula_matriu(f);
+                    framew.setVisible(false);
+                    framew.setEnabled(false);
+                    JOptionPane.showMessageDialog(frame,
+                            "S'ha recalculat l'opció correctament","Matrius",JOptionPane.INFORMATION_MESSAGE);
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(frame,
                             "No s'ha pogut recalcular "+f,"Error",JOptionPane.ERROR_MESSAGE);
                 }
-                JOptionPane.showMessageDialog(frame,
-                        "S'ha recalculat l'opció correctament","Matrius",JOptionPane.INFORMATION_MESSAGE);
+                clustbutton.setEnabled(true);
+                enrere.setEnabled(true);
+                relbutton.setEnabled(true);
+                reldirectbutton.setEnabled(true);
+                recalcmat.setEnabled(true);
+                impbutton.setEnabled(true);
             }
         }
         if(f!=null) {
@@ -118,9 +141,13 @@ public class VistaCerques  {
         // TODO add your code here
     }
 
+    private void framewComponentMoved(ComponentEvent e) {
+        framew.setLocationRelativeTo(frame);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Albert Val
         frame = new JFrame();
         clustbutton = new JButton();
         relbutton = new JButton();
@@ -128,6 +155,8 @@ public class VistaCerques  {
         enrere = new JButton();
         reldirectbutton = new JButton();
         recalcmat = new JButton();
+        framew = new JWindow();
+        label4 = new JLabel();
 
         //======== frame ========
         {
@@ -156,10 +185,7 @@ public class VistaCerques  {
 
             //---- recalcmat ----
             recalcmat.setText("Recalcula Matrius");
-            recalcmat.addActionListener(e -> {
-			recalcmatActionPerformed(e);
-			recalcmatActionPerformed(e);
-		});
+            recalcmat.addActionListener(e -> recalcmatActionPerformed(e));
 
             GroupLayout frameContentPaneLayout = new GroupLayout(frameContentPane);
             frameContentPane.setLayout(frameContentPaneLayout);
@@ -185,7 +211,7 @@ public class VistaCerques  {
                     .addGroup(GroupLayout.Alignment.TRAILING, frameContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(enrere)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(relbutton)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(impbutton)
@@ -193,18 +219,60 @@ public class VistaCerques  {
                         .addComponent(reldirectbutton)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(clustbutton)
-                        .addGap(84, 84, 84)
+                        .addGap(67, 67, 67)
                         .addComponent(recalcmat)
-                        .addGap(33, 33, 33))
+                        .addGap(54, 54, 54))
             );
             frame.pack();
             frame.setLocationRelativeTo(frame.getOwner());
+        }
+
+        //======== framew ========
+        {
+            framew.setOpacity(0.5F);
+            framew.setFocusable(false);
+            framew.setFocusableWindowState(false);
+            framew.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            framew.setAlwaysOnTop(true);
+            framew.addComponentListener(new ComponentAdapter() {
+                @Override
+                public void componentMoved(ComponentEvent e) {
+                    framewComponentMoved(e);
+                    framewComponentMoved(e);
+                }
+            });
+            Container framewContentPane = framew.getContentPane();
+
+            //---- label4 ----
+            label4.setIcon(new ImageIcon(getClass().getResource("/Presentacio/ajax-loader.gif")));
+            label4.setHorizontalAlignment(SwingConstants.CENTER);
+            label4.setFocusable(false);
+            label4.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            label4.addComponentListener(new ComponentAdapter() {
+                @Override
+                public void componentMoved(ComponentEvent e) {
+                    framewComponentMoved(e);
+                }
+            });
+
+            GroupLayout framewContentPaneLayout = new GroupLayout(framewContentPane);
+            framewContentPane.setLayout(framewContentPaneLayout);
+            framewContentPaneLayout.setHorizontalGroup(
+                framewContentPaneLayout.createParallelGroup()
+                    .addComponent(label4, GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+            );
+            framewContentPaneLayout.setVerticalGroup(
+                framewContentPaneLayout.createParallelGroup()
+                    .addComponent(label4, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+            );
+            framew.pack();
+            framew.setLocationRelativeTo(framew.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Albert Val
     private JFrame frame;
     private JButton clustbutton;
     private JButton relbutton;
@@ -212,5 +280,7 @@ public class VistaCerques  {
     private JButton enrere;
     private JButton reldirectbutton;
     private JButton recalcmat;
+    private JWindow framew;
+    private JLabel label4;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

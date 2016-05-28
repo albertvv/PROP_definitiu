@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  */
 public class expresio_regular {
     static Pattern patron_sin_espacios = Pattern.compile("[^A-Za-z0-9]");
-    static Pattern patron_con_espacios = Pattern.compile("[^A-Za-z0-9 ]");
+    static Pattern patron_con_espacios = Pattern.compile("[^A-Za-z0-9 ']");
     public static boolean aux(String entrada, Pattern patro){
         if(entrada == null) return true;
         Matcher encaja = patro.matcher(entrada);

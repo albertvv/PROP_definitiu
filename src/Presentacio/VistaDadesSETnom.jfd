@@ -79,6 +79,7 @@ new FormModel {
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "MODIFICARButton"
 						"text": "MODIFICAR"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "MODIFICARButtonActionPerformed", true ) )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {

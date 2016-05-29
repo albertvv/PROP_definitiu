@@ -4,14 +4,14 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {par l {comp panel1:::p:394:p, seq t {space :::p, comp button1:::p:305:p, space :p:8:p}}, space :p:18:p}}"
-			"$verticalGroup": "par l {seq {comp panel1:::p:140:p, space :::x, comp button1:::p::p, space :::p}}"
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:81:p, comp button1:::p:305:p}, comp panel1::l:p:394:p}, space :::p}}"
+			"$verticalGroup": "par l {seq l {comp panel1:::::x, space u:::p, comp button1:::p::p, space :::p}}"
 		} ) {
 			name: "frame1"
 			"title": "Modificar ID"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel4:::p::p, comp panel6:::p::p}, space :10:10:p, comp panel3:::p::p}}"
-				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p::p, seq {comp panel4:::p::p, space :5:5:p, comp panel6:::p::p}, comp panel3:::p::p}}}"
+				"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :10:10:p, par l {seq {comp textField1:::p:150:p, space :::p, comp textField2:::p:150:p}, seq {par l {comp panel4:::p::p, seq {par l {comp textField3:::p:150:p, comp label2:::p::p}, space :::p, comp button2:::p::p, space :::p, comp panel6:::p::p}, seq l {comp label4:::p::p, space :p:97:p, comp label3:::p::p}}, space :p:10:p, comp panel3:::p::p}}}}"
+				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p::p, seq {comp panel4:::p::p, par l {seq {space :5:5:p, comp panel6:::p::p, space u:::x}, seq t {space :::x, comp label2:::p::p, space :::p, par b {comp textField3::b:p::p, comp button2::b:p::p}, space s:::p}}, par b {comp label4::b:p::p, comp label3::b:p::p}}, comp panel3:::p::p}, space :::p, par b {comp textField1::b:p::p, comp textField2::b:p::p}, space :::p}}"
 			} ) {
 				name: "panel1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
@@ -63,33 +63,44 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {comp label4:::p::p, space :101:101:p, comp label3:::p::p}, seq {comp textField1:::p:150:p, space :10:10:p, comp textField2:::p:150:p}}"
-					"$verticalGroup": "par l {seq {space :2:2:p, par l {comp label4:::p::p, comp label3:::p::p}, space :7:7:p, par l {comp textField1:::p::p, comp textField2:::p::p}}}"
+					"$horizontalGroup": "par l {space :0:313:x}"
+					"$verticalGroup": "par l {space :0:51:x}"
 				} ) {
 					name: "panel6"
 					auxiliary() {
 						"JavaCodeGenerator.variableLocal": true
 					}
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "textField1"
-					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "textField2"
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label3"
-						"text": "Nova ID"
-						auxiliary() {
-							"JavaCodeGenerator.variableLocal": true
-						}
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label4"
-						"text": "Antiga ID"
-						auxiliary() {
-							"JavaCodeGenerator.variableLocal": true
-						}
-					} )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField2"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label4"
+					"text": "Antiga ID"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Nova ID"
+					auxiliary() {
+						"JavaCodeGenerator.variableLocal": true
+					}
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField3"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Nom de l'entitat:"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "Seleccionar ID"
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -97,8 +108,8 @@ new FormModel {
 				"text": "MODIFICAR"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 195, 40 )
-			"size": new java.awt.Dimension( 420, 200 )
+			"location": new java.awt.Point( 90, 40 )
+			"size": new java.awt.Dimension( 430, 280 )
 		} )
 	}
 }

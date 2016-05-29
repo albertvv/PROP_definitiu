@@ -16,6 +16,7 @@ public class VistaCerques  {
     private CtrlPresentacio cp;
     private VistaClustering vclustering;
     private VistaRellevancia vrellevancia;
+    private VistaRelImportant vrelimp;
     public VistaCerques(CtrlPresentacio ctrlPresentacio) {
         initComponents();
         System.out.println
@@ -36,6 +37,18 @@ public class VistaCerques  {
                 actionPerformed_buttonObrirClust(e);
             }
         });
+        impbutton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                actionPerformed_buttonObrirImp(e);
+            }
+        });
+    }
+
+    public void actionPerformed_buttonObrirImp (ActionEvent e) {
+        System.out.println("obro important");
+        desactivar();
+        if(vrelimp==null)vrelimp = new VistaRelImportant(cp);
+        vrelimp.ferVisible();
     }
 
     private void actionPerformed_buttonObrirClust(ActionEvent e) {

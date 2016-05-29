@@ -30,7 +30,7 @@ public class VistaRellevancia {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame = new JFrame();
         JPanel panel2 = new JPanel();
         enrereButton = new JButton();
@@ -254,7 +254,7 @@ public class VistaRellevancia {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame;
     private JButton enrereButton;
     private JTextField textField1;

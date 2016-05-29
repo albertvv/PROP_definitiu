@@ -10,8 +10,8 @@ new FormModel {
 			name: "frame1"
 			"title": "Gestió de dades"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel9:::p::p, comp label3:::p::p, comp panel4:::p::p, comp panel6:::p::p, comp panel5:::p::p, comp label2:::p::p, comp panel8:::p::p, comp panel7:::p::p, comp panel11:::p::p, comp panel10:::p::p}, space :10:10:p, comp panel3:::p::p}}"
-				"$verticalGroup": "par l {seq {space :25:25:p, comp panel2:::p:32:p}, seq {space :50:50:p, comp panel9:::p::p, space :30:30:p, comp label3:::p::p, space :5:5:p, comp panel4:::p::p, space :5:5:p, comp panel6:::p::p, space :5:5:p, comp panel5:::p::p, space :5:5:p, comp label2:::p::p, space :5:5:p, comp panel8:::p::p, space :5:5:p, comp panel7:::p::p, space :29:29:p, comp panel11:::p::p, space :5:5:p, comp panel10:::p::p}, seq {space :82:82:p, comp panel3:::p::p}}"
+				"$horizontalGroup": "par l {seq l {comp panel2:::p::p, space :10:10:p, par l {comp panel9:::p::p, comp label3:::p::p, comp panel4:::p::p, comp panel6:::p::p, comp panel5:::p::p, comp label2:::p::p, comp panel8:::p::p, comp panel7:::p::p, comp panel11:::p::p, comp panel10:::p::p}, space :10:10:p, comp panel3:::p::p}}"
+				"$verticalGroup": "par l {seq {space :p:32:p, comp panel2:::p:32:p}, seq {space :50:50:p, comp panel9:::p::p, space :30:30:p, comp label3:::p::p, space :5:5:p, comp panel4:::p::p, space :5:5:p, comp panel6:::p::p, space :5:5:p, comp panel5:::p::p, space :5:5:p, comp label2:::p::p, space :5:5:p, comp panel8:::p::p, space :5:5:p, comp panel7:::p::p, space :29:29:p, comp panel11:::p::p, space :5:5:p, comp panel10:::p::p}, seq {space :82:82:p, comp panel3:::p::p}}"
 			} ) {
 				name: "panel1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
@@ -25,6 +25,7 @@ new FormModel {
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "enrereButton"
 						"text": "Enrere"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrereButtonActionPerformed", true ) )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {

@@ -21,22 +21,22 @@ public class VistaRelImportant {
     public VistaRelImportant(CtrlPresentacio ctrl) {
         initComponents();
         this.cp = ctrl;
-        vcerques = new VistaCerques(cp);
-        vcercimp = new VistaCercaImportant(cp);
-        vclustering = new VistaClustering(cp);
     }
 
     public void ferVisible() {
+        System.out.println("obert");
         frame.setVisible(true);
     }
 
     private void enrereActionPerformed(ActionEvent e) {
         frame.setVisible(false);
+        vcerques = new VistaCerques(cp);
         vcerques.ferVisible();
     }
 
     private void cercaActionPerformed(ActionEvent e) {
         frame.setVisible(false);
+        vcercimp = new VistaCercaImportant(cp);
         vcercimp.ferVisible();
     }
 

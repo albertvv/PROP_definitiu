@@ -160,7 +160,7 @@ public class VistaCerques  {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Albert Val
+        // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
         frame = new JFrame();
         clustbutton = new JButton();
         relbutton = new JButton();
@@ -285,7 +285,7 @@ public class VistaCerques  {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
     private JFrame frame;
     private JButton clustbutton;
     private JButton relbutton;

@@ -180,7 +180,7 @@ public class VistaCercaClustering {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
     private void initComponents() {
         frame = new JFrame();
         jPanel1 = new JPanel();
@@ -454,7 +454,7 @@ public class VistaCercaClustering {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
     private JFrame frame;
     private JPanel jPanel1;
     private JLabel jLabel1;

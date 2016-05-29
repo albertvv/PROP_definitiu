@@ -15,7 +15,8 @@ public class DriverMtrixPrecalc {
         MatrixPrecalc mp = new MatrixPrecalc();
         CRSMatrix m = new CRSMatrix(5,5);
         m.set(4,4,0.9567);
-        m.set(4,0,0.9567);
+        m.set(4,0,0.382);
+        m.set(0,0,0.5);
         mp.guardarMatrix("hey", m);
     }
 }

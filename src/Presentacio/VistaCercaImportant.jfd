@@ -1,0 +1,44 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_73" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp enrere:::p::p, space :p:56:p, comp label1:::p::p}, seq l {par l {comp label2::l:p::p, comp label3::l:p::p}, space s:::p, par l:::p {comp tiprel::::175:x, comp priment::::175:x}}}, space ::77:x}, seq t {space ::287:x, comp cerca:::p::p, space :p:14:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l {comp enrere:::p::p, comp label1:::p::p}, space s:::p, par b {comp label2::b:p::p, comp tiprel::b:p::p}, space :p:39:p, par b {comp label3::b:p::p, comp priment::b:p::p}, space ::49:x, comp cerca:::p::p, space :p:17:p}}"
+		} ) {
+			name: "frame"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Cerca Relació Important"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "enrere"
+				"text": "Enrere"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrereActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Tipus de relació:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Primera entitat:"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tiprel"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "priment"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "cerca"
+				"text": "Cerca"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cercaActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 385, 260 )
+		} )
+	}
+}

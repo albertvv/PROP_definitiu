@@ -8,7 +8,7 @@ import com.jgoodies.forms.factories.*;
 import com.jgoodies.forms.layout.*;
 
 /**
- * Created by marc on 16/5/16.
+ * Created by marc on 16/5/16
  */
 public class VistaDADESafRel {
 

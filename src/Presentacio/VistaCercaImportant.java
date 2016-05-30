@@ -38,7 +38,7 @@ public class VistaCercaImportant {
 
     private Integer obteid(String nom) {
         Vector<Integer> v = cp.NomToID(nom,cp.TipusEquilvalent(path.charAt(0)));
-        if(v.size() == 1) return v.get(0);
+        if(v.size() == 1) {return v.get(0);}
         else {
             String ids[] = cp.convert(v);
             String s = (String) JOptionPane.showInputDialog(frame, nom+" es refereix a múltiples entitats, escull quina",

@@ -5,15 +5,14 @@ import Domini.ControladorGrafo;
 import Domini.CtrlMatrius;
 import Domini.ctr_usuari_dom;
 import javafx.util.Pair;
+import org.la4j.iterator.VectorIterator;
 import org.la4j.vector.SparseVector;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by albert.val.vila on 10/05/2016.
@@ -110,12 +109,24 @@ public class CtrlPresentacio {
         return v.toArray(new String[v.size()]);
     }
     public String[] MostraRelImp(SparseVector sv,String tipus) {
-        Vector<String> v = new Vector<>();
-        for (int i = 0; i < sv.length(); i++) {
-            System.out.println(sv.get(i));
+        SortedMap map = new TreeMap(java.util.Collections.reverseOrder());
+        VectorIterator it = sv.nonZeroIterator();
+        while(it.hasNext()) {
+            Double rel = it.next();
+            Integer id = it.index();
+            map.put(rel,id);
         }
-        String s[] = {"hola", "hey", "deu", "eps"};
-        return s;
+        Vector<String> v = new Vector<>();
+        Iterator it2 = map.keySet().iterator();
+        while(it2.hasNext()) {
+            Double r = ((Double) it2.next()).doubleValue();
+            Integer i = ((Integer) map.get(r)).intValue();
+            String nom = IDToNom(i,tipus);
+            v.add(nom);
+            v.add(" Rellevancia: " + Double.toString(r));
+            v.add("");
+        }
+        return v.toArray(new String[v.size()]);
     }
     //MULTIUSUARI A CERQUES
 

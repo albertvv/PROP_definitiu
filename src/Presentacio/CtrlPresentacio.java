@@ -5,6 +5,7 @@ import Domini.ControladorGrafo;
 import Domini.CtrlMatrius;
 import Domini.ctr_usuari_dom;
 import javafx.util.Pair;
+import org.la4j.vector.SparseVector;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
@@ -63,6 +64,10 @@ public class CtrlPresentacio {
     public String IDToNom(Integer id,String tipus){
         return cc.getnomEntitat(id,tipus);
     }
+    public SparseVector RelImportant(String path, Integer entitat) {
+        return cc.CercaRelimportant(path,entitat);
+    }
+
     ///////////Metodes tractamentinputoutput
 
     public Vector<String> readTextArea(JTextArea t) {
@@ -103,6 +108,14 @@ public class CtrlPresentacio {
             }
         }
         return v.toArray(new String[v.size()]);
+    }
+    public String[] MostraRelImp(SparseVector sv,String tipus) {
+        Vector<String> v = new Vector<>();
+        for (int i = 0; i < sv.length(); i++) {
+            System.out.println(sv.get(i));
+        }
+        String s[] = {"hola", "hey", "deu", "eps"};
+        return s;
     }
     //MULTIUSUARI A CERQUES
 

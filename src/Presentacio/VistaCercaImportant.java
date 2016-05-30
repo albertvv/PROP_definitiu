@@ -60,13 +60,13 @@ public class VistaCercaImportant {
                 System.out.println("començo a calcular");
                 SparseVector sv = cp.RelImportant(path, id);
                 System.out.println("acabo de calcular");
+                frame2.setVisible(false);
+                frame2.setEnabled(false);
                 resultat.setVisible(true);
                 resultat.pack();
                 resultat.setLocationRelativeTo(frame);
                 panel1.setFocusable(false);
                 llistares.setListData(cp.MostraRelImp(sv,cp.TipusEquilvalent(path.charAt(0))));
-                frame2.setVisible(false);
-                frame2.setEnabled(false);
                 cerca.setEnabled(true);
                 enrere.setEnabled(true);
 

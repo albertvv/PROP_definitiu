@@ -141,6 +141,8 @@ public class VistaCerques  {
                     JOptionPane.showMessageDialog(frame,
                             "No s'ha pogut recalcular "+f,"Error",JOptionPane.ERROR_MESSAGE);
                 }
+                framew.setVisible(false);
+                framew.setEnabled(false);
                 clustbutton.setEnabled(true);
                 enrere.setEnabled(true);
                 relbutton.setEnabled(true);

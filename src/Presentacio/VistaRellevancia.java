@@ -226,7 +226,6 @@ public class VistaRellevancia {
                 @Override
                 public void componentMoved(ComponentEvent e) {
                     framewComponentMoved(e);
-                    framewComponentMoved(e);
                 }
             });
             Container framewContentPane = framew.getContentPane();

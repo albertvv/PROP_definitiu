@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
-			"$columnSpecs": "default, labelcompgap, default"
-			"$rowSpecs": "default, linegap, default, linegap, default"
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp panel1:::p::p}"
+			"$verticalGroup": "par l {comp panel1:::p::p}"
 		} ) {
 			name: "frame1"
 			"title": "Esborrar relació"
@@ -178,7 +178,7 @@ new FormModel {
 						} )
 					} )
 				} )
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) )
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 45, 0 )
 			"size": new java.awt.Dimension( 420, 260 )

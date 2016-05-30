@@ -4,8 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
 
 /**
  * Created by marc on 15/5/16.
@@ -64,7 +62,7 @@ public class VistaDadesSETtag {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame1 = new JFrame();
         button1 = new JButton();
         JLabel label2 = new JLabel();
@@ -82,17 +80,12 @@ public class VistaDadesSETtag {
         {
             frame1.setTitle("Modificar etiqueta");
             Container frame1ContentPane = frame1.getContentPane();
-            frame1ContentPane.setLayout(new FormLayout(
-                "4*(default, $lcgap), 121dlu, 6*($lcgap, default)",
-                "13*(default, $lgap), default"));
 
             //---- button1 ----
             button1.setText("Enrere");
-            frame1ContentPane.add(button1, CC.xy(3, 3));
 
             //---- label2 ----
             label2.setText("Tipus d'entitat");
-            frame1ContentPane.add(label2, CC.xy(9, 3));
 
             //---- comboBox2 ----
             comboBox2.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -100,26 +93,18 @@ public class VistaDadesSETtag {
                 "Autor",
                 "Congr\u00e9s"
             }));
-            frame1ContentPane.add(comboBox2, CC.xy(9, 5));
 
             //---- label1 ----
             label1.setText("Nom de l'entitat:");
-            frame1ContentPane.add(label1, CC.xy(9, 7));
-            frame1ContentPane.add(textField6, CC.xy(9, 9));
 
             //---- button2 ----
             button2.setText("Seleccionar ID");
-            frame1ContentPane.add(button2, CC.xy(9, 11));
 
             //---- label8 ----
             label8.setText("ID de l'entitat");
-            frame1ContentPane.add(label8, CC.xy(9, 13));
-            frame1ContentPane.add(textField1, CC.xy(9, 15));
 
             //---- label6 ----
             label6.setText("Nova etiqueta");
-            frame1ContentPane.add(label6, CC.xy(9, 17));
-            frame1ContentPane.add(textField5, CC.xy(9, 19));
 
             //---- MODIFICARButton2 ----
             MODIFICARButton2.setText("MODIFICAR");
@@ -127,7 +112,71 @@ public class VistaDadesSETtag {
 			MODIFICARButton2ActionPerformed(e);
 			MODIFICARButton2ActionPerformed(e);
 		});
-            frame1ContentPane.add(MODIFICARButton2, CC.xy(9, 21));
+
+            GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
+            frame1ContentPane.setLayout(frame1ContentPaneLayout);
+            frame1ContentPaneLayout.setHorizontalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(button1)
+                        .addGap(59, 59, 59)
+                        .addComponent(label2, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(comboBox2, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(textField6, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(button2, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(label8, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(label6, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(textField5, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(MODIFICARButton2, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE))
+            );
+            frame1ContentPaneLayout.setVerticalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup()
+                            .addComponent(button1)
+                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(label2)))
+                        .addGap(5, 5, 5)
+                        .addComponent(comboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(label1)
+                        .addGap(5, 5, 5)
+                        .addComponent(textField6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(button2)
+                        .addGap(5, 5, 5)
+                        .addComponent(label8)
+                        .addGap(5, 5, 5)
+                        .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(label6)
+                        .addGap(5, 5, 5)
+                        .addComponent(textField5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(MODIFICARButton2))
+            );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
@@ -135,7 +184,7 @@ public class VistaDadesSETtag {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private JFrame frame1;
     private JButton button1;
     private JComboBox<String> comboBox2;

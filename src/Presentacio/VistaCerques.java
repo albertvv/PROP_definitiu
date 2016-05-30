@@ -115,9 +115,13 @@ public class VistaCerques  {
                     for (int i = 1; i <m.length ; i++) {
                         try {
                             cp.recalcula_matriu(m[i]);
+                            framew.setVisible(false);
+                            framew.setEnabled(false);
                             JOptionPane.showMessageDialog(frame,
                                     "S'ha recalculat l'opció correctament","Matrius",JOptionPane.INFORMATION_MESSAGE);
                         } catch (IOException e1) {
+                            framew.setVisible(false);
+                            framew.setEnabled(false);
                             JOptionPane.showMessageDialog(frame,
                                     "No s'ha pogut recalcular "+m[i],"Error",JOptionPane.ERROR_MESSAGE);
                         }
@@ -132,6 +136,8 @@ public class VistaCerques  {
                     JOptionPane.showMessageDialog(frame,
                             "S'ha recalculat l'opció correctament","Matrius",JOptionPane.INFORMATION_MESSAGE);
                 } catch (IOException e1) {
+                    framew.setVisible(false);
+                    framew.setEnabled(false);
                     JOptionPane.showMessageDialog(frame,
                             "No s'ha pogut recalcular "+f,"Error",JOptionPane.ERROR_MESSAGE);
                 }
@@ -154,13 +160,28 @@ public class VistaCerques  {
         // TODO add your code here
     }
 
-    private void framewComponentMoved(ComponentEvent e) {
+
+    private void frameComponentMoved(ComponentEvent e) {
         framew.setLocationRelativeTo(frame);
     }
 
+    private void frameWindowLostFocus(WindowEvent e) {
+        // TODO add your code here
+    }
+
+    private void frameComponentHidden(ComponentEvent e) {
+        // TODO add your code here
+    }
+
+    private void framewComponentMoved(ComponentEvent e) {
+        // TODO add your code here
+    }
+
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame = new JFrame();
         clustbutton = new JButton();
         relbutton = new JButton();
@@ -174,6 +195,12 @@ public class VistaCerques  {
         //======== frame ========
         {
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.addComponentListener(new ComponentAdapter() {
+                @Override
+                public void componentMoved(ComponentEvent e) {
+                    frameComponentMoved(e);
+                }
+            });
             Container frameContentPane = frame.getContentPane();
 
             //---- clustbutton ----
@@ -247,13 +274,6 @@ public class VistaCerques  {
             framew.setFocusableWindowState(false);
             framew.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             framew.setAlwaysOnTop(true);
-            framew.addComponentListener(new ComponentAdapter() {
-                @Override
-                public void componentMoved(ComponentEvent e) {
-                    framewComponentMoved(e);
-                    framewComponentMoved(e);
-                }
-            });
             Container framewContentPane = framew.getContentPane();
 
             //---- label4 ----
@@ -261,12 +281,6 @@ public class VistaCerques  {
             label4.setHorizontalAlignment(SwingConstants.CENTER);
             label4.setFocusable(false);
             label4.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            label4.addComponentListener(new ComponentAdapter() {
-                @Override
-                public void componentMoved(ComponentEvent e) {
-                    framewComponentMoved(e);
-                }
-            });
 
             GroupLayout framewContentPaneLayout = new GroupLayout(framewContentPane);
             framewContentPane.setLayout(framewContentPaneLayout);
@@ -285,7 +299,7 @@ public class VistaCerques  {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private JFrame frame;
     private JButton clustbutton;
     private JButton relbutton;

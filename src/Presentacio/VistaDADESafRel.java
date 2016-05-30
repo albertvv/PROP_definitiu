@@ -4,9 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
-
 /**
  * Created by marc on 16/5/16
  */
@@ -70,7 +67,7 @@ public class VistaDADESafRel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame1 = new Frame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -99,9 +96,6 @@ public class VistaDADESafRel {
         //======== frame1 ========
         {
             frame1.setTitle("Afegir relaci\u00f3 directa");
-            frame1.setLayout(new FormLayout(
-                "default, $lcgap, default",
-                "2*(default, $lgap), default"));
 
             //======== panel1 ========
             {
@@ -363,7 +357,17 @@ public class VistaDADESafRel {
                                 .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                 );
             }
-            frame1.add(panel1, CC.xy(1, 1));
+
+            GroupLayout frame1Layout = new GroupLayout(frame1);
+            frame1.setLayout(frame1Layout);
+            frame1Layout.setHorizontalGroup(
+                frame1Layout.createParallelGroup()
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            );
+            frame1Layout.setVerticalGroup(
+                frame1Layout.createParallelGroup()
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
@@ -371,7 +375,7 @@ public class VistaDADESafRel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private Frame frame1;
     private JPanel panel1;
     private JButton enrereButton;

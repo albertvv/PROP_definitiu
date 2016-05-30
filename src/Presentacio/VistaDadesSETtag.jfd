@@ -1,20 +1,17 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
-			"$columnSpecs": "default, labelcompgap, default, labelcompgap, default, labelcompgap, default, labelcompgap, 121dlu, labelcompgap, default, labelcompgap, default, labelcompgap, default, labelcompgap, default, labelcompgap, default, labelcompgap, default"
-			"$rowSpecs": "default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default, linegap, default"
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :19:19:p, comp button1:::p::p, space :59:59:p, comp label2:::p:202:p}, seq {space :141:141:p, comp comboBox2:::p:202:p}, seq {space :141:141:p, comp label1:::p:202:p}, seq {space :141:141:p, comp textField6:::p:202:p}, seq {space :141:141:p, comp button2:::p:202:p}, seq {space :141:141:p, comp label8:::p:202:p}, seq {space :141:141:p, comp textField1:::p:202:p}, seq {space :141:141:p, comp label6:::p:202:p}, seq {space :141:141:p, comp textField5:::p:202:p}, seq {space :141:141:p, comp MODIFICARButton2:::p:202:p}}"
+			"$verticalGroup": "par l {seq {par l {comp button1:::p::p, seq {space :8:8:p, comp label2:::p::p}}, space :5:5:p, comp comboBox2:::p::p, space :5:5:p, comp label1:::p::p, space :5:5:p, comp textField6:::p::p, space :5:5:p, comp button2:::p::p, space :5:5:p, comp label8:::p::p, space :5:5:p, comp textField1:::p::p, space :5:5:p, comp label6:::p::p, space :5:5:p, comp textField5:::p::p, space :5:5:p, comp MODIFICARButton2:::p::p}}"
 		} ) {
 			name: "frame1"
 			"title": "Modificar etiqueta"
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Enrere"
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 3
-				"gridY": 3
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -22,9 +19,6 @@ new FormModel {
 				auxiliary() {
 					"JavaCodeGenerator.variableLocal": true
 				}
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 3
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox2"
@@ -34,29 +28,17 @@ new FormModel {
 					addElement( "Autor" )
 					addElement( "Congrés" )
 				}
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 5
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Nom de l'entitat:"
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 7
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField6"
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 9
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Seleccionar ID"
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 11
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label8"
@@ -64,15 +46,9 @@ new FormModel {
 				auxiliary() {
 					"JavaCodeGenerator.variableLocal": true
 				}
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 13
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 15
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
@@ -80,24 +56,15 @@ new FormModel {
 				auxiliary() {
 					"JavaCodeGenerator.variableLocal": true
 				}
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 17
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField5"
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 19
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "MODIFICARButton2"
 				"text": "MODIFICAR"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "MODIFICARButton2ActionPerformed", true ) )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "MODIFICARButton2ActionPerformed", true ) )
-			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
-				"gridX": 9
-				"gridY": 21
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 235, 35 )

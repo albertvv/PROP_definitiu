@@ -3,8 +3,6 @@ package Presentacio;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
 
 /**
  * Created by marc on 19/5/16.
@@ -50,7 +48,7 @@ public class VistaDadesSET {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame1 = new JFrame();
         button1 = new JButton();
         button2 = new JButton();
@@ -61,29 +59,50 @@ public class VistaDadesSET {
         {
             frame1.setTitle("Editar entitat");
             Container frame1ContentPane = frame1.getContentPane();
-            frame1ContentPane.setLayout(new FormLayout(
-                "4*(default, $lcgap), default",
-                "5*(default, $lgap), default"));
 
             //---- button1 ----
             button1.setText("Enrere");
             button1.addActionListener(e -> button1ActionPerformed(e));
-            frame1ContentPane.add(button1, CC.xy(3, 3));
 
             //---- button2 ----
             button2.setText("Modificar ID");
             button2.addActionListener(e -> button2ActionPerformed(e));
-            frame1ContentPane.add(button2, CC.xy(7, 3));
 
             //---- button3 ----
             button3.setText("Modificar nom");
             button3.addActionListener(e -> button3ActionPerformed(e));
-            frame1ContentPane.add(button3, CC.xy(7, 7));
 
             //---- button4 ----
             button4.setText("Modificar etiqueta");
             button4.addActionListener(e -> button4ActionPerformed(e));
-            frame1ContentPane.add(button4, CC.xy(7, 11));
+
+            GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
+            frame1ContentPane.setLayout(frame1ContentPaneLayout);
+            frame1ContentPaneLayout.setHorizontalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(button1)
+                        .addGap(32, 32, 32)
+                        .addComponent(button2, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(button3, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(button4))
+            );
+            frame1ContentPaneLayout.setVerticalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup()
+                            .addComponent(button1)
+                            .addComponent(button2))
+                        .addGap(31, 31, 31)
+                        .addComponent(button3)
+                        .addGap(31, 31, 31)
+                        .addComponent(button4))
+            );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
@@ -91,7 +110,7 @@ public class VistaDadesSET {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private JFrame frame1;
     private JButton button1;
     private JButton button2;

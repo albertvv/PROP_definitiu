@@ -4,9 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
-
 /**
  * Created by marc on 16/5/16.
  */
@@ -107,7 +104,7 @@ public class VistaDADES {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+        // Generated using JFormDesigner Evaluation license - Hola bebes
         frame1 = new JFrame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -136,9 +133,6 @@ public class VistaDADES {
         {
             frame1.setTitle("Gesti\u00f3 de dades");
             Container frame1ContentPane = frame1.getContentPane();
-            frame1ContentPane.setLayout(new FormLayout(
-                "7*(default, $lcgap), default",
-                "2*(default, $lgap), default"));
 
             //======== panel1 ========
             {
@@ -390,7 +384,17 @@ public class VistaDADES {
                             .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 );
             }
-            frame1ContentPane.add(panel1, CC.xy(1, 1));
+
+            GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
+            frame1ContentPane.setLayout(frame1ContentPaneLayout);
+            frame1ContentPaneLayout.setHorizontalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            );
+            frame1ContentPaneLayout.setVerticalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
         }
@@ -398,7 +402,7 @@ public class VistaDADES {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
+    // Generated using JFormDesigner Evaluation license - Hola bebes
     private JFrame frame1;
     private JPanel panel1;
     private JButton enrereButton;

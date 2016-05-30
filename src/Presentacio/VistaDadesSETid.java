@@ -4,8 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
+
 
 /**
  * Created by marc on 15/5/16.

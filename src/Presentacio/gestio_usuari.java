@@ -31,9 +31,7 @@ public class gestio_usuari extends javax.swing.JFrame {
             ctr_pres.guardar_usuaris();
             resposta.setText("Usuaris guardats");
         }
-        catch(FileNotFoundException |NullPointerException e2){
-            resposta.setText("No es troba el fitxer");
-        }
+        catch(FileNotFoundException |NullPointerException e2){}
     }
 
     public gestio_usuari(CtrlPresentacio ctr) {
@@ -86,7 +84,7 @@ public class gestio_usuari extends javax.swing.JFrame {
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
         //---- back ----
-        back.setText("Enrrere");
+        back.setText("Enrere");
         back.addActionListener(e -> backActionPerformed(e));
 
         //---- save ----

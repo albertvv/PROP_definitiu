@@ -38,7 +38,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "back"
-				"text": "Enrrere"
+				"text": "Enrere"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {

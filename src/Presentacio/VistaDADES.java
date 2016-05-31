@@ -11,15 +11,16 @@ public class VistaDADES {
 
     private CtrlPresentacio cp;
 
-    public VistaDADES() {
+    public VistaDADES(CtrlPresentacio cp) {
         //ENRERE
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                //****************RETROCEDIR************************************
+                cp.principal();
             }
         });
         //IMPORTAR GRAF
@@ -41,7 +42,7 @@ public class VistaDADES {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDadesSET vd = new VistaDadesSET();
+                VistaDadesSET vd = new VistaDadesSET(cp);
             }
         });
         esborrarUnaEntitatButton.addActionListener(new ActionListener() {
@@ -70,29 +71,25 @@ public class VistaDADES {
         desarElsCanvisIButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        sortirSenseGuardarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
+                //desar canvis
+                frame1.setVisible(false);
+                //****************RETROCEDIR************************************
             }
         });
     }
 
-    private void ferVisible() {
+    public void ferVisible() {
         frame1.setVisible(true);
     }
 
-    public static void main (String[] args) {
+/*    public static void main (String[] args) {
         javax.swing.SwingUtilities.invokeLater (
                 new Runnable() {
                     public void run() {
                         VistaDADES vd = new VistaDADES();
                         vd.ferVisible();
                     }});
-    }
+    }*/
 
     private void enrereButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
@@ -104,7 +101,7 @@ public class VistaDADES {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame1 = new JFrame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -123,7 +120,6 @@ public class VistaDADES {
         carregarColLeccióDeButton = new JButton();
         JPanel panel3 = new JPanel();
         JPanel panel10 = new JPanel();
-        sortirSenseGuardarButton = new JButton();
         JLabel label2 = new JLabel();
         JPanel panel11 = new JPanel();
         desarElsCanvisIButton = new JButton();
@@ -293,18 +289,15 @@ public class VistaDADES {
                 //======== panel10 ========
                 {
 
-                    //---- sortirSenseGuardarButton ----
-                    sortirSenseGuardarButton.setText("Sortir sense guardar");
-
                     GroupLayout panel10Layout = new GroupLayout(panel10);
                     panel10.setLayout(panel10Layout);
                     panel10Layout.setHorizontalGroup(
                         panel10Layout.createParallelGroup()
-                            .addComponent(sortirSenseGuardarButton, GroupLayout.PREFERRED_SIZE, 204, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)
                     );
                     panel10Layout.setVerticalGroup(
                         panel10Layout.createParallelGroup()
-                            .addComponent(sortirSenseGuardarButton)
+                            .addGap(0, 0, Short.MAX_VALUE)
                     );
                 }
 
@@ -389,11 +382,13 @@ public class VistaDADES {
             frame1ContentPane.setLayout(frame1ContentPaneLayout);
             frame1ContentPaneLayout.setHorizontalGroup(
                 frame1ContentPaneLayout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 21, Short.MAX_VALUE))
             );
             frame1ContentPaneLayout.setVerticalGroup(
                 frame1ContentPaneLayout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
             );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
@@ -402,7 +397,7 @@ public class VistaDADES {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame1;
     private JPanel panel1;
     private JButton enrereButton;
@@ -412,7 +407,6 @@ public class VistaDADES {
     private JButton esborrarUnaRelacióDirectaButton;
     private JButton afegirUnaRelacióDirectaButton;
     private JButton carregarColLeccióDeButton;
-    private JButton sortirSenseGuardarButton;
     private JButton desarElsCanvisIButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

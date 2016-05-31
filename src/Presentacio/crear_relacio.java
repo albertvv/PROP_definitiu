@@ -144,7 +144,11 @@ public class crear_relacio extends javax.swing.JFrame {
 
     private void sortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortirActionPerformed
         setVisible(false);
-        ctr_pres.inici();
+        try {
+            ctr_pres.inici();
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
     }//GEN-LAST:event_sortirActionPerformed
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed

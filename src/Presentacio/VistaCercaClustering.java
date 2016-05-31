@@ -75,19 +75,23 @@ public class VistaCercaClustering {
 
             @Override
             public void run() {
-                enrerebutton.setEnabled(false);
-                BotoAgrupa.setEnabled(false);
-                Vector<Vector<Integer>> c = cp.Clustering(path, Integer.parseInt(numgrupstext.getText()),vi, Integer.parseInt(iteracionstext.getText()));
-                jDialog1.setVisible(true);
-                jDialog1.pack();
-                jDialog1.setLocationRelativeTo(frame);
-                jPanel1.setFocusable(false);
-                jList1.setListData(cp.MostraClustering(c,cp.TipusEquilvalent(path.charAt(0))));
-                framew.setVisible(false);
-                framew.setEnabled(false);
-                BotoAgrupa.setEnabled(true);
-                enrerebutton.setEnabled(true);
-
+                try {
+                    enrerebutton.setEnabled(false);
+                    BotoAgrupa.setEnabled(false);
+                    Vector<Vector<Integer>> c = cp.Clustering(path, Integer.parseInt(numgrupstext.getText()), vi, Integer.parseInt(iteracionstext.getText()));
+                    jDialog1.setVisible(true);
+                    jDialog1.pack();
+                    jDialog1.setLocationRelativeTo(frame);
+                    jPanel1.setFocusable(false);
+                    jList1.setListData(cp.MostraClustering(c, cp.TipusEquilvalent(path.charAt(0))));
+                    framew.setVisible(false);
+                    framew.setEnabled(false);
+                    BotoAgrupa.setEnabled(true);
+                    enrerebutton.setEnabled(true);
+                } catch (Exception exc) {
+                    JOptionPane.showMessageDialog(frame,
+                            "EP aquí hi ha algún problema","Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
         Computa c = new Computa();
@@ -107,7 +111,7 @@ public class VistaCercaClustering {
     }
 
 
-    private boolean checked(Vector<String> s) {
+    private boolean checked(Vector<String> s) throws Exception {
         for (int i = 0; i <s.size() ; i++) {
             String t = cp.TipusEquilvalent(path.charAt(0));
             if(cp.NomToID(s.get(i),t).size()==0) {

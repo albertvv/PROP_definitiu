@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp panel1:::p::p}"
-			"$verticalGroup": "par l {comp panel1:::p::p}"
+			"$horizontalGroup": "par l {seq l {comp panel1:::p::p, space :0:21:x}}"
+			"$verticalGroup": "par l {comp panel1::l::356:x}"
 		} ) {
 			name: "frame1"
 			"title": "Gestió de dades"
@@ -117,17 +117,13 @@ new FormModel {
 					}
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {comp sortirSenseGuardarButton:::p:204:p}"
-					"$verticalGroup": "par l {comp sortirSenseGuardarButton:::p::p}"
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:0:x}"
 				} ) {
 					name: "panel10"
 					auxiliary() {
 						"JavaCodeGenerator.variableLocal": true
 					}
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "sortirSenseGuardarButton"
-						"text": "Sortir sense guardar"
-					} )
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label2"
@@ -159,7 +155,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 145, 0 )
-			"size": new java.awt.Dimension( 315, 430 )
+			"size": new java.awt.Dimension( 300, 380 )
 		} )
 	}
 }

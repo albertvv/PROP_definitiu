@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -93,42 +93,22 @@ new FormModel {
 						"JavaCodeGenerator.variableLocal": true
 					}
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {comp label3:::p::p, comp textField4:::p:150:p}"
-						"$verticalGroup": "par l {seq {space :2:2:p, comp label3:::p::p, space :7:7:p, comp textField4:::p::p}}"
+						"$horizontalGroup": "par l {space :0:34:x}"
+						"$verticalGroup": "par l {space :0:25:x}"
 					} ) {
 						name: "panel7"
 						auxiliary() {
 							"JavaCodeGenerator.variableLocal": true
 						}
-						add( new FormComponent( "javax.swing.JTextField" ) {
-							name: "textField4"
-						} )
-						add( new FormComponent( "javax.swing.JLabel" ) {
-							name: "label3"
-							"text": "ID [1]"
-							auxiliary() {
-								"JavaCodeGenerator.variableLocal": true
-							}
-						} )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {comp label4:::p::p, comp textField3:::p:150:p}"
-						"$verticalGroup": "par l {seq {space :2:2:p, comp label4:::p::p, space :7:7:p, comp textField3:::p::p}}"
+						"$horizontalGroup": "par l {space :0:34:x}"
+						"$verticalGroup": "par l {space :0:25:x}"
 					} ) {
 						name: "panel8"
 						auxiliary() {
 							"JavaCodeGenerator.variableLocal": true
 						}
-						add( new FormComponent( "javax.swing.JTextField" ) {
-							name: "textField3"
-						} )
-						add( new FormComponent( "javax.swing.JLabel" ) {
-							name: "label4"
-							"text": "ID [2]"
-							auxiliary() {
-								"JavaCodeGenerator.variableLocal": true
-							}
-						} )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {

@@ -153,7 +153,11 @@ public class gestio_usuari extends javax.swing.JFrame {
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
        ctr_pres.borrar_usuari_estandard();
        setVisible(false);
-       ctr_pres.inici();
+       try {
+           ctr_pres.inici();
+       } catch (Exception exc) {
+           System.out.println("error estrany");
+       }
     }//GEN-LAST:event_borrarActionPerformed
 
     private void privilegiatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_privilegiatActionPerformed
@@ -163,7 +167,11 @@ public class gestio_usuari extends javax.swing.JFrame {
 
     private void sortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortirActionPerformed
         setVisible(false);
-        ctr_pres.inici();
+        try {
+            ctr_pres.inici();
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
     }//GEN-LAST:event_sortirActionPerformed
 
     /**

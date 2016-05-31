@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 /**
  * Created by marc on 16/5/16.
@@ -12,7 +13,9 @@ public class VistaDADESesRel {
 
     private CtrlPresentacio cp;
 
-    private String tipus;
+    private String rel;
+    private String tipus1;
+    private String tipus2;
     private String nom1;
     private String nom2;
     private Integer id1;
@@ -24,7 +27,7 @@ public class VistaDADESesRel {
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDADES vd = new VistaDADES();
+                VistaDADES vd = new VistaDADES(cp);
             }
         });
     }
@@ -39,14 +42,11 @@ public class VistaDADESesRel {
 
     private void ESBORRARRELACIÓButtonActionPerformed(ActionEvent e) {
         try {
-            if (!textField4.getText().equals("") && !textField3.getText().equals("")) {
-                id1 = Integer.parseInt(textField4.getText());
-                id2 = Integer.parseInt(textField3.getText());
-                tipus = comboBox1.getSelectedItem().toString();
-                cp.esborrar_relacio_graf(id1, id2, tipus);
+            if (!textField1.getText().equals("") && !textField2.getText().equals("")) {
+                Esborra();
             } else {
                 JOptionPane.showMessageDialog(frame1,
-                        "Es requereixen les ID de les dues entitats","Error",JOptionPane.ERROR_MESSAGE);
+                        "Es requereixen les dues entitats","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(frame1,
@@ -54,9 +54,56 @@ public class VistaDADESesRel {
         }
     }
 
+    private void Esborra() throws Exception {
+        rel = comboBox1.getSelectedItem().toString();
+
+        nom1 = textField1.getText();
+        switch (rel.charAt(0)) {
+            case 'A': tipus1 = "Autor";
+            case 'P': tipus1 = "Paper";
+            case 'C': tipus1 = "Conferencia";
+            case 'T': tipus1 = "Termino";
+        }
+        id1 = NomtoID(nom1, tipus1);
+
+        nom2 = textField2.getText();
+        switch (rel.charAt(1)) {
+            case 'A': tipus2 = "Autor";
+            case 'P': tipus2 = "Paper";
+            case 'C': tipus2 = "Conferencia";
+            case 'T': tipus2 = "Termino";
+        }
+        id2 = NomtoID(nom2, tipus2);
+
+        cp.esborrar_relacio_graf(id1, id2, rel);
+    }
+
+    private String showOptDialog(String[] ids,String nom) {
+        String f = (String) JOptionPane.showInputDialog(frame1,
+                nom+" es refereix a múltiples entitats, escull quina",
+                "Multiples refèrencies",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                ids,
+                ids[0]);
+        return f;
+    }
+
+    private Integer NomtoID(String strings, String tipus) throws Exception {
+        Integer v;
+
+        Vector<Integer> w = cp.NomToID(strings, tipus);
+        System.out.println(w);
+        if (w.size()>1) v = ((Integer.parseInt(showOptDialog(cp.convert(w), strings))));
+        else if (w.size() == 0) v = null;
+        else v = w.get(0);
+
+        return v;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame1 = new JFrame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -70,11 +117,7 @@ public class VistaDADESesRel {
         ESBORRARRELACIÓButton = new JButton();
         JPanel panel6 = new JPanel();
         JPanel panel7 = new JPanel();
-        textField4 = new JTextField();
-        JLabel label3 = new JLabel();
         JPanel panel8 = new JPanel();
-        textField3 = new JTextField();
-        JLabel label4 = new JLabel();
         JPanel panel9 = new JPanel();
         JPanel panel10 = new JPanel();
         textField1 = new JTextField();
@@ -196,46 +239,30 @@ public class VistaDADESesRel {
                     //======== panel7 ========
                     {
 
-                        //---- label3 ----
-                        label3.setText("ID [1]");
-
                         GroupLayout panel7Layout = new GroupLayout(panel7);
                         panel7.setLayout(panel7Layout);
                         panel7Layout.setHorizontalGroup(
                             panel7Layout.createParallelGroup()
-                                .addComponent(label3)
-                                .addComponent(textField4, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 34, Short.MAX_VALUE)
                         );
                         panel7Layout.setVerticalGroup(
                             panel7Layout.createParallelGroup()
-                                .addGroup(panel7Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(label3)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(textField4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 25, Short.MAX_VALUE)
                         );
                     }
 
                     //======== panel8 ========
                     {
 
-                        //---- label4 ----
-                        label4.setText("ID [2]");
-
                         GroupLayout panel8Layout = new GroupLayout(panel8);
                         panel8.setLayout(panel8Layout);
                         panel8Layout.setHorizontalGroup(
                             panel8Layout.createParallelGroup()
-                                .addComponent(label4)
-                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 34, Short.MAX_VALUE)
                         );
                         panel8Layout.setVerticalGroup(
                             panel8Layout.createParallelGroup()
-                                .addGroup(panel8Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(label4)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 25, Short.MAX_VALUE)
                         );
                     }
 
@@ -370,14 +397,12 @@ public class VistaDADESesRel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame1;
     private JPanel panel1;
     private JButton enrereButton;
     private JComboBox<String> comboBox1;
     private JButton ESBORRARRELACIÓButton;
-    private JTextField textField4;
-    private JTextField textField3;
     private JTextField textField1;
     private JTextField textField2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

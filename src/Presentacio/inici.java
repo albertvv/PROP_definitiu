@@ -13,6 +13,7 @@ import java.text.ParseException;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
+import javax.swing.tree.ExpandVetoException;
 
 /**
  *
@@ -25,7 +26,7 @@ public class inici extends javax.swing.JFrame {
      */
     private CtrlPresentacio ctr_pres;
     private JPanel panel;
-    public inici(CtrlPresentacio ctr) {
+    public inici(CtrlPresentacio ctr) throws Exception {
         initComponents();
         ctr_pres = ctr;
         panel = new JPanel();
@@ -127,7 +128,11 @@ public class inici extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new inici(ctr_pres).setVisible(true);
+                try {
+                    new inici(ctr_pres).setVisible(true);
+                } catch (Exception exc) {
+                    System.out.println("hi ha algun error");
+                }
             }
         });
     }

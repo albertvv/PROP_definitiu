@@ -18,7 +18,7 @@ public class VistaUltimsClust {
     private VistaClustering vclust;
     Vector<Pair<String, Vector<Vector<Integer>>>> ultimsclust;
 
-    public VistaUltimsClust(CtrlPresentacio cp) {
+    public VistaUltimsClust(CtrlPresentacio cp) throws Exception {
         this.cp = cp;
         initComponents();
         ultimsclust= cp.UltimsClust();
@@ -48,8 +48,12 @@ public class VistaUltimsClust {
             dialog1.setLocationRelativeTo(frame);
             frame.setFocusable(false);
             System.out.println(ultimsclust.get(list1.getLeadSelectionIndex()).getValue());
-            list2.setListData(cp.MostraClustering(ultimsclust.get(list1.getLeadSelectionIndex()).getValue(),
-                    cp.TipusEquilvalent(ultimsclust.get(list1.getLeadSelectionIndex()).getKey().charAt(0))));
+            try {
+                list2.setListData(cp.MostraClustering(ultimsclust.get(list1.getLeadSelectionIndex()).getValue(),
+                        cp.TipusEquilvalent(ultimsclust.get(list1.getLeadSelectionIndex()).getKey().charAt(0))));
+            } catch (Exception exc) {
+                System.out.println("error estrany");
+            }
         }
     }
 
@@ -75,8 +79,12 @@ public class VistaUltimsClust {
                     dialog2.pack();
                     dialog2.setLocationRelativeTo(frame);
                     frame.setFocusable(false);
-                    list3.setListData(cp.MostraClustering(cp.FiltratClustering(list1.getLeadSelectionIndex(), etiq)
-                            ,cp.TipusEquilvalent(ultimsclust.get(list1.getLeadSelectionIndex()).getKey().charAt(0))));
+                    try {
+                        list3.setListData(cp.MostraClustering(cp.FiltratClustering(list1.getLeadSelectionIndex(), etiq)
+                            , cp.TipusEquilvalent(ultimsclust.get(list1.getLeadSelectionIndex()).getKey().charAt(0))));
+                    } catch (Exception exc) {
+                        System.out.println("error estrany");
+                    }
         }
     }
 

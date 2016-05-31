@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
+
 /**
  * Created by marc on 16/5/16
  */
@@ -16,6 +18,8 @@ public class VistaDADESafRel {
     private String nom1;
     private String nom2;
     private String rel;
+    private String tipus1;
+    private String tipus2;
 
     public VistaDADESafRel(/*CtrlPresentacio ctrlPresentacio*/) {
         initComponents();
@@ -23,27 +27,17 @@ public class VistaDADESafRel {
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDADES vd = new VistaDADES();
+                VistaDADES vd = new VistaDADES(cp);
             }
         });
         AFEGIRRELACIÓButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (!textField4.getText().equals("") && !textField3.getText().equals("")) {
-                        id1 = Integer.parseInt(textField4.getText());
-                        id2 = Integer.parseInt(textField3.getText());
-                        rel = comboBox1.getSelectedItem().toString();
-                        cp.afegir_relacio_graf(id1, id2, rel);
-                    }
-                    else {
-                        if ((textField4.getText().equals("") && textField1.getText().equals("")) ||
-                                (textField3.getText().equals("") && textField2.getText().equals(""))) {
-                            JOptionPane.showMessageDialog(frame1,
-                                    "Es requereix el nom de les dues entitats","Error",JOptionPane.ERROR_MESSAGE);
-                        }
-                        else {
-                            //
-                        }
+                    if (!textField1.getText().equals("") && !textField2.getText().equals("")) {
+                        afegir();
+                    } else {
+                        JOptionPane.showMessageDialog(frame1,
+                                "Cal introduïr el nom de les dues entitats","Error",JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (Exception exc) {
                     JOptionPane.showMessageDialog(frame1,
@@ -51,6 +45,53 @@ public class VistaDADESafRel {
                 }
             }
         });
+    }
+
+    private void afegir() throws Exception {
+        rel = comboBox1.getSelectedItem().toString();
+
+        nom1 = textField1.getText();
+        switch (rel.charAt(0)) {
+            case 'A': tipus1 = "Autor";
+            case 'P': tipus1 = "Paper";
+            case 'C': tipus1 = "Conferencia";
+            case 'T': tipus1 = "Termino";
+        }
+        id1 = NomtoID(nom1, tipus1);
+
+        nom2 = textField2.getText();
+        switch (rel.charAt(1)) {
+            case 'A': tipus2 = "Autor";
+            case 'P': tipus2 = "Paper";
+            case 'C': tipus2 = "Conferencia";
+            case 'T': tipus2 = "Termino";
+        }
+        id2 = NomtoID(nom2, tipus2);
+
+        cp.afegir_relacio_graf(id1, id2, rel);
+    }
+
+    private String showOptDialog(String[] ids,String nom) {
+        String f = (String) JOptionPane.showInputDialog(frame1,
+                nom+" es refereix a múltiples entitats, escull quina",
+                "Multiples refèrencies",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                ids,
+                ids[0]);
+        return f;
+    }
+
+    private Integer NomtoID(String strings, String tipus) throws Exception {
+        Integer v;
+
+        Vector<Integer> w = cp.NomToID(strings, tipus);
+        System.out.println(w);
+        if (w.size()>1) v = ((Integer.parseInt(showOptDialog(cp.convert(w), strings))));
+        else if (w.size() == 0) v = null;
+        else v = w.get(0);
+
+        return v;
     }
 
     public static void main (String[] args) {
@@ -67,7 +108,7 @@ public class VistaDADESafRel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame1 = new Frame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -77,14 +118,8 @@ public class VistaDADESafRel {
         comboBox1 = new JComboBox<>();
         JLabel label1 = new JLabel();
         JPanel panel5 = new JPanel();
-        AFEGIRRELACIÓButton = new JButton();
         JPanel panel6 = new JPanel();
         JPanel panel7 = new JPanel();
-        textField4 = new JTextField();
-        JLabel label3 = new JLabel();
-        JPanel panel8 = new JPanel();
-        textField3 = new JTextField();
-        JLabel label4 = new JLabel();
         JPanel panel9 = new JPanel();
         JPanel panel10 = new JPanel();
         textField1 = new JTextField();
@@ -92,6 +127,7 @@ public class VistaDADESafRel {
         JPanel panel11 = new JPanel();
         textField2 = new JTextField();
         JLabel label6 = new JLabel();
+        AFEGIRRELACIÓButton = new JButton();
 
         //======== frame1 ========
         {
@@ -179,19 +215,15 @@ public class VistaDADESafRel {
                 //======== panel5 ========
                 {
 
-                    //---- AFEGIRRELACIÓButton ----
-                    AFEGIRRELACIÓButton.setText("AFEGIR RELACI\u00d3");
-                    AFEGIRRELACIÓButton.addActionListener(e -> AFEGIRRELACIÓButtonActionPerformed(e));
-
                     GroupLayout panel5Layout = new GroupLayout(panel5);
                     panel5.setLayout(panel5Layout);
                     panel5Layout.setHorizontalGroup(
                         panel5Layout.createParallelGroup()
-                            .addComponent(AFEGIRRELACIÓButton, GroupLayout.PREFERRED_SIZE, 310, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)
                     );
                     panel5Layout.setVerticalGroup(
                         panel5Layout.createParallelGroup()
-                            .addComponent(AFEGIRRELACIÓButton)
+                            .addGap(0, 0, Short.MAX_VALUE)
                     );
                 }
 
@@ -201,46 +233,15 @@ public class VistaDADESafRel {
                     //======== panel7 ========
                     {
 
-                        //---- label3 ----
-                        label3.setText("ID [1]");
-
                         GroupLayout panel7Layout = new GroupLayout(panel7);
                         panel7.setLayout(panel7Layout);
                         panel7Layout.setHorizontalGroup(
                             panel7Layout.createParallelGroup()
-                                .addComponent(label3)
-                                .addComponent(textField4, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 34, Short.MAX_VALUE)
                         );
                         panel7Layout.setVerticalGroup(
                             panel7Layout.createParallelGroup()
-                                .addGroup(panel7Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(label3)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(textField4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        );
-                    }
-
-                    //======== panel8 ========
-                    {
-
-                        //---- label4 ----
-                        label4.setText("ID [2]");
-
-                        GroupLayout panel8Layout = new GroupLayout(panel8);
-                        panel8.setLayout(panel8Layout);
-                        panel8Layout.setHorizontalGroup(
-                            panel8Layout.createParallelGroup()
-                                .addComponent(label4)
-                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                        );
-                        panel8Layout.setVerticalGroup(
-                            panel8Layout.createParallelGroup()
-                                .addGroup(panel8Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(label4)
-                                    .addGap(7, 7, 7)
-                                    .addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 25, Short.MAX_VALUE)
                         );
                     }
 
@@ -250,13 +251,11 @@ public class VistaDADESafRel {
                         panel6Layout.createParallelGroup()
                             .addGroup(panel6Layout.createSequentialGroup()
                                 .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44))
                     );
                     panel6Layout.setVerticalGroup(
                         panel6Layout.createParallelGroup()
                             .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     );
                 }
 
@@ -325,6 +324,10 @@ public class VistaDADESafRel {
                     );
                 }
 
+                //---- AFEGIRRELACIÓButton ----
+                AFEGIRRELACIÓButton.setText("AFEGIR RELACI\u00d3");
+                AFEGIRRELACIÓButton.addActionListener(e -> AFEGIRRELACIÓButtonActionPerformed(e));
+
                 GroupLayout panel1Layout = new GroupLayout(panel1);
                 panel1.setLayout(panel1Layout);
                 panel1Layout.setHorizontalGroup(
@@ -335,8 +338,11 @@ public class VistaDADESafRel {
                             .addGroup(panel1Layout.createParallelGroup()
                                 .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(panel9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addComponent(panel6, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(228, 228, 228)
+                                    .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(AFEGIRRELACIÓButton, GroupLayout.PREFERRED_SIZE, 302, GroupLayout.PREFERRED_SIZE))
                             .addGap(10, 10, 10)
                             .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 );
@@ -353,6 +359,8 @@ public class VistaDADESafRel {
                                     .addGap(5, 5, 5)
                                     .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addGap(5, 5, 5)
+                                    .addComponent(AFEGIRRELACIÓButton, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                 );
@@ -362,11 +370,17 @@ public class VistaDADESafRel {
             frame1.setLayout(frame1Layout);
             frame1Layout.setHorizontalGroup(
                 frame1Layout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(frame1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             frame1Layout.setVerticalGroup(
                 frame1Layout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(frame1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
@@ -375,15 +389,13 @@ public class VistaDADESafRel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private Frame frame1;
     private JPanel panel1;
     private JButton enrereButton;
     private JComboBox<String> comboBox1;
-    private JButton AFEGIRRELACIÓButton;
-    private JTextField textField4;
-    private JTextField textField3;
     private JTextField textField1;
     private JTextField textField2;
+    private JButton AFEGIRRELACIÓButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

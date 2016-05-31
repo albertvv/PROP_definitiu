@@ -212,7 +212,11 @@ public class gestio_relacions extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void sortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortirActionPerformed
-        ctr_pres.inici();
+        try {
+            ctr_pres.inici();
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
         setVisible(false);
     }//GEN-LAST:event_sortirActionPerformed
 

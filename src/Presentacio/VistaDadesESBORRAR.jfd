@@ -1,17 +1,17 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp panel1:::p::p}"
+			"$horizontalGroup": "par l {comp panel1:::p:476:p}"
 			"$verticalGroup": "par l {comp panel1:::p::p}"
 		} ) {
 			name: "frame1"
 			"title": "Esborrar entitat"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel4:::p::p, comp panel5:::p::p, comp panel6::l:p::p, comp panel7::l:p::p}, space :10:10:p, comp panel3:::p::p}}"
-				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p::p, seq {comp panel4:::p::p, space s:::p, comp panel6:::p::p, space :::p, comp panel7:::p::p, space :p:5:p, comp panel5:::p::p}, comp panel3:::p::p}}}"
+				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel4:::p::p, comp panel5:::p::p, comp panel6::l:p::p, seq l {comp ESBORRARButton:::p:383:p, space :::p, comp panel7:::p::p}}, space :10:10:p, comp panel3:::p::p}}"
+				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p::p, seq {comp panel4:::p::p, space s:::p, comp panel6:::p::p, space :::p, par l {comp panel7:::p::p, comp ESBORRARButton:::p::p}, space :p:5:p, comp panel5:::p::p}, comp panel3:::p::p}}}"
 			} ) {
 				name: "panel1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
@@ -63,22 +63,17 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {comp ESBORRARButton:::p:383:p}"
-					"$verticalGroup": "par l {comp ESBORRARButton:::p::p}"
+					"$horizontalGroup": "par l {space :0:0:x}"
+					"$verticalGroup": "par l {space :0:0:x}"
 				} ) {
 					name: "panel5"
 					auxiliary() {
 						"JavaCodeGenerator.variableLocal": true
 					}
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "ESBORRARButton"
-						"text": "ESBORRAR"
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ESBORRARButtonActionPerformed", true ) )
-					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {par l {comp label3:::p::p, comp textField1:::p:383:p}, space :0:0:x}, seq t {comp button1:::::x, space :::p}}"
-					"$verticalGroup": "par l {seq {space :2:2:p, comp label3:::p::p, space :7:7:p, comp textField1:::p::p, space ::15:x, comp button1:::p::p}}"
+					"$horizontalGroup": "par l {seq {par l {comp label3:::p::p, comp textField1:::p:383:p}, space :0:0:x}}"
+					"$verticalGroup": "par l {seq {space :2:2:p, comp label3:::p::p, space :7:7:p, comp textField1:::p::p, space ::20:x}}"
 				} ) {
 					name: "panel6"
 					auxiliary() {
@@ -94,34 +89,25 @@ new FormModel {
 							"JavaCodeGenerator.variableLocal": true
 						}
 					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "button1"
-						"text": "Seleccionar ID amb el nom introduït"
-					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {comp label4:::p::p, comp textField2:::p:383:p}"
-					"$verticalGroup": "par l {seq {space :2:2:p, comp label4:::p::p, space :7:7:p, comp textField2:::p::p, space ::32:x}}"
+					"$horizontalGroup": "par l {space :0:14:x}"
+					"$verticalGroup": "par l {space :0:41:x}"
 				} ) {
 					name: "panel7"
 					auxiliary() {
 						"JavaCodeGenerator.variableLocal": true
 					}
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "textField2"
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label4"
-						"text": "ID"
-						auxiliary() {
-							"JavaCodeGenerator.variableLocal": true
-						}
-					} )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "ESBORRARButton"
+					"text": "ESBORRAR"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ESBORRARButtonActionPerformed", true ) )
 				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 65, 25 )
-			"size": new java.awt.Dimension( 480, 325 )
+			"size": new java.awt.Dimension( 480, 230 )
 		} )
 	}
 }

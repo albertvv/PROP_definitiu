@@ -132,7 +132,11 @@ public class loggin extends javax.swing.JFrame {
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         setVisible(false);
-        ctr_pres.inici();
+        try {
+            ctr_pres.inici();
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
     }//GEN-LAST:event_backActionPerformed
 
     /**

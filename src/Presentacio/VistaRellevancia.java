@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Arc2D;
 import java.text.DecimalFormat;
 import java.util.Vector;
 
@@ -314,7 +315,12 @@ public class VistaRellevancia {
                 DecimalFormat df = new DecimalFormat("#.#####");
                 enrereButton.setEnabled(false);
                 cercaButton.setEnabled(false);
-                Double d = cp.CercaRellevancia(path,vi);
+                Double d = null;
+                try {
+                    d = cp.CercaRellevancia(path, vi);
+                } catch (Exception exc) {
+                    System.out.println("error estrany");
+                }
                 framew.setVisible(false);
                 framew.setEnabled(false);
                 cercaButton.setEnabled(true);
@@ -338,7 +344,7 @@ public class VistaRellevancia {
                 ids[0]);
         return f;
     }
-    private boolean checked(Vector<String> s) {
+    private boolean checked(Vector<String> s) throws Exception {
         for (int i = 0; i <s.size() ; i++) {
             String t = cp.TipusEquilvalent(path.charAt(i));
             if(cp.NomToID(s.get(i),t).size()==0 && !s.get(i).equals("-")) {

@@ -1,9 +1,11 @@
 package Presentacio;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
+
 
 /**
  * Created by marc on 15/5/16.
@@ -16,33 +18,16 @@ public class VistaDadesESBORRAR {
     private String nom;
     private Integer id;
 
-    public VistaDadesESBORRAR() {
+    public VistaDadesESBORRAR(/*CtrlPresentacio ctrlPresentacio*/) {
+        //this.cp = ctrlPresentacio;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDADES vd = new VistaDADES();
+                VistaDADES vd = new VistaDADES(cp);
             }
         });
-        /*ESBORRARButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    if (!textField2.getText().equals("")) {
-                        tipus = comboBox1.getSelectedItem().toString();
-                        id = Integer.parseInt(textField2.getText());
-                        cp.esborrar_element(null, id, tipus);
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(frame1,
-                                "Es requereix la ID de l'element a esborrar","Error",JOptionPane.ERROR_MESSAGE);
-                    }
-                } catch (Exception exc) {
-                    JOptionPane.showMessageDialog(frame1,
-                            "ERROR","Error",JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });*/
     }
 
     public static void main (String[] args) {
@@ -55,14 +40,12 @@ public class VistaDadesESBORRAR {
 
     private void ESBORRARButtonActionPerformed(ActionEvent e) {
         try {
-            if (!textField2.getText().equals("")) {
-                tipus = comboBox1.getSelectedItem().toString();
-                id = Integer.parseInt(textField2.getText());
-                cp.esborrar_element(null, id, tipus);
+            if (!textField1.getText().equals("")) {
+                Esborra();
             }
             else {
                 JOptionPane.showMessageDialog(frame1,
-                        "Es requereix la ID de l'element a esborrar","Error",JOptionPane.ERROR_MESSAGE);
+                        "Es requereix el nom de l'element a esborrar","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(frame1,
@@ -70,9 +53,41 @@ public class VistaDadesESBORRAR {
         }
     }
 
+    private void Esborra() throws Exception {
+        tipus = comboBox1.getSelectedItem().toString();
+        nom = textField1.getText();
+        id = NomtoID(nom, tipus);
+        cp.esborrar_element(nom, id, tipus);
+        JOptionPane.showMessageDialog(frame1,
+                "L'entitat s'ha esborrat");
+    }
+
+    private String showOptDialog(String[] ids,String nom) {
+        String f = (String) JOptionPane.showInputDialog(frame1,
+                nom+" es refereix a múltiples entitats, escull quina",
+                "Multiples refèrencies",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                ids,
+                ids[0]);
+        return f;
+    }
+
+    private Integer NomtoID(String strings, String tipus) throws Exception {
+        Integer v;
+
+        Vector<Integer> w = cp.NomToID(strings, tipus);
+        System.out.println(w);
+        if (w.size()>1) v = ((Integer.parseInt(showOptDialog(cp.convert(w), strings))));
+        else if (w.size() == 0) v = null;
+        else v = w.get(0);
+
+        return v;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame1 = new JFrame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -82,14 +97,11 @@ public class VistaDadesESBORRAR {
         comboBox1 = new JComboBox<>();
         JLabel label1 = new JLabel();
         JPanel panel5 = new JPanel();
-        ESBORRARButton = new JButton();
         JPanel panel6 = new JPanel();
         textField1 = new JTextField();
         JLabel label3 = new JLabel();
-        button1 = new JButton();
         JPanel panel7 = new JPanel();
-        textField2 = new JTextField();
-        JLabel label4 = new JLabel();
+        ESBORRARButton = new JButton();
 
         //======== frame1 ========
         {
@@ -176,19 +188,15 @@ public class VistaDadesESBORRAR {
                 //======== panel5 ========
                 {
 
-                    //---- ESBORRARButton ----
-                    ESBORRARButton.setText("ESBORRAR");
-                    ESBORRARButton.addActionListener(e -> ESBORRARButtonActionPerformed(e));
-
                     GroupLayout panel5Layout = new GroupLayout(panel5);
                     panel5.setLayout(panel5Layout);
                     panel5Layout.setHorizontalGroup(
                         panel5Layout.createParallelGroup()
-                            .addComponent(ESBORRARButton, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)
                     );
                     panel5Layout.setVerticalGroup(
                         panel5Layout.createParallelGroup()
-                            .addComponent(ESBORRARButton)
+                            .addGap(0, 0, Short.MAX_VALUE)
                     );
                 }
 
@@ -197,9 +205,6 @@ public class VistaDadesESBORRAR {
 
                     //---- label3 ----
                     label3.setText("Nom");
-
-                    //---- button1 ----
-                    button1.setText("Seleccionar ID amb el nom introdu\u00eft");
 
                     GroupLayout panel6Layout = new GroupLayout(panel6);
                     panel6.setLayout(panel6Layout);
@@ -210,9 +215,6 @@ public class VistaDadesESBORRAR {
                                     .addComponent(label3)
                                     .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(GroupLayout.Alignment.TRAILING, panel6Layout.createSequentialGroup()
-                                .addComponent(button1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
                     );
                     panel6Layout.setVerticalGroup(
                         panel6Layout.createParallelGroup()
@@ -221,34 +223,28 @@ public class VistaDadesESBORRAR {
                                 .addComponent(label3)
                                 .addGap(7, 7, 7)
                                 .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                                .addComponent(button1))
+                                .addContainerGap(20, Short.MAX_VALUE))
                     );
                 }
 
                 //======== panel7 ========
                 {
 
-                    //---- label4 ----
-                    label4.setText("ID");
-
                     GroupLayout panel7Layout = new GroupLayout(panel7);
                     panel7.setLayout(panel7Layout);
                     panel7Layout.setHorizontalGroup(
                         panel7Layout.createParallelGroup()
-                            .addComponent(label4)
-                            .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 14, Short.MAX_VALUE)
                     );
                     panel7Layout.setVerticalGroup(
                         panel7Layout.createParallelGroup()
-                            .addGroup(panel7Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(label4)
-                                .addGap(7, 7, 7)
-                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(32, Short.MAX_VALUE))
+                            .addGap(0, 41, Short.MAX_VALUE)
                     );
                 }
+
+                //---- ESBORRARButton ----
+                ESBORRARButton.setText("ESBORRAR");
+                ESBORRARButton.addActionListener(e -> ESBORRARButtonActionPerformed(e));
 
                 GroupLayout panel1Layout = new GroupLayout(panel1);
                 panel1.setLayout(panel1Layout);
@@ -261,7 +257,10 @@ public class VistaDadesESBORRAR {
                                 .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addComponent(ESBORRARButton, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                             .addGap(10, 10, 10)
                             .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 );
@@ -276,7 +275,9 @@ public class VistaDadesESBORRAR {
                                     .addGap(18, 18, 18)
                                     .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panel1Layout.createParallelGroup()
+                                        .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ESBORRARButton))
                                     .addGap(5, 5, 5)
                                     .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
@@ -287,7 +288,7 @@ public class VistaDadesESBORRAR {
             frame1ContentPane.setLayout(frame1ContentPaneLayout);
             frame1ContentPaneLayout.setHorizontalGroup(
                 frame1ContentPaneLayout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 476, GroupLayout.PREFERRED_SIZE)
             );
             frame1ContentPaneLayout.setVerticalGroup(
                 frame1ContentPaneLayout.createParallelGroup()
@@ -300,14 +301,12 @@ public class VistaDadesESBORRAR {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame1;
     private JPanel panel1;
     private JButton enrereButton;
     private JComboBox<String> comboBox1;
-    private JButton ESBORRARButton;
     private JTextField textField1;
-    private JButton button1;
-    private JTextField textField2;
+    private JButton ESBORRARButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

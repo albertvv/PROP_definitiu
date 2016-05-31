@@ -8,18 +8,13 @@ import javax.swing.*;
  * Created by marc on 19/5/16.
  */
 public class VistaDadesSET {
-    public VistaDadesSET() {
+
+    private CtrlPresentacio cp;
+
+    public VistaDadesSET(CtrlPresentacio cp) {
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
-    }
-
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDadesSET vd = new VistaDadesSET();
-                        vd.ferVisible();
-                    }});
     }
 
     private void ferVisible() {
@@ -28,32 +23,32 @@ public class VistaDadesSET {
 
     private void button1ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDADES vd = new VistaDADES();
+        VistaDADES vd = new VistaDADES(cp);
     }
 
     private void button2ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDadesSETid vd = new VistaDadesSETid();
+        cp.VistaDadesSETid();
     }
 
     private void button3ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDadesSETnom vd = new VistaDadesSETnom();
+        cp.VistaDadesSETnom();
     }
 
     private void button4ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDadesSETtag vd = new VistaDadesSETtag();
+        cp.VistaDadesSETtag();
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame1 = new JFrame();
         button1 = new JButton();
         button2 = new JButton();
-        button3 = new JButton();
         button4 = new JButton();
+        button3 = new JButton();
 
         //======== frame1 ========
         {
@@ -66,42 +61,42 @@ public class VistaDadesSET {
 
             //---- button2 ----
             button2.setText("Modificar ID");
-            button2.addActionListener(e -> button2ActionPerformed(e));
-
-            //---- button3 ----
-            button3.setText("Modificar nom");
-            button3.addActionListener(e -> button3ActionPerformed(e));
 
             //---- button4 ----
             button4.setText("Modificar etiqueta");
-            button4.addActionListener(e -> button4ActionPerformed(e));
+
+            //---- button3 ----
+            button3.setText("Modificar nom");
 
             GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
             frame1ContentPane.setLayout(frame1ContentPaneLayout);
             frame1ContentPaneLayout.setHorizontalGroup(
                 frame1ContentPaneLayout.createParallelGroup()
                     .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(button1)
-                        .addGap(32, 32, 32)
-                        .addComponent(button2, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE))
-                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(button3, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE))
-                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(button4))
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup()
+                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(button1))
+                            .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addGroup(frame1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(button2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(46, Short.MAX_VALUE))
             );
             frame1ContentPaneLayout.setVerticalGroup(
                 frame1ContentPaneLayout.createParallelGroup()
                     .addGroup(frame1ContentPaneLayout.createSequentialGroup()
-                        .addGroup(frame1ContentPaneLayout.createParallelGroup()
-                            .addComponent(button1)
-                            .addComponent(button2))
-                        .addGap(31, 31, 31)
+                        .addContainerGap()
+                        .addComponent(button1)
+                        .addGap(18, 18, 18)
+                        .addComponent(button2)
+                        .addGap(12, 12, 12)
                         .addComponent(button3)
-                        .addGap(31, 31, 31)
-                        .addComponent(button4))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button4)
+                        .addContainerGap(23, Short.MAX_VALUE))
             );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
@@ -110,11 +105,11 @@ public class VistaDadesSET {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame1;
     private JButton button1;
     private JButton button2;
-    private JButton button3;
     private JButton button4;
+    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

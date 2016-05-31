@@ -1,22 +1,22 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_51" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "java.awt.Frame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp panel1:::p::p}"
-			"$verticalGroup": "par l {comp panel1:::p::p}"
+			"$horizontalGroup": "par l {seq l {comp panel1:::p::p, space :0:0:x}}"
+			"$verticalGroup": "par l {seq l {comp panel1:::p:309:p, space :0:12:x}}"
 		} ) {
 			name: "frame1"
 			"title": "Modificar nom"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel4:::p::p, comp panel6:::p::p, comp panel7:::p::p, comp panel5:::p::p}, space :10:10:p, comp panel3:::p::p}}"
-				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p::p, seq {comp panel4:::p::p, space :5:5:p, comp panel6:::p::p, space :5:5:p, comp panel7:::p::p, space :5:5:p, comp panel5:::p::p}, comp panel3:::p::p}}}"
+				"$horizontalGroup": "par l {seq {comp panel2:::p::p, space :10:10:p, par l {comp panel4:::p::p, comp panel6:::p::p, comp panel5:::p::p, comp panel7:::p::p}, space :::p, comp panel3:::p::p}}"
+				"$verticalGroup": "par l {seq {space :20:20:p, par l {comp panel2:::p::p, seq {comp panel4:::p::p, space :5:5:p, comp panel6:::p::p, space :p:5:p, comp panel7:::p::p, space :p:5:p, comp panel5:::p::p}, comp panel3:::p::p}}}"
 			} ) {
 				name: "panel1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {comp enrereButton:::p:96:p, seq {space :42:42:p, comp vSpacer1:::p:12:p}}"
-					"$verticalGroup": "par l {seq {comp enrereButton:::p::p, space :5:5:p, comp vSpacer1:::p:343:p}}"
+					"$horizontalGroup": "par l {comp enrereButton:::p:96:p, seq {space :p:42:p, comp vSpacer1:::p:12:p}}"
+					"$verticalGroup": "par l {seq {comp enrereButton:::p::p, space :p:5:p, comp vSpacer1:::p:241:p, space :::p}}"
 				} ) {
 					name: "panel2"
 					auxiliary() {
@@ -69,8 +69,8 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {comp MODIFICARButton:::p:327:p}"
-					"$verticalGroup": "par l {seq {space :18:18:p, comp MODIFICARButton:::p::p}}"
+					"$horizontalGroup": "par l {seq t {space :0:0:x, comp MODIFICARButton:::p:327:p}}"
+					"$verticalGroup": "par l {seq t {space :0:18:x, comp MODIFICARButton:::p::p}}"
 				} ) {
 					name: "panel5"
 					auxiliary() {
@@ -83,8 +83,8 @@ new FormModel {
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {comp label3:::p::p, comp textField3:::p:330:p}"
-					"$verticalGroup": "par l {seq {space :10:10:p, comp label3:::p::p, space :23:23:p, comp textField3:::p::p}}"
+					"$horizontalGroup": "par l {seq l {space :::p, comp label3:::p::p, space :p:219:p}, comp textField3::t:p:330:p}"
+					"$verticalGroup": "par l {seq {space :::p, comp label3:::p::p, space s:::p, comp textField3:::p::p, space :::p}}"
 				} ) {
 					name: "panel6"
 					auxiliary() {
@@ -95,36 +95,26 @@ new FormModel {
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label3"
-						"text": "ID de l'entitat"
+						"text": "Nom de l'entitat:"
 						auxiliary() {
 							"JavaCodeGenerator.variableLocal": true
 						}
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {comp label4:::p::p, space :106:106:p, comp label5:::p::p}, seq {comp textField1:::p:161:p, space :10:10:p, comp textField2:::p:160:p}}"
-					"$verticalGroup": "par l {seq {space :8:8:p, par l {comp label4:::p::p, comp label5:::p::p}, space :20:20:p, par l {comp textField1:::p::p, comp textField2:::p::p}}}"
+					"$horizontalGroup": "par l {seq {space :::p, comp label5:::p::p, space ::270:x}, seq l {comp textField2::::332:x, space :::p}}"
+					"$verticalGroup": "par l {seq {space :::p, comp label5:::p::p, space ::16:x, comp textField2:::p::p, space :::p}}"
 				} ) {
 					name: "panel7"
 					auxiliary() {
 						"JavaCodeGenerator.variableLocal": true
 					}
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label4"
-						"text": "Antic nom"
-						auxiliary() {
-							"JavaCodeGenerator.variableLocal": true
-						}
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label5"
-						"text": "Nou nom"
+						"text": "Nou nom:"
 						auxiliary() {
 							"JavaCodeGenerator.variableLocal": true
 						}
-					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "textField1"
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
 						name: "textField2"
@@ -133,7 +123,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 10, 0 )
-			"size": new java.awt.Dimension( 465, 425 )
+			"size": new java.awt.Dimension( 465, 345 )
 		} )
 	}
 }

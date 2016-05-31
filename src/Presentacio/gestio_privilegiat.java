@@ -213,7 +213,11 @@ public class gestio_privilegiat extends javax.swing.JFrame {
                 introduir.setVisible(false);
                 if(introduir.getText().equals(ctr_pres.usuari_actual())){
                     setVisible(false);
-                    ctr_pres.inici();
+                    try {
+                        ctr_pres.inici();
+                    } catch (Exception exc) {
+                        System.out.println("error estrany");
+                    }
                 }
             }
             else JOptionPane.showMessageDialog(panel, "L'usuari no existia", "Error", JOptionPane.ERROR_MESSAGE);
@@ -248,7 +252,11 @@ public class gestio_privilegiat extends javax.swing.JFrame {
 
     private void sortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortirActionPerformed
         setVisible(false);
-        ctr_pres.inici();
+        try {
+            ctr_pres.inici();
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
     }//GEN-LAST:event_sortirActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed

@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 
 /**
@@ -15,50 +16,69 @@ public class VistaDadesSETid {
 
     private String tipus;
     private String nom;
-    private Integer id1;
-    private Integer id2;
+    private Integer idOld;
+    private Integer idNew;
 
-    public VistaDadesSETid() {
+    public VistaDadesSETid(CtrlPresentacio cp) {
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDadesSET vd = new VistaDadesSET();
+                VistaDadesSET vd = new VistaDadesSET(cp);
             }
         });
     }
 
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDadesSETid vdsid = new VistaDadesSETid();
-                    }});
+    public void ferVisible() {
+        frame1.setVisible(true);
     }
 
     private void button1ActionPerformed(ActionEvent e) {
         try {
             tipus = comboBox1.getSelectedItem().toString();
-            if (!textField1.getText().equals("")) {
-                id1 = Integer.parseInt(textField1.getText());
-                if (!textField2.getText().equals("")) {
-                    id2 = Integer.parseInt(textField2.getText());
-                    //cp.setID(id1, id2, tipus);
-                } else {
-                    JOptionPane.showMessageDialog(frame1,
-                            "Cal introduir la nova ID","Error",JOptionPane.ERROR_MESSAGE);
-                }
-            } else if (!textField3.getText().equals("")) {
-                //
+            if (!textField3.getText().equals("") && !textField2.getText().equals("")) {
+                ;
             } else {
                 JOptionPane.showMessageDialog(frame1,
-                        "Cal saber quina entitat es vol modificar","Error",JOptionPane.ERROR_MESSAGE);
+                        "Cal saber quina entitat es vol modificar i la nova ID","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(frame1,
                     "ERROR","Error",JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void setID() throws Exception {
+        tipus = comboBox1.getSelectedItem().toString();
+        nom = textField3.getText();
+        idOld = NomtoID(nom, tipus);
+        idNew = Integer.parseInt(textField2.getText());
+        //cp.setID(idOld, idNew, tipus);
+    }
+
+    private String showOptDialog(String[] ids,String nom) {
+        String f = (String) JOptionPane.showInputDialog(frame1,
+                nom+" es refereix a múltiples entitats, escull quina",
+                "Multiples refèrencies",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                ids,
+                ids[0]);
+        return f;
+    }
+
+    private Integer NomtoID(String strings, String tipus) throws Exception {
+        Integer v;
+
+        Vector<Integer> w = cp.NomToID(strings, tipus);
+        System.out.println(w);
+        if (w.size()>1) v = ((Integer.parseInt(showOptDialog(cp.convert(w), strings))));
+        else if (w.size() == 0) v = null;
+        else v = w.get(0);
+
+        return v;
     }
 
     private void initComponents() {
@@ -73,13 +93,10 @@ public class VistaDadesSETid {
         comboBox1 = new JComboBox<>();
         JLabel label1 = new JLabel();
         JPanel panel6 = new JPanel();
-        textField1 = new JTextField();
         textField2 = new JTextField();
-        JLabel label4 = new JLabel();
         JLabel label3 = new JLabel();
         textField3 = new JTextField();
         label2 = new JLabel();
-        button2 = new JButton();
         button1 = new JButton();
 
         //======== frame1 ========
@@ -177,17 +194,11 @@ public class VistaDadesSETid {
                     );
                 }
 
-                //---- label4 ----
-                label4.setText("Antiga ID");
-
                 //---- label3 ----
                 label3.setText("Nova ID");
 
                 //---- label2 ----
                 label2.setText("Nom de l'entitat:");
-
-                //---- button2 ----
-                button2.setText("Seleccionar ID");
 
                 GroupLayout panel1Layout = new GroupLayout(panel1);
                 panel1.setLayout(panel1Layout);
@@ -197,58 +208,47 @@ public class VistaDadesSETid {
                             .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addGap(10, 10, 10)
                             .addGroup(panel1Layout.createParallelGroup()
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(label3)
                                 .addGroup(panel1Layout.createSequentialGroup()
                                     .addGroup(panel1Layout.createParallelGroup()
                                         .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(panel1Layout.createSequentialGroup()
                                             .addGroup(panel1Layout.createParallelGroup()
-                                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(label2))
+                                                .addComponent(label2)
+                                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(button2)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panel1Layout.createSequentialGroup()
-                                            .addComponent(label4)
-                                            .addGap(97, 97, 97)
-                                            .addComponent(label3)))
+                                            .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                                     .addGap(10, 10, 10)
-                                    .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE)))
                 );
                 panel1Layout.setVerticalGroup(
                     panel1Layout.createParallelGroup()
                         .addGroup(panel1Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
                             .addGroup(panel1Layout.createParallelGroup()
-                                .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGroup(panel1Layout.createSequentialGroup()
                                     .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panel1Layout.createParallelGroup()
                                         .addGroup(panel1Layout.createSequentialGroup()
                                             .addGap(5, 5, 5)
                                             .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addContainerGap(90, Short.MAX_VALUE))
                                         .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(label2)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(button2))
-                                            .addGap(18, 18, 18)))
-                                    .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(label4)
-                                        .addComponent(label3)))
-                                .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap())
+                                            .addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(label3)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                            .addContainerGap())))
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addGroup(panel1Layout.createParallelGroup()
+                                        .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addContainerGap(71, Short.MAX_VALUE))))
                 );
             }
 
@@ -287,11 +287,9 @@ public class VistaDadesSETid {
     private JPanel panel1;
     private JButton enrereButton;
     private JComboBox<String> comboBox1;
-    private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
     private JLabel label2;
-    private JButton button2;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

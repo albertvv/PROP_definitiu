@@ -38,7 +38,11 @@ public class VistaClustering extends JFrame {
 
     private void utlimagrupActionPerformed(ActionEvent e) {
         this2.setVisible(false);
-        if(vultims==null) vultims = new VistaUltimsClust(cp);
+        try {
+            if (vultims == null) vultims = new VistaUltimsClust(cp);
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
         vultims.ferVisible();
     }
 

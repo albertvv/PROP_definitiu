@@ -9,7 +9,11 @@ public class Main {
                 new Runnable() {
                     public void run() {
                         CtrlPresentacio cp = new CtrlPresentacio();
-                        cp.init();
+                        try {
+                            cp.init();
+                        } catch (Exception exc) {
+                            System.out.println("error estrany");
+                        }
                     }});
     }
 }

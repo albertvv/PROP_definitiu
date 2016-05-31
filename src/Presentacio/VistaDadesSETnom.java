@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 
 /**
@@ -18,44 +19,30 @@ public class VistaDadesSETnom {
     private String tipus;
     private Integer id;
 
-    public VistaDadesSETnom() {
+    public VistaDadesSETnom(CtrlPresentacio cp) {
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDadesSET vd = new VistaDadesSET();
+                VistaDadesSET vd = new VistaDadesSET(cp);
             }
         });
     }
 
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDadesSETnom vdsnom = new VistaDadesSETnom();
-                    }});
+    public void ferVisible() {
+        frame1.setVisible(true);
     }
 
     private void MODIFICARButtonActionPerformed(ActionEvent e) {
         try {
-            tipus = comboBox1.getSelectedItem().toString();
-            if (!textField3.getText().equals("")) {
-                id = Integer.parseInt(textField3.getText());
-                if (!textField2.getText().equals("")) {
-                    nom2 = textField2.getText();
-                    //cp.setNom(id, nom2, tipus);
-                }
-                else {
-                    JOptionPane.showMessageDialog(frame1,
-                            "Cal saber el nou nom","Error",JOptionPane.ERROR_MESSAGE);
-                }
-            } else if (!textField1.equals("")) {
-                ;
+            if (!textField3.getText().equals("") && !textField2.getText().equals("")) {
+                setNom();
             } else {
                 JOptionPane.showMessageDialog(frame1,
-                        "Cal saber quina entitat es vol modificar","Error",JOptionPane.ERROR_MESSAGE);
+                        "Cal saber quina entitat es vol modificar i el nou nom","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(frame1,
@@ -63,9 +50,40 @@ public class VistaDadesSETnom {
         }
     }
 
+    private void setNom() throws Exception {
+        tipus = comboBox1.getSelectedItem().toString();
+        nom1 = textField3.getText();
+        id = NomtoID(nom1, tipus);
+        nom2 = textField2.getText();
+        //cp.setNom(id, nom2, tipus);
+    }
+
+    private String showOptDialog(String[] ids,String nom) {
+        String f = (String) JOptionPane.showInputDialog(frame1,
+                nom+" es refereix a múltiples entitats, escull quina",
+                "Multiples refèrencies",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                ids,
+                ids[0]);
+        return f;
+    }
+
+    private Integer NomtoID(String strings, String tipus) throws Exception {
+        Integer v;
+
+        Vector<Integer> w = cp.NomToID(strings, tipus);
+        System.out.println(w);
+        if (w.size()>1) v = ((Integer.parseInt(showOptDialog(cp.convert(w), strings))));
+        else if (w.size() == 0) v = null;
+        else v = w.get(0);
+
+        return v;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hola bebes
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame1 = new Frame();
         panel1 = new JPanel();
         JPanel panel2 = new JPanel();
@@ -81,9 +99,7 @@ public class VistaDadesSETnom {
         textField3 = new JTextField();
         JLabel label3 = new JLabel();
         JPanel panel7 = new JPanel();
-        JLabel label4 = new JLabel();
         JLabel label5 = new JLabel();
-        textField1 = new JTextField();
         textField2 = new JTextField();
 
         //======== frame1 ========
@@ -121,7 +137,8 @@ public class VistaDadesSETnom {
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addComponent(enrereButton)
                                 .addGap(5, 5, 5)
-                                .addComponent(vSpacer1, GroupLayout.PREFERRED_SIZE, 343, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(vSpacer1, GroupLayout.PREFERRED_SIZE, 241, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                     );
                 }
 
@@ -182,12 +199,14 @@ public class VistaDadesSETnom {
                     panel5.setLayout(panel5Layout);
                     panel5Layout.setHorizontalGroup(
                         panel5Layout.createParallelGroup()
-                            .addComponent(MODIFICARButton, GroupLayout.PREFERRED_SIZE, 327, GroupLayout.PREFERRED_SIZE)
+                            .addGroup(GroupLayout.Alignment.TRAILING, panel5Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(MODIFICARButton, GroupLayout.PREFERRED_SIZE, 327, GroupLayout.PREFERRED_SIZE))
                     );
                     panel5Layout.setVerticalGroup(
                         panel5Layout.createParallelGroup()
-                            .addGroup(panel5Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                            .addGroup(GroupLayout.Alignment.TRAILING, panel5Layout.createSequentialGroup()
+                                .addGap(0, 18, Short.MAX_VALUE)
                                 .addComponent(MODIFICARButton))
                     );
                 }
@@ -196,58 +215,55 @@ public class VistaDadesSETnom {
                 {
 
                     //---- label3 ----
-                    label3.setText("ID de l'entitat");
+                    label3.setText("Nom de l'entitat:");
 
                     GroupLayout panel6Layout = new GroupLayout(panel6);
                     panel6.setLayout(panel6Layout);
                     panel6Layout.setHorizontalGroup(
                         panel6Layout.createParallelGroup()
-                            .addComponent(label3)
-                            .addComponent(textField3, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(label3)
+                                .addGap(219, 219, 219))
+                            .addComponent(textField3, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)
                     );
                     panel6Layout.setVerticalGroup(
                         panel6Layout.createParallelGroup()
                             .addGroup(panel6Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addContainerGap()
                                 .addComponent(label3)
-                                .addGap(23, 23, 23)
-                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(textField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                     );
                 }
 
                 //======== panel7 ========
                 {
 
-                    //---- label4 ----
-                    label4.setText("Antic nom");
-
                     //---- label5 ----
-                    label5.setText("Nou nom");
+                    label5.setText("Nou nom:");
 
                     GroupLayout panel7Layout = new GroupLayout(panel7);
                     panel7.setLayout(panel7Layout);
                     panel7Layout.setHorizontalGroup(
                         panel7Layout.createParallelGroup()
                             .addGroup(panel7Layout.createSequentialGroup()
-                                .addComponent(label4)
-                                .addGap(106, 106, 106)
-                                .addComponent(label5))
+                                .addContainerGap()
+                                .addComponent(label5)
+                                .addContainerGap(270, Short.MAX_VALUE))
                             .addGroup(panel7Layout.createSequentialGroup()
-                                .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textField2, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                                .addContainerGap())
                     );
                     panel7Layout.setVerticalGroup(
                         panel7Layout.createParallelGroup()
                             .addGroup(panel7Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(panel7Layout.createParallelGroup()
-                                    .addComponent(label4)
-                                    .addComponent(label5))
-                                .addGap(20, 20, 20)
-                                .addGroup(panel7Layout.createParallelGroup()
-                                    .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap()
+                                .addComponent(label5)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                     );
                 }
 
@@ -261,9 +277,9 @@ public class VistaDadesSETnom {
                             .addGroup(panel1Layout.createParallelGroup()
                                 .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                            .addGap(10, 10, 10)
+                                .addComponent(panel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 );
                 panel1Layout.setVerticalGroup(
@@ -288,11 +304,15 @@ public class VistaDadesSETnom {
             frame1.setLayout(frame1Layout);
             frame1Layout.setHorizontalGroup(
                 frame1Layout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(frame1Layout.createSequentialGroup()
+                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
             );
             frame1Layout.setVerticalGroup(
                 frame1Layout.createParallelGroup()
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGroup(frame1Layout.createSequentialGroup()
+                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, 309, GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE))
             );
             frame1.pack();
             frame1.setLocationRelativeTo(frame1.getOwner());
@@ -301,14 +321,13 @@ public class VistaDadesSETnom {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hola bebes
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private Frame frame1;
     private JPanel panel1;
     private JButton enrereButton;
     private JComboBox<String> comboBox1;
     private JButton MODIFICARButton;
     private JTextField textField3;
-    private JTextField textField1;
     private JTextField textField2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

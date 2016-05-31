@@ -26,7 +26,7 @@ public class VistaDadesAFEGIR {
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDADES vd = new VistaDADES();
+                VistaDADES vd = new VistaDADES(cp);
             }
         });
         AFEGIRButton.addActionListener(new ActionListener() {

@@ -32,7 +32,7 @@ public class principal extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         sortir = new JButton();
         usuari = new JButton();
@@ -96,7 +96,11 @@ public class principal extends javax.swing.JFrame {
 
     private void sortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortirActionPerformed
         setVisible(false);
-        ctr_pres.inici();
+        try {
+            ctr_pres.inici();
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
     }//GEN-LAST:event_sortirActionPerformed
 
     private void usuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariActionPerformed
@@ -106,7 +110,7 @@ public class principal extends javax.swing.JFrame {
 
     private void grafActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grafActionPerformed
         setVisible(false);
-      //  ctr_pres.relacions_directes();
+        ctr_pres.VistaDADES();
     }//GEN-LAST:event_grafActionPerformed
 
     private void cerquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerquesActionPerformed
@@ -149,7 +153,7 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JButton sortir;
     private JButton usuari;
     private JButton graf;

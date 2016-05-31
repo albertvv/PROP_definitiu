@@ -59,6 +59,7 @@ public class ControladorCerques {
             sv2.set(IndextoID(it.index(),Entitatequivalent(path.charAt(path.length()-1))),rel);
         }
         ResImportant r = new ResImportant(qi,sv2);
+        qi.setIndexToID(IndextoID(qi.getentitat(),Entitatequivalent(path.charAt(0))));
         lr.addRelImp(r);
         return sv2;
     }
@@ -152,7 +153,7 @@ public class ControladorCerques {
         Vector<ResImportant> v = lr.getRelImp();
         for (int i = 0; i < v.size() ; i++) {
             ResImportant r = v.get(i);
-            vs.add(new Pair<>(r.getQuery().getID()+"$"+r.getQuery().getPath(),r.Resultat())); // id entitat + path
+            vs.add(new Pair<>(r.getQuery().getentitat()+"$"+r.getQuery().getPath(),r.Resultat())); // id entitat + path
         }
         return vs;
     }

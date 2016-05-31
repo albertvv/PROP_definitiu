@@ -13,7 +13,7 @@ public class QueryRelimportant extends Query {
         super(path,cm);
         this.vs = entitat1;
     }
-    public Integer getID(){
+    public Integer getentitat(){
         return vs.get(0);
     }
     public SparseVector Cerca(){  //vector ordenat de id de Entitats
@@ -21,4 +21,7 @@ public class QueryRelimportant extends Query {
         return (SparseVector) cm.getMatrix(path).getRow(vs.get(0));
     }
 
+    public void setIndexToID(Integer id) {
+        vs.set(0,id);
+    }
 }

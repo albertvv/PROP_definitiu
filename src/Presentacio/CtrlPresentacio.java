@@ -111,22 +111,24 @@ public class CtrlPresentacio {
         }
         return v.toArray(new String[v.size()]);
     }
-    public String[] MostraRelImp(SparseVector sv,String tipus) throws Exception {
+    public String[] MostraRelImp(SparseVector sv,String tipus, Integer idcerca) throws Exception {
         SortedMap<Double,Vector<Integer>> map = new TreeMap(java.util.Collections.reverseOrder());
         VectorIterator it = sv.nonZeroIterator();
         while(it.hasNext()) {
             Double rel = it.next();
             Integer id = it.index();
             Vector<Integer> ids;
-            if(map.containsKey(rel)) {
-                ids = map.get(rel);
-                ids.add(id);
-                map.put(rel,ids);
-            }
-            else {
-                ids = new Vector<>();
-                ids.add(id);
-                map.put(rel,ids);
+            if (! id.equals(idcerca)) {
+                System.out.println(id + " " + idcerca);
+                if (map.containsKey(rel)) {
+                    ids = map.get(rel);
+                    ids.add(id);
+                    map.put(rel, ids);
+                } else {
+                    ids = new Vector<>();
+                    ids.add(id);
+                    map.put(rel, ids);
+                }
             }
         }
         Vector<String> v = new Vector<>();

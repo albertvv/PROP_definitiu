@@ -68,10 +68,11 @@ public class VistaAnteriorsImp {
             frame.setFocusable(false);
             int i = 0;
             while(Character.isDigit(conjresimps.get(ultres.getLeadSelectionIndex()/3).getKey().charAt(i))) {++i;}
+            Integer id = Integer.parseInt(conjresimps.get(ultres.getLeadSelectionIndex()/3).getKey().substring(0,i));
             ++i;
             Character t = conjresimps.get(ultres.getLeadSelectionIndex()).getKey().charAt(i);
             res.setListData(cp.MostraRelImp(conjresimps.get(ultres.getLeadSelectionIndex()/3).getValue(),
-                    cp.TipusEquilvalent(t)));
+                    cp.TipusEquilvalent(t),id));
         }
     }
 

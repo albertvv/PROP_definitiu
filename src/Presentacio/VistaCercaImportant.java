@@ -58,14 +58,12 @@ public class VistaCercaImportant {
             public void run() {
                 enrere.setEnabled(false);
                 cerca.setEnabled(false);
-                System.out.println("començo a calcular");
                 SparseVector sv = null;
                 try {
                     sv = cp.RelImportant(path, id);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                System.out.println("acabo de calcular");
                 frame2.setVisible(false);
                 frame2.setEnabled(false);
                 resultat.setVisible(true);
@@ -73,7 +71,7 @@ public class VistaCercaImportant {
                 resultat.setLocationRelativeTo(frame);
                 panel1.setFocusable(false);
                 try {
-                    llistares.setListData(cp.MostraRelImp(sv,cp.TipusEquilvalent(path.charAt(0))));
+                    llistares.setListData(cp.MostraRelImp(sv,cp.TipusEquilvalent(path.charAt(0)),id));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

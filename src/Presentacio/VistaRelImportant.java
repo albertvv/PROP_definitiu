@@ -17,7 +17,6 @@ public class VistaRelImportant {
     private VistaCerques vcerques;
     private VistaCercaImportant vcercimp;
     private VistaAnteriorsImp vantimp;
-    private VistaClustering vclustering;
 
     public VistaRelImportant(CtrlPresentacio ctrl) {
         initComponents();

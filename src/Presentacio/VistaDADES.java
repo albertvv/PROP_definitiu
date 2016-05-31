@@ -11,18 +11,19 @@ public class VistaDADES {
 
     private CtrlPresentacio cp;
 
+    private VistaDadesSET vs;
+
+    private VistaDADESafRel var;
+    private VistaDADESesRel ver;
+
+    private VistaDadesAFEGIR va;
+    private VistaDadesESBORRAR ve;
+
     public VistaDADES(CtrlPresentacio cp) {
         //ENRERE
         this.cp = cp;
         initComponents();
         frame1.setVisible(true);
-        enrereButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame1.setVisible(false);
-                cp.principal();
-            }
-        });
         //IMPORTAR GRAF
         carregarColLeccióDeButton.addActionListener(new ActionListener() {
             @Override
@@ -32,39 +33,44 @@ public class VistaDADES {
         });
         //GESTIÓ ENTITATS
         afegirUnaEntitatButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("obro afegir");
                 frame1.setVisible(false);
-                VistaDadesAFEGIR vd = new VistaDadesAFEGIR();
+                if (va == null) va = new VistaDadesAFEGIR(cp);
+                va.ferVisible();
             }
         });
         modificarUnaEntitatButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("obro setter");
                 frame1.setVisible(false);
-                VistaDadesSET vd = new VistaDadesSET(cp);
+                if (vs == null) vs = new VistaDadesSET(cp);
+                vs.ferVisible();
             }
         });
         esborrarUnaEntitatButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("obro deleter");
                 frame1.setVisible(false);
-                VistaDadesESBORRAR vd = new VistaDadesESBORRAR();
+                if (ve == null) ve = new VistaDadesESBORRAR(cp);
+                ve.ferVisible();
             }
         });
         //GESTIÓ RELACIONS
         afegirUnaRelacióDirectaButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("obro afegir");
                 frame1.setVisible(false);
-                VistaDADESafRel vd = new VistaDADESafRel();
+                if (var == null) var = new VistaDADESafRel(cp);
+                var.ferVisible();
             }
         });
         esborrarUnaRelacióDirectaButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("obro deteler relacio");
                 frame1.setVisible(false);
-                VistaDADESesRel vd = new VistaDADESesRel();
+                if (ver == null) ver = new VistaDADESesRel(cp);
+                ver.ferVisible();
             }
         });
         //SORTIDA
@@ -72,8 +78,8 @@ public class VistaDADES {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //desar canvis
+                cp.principal();
                 frame1.setVisible(false);
-                //****************RETROCEDIR************************************
             }
         });
     }
@@ -82,17 +88,9 @@ public class VistaDADES {
         frame1.setVisible(true);
     }
 
-/*    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDADES vd = new VistaDADES();
-                        vd.ferVisible();
-                    }});
-    }*/
-
     private void enrereButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        cp.principal();
+        frame1.setVisible(false);
     }
 
     private void afegirUnaEntitatButtonActionPerformed(ActionEvent e) {

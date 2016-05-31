@@ -18,8 +18,8 @@ public class VistaDadesESBORRAR {
     private String nom;
     private Integer id;
 
-    public VistaDadesESBORRAR(/*CtrlPresentacio ctrlPresentacio*/) {
-        //this.cp = ctrlPresentacio;
+    public VistaDadesESBORRAR(CtrlPresentacio cp) {
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
@@ -30,12 +30,8 @@ public class VistaDadesESBORRAR {
         });
     }
 
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDadesESBORRAR vde = new VistaDadesESBORRAR();
-                    }});
+    public void ferVisible() {
+        frame1.setVisible(true);
     }
 
     private void ESBORRARButtonActionPerformed(ActionEvent e) {

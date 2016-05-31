@@ -17,7 +17,7 @@ public class VistaDadesSET {
         frame1.setVisible(true);
     }
 
-    private void ferVisible() {
+    public void ferVisible() {
         frame1.setVisible(true);
     }
 
@@ -28,17 +28,17 @@ public class VistaDadesSET {
 
     private void button2ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        cp.VistaDadesSETid();
+        VistaDadesSETid vdi = new VistaDadesSETid(cp);
     }
 
     private void button3ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        cp.VistaDadesSETnom();
+        VistaDadesSETnom vdn = new VistaDadesSETnom(cp);
     }
 
     private void button4ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        cp.VistaDadesSETtag();
+        VistaDadesSETtag vdt = new VistaDadesSETtag(cp);
     }
 
     private void initComponents() {

@@ -17,7 +17,10 @@ public class VistaDadesAFEGIR {
     private String tag = null;
     private String tipus;
 
-    public VistaDadesAFEGIR(/*CtrlPresentacio ctrlPresentacio*/) {
+    private VistaDADES vd;
+
+    public VistaDadesAFEGIR(CtrlPresentacio cp) {
+        this.cp = cp;
         System.out.println
                 ("isEventDispatchThread: " + SwingUtilities.isEventDispatchThread());
         //this.cp = ctrlPresentacio;
@@ -26,7 +29,8 @@ public class VistaDadesAFEGIR {
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDADES vd = new VistaDADES(cp);
+                if (vd == null) vd = new VistaDADES(cp);
+                vd.ferVisible();
             }
         });
         AFEGIRButton.addActionListener(new ActionListener() {
@@ -37,41 +41,51 @@ public class VistaDadesAFEGIR {
                         switch (comboBox1.getSelectedItem().toString()) {
                             case "Article":
                                 tipus = "Articulo";
+                                break;
                             case "Autor":
                                 tipus = "Autor";
+                                break;
                             case "Congrés":
                                 tipus = "Conferencia";
+                                break;
                             case "Terme":
                                 tipus = "Termino";
+                                break;
                         }
                         if (!textField2.getText().equals(""))
                             id = Integer.parseInt(textField2.getText());
+                        else id = null;
                         if (!comboBox1.getSelectedItem().toString().equals("Terme") && !textField3.getText().equals(""))
                             tag = textField3.getText();
+                        else tag = null;
                         cp.afegir_element(nom, id, tag, tipus);
+                        JOptionPane.showMessageDialog(frame1,
+                                "S'ha afegit una nova entitat '"+tipus+"' amb nom: "+nom,"",JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(frame1,
                                 "S'ha d'introduïr el nom de l'entitat","Error",JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (Exception exc) {
-                    JOptionPane.showMessageDialog(frame1,
-                            "ERROR","Error",JOptionPane.ERROR_MESSAGE);
+                    if (exc.getMessage().equals("ja existeix"))
+                        JOptionPane.showMessageDialog(frame1,
+                                "Ja existeix una entitat '"+tipus+"' amb la ID "+id,"Error",JOptionPane.ERROR_MESSAGE);
+                    else if (exc.getMessage().equals("id negativa"))
+                        JOptionPane.showMessageDialog(frame1,
+                                "Les ID's no poden ser negatives!","Error",JOptionPane.ERROR_MESSAGE);
+                    else
+                        JOptionPane.showMessageDialog(frame1,
+                                "ERROR"+exc.getClass(),"Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
     }
 
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDadesAFEGIR vda = new VistaDadesAFEGIR();
-                        vda.ferVisible();
-                    }});
+    public void ferVisible() {
+        frame1.setVisible(true);
     }
 
-    private void ferVisible() {
-        frame1.setVisible(true);
+    private void AFEGIRButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
     }
 
     private void initComponents() {
@@ -257,7 +271,7 @@ public class VistaDadesAFEGIR {
 
                     //---- AFEGIRButton ----
                     AFEGIRButton.setText("AFEGIR");
-                    //AFEGIRButton.addActionListener(e -> AFEGIRButtonActionPerformed(e));
+                    AFEGIRButton.addActionListener(e -> AFEGIRButtonActionPerformed(e));
 
                     GroupLayout panel8Layout = new GroupLayout(panel8);
                     panel8.setLayout(panel8Layout);

@@ -21,7 +21,8 @@ public class VistaDADESesRel {
     private Integer id1;
     private Integer id2;
 
-    public VistaDADESesRel() {
+    public VistaDADESesRel(CtrlPresentacio cp) {
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
@@ -32,12 +33,8 @@ public class VistaDADESesRel {
         });
     }
 
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDADESesRel vder = new VistaDADESesRel();
-                    }});
+    public void ferVisible() {
+        frame1.setVisible(true);
     }
 
     private void ESBORRARRELACIÓButtonActionPerformed(ActionEvent e) {

@@ -42,7 +42,7 @@ new FormModel {
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq {space :p:33:p, par c {comp label2::c:p::p, comp scrollPane2::c:p:333:p, comp button1::c:p::p}, space ::28:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label2:::p::p, space s:::p, comp scrollPane2:::p:187:p, space :::p, comp button1:::p::p, space ::12:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label2:::p::p, space s:::p, comp scrollPane2:::p:187:p, space :::p, comp button1:::p::p, space :::x}}"
 		} ) {
 			name: "resdet"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -62,6 +62,15 @@ new FormModel {
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 455, 0 )
 			"size": new java.awt.Dimension( 410, 310 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {space :0:404:x}"
+			"$verticalGroup": "par l {space :0:261:x}"
+		} ) {
+			name: "dialog1"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 320 )
+			"size": new java.awt.Dimension( 420, 300 )
 		} )
 	}
 }

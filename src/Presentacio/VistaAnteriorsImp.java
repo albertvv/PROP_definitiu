@@ -91,6 +91,7 @@ public class VistaAnteriorsImp {
         scrollPane2 = new JScrollPane();
         res = new JList();
         button1 = new JButton();
+        dialog1 = new JDialog();
 
         //======== frame ========
         {
@@ -197,10 +198,28 @@ public class VistaAnteriorsImp {
                         .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button1)
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             resdet.pack();
             resdet.setLocationRelativeTo(resdet.getOwner());
+        }
+
+        //======== dialog1 ========
+        {
+            Container dialog1ContentPane = dialog1.getContentPane();
+
+            GroupLayout dialog1ContentPaneLayout = new GroupLayout(dialog1ContentPane);
+            dialog1ContentPane.setLayout(dialog1ContentPaneLayout);
+            dialog1ContentPaneLayout.setHorizontalGroup(
+                dialog1ContentPaneLayout.createParallelGroup()
+                    .addGap(0, 404, Short.MAX_VALUE)
+            );
+            dialog1ContentPaneLayout.setVerticalGroup(
+                dialog1ContentPaneLayout.createParallelGroup()
+                    .addGap(0, 261, Short.MAX_VALUE)
+            );
+            dialog1.pack();
+            dialog1.setLocationRelativeTo(dialog1.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -220,5 +239,6 @@ public class VistaAnteriorsImp {
     private JScrollPane scrollPane2;
     private JList res;
     private JButton button1;
+    private JDialog dialog1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

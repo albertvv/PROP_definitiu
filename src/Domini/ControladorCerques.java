@@ -37,10 +37,6 @@ public class ControladorCerques {
         return qr.Cerca();
     }
 
-    public Integer maxid() {
-        return cg.getGrafo().getLastID()+1;
-    }
-
     private Integer IDtoindex(Integer id,String tipus) {
         System.out.println("el index de :"+id+" es :"+cg.getGrafo().getIndiceid(id,tipus));
         return cg.getGrafo().getIndiceid(id,tipus);

@@ -46,7 +46,7 @@ public class CtrlPresentacio {
         return cc.getIDs(nom, tipus);
     }
     public Integer maxid() {
-        return cc.maxid();
+        return cg.getGrafo().getLastID()+1;
     }
     public Double CercaRellevancia(String path, Vector<Integer> vs) throws Exception {
         return cc.CercaRellevancia(path,vs);

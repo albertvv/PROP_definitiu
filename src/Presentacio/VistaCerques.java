@@ -17,6 +17,7 @@ public class VistaCerques  {
     private VistaClustering vclustering;
     private VistaRellevancia vrellevancia;
     private VistaRelImportant vrelimp;
+    private VistaRelDir vreldir;
     public VistaCerques(CtrlPresentacio ctrlPresentacio) {
         initComponents();
         System.out.println
@@ -38,10 +39,18 @@ public class VistaCerques  {
             }
         });
         impbutton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                actionPerformed_buttonObrirImp(e);
-            }
+            public void actionPerformed(ActionEvent e) { actionPerformed_buttonObrirImp(e); }
         });
+        reldirectbutton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) { actionPerformed_buttonObrirDir(e); }
+        });
+    }
+
+    public void actionPerformed_buttonObrirDir(ActionEvent e) {
+        System.out.println("obro reldir");
+        desactivar();
+        if(vreldir==null)vreldir = new VistaRelDir(cp);
+        vreldir.ferVisible();
     }
 
     public void actionPerformed_buttonObrirImp (ActionEvent e) {

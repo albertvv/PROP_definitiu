@@ -21,7 +21,8 @@ public class VistaDADESafRel {
     private String tipus1;
     private String tipus2;
 
-    public VistaDADESafRel(/*CtrlPresentacio ctrlPresentacio*/) {
+    public VistaDADESafRel(CtrlPresentacio cp) {
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
@@ -45,6 +46,10 @@ public class VistaDADESafRel {
                 }
             }
         });
+    }
+
+    public void ferVisible() {
+        frame1.setVisible(true);
     }
 
     private void afegir() throws Exception {
@@ -92,14 +97,6 @@ public class VistaDADESafRel {
         else v = w.get(0);
 
         return v;
-    }
-
-    public static void main (String[] args) {
-        javax.swing.SwingUtilities.invokeLater (
-                new Runnable() {
-                    public void run() {
-                        VistaDADESafRel vdar = new VistaDADESafRel();
-                    }});
     }
 
     private void AFEGIRRELACIÓButtonActionPerformed(ActionEvent e) {

@@ -164,6 +164,7 @@ public class Grafo {
                 }
                 break;
         }
+        System.out.println("size del vector: " + v.size());
         return v;
     }
     public Integer getIndiceid (Integer id,String tipus) {

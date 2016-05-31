@@ -231,4 +231,16 @@ public class ControladorGrafo {
     public void esborrar_relacio_graf(Integer primer, Integer segon, String tipus) {
         g.deleteRelacion(primer, segon, tipus);
     }
+
+    public boolean setID(String nom, String tipus, Integer newID) {
+        return g.setID(nom,tipus,newID);
+    }
+
+    public boolean setNom(String oldNom, String tipus, String newNom) {
+        return g.setNom(oldNom,tipus,newNom);
+    }
+
+    public boolean setTag(String nom, String tipus, String newTag) {
+        return g.setTag(nom,tipus,newTag);
+    }
 }

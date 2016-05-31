@@ -19,6 +19,7 @@ import java.util.*;
  */
 public class CtrlPresentacio {
     private VistaCerques vcerques ;
+    private VistaDADES vdades;
     private ControladorCerques cc;
     private ControladorGrafo cg;
 //////////////////Constructor i metodes ini
@@ -144,6 +145,15 @@ public class CtrlPresentacio {
         }
         return v.toArray(new String[v.size()]);
     }
+
+    //MULTIUSUARI A DADES
+    public void VistaDADES() {
+        principal.setVisible(false);
+        if(vdades==null) vdades = new VistaDADES(this);
+        vdades.ferVisible();
+        principal.setVisible(false);
+    }
+
     //MULTIUSUARI A CERQUES
 
     public void vistacerques() {

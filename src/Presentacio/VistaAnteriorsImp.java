@@ -80,8 +80,23 @@ public class VistaAnteriorsImp {
             JOptionPane.showMessageDialog(frame, "Per a filtrar has de seleccionar un resultat", "Error Filtrat", JOptionPane.ERROR_MESSAGE);
         }
         else {
-
+            parfil.setVisible(true);
+            parfil.pack();
+            parfil.setLocationRelativeTo(frame);
+            frame.setFocusable(false);
+            String etiqs[] = {null,"Database","Data Mining","AI","Information Retrieval"};
+            for (int i = 0; i < etiqs.length; i++) {
+                etiquetes.addItem(etiqs[i]);
+            }
+            etiquetes.setSelectedIndex(0);
         }
+    }
+
+    private void acceptarActionPerformed(ActionEvent e) {
+        String etiq = (String)etiquetes.getSelectedItem();
+        Double thres = Double.parseDouble(threshold.getText());
+        Integer nr = Integer.parseInt(nres.getText());
+
     }
 
     private void initComponents() {
@@ -105,6 +120,15 @@ public class VistaAnteriorsImp {
         scrollPane3 = new JScrollPane();
         list1 = new JList();
         button2 = new JButton();
+        parfil = new JDialog();
+        label4 = new JLabel();
+        threshold = new JTextField();
+        label5 = new JLabel();
+        label6 = new JLabel();
+        nres = new JTextField();
+        acceptar = new JButton();
+        etiquetes = new JComboBox();
+        label7 = new JLabel();
 
         //======== frame ========
         {
@@ -254,10 +278,85 @@ public class VistaAnteriorsImp {
                         .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(button2)
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
             dialog1.pack();
             dialog1.setLocationRelativeTo(dialog1.getOwner());
+        }
+
+        //======== parfil ========
+        {
+            Container parfilContentPane = parfil.getContentPane();
+
+            //---- label4 ----
+            label4.setText("Par\u00e0metres de Filtrat");
+
+            //---- label5 ----
+            label5.setText("Threshold:");
+
+            //---- label6 ----
+            label6.setText("Nombre de resultats:");
+
+            //---- acceptar ----
+            acceptar.setText("Acceptar");
+            acceptar.addActionListener(e -> acceptarActionPerformed(e));
+
+            //---- label7 ----
+            label7.setText("Etiqueta:");
+
+            GroupLayout parfilContentPaneLayout = new GroupLayout(parfilContentPane);
+            parfilContentPane.setLayout(parfilContentPaneLayout);
+            parfilContentPaneLayout.setHorizontalGroup(
+                parfilContentPaneLayout.createParallelGroup()
+                    .addGroup(GroupLayout.Alignment.TRAILING, parfilContentPaneLayout.createSequentialGroup()
+                        .addContainerGap(140, Short.MAX_VALUE)
+                        .addGroup(parfilContentPaneLayout.createParallelGroup()
+                            .addGroup(GroupLayout.Alignment.TRAILING, parfilContentPaneLayout.createSequentialGroup()
+                                .addComponent(label4)
+                                .addGap(134, 134, 134))
+                            .addGroup(GroupLayout.Alignment.TRAILING, parfilContentPaneLayout.createSequentialGroup()
+                                .addComponent(acceptar)
+                                .addGap(146, 146, 146))))
+                    .addGroup(parfilContentPaneLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(parfilContentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(GroupLayout.Alignment.LEADING, parfilContentPaneLayout.createSequentialGroup()
+                                .addComponent(label7)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(etiquetes, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(parfilContentPaneLayout.createSequentialGroup()
+                                .addGroup(parfilContentPaneLayout.createParallelGroup()
+                                    .addComponent(label5)
+                                    .addComponent(label6))
+                                .addGap(18, 18, 18)
+                                .addGroup(parfilContentPaneLayout.createParallelGroup()
+                                    .addComponent(nres, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(threshold, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(31, Short.MAX_VALUE))
+            );
+            parfilContentPaneLayout.setVerticalGroup(
+                parfilContentPaneLayout.createParallelGroup()
+                    .addGroup(parfilContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label4)
+                        .addGap(34, 34, 34)
+                        .addGroup(parfilContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(label7)
+                            .addComponent(etiquetes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(parfilContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(label5)
+                            .addComponent(threshold, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(parfilContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(label6)
+                            .addComponent(nres, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(acceptar)
+                        .addGap(16, 16, 16))
+            );
+            parfil.pack();
+            parfil.setLocationRelativeTo(parfil.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -282,5 +381,14 @@ public class VistaAnteriorsImp {
     private JScrollPane scrollPane3;
     private JList list1;
     private JButton button2;
+    private JDialog parfil;
+    private JLabel label4;
+    private JTextField threshold;
+    private JLabel label5;
+    private JLabel label6;
+    private JTextField nres;
+    private JButton acceptar;
+    private JComboBox etiquetes;
+    private JLabel label7;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

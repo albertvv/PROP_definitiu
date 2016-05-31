@@ -21,7 +21,7 @@ public class VistaAnteriorsImp {
     private VistaRelImportant vrelimp;
     private Vector<Pair<String, SparseVector>> conjresimps;
 
-    public VistaAnteriorsImp(CtrlPresentacio ctrl) {
+    public VistaAnteriorsImp(CtrlPresentacio ctrl) throws Exception {
         initComponents();
         this.cp = ctrl;
         conjresimps = cp.UltimsImp();
@@ -32,7 +32,7 @@ public class VistaAnteriorsImp {
         frame.setVisible(true);
     }
 
-    private void imprimeixResultats() {
+    private void imprimeixResultats() throws Exception {
         Vector<String> res = new Vector<>();
         for (int i = 0; i < conjresimps.size(); i++) {
             String id = new String();
@@ -57,7 +57,7 @@ public class VistaAnteriorsImp {
         vrelimp.ferVisible();
     }
 
-    private void infoActionPerformed(ActionEvent e) {
+    private void infoActionPerformed(ActionEvent e) throws Exception {
         if(ultres.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(frame, "Per a informació adicional has de seleccionar un resultat", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -148,7 +148,13 @@ public class VistaAnteriorsImp {
 
             //---- info ----
             info.setText("Info");
-            info.addActionListener(e -> infoActionPerformed(e));
+            info.addActionListener(e -> {
+                try {
+                    infoActionPerformed(e);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
 
             //---- button3 ----
             button3.setText("Creua Resultats");

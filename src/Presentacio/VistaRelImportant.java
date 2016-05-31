@@ -40,7 +40,7 @@ public class VistaRelImportant {
         vcercimp.ferVisible();
     }
 
-    private void ultrelimpActionPerformed(ActionEvent e) {
+    private void ultrelimpActionPerformed(ActionEvent e) throws Exception {
         frame.setVisible(false);
         vantimp = new VistaAnteriorsImp(cp);
         vantimp.ferVisible();
@@ -68,7 +68,13 @@ public class VistaRelImportant {
 
             //---- ultrelimp ----
             ultrelimp.setText("Anteriors Relacions Importants");
-            ultrelimp.addActionListener(e -> ultrelimpActionPerformed(e));
+            ultrelimp.addActionListener(e -> {
+                try {
+                    ultrelimpActionPerformed(e);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
 
             //---- cerca ----
             cerca.setText("Cerca Relaci\u00f3 Important");

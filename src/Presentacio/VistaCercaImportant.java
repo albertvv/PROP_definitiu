@@ -37,7 +37,7 @@ public class VistaCercaImportant {
         vrelimp.ferVisible();
     }
 
-    private Integer obteid(String nom) {
+    private Integer obteid(String nom) throws Exception {
         Vector<Integer> v = cp.NomToID(nom,cp.TipusEquilvalent(path.charAt(0)));
         if(v.size() == 1) {return v.get(0);}
         else {
@@ -59,7 +59,12 @@ public class VistaCercaImportant {
                 enrere.setEnabled(false);
                 cerca.setEnabled(false);
                 System.out.println("començo a calcular");
-                SparseVector sv = cp.RelImportant(path, id);
+                SparseVector sv = null;
+                try {
+                    sv = cp.RelImportant(path, id);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 System.out.println("acabo de calcular");
                 frame2.setVisible(false);
                 frame2.setEnabled(false);
@@ -67,7 +72,11 @@ public class VistaCercaImportant {
                 resultat.pack();
                 resultat.setLocationRelativeTo(frame);
                 panel1.setFocusable(false);
-                llistares.setListData(cp.MostraRelImp(sv,cp.TipusEquilvalent(path.charAt(0))));
+                try {
+                    llistares.setListData(cp.MostraRelImp(sv,cp.TipusEquilvalent(path.charAt(0))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 cerca.setEnabled(true);
                 enrere.setEnabled(true);
 

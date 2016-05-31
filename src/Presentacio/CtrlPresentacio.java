@@ -5,15 +5,14 @@ import Domini.ControladorGrafo;
 import Domini.CtrlMatrius;
 import Domini.ctr_usuari_dom;
 import javafx.util.Pair;
+import org.la4j.iterator.VectorIterator;
 import org.la4j.vector.SparseVector;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by albert.val.vila on 10/05/2016.
@@ -112,13 +111,38 @@ public class CtrlPresentacio {
         }
         return v.toArray(new String[v.size()]);
     }
-    public String[] MostraRelImp(SparseVector sv,String tipus) {
-        Vector<String> v = new Vector<>();
-        for (int i = 0; i < sv.length(); i++) {
-            System.out.println(sv.get(i));
+    public String[] MostraRelImp(SparseVector sv,String tipus) throws Exception {
+        SortedMap<Double,Vector<Integer>> map = new TreeMap(java.util.Collections.reverseOrder());
+        VectorIterator it = sv.nonZeroIterator();
+        while(it.hasNext()) {
+            Double rel = it.next();
+            Integer id = it.index();
+            Vector<Integer> ids;
+            if(map.containsKey(rel)) {
+                ids = map.get(rel);
+                ids.add(id);
+                map.put(rel,ids);
+            }
+            else {
+                ids = new Vector<>();
+                ids.add(id);
+                map.put(rel,ids);
+            }
         }
-        String s[] = {"hola", "hey", "deu", "eps"};
-        return s;
+        Vector<String> v = new Vector<>();
+        Iterator it2 = map.keySet().iterator();
+        while(it2.hasNext()) {
+            Double r = ((Double) it2.next()).doubleValue();
+            Vector<Integer> i = map.get(r);
+            for (int j = 0; j < i.size(); j++) {
+                String nom = IDToNom(i.get(j),tipus);
+                if(Double.toString(r).length() > 7) {
+                    v.add(nom + "  |  Rellevancia: " + Double.toString(r).substring(0,7));
+                }
+                else v.add(nom + "  |  Rellevancia: " + Double.toString(r));
+            }
+        }
+        return v.toArray(new String[v.size()]);
     }
     //MULTIUSUARI A CERQUES
 

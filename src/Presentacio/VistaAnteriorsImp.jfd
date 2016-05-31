@@ -127,5 +127,28 @@ new FormModel {
 			"location": new java.awt.Point( 455, 320 )
 			"size": new java.awt.Dimension( 410, 300 )
 		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:41:p, par c {comp button3::c:p::p, comp scrollPane4::c:p:344:p, comp label8::c:p::p}, space ::39:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label8:::p:25:p, space u:::p, comp scrollPane4:::p:183:p, space :::p, comp button3:::p::p, space ::13:x}}"
+		} ) {
+			name: "rescreuat"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "Resultats de Relacions Importants Creuats"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane4"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "listcreu"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "OK"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 880, 0 )
+			"size": new java.awt.Dimension( 440, 310 )
+		} )
 	}
 }

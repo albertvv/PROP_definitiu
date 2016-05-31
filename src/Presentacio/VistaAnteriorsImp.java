@@ -7,6 +7,7 @@ package Presentacio;
 import java.awt.event.*;
 import org.la4j.vector.SparseVector;
 import javafx.util.*;
+import org.la4j.vector.sparse.CompressedVector;
 
 import java.awt.*;
 import java.util.Vector;
@@ -123,8 +124,32 @@ public class VistaAnteriorsImp {
         listafiltrat.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
     }
 
-    private void creuarActionPerformed(ActionEvent e) {
-        // TODO add your code here
+    private void creuarActionPerformed(ActionEvent e) throws Exception {
+        int[] indexs = ultres.getSelectedIndices();
+        if(indexs.length!=2){
+            JOptionPane.showMessageDialog(frame, "Has de seleccionar 2 resultats per poder creuar-los","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        System.out.println(indexs.length);
+        System.out.println(indexs[0]);
+        System.out.println(indexs[1]);
+        Vector<Pair<Integer,Double>> rcreu = cp.CercaCreuada(indexs[0],indexs[1]);
+        SparseVector sv = new CompressedVector(cp.maxid());
+        for (int i = 0; i < rcreu.size(); i++) {
+            sv.set(rcreu.get(i).getKey(),rcreu.get(i).getValue());
+        }
+        String id = new String();
+        int i = 0;
+        while(Character.isDigit(conjresimps.get(indexs[0]).getKey().charAt(i))) {
+            id += conjresimps.get(i).getKey().charAt(i);
+            ++i;
+        }
+        ++i;
+        Character tip = conjresimps.get(indexs[0]).getKey().charAt(i);
+        rescreuat.setVisible(true);
+        rescreuat.pack();
+        rescreuat.setLocationRelativeTo(frame);
+        frame.setFocusable(false);
+        listcreu.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
     }
 
     private void initComponents() {
@@ -157,6 +182,11 @@ public class VistaAnteriorsImp {
         acceptar = new JButton();
         etiquetes = new JComboBox();
         label7 = new JLabel();
+        rescreuat = new JDialog();
+        label8 = new JLabel();
+        scrollPane4 = new JScrollPane();
+        listcreu = new JList();
+        button3 = new JButton();
 
         //======== frame ========
         {
@@ -186,7 +216,13 @@ public class VistaAnteriorsImp {
 
             //---- creuar ----
             creuar.setText("Creua Resultats");
-            creuar.addActionListener(e -> creuarActionPerformed(e));
+            creuar.addActionListener(e -> {
+                try {
+                    creuarActionPerformed(e);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
 
             //---- filtra ----
             filtra.setText("Filtra");
@@ -399,6 +435,48 @@ public class VistaAnteriorsImp {
             parfil.pack();
             parfil.setLocationRelativeTo(parfil.getOwner());
         }
+
+        //======== rescreuat ========
+        {
+            Container rescreuatContentPane = rescreuat.getContentPane();
+
+            //---- label8 ----
+            label8.setText("Resultats de Relacions Importants Creuats");
+
+            //======== scrollPane4 ========
+            {
+                scrollPane4.setViewportView(listcreu);
+            }
+
+            //---- button3 ----
+            button3.setText("OK");
+
+            GroupLayout rescreuatContentPaneLayout = new GroupLayout(rescreuatContentPane);
+            rescreuatContentPane.setLayout(rescreuatContentPaneLayout);
+            rescreuatContentPaneLayout.setHorizontalGroup(
+                rescreuatContentPaneLayout.createParallelGroup()
+                    .addGroup(rescreuatContentPaneLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(rescreuatContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                            .addComponent(button3)
+                            .addComponent(scrollPane4, GroupLayout.PREFERRED_SIZE, 344, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label8))
+                        .addContainerGap(39, Short.MAX_VALUE))
+            );
+            rescreuatContentPaneLayout.setVerticalGroup(
+                rescreuatContentPaneLayout.createParallelGroup()
+                    .addGroup(rescreuatContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label8, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(scrollPane4, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button3)
+                        .addContainerGap(13, Short.MAX_VALUE))
+            );
+            rescreuat.pack();
+            rescreuat.setLocationRelativeTo(rescreuat.getOwner());
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -431,5 +509,10 @@ public class VistaAnteriorsImp {
     private JButton acceptar;
     private JComboBox etiquetes;
     private JLabel label7;
+    private JDialog rescreuat;
+    private JLabel label8;
+    private JScrollPane scrollPane4;
+    private JList listcreu;
+    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

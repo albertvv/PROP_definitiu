@@ -68,7 +68,7 @@ new FormModel {
 			"$horizontalGroup": "par l {seq l {space :p:36:p, par c {comp label3::c:p::p, comp scrollPane3::c:p:333:p, comp button2::c:p::p}, space ::35:x}}"
 			"$verticalGroup": "par l {seq l {space :::p, comp label3:::p::p, space u:::p, comp scrollPane3:::p:183:p, space :::p, comp button2:::p::p, space :::x}}"
 		} ) {
-			name: "dialog1"
+			name: "filtrat"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Resultat de Relació Important Filtrat"
@@ -76,7 +76,7 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane3"
 				add( new FormComponent( "javax.swing.JList" ) {
-					name: "list1"
+					name: "listafiltrat"
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -88,7 +88,7 @@ new FormModel {
 			"size": new java.awt.Dimension( 420, 300 )
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::140:x, par l {seq t {comp label4:::p::p, space :p:134:p}, seq t {comp acceptar:::p::p, space :p:146:p}}}, seq l {space :p:38:p, par t:::p {seq l {comp label7:::p::p, space :::x, comp etiquetes:::p:223:p}, seq {par l {comp label5:::p::p, comp label6:::p::p}, space s:::p, par l {comp nres:::p:188:p, comp threshold:::p:188:p}}}, space ::31:x}}"
+			"$horizontalGroup": "par l {seq t {space ::140:x, par l {seq t {comp label4:::p::p, space :p:134:p}, seq t {comp acceptar:::p::p, space :p:146:p}}}, seq l {space :p:38:p, par t:::p {seq l {comp label7:::p::p, space :::x, comp etiquetes:::p:223:p}, seq {par l {comp label5:::p::p, comp label6:::p::p}, space s:::p, par l {comp nres:::p:188:p, comp threshold:::p:188:p}}}, space ::26:x}}"
 			"$verticalGroup": "par l {seq l {space :::p, comp label4:::p::p, space :p:34:p, par b {comp label7::b:p::p, comp etiquetes::b:p::p}, space :p:27:p, par b {comp label5::b:p::p, comp threshold::b:p::p}, space :p:27:p, par b {comp label6::b:p::p, comp nres::b:p::p}, space ::44:x, comp acceptar:::p::p, space :p:16:p}}"
 		} ) {
 			name: "parfil"
@@ -105,7 +105,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
-				"text": "Nombre de resultats:"
+				"text": "Nombre de resultats:*"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "nres"
@@ -120,7 +120,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
-				"text": "Etiqueta:"
+				"text": "Etiqueta:*"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 455, 320 )

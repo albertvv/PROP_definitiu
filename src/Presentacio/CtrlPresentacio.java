@@ -146,6 +146,11 @@ public class CtrlPresentacio {
         }
         return v.toArray(new String[v.size()]);
     }
+
+    public SparseVector FiltraRelimportant (int i,double threshold,int numres,String etiq){
+        return cc.FiltraRelimportant(i,threshold,numres,etiq);
+    }
+
     //MULTIUSUARI A CERQUES
 
     public void vistacerques() {

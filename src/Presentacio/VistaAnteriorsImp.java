@@ -20,6 +20,7 @@ public class VistaAnteriorsImp {
     private CtrlPresentacio cp;
     private VistaRelImportant vrelimp;
     private Vector<Pair<String, SparseVector>> conjresimps;
+    private Integer index;
 
     public VistaAnteriorsImp(CtrlPresentacio ctrl) throws Exception {
         initComponents();
@@ -44,9 +45,7 @@ public class VistaAnteriorsImp {
             ++j;
             String relacio = cp.get_nom_relacio(conjresimps.get(i).getKey().substring(j));
             String nom = cp.IDToNom(Integer.parseInt(id), cp.TipusEquilvalent(conjresimps.get(i).getKey().charAt(j)));
-            res.add("Nom de la entitat cercada: " + nom);
-            res.add("Tipus de relació per a la cerca: " + relacio);
-            res.add("");
+            res.add("Nom de l'entitat cercada: " + nom + "  |  Tipus de relació per la cerca: " + relacio);
         }
         ultres.setListData(res.toArray(new String[res.size()]));
     }
@@ -62,16 +61,17 @@ public class VistaAnteriorsImp {
             JOptionPane.showMessageDialog(frame, "Per a informació adicional has de seleccionar un resultat", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else {
+            index = ultres.getSelectedIndex();
             resdet.setVisible(true);
             resdet.pack();
             resdet.setLocationRelativeTo(frame);
             frame.setFocusable(false);
             int i = 0;
-            while(Character.isDigit(conjresimps.get(ultres.getLeadSelectionIndex()/3).getKey().charAt(i))) {++i;}
-            Integer id = Integer.parseInt(conjresimps.get(ultres.getLeadSelectionIndex()/3).getKey().substring(0,i));
+            while(Character.isDigit(conjresimps.get(index).getKey().charAt(i))) {++i;}
+            Integer id = Integer.parseInt(conjresimps.get(index).getKey().substring(0,i));
             ++i;
-            Character t = conjresimps.get(ultres.getLeadSelectionIndex()).getKey().charAt(i);
-            res.setListData(cp.MostraRelImp(conjresimps.get(ultres.getLeadSelectionIndex()/3).getValue(),
+            Character t = conjresimps.get(index).getKey().charAt(i);
+            res.setListData(cp.MostraRelImp(conjresimps.get(index).getValue(),
                     cp.TipusEquilvalent(t),id));
         }
     }
@@ -81,11 +81,12 @@ public class VistaAnteriorsImp {
             JOptionPane.showMessageDialog(frame, "Per a filtrar has de seleccionar un resultat", "Error Filtrat", JOptionPane.ERROR_MESSAGE);
         }
         else {
+            index = ultres.getSelectedIndex();
             parfil.setVisible(true);
             parfil.pack();
             parfil.setLocationRelativeTo(frame);
             frame.setFocusable(false);
-            String etiqs[] = {null,"Database","Data Mining","AI","Information Retrieval"};
+            String etiqs[] = {"Database","Data Mining","AI","Information Retrieval"};
             for (int i = 0; i < etiqs.length; i++) {
                 etiquetes.addItem(etiqs[i]);
             }
@@ -93,11 +94,33 @@ public class VistaAnteriorsImp {
         }
     }
 
-    private void acceptarActionPerformed(ActionEvent e) {
+    private void acceptarActionPerformed(ActionEvent e) throws Exception {
         String etiq = (String)etiquetes.getSelectedItem();
-        Double thres = Double.parseDouble(threshold.getText());
-        Integer nr = Integer.parseInt(nres.getText());
-
+        Double thres = 0.0;
+        Integer nr = 0;
+        String t = threshold.getText();
+        if(!(nres.getText().length()==0)) {
+            nr = Integer.parseInt(nres.getText());
+        }
+        else JOptionPane.showMessageDialog(frame, "Has d'inserir el nombre mínim de resultats que vols obtenir","Error", JOptionPane.ERROR_MESSAGE);
+        if(!(threshold.getText().length() == 0)) {
+            System.out.println("entrothres");
+            thres = Double.parseDouble(threshold.getText());
+        }
+        SparseVector sv = cp.FiltraRelimportant(index, 0.0, nr, etiq);
+        String id = new String();
+        int i = 0;
+        while(Character.isDigit(conjresimps.get(index).getKey().charAt(i))) {
+            id += conjresimps.get(i).getKey().charAt(i);
+            ++i;
+        }
+        ++i;
+        Character tip = conjresimps.get(index).getKey().charAt(i);
+        filtrat.setVisible(true);
+        filtrat.pack();
+        filtrat.setLocationRelativeTo(frame);
+        frame.setFocusable(false);
+        listafiltrat.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
     }
 
     private void initComponents() {
@@ -116,10 +139,10 @@ public class VistaAnteriorsImp {
         scrollPane2 = new JScrollPane();
         res = new JList();
         button1 = new JButton();
-        dialog1 = new JDialog();
+        filtrat = new JDialog();
         label3 = new JLabel();
         scrollPane3 = new JScrollPane();
-        list1 = new JList();
+        listafiltrat = new JList();
         button2 = new JButton();
         parfil = new JDialog();
         label4 = new JLabel();
@@ -249,36 +272,36 @@ public class VistaAnteriorsImp {
             resdet.setLocationRelativeTo(resdet.getOwner());
         }
 
-        //======== dialog1 ========
+        //======== filtrat ========
         {
-            Container dialog1ContentPane = dialog1.getContentPane();
+            Container filtratContentPane = filtrat.getContentPane();
 
             //---- label3 ----
             label3.setText("Resultat de Relaci\u00f3 Important Filtrat");
 
             //======== scrollPane3 ========
             {
-                scrollPane3.setViewportView(list1);
+                scrollPane3.setViewportView(listafiltrat);
             }
 
             //---- button2 ----
             button2.setText("OK");
 
-            GroupLayout dialog1ContentPaneLayout = new GroupLayout(dialog1ContentPane);
-            dialog1ContentPane.setLayout(dialog1ContentPaneLayout);
-            dialog1ContentPaneLayout.setHorizontalGroup(
-                dialog1ContentPaneLayout.createParallelGroup()
-                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+            GroupLayout filtratContentPaneLayout = new GroupLayout(filtratContentPane);
+            filtratContentPane.setLayout(filtratContentPaneLayout);
+            filtratContentPaneLayout.setHorizontalGroup(
+                filtratContentPaneLayout.createParallelGroup()
+                    .addGroup(filtratContentPaneLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addGroup(dialog1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                        .addGroup(filtratContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
                             .addComponent(label3)
                             .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)
                             .addComponent(button2))
                         .addContainerGap(35, Short.MAX_VALUE))
             );
-            dialog1ContentPaneLayout.setVerticalGroup(
-                dialog1ContentPaneLayout.createParallelGroup()
-                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+            filtratContentPaneLayout.setVerticalGroup(
+                filtratContentPaneLayout.createParallelGroup()
+                    .addGroup(filtratContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(label3)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
@@ -287,8 +310,8 @@ public class VistaAnteriorsImp {
                         .addComponent(button2)
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
-            dialog1.pack();
-            dialog1.setLocationRelativeTo(dialog1.getOwner());
+            filtrat.pack();
+            filtrat.setLocationRelativeTo(filtrat.getOwner());
         }
 
         //======== parfil ========
@@ -302,14 +325,20 @@ public class VistaAnteriorsImp {
             label5.setText("Threshold:");
 
             //---- label6 ----
-            label6.setText("Nombre de resultats:");
+            label6.setText("Nombre de resultats:*");
 
             //---- acceptar ----
             acceptar.setText("Acceptar");
-            acceptar.addActionListener(e -> acceptarActionPerformed(e));
+            acceptar.addActionListener(e -> {
+                try {
+                    acceptarActionPerformed(e);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
 
             //---- label7 ----
-            label7.setText("Etiqueta:");
+            label7.setText("Etiqueta:*");
 
             GroupLayout parfilContentPaneLayout = new GroupLayout(parfilContentPane);
             parfilContentPane.setLayout(parfilContentPaneLayout);
@@ -339,7 +368,7 @@ public class VistaAnteriorsImp {
                                 .addGroup(parfilContentPaneLayout.createParallelGroup()
                                     .addComponent(nres, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(threshold, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(31, Short.MAX_VALUE))
+                        .addContainerGap(26, Short.MAX_VALUE))
             );
             parfilContentPaneLayout.setVerticalGroup(
                 parfilContentPaneLayout.createParallelGroup()
@@ -383,10 +412,10 @@ public class VistaAnteriorsImp {
     private JScrollPane scrollPane2;
     private JList res;
     private JButton button1;
-    private JDialog dialog1;
+    private JDialog filtrat;
     private JLabel label3;
     private JScrollPane scrollPane3;
-    private JList list1;
+    private JList listafiltrat;
     private JButton button2;
     private JDialog parfil;
     private JLabel label4;

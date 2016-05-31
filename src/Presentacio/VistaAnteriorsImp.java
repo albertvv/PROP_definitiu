@@ -28,8 +28,23 @@ public class VistaAnteriorsImp {
     }
 
     private void imprimeixResultats() {
-        //Vector<Pair<String, SparseVector>> conjresimps = cp.UltimsImps();
-
+        Vector<Pair<String, SparseVector>> conjresimps = cp.UltimsImp();
+        Vector<String> res = new Vector<>();
+        for (int i = 0; i < conjresimps.size(); i++) {
+            String id = new String();
+            int j = 0;
+            while(Character.isDigit(conjresimps.get(i).getKey().charAt(j))) {
+                id += conjresimps.get(i).getKey().charAt(j);
+                ++j;
+            }
+            ++j;
+            String relacio = cp.get_nom_relacio(conjresimps.get(i).getKey().substring(j,conjresimps.get(i).getKey().length()-1));
+            String nom = cp.IDToNom(Integer.parseInt(id), cp.TipusEquilvalent(conjresimps.get(i).getKey().charAt(j)));
+            res.add("Nom de la entitat cercada: " + nom);
+            res.add("Tipus de relació per a la cerca: " + relacio);
+            res.add("");
+        }
+        ultres.setListData(res.toArray(new String[res.size()]));
     }
 
     private void initComponents() {
@@ -39,7 +54,7 @@ public class VistaAnteriorsImp {
         button1 = new JButton();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        ultres = new JList();
         button2 = new JButton();
         button3 = new JButton();
         button4 = new JButton();
@@ -56,7 +71,7 @@ public class VistaAnteriorsImp {
 
             //======== scrollPane1 ========
             {
-                scrollPane1.setViewportView(list1);
+                scrollPane1.setViewportView(ultres);
             }
 
             //---- button2 ----
@@ -119,7 +134,7 @@ public class VistaAnteriorsImp {
     private JButton button1;
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList ultres;
     private JButton button2;
     private JButton button3;
     private JButton button4;

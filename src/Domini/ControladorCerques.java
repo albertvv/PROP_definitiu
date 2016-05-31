@@ -146,6 +146,7 @@ public class ControladorCerques {
     public String getnomEntitat(int id,String tipus){
         return cg.getGrafo().getNombre_ID(id,tipus);
     }
+
     public Vector<Pair<String,SparseVector>>getListImp(){
         Vector<Pair<String,SparseVector>> vs = new Vector<>();
         Vector<ResImportant> v = lr.getRelImp();

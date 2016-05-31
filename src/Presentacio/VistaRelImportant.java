@@ -16,6 +16,7 @@ public class VistaRelImportant {
     private CtrlPresentacio cp;
     private VistaCerques vcerques;
     private VistaCercaImportant vcercimp;
+    private VistaAnteriorsImp vantimp;
     private VistaClustering vclustering;
 
     public VistaRelImportant(CtrlPresentacio ctrl) {
@@ -40,6 +41,12 @@ public class VistaRelImportant {
         vcercimp.ferVisible();
     }
 
+    private void ultrelimpActionPerformed(ActionEvent e) {
+        frame.setVisible(false);
+        vantimp = new VistaAnteriorsImp(cp);
+        vantimp.ferVisible();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
@@ -62,6 +69,7 @@ public class VistaRelImportant {
 
             //---- ultrelimp ----
             ultrelimp.setText("Anteriors Relacions Importants");
+            ultrelimp.addActionListener(e -> ultrelimpActionPerformed(e));
 
             //---- cerca ----
             cerca.setText("Cerca Relaci\u00f3 Important");

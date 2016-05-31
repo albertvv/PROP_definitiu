@@ -54,6 +54,9 @@ public class CtrlPresentacio {
     public Vector<Vector<Integer>> Clustering(String path,int numgrups,Vector<Integer> vs,int niteracions){
         return cc.Clustering(path,numgrups,vs,niteracions);
     }
+    public Vector<Pair<String,SparseVector>> UltimsImp() {
+        return cc.getListImp();
+    }
     public  Vector<Pair<String,Vector<Vector<Integer>>>> UltimsClust(){
         return cc.getListClust();
     }

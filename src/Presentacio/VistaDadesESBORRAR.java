@@ -44,15 +44,36 @@ public class VistaDadesESBORRAR {
                         "Es requereix el nom de l'element a esborrar","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(frame1,
-                    "ERROR","Error",JOptionPane.ERROR_MESSAGE);
+            if (exc.getMessage().equals("id negativa")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "La ID no pot ser negativa!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "No existeix cap '" + tipus + "' anomenat " + nom, "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(frame1,
+                        "ERROR", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
     private void Esborra() throws Exception {
-        tipus = comboBox1.getSelectedItem().toString();
+        switch (comboBox1.getSelectedItem().toString()) {
+            case "Article":
+                tipus = "Paper";
+                break;
+            case "Autor":
+                tipus = "Autor";
+                break;
+            case "Congrés":
+                tipus = "Conferencia";
+                break;
+            case "Terme":
+                tipus = "Termino";
+                break;
+        }
         nom = textField1.getText();
-        id = NomtoID(nom, tipus);
+        if ((id = NomtoID(nom, tipus)) == null) throw new Exception("no existeix");
         cp.esborrar_element(nom, id, tipus);
         JOptionPane.showMessageDialog(frame1,
                 "L'entitat s'ha esborrat");

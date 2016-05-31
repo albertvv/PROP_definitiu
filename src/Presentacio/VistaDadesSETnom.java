@@ -14,6 +14,8 @@ public class VistaDadesSETnom {
 
     private CtrlPresentacio cp;
 
+    private VistaDadesSET vs;
+
     private String nom1;
     private String nom2;
     private String tipus;
@@ -27,7 +29,8 @@ public class VistaDadesSETnom {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDadesSET vd = new VistaDadesSET(cp);
+                if (vs == null) vs = new VistaDadesSET(cp);
+                vs.ferVisible();
             }
         });
     }

@@ -11,13 +11,11 @@ public class VistaDADES {
 
     private CtrlPresentacio cp;
 
-    private VistaDadesSET vs;
-
-    private VistaDADESafRel var;
-    private VistaDADESesRel ver;
-
-    private VistaDadesAFEGIR va;
-    private VistaDadesESBORRAR ve;
+    private VistaDadesSET       vs;
+    private VistaDADESafRel     var;
+    private VistaDADESesRel     ver;
+    private VistaDadesAFEGIR    va;
+    private VistaDadesESBORRAR  ve;
 
     public VistaDADES(CtrlPresentacio cp) {
         //ENRERE

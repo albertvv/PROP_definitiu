@@ -40,7 +40,7 @@ public class VistaDadesAFEGIR {
                         nom = textField1.getText();
                         switch (comboBox1.getSelectedItem().toString()) {
                             case "Article":
-                                tipus = "Articulo";
+                                tipus = "Paper";
                                 break;
                             case "Autor":
                                 tipus = "Autor";

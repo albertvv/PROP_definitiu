@@ -14,6 +14,8 @@ public class VistaDadesSETid {
 
     private CtrlPresentacio cp;
 
+    private VistaDadesSET vs;
+
     private String tipus;
     private String nom;
     private Integer idOld;
@@ -26,7 +28,8 @@ public class VistaDadesSETid {
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDadesSET vd = new VistaDadesSET(cp);
+                if (vs == null) vs = new VistaDadesSET(cp);
+                vs.ferVisible();
             }
         });
     }
@@ -39,23 +42,45 @@ public class VistaDadesSETid {
         try {
             tipus = comboBox1.getSelectedItem().toString();
             if (!textField3.getText().equals("") && !textField2.getText().equals("")) {
-                ;
+                setID();
             } else {
                 JOptionPane.showMessageDialog(frame1,
                         "Cal saber quina entitat es vol modificar i la nova ID","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
+            if (exc.getMessage().equals("id negativa"))
+                JOptionPane.showMessageDialog(frame1,
+                        "Les IDs no poden ser negatives","Error",JOptionPane.ERROR_MESSAGE);
+            else if (exc.getMessage().equals("ja existeix"))
+                JOptionPane.showMessageDialog(frame1,
+                        "No es pot dur a terme el canvi perquè ja existeix una entitat '"
+                        +tipus+"' amb ID "+idNew,"Error",JOptionPane.ERROR_MESSAGE);
             JOptionPane.showMessageDialog(frame1,
                     "ERROR","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void setID() throws Exception {
-        tipus = comboBox1.getSelectedItem().toString();
+        switch (comboBox1.getSelectedItem().toString()) {
+            case "Article":
+                tipus = "Paper";
+                break;
+            case "Autor":
+                tipus = "Autor";
+                break;
+            case "Congrés":
+                tipus = "Conferencia";
+                break;
+            case "Terme":
+                tipus = "Termino";
+                break;
+        }
         nom = textField3.getText();
-        idOld = NomtoID(nom, tipus);
+        if ((idOld = NomtoID(nom, tipus)) == null) throw new Exception("no existeix");
         idNew = Integer.parseInt(textField2.getText());
-        //cp.setID(idOld, idNew, tipus);
+        cp.setId(idOld, idNew, tipus);
+        JOptionPane.showMessageDialog(frame1,
+                "S'ha canviat la ID","",JOptionPane.INFORMATION_MESSAGE);
     }
 
     private String showOptDialog(String[] ids,String nom) {
@@ -254,6 +279,7 @@ public class VistaDadesSETid {
 
             //---- button1 ----
             button1.setText("MODIFICAR");
+            button1.addActionListener(e -> button1ActionPerformed(e));
 
             GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
             frame1ContentPane.setLayout(frame1ContentPaneLayout);

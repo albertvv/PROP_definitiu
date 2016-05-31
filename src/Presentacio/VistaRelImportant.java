@@ -4,6 +4,8 @@
 
 package Presentacio;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -40,15 +42,19 @@ public class VistaRelImportant {
         vcercimp.ferVisible();
     }
 
-    private void ultrelimpActionPerformed(ActionEvent e) throws Exception {
+    private void ultrelimpActionPerformed(ActionEvent e) {
         frame.setVisible(false);
-        vantimp = new VistaAnteriorsImp(cp);
+        try {
+            vantimp = new VistaAnteriorsImp(cp);
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
         vantimp.ferVisible();
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame = new JFrame();
         label1 = new JLabel();
         enrere = new JButton();
@@ -68,13 +74,7 @@ public class VistaRelImportant {
 
             //---- ultrelimp ----
             ultrelimp.setText("Anteriors Relacions Importants");
-            ultrelimp.addActionListener(e -> {
-                try {
-                    ultrelimpActionPerformed(e);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            });
+            ultrelimp.addActionListener(e -> ultrelimpActionPerformed(e));
 
             //---- cerca ----
             cerca.setText("Cerca Relaci\u00f3 Important");
@@ -115,7 +115,7 @@ public class VistaRelImportant {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame;
     private JLabel label1;
     private JButton enrere;

@@ -45,9 +45,6 @@ public class CtrlPresentacio {
     public Vector<Integer> NomToID(String nom,String tipus) throws Exception {
         return cc.getIDs(nom, tipus);
     }
-    public Integer maxid() {
-        return cg.getGrafo().getLastID()+1;
-    }
     public Double CercaRellevancia(String path, Vector<Integer> vs) throws Exception {
         return cc.CercaRellevancia(path,vs);
     }
@@ -150,12 +147,8 @@ public class CtrlPresentacio {
         return v.toArray(new String[v.size()]);
     }
 
-    public SparseVector FiltraRelimportant (int i,double threshold,int numres,String etiq){
+    public SparseVector FiltraRelimportant (int i,double threshold,int numres,String etiq) throws Exception {
         return cc.FiltraRelimportant(i,threshold,numres,etiq);
-    }
-
-    public Vector<Pair<Integer,Double>> CercaCreuada(int i1, int i2){
-        return cc.CercaCreuada(i1,i2);
     }
 
     //MULTIUSUARI A CERQUES
@@ -342,4 +335,10 @@ public class CtrlPresentacio {
     public void carregar_graf() throws /*IO*/Exception {
         cg.cargarGrafo();
     }
+
+    //setters
+
+    public void setId(Integer oldID, Integer newID, String tipus) throws Exception { cg.setID(oldID, tipus, newID); }
+    public void setNom(Integer id, String newNom, String tipus) throws Exception { cg.setNom(id, tipus, newNom); }
+    public void setTag(Integer id, String newTag, String tipus) throws Exception { cg.setTag(id, tipus, newTag); }
 }

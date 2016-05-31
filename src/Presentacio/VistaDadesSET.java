@@ -11,6 +11,11 @@ public class VistaDadesSET {
 
     private CtrlPresentacio cp;
 
+    private VistaDADES          vd;
+    private VistaDadesSETid     vi;
+    private VistaDadesSETnom    vn;
+    private VistaDadesSETtag    vt;
+
     public VistaDadesSET(CtrlPresentacio cp) {
         this.cp = cp;
         initComponents();
@@ -23,22 +28,26 @@ public class VistaDadesSET {
 
     private void button1ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDADES vd = new VistaDADES(cp);
+        if (vd == null) vd = new VistaDADES(cp);
+        vd.ferVisible();
     }
 
     private void button2ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDadesSETid vdi = new VistaDadesSETid(cp);
+        if (vi == null) vi = new VistaDadesSETid(cp);
+        vi.ferVisible();
     }
 
     private void button3ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDadesSETnom vdn = new VistaDadesSETnom(cp);
+        if (vn == null) vn = new VistaDadesSETnom(cp);
+        vn.ferVisible();
     }
 
     private void button4ActionPerformed(ActionEvent e) {
         frame1.setVisible(false);
-        VistaDadesSETtag vdt = new VistaDadesSETtag(cp);
+        if (vt == null) vt = new VistaDadesSETtag(cp);
+        vt.ferVisible();
     }
 
     private void initComponents() {
@@ -61,12 +70,15 @@ public class VistaDadesSET {
 
             //---- button2 ----
             button2.setText("Modificar ID");
+            button2.addActionListener(e -> button2ActionPerformed(e));
 
             //---- button4 ----
             button4.setText("Modificar etiqueta");
+            button4.addActionListener(e -> button4ActionPerformed(e));
 
             //---- button3 ----
             button3.setText("Modificar nom");
+            button3.addActionListener(e -> button3ActionPerformed(e));
 
             GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
             frame1ContentPane.setLayout(frame1ContentPaneLayout);

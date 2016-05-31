@@ -75,6 +75,15 @@ public class VistaAnteriorsImp {
         }
     }
 
+    private void filtraActionPerformed(ActionEvent e) {
+        if(ultres.isSelectionEmpty()) {
+            JOptionPane.showMessageDialog(frame, "Per a filtrar has de seleccionar un resultat", "Error Filtrat", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
@@ -85,13 +94,17 @@ public class VistaAnteriorsImp {
         ultres = new JList();
         info = new JButton();
         button3 = new JButton();
-        button4 = new JButton();
+        filtra = new JButton();
         resdet = new JDialog();
         label2 = new JLabel();
         scrollPane2 = new JScrollPane();
         res = new JList();
         button1 = new JButton();
         dialog1 = new JDialog();
+        label3 = new JLabel();
+        scrollPane3 = new JScrollPane();
+        list1 = new JList();
+        button2 = new JButton();
 
         //======== frame ========
         {
@@ -116,8 +129,9 @@ public class VistaAnteriorsImp {
             //---- button3 ----
             button3.setText("Creua Resultats");
 
-            //---- button4 ----
-            button4.setText("Filtra");
+            //---- filtra ----
+            filtra.setText("Filtra");
+            filtra.addActionListener(e -> filtraActionPerformed(e));
 
             GroupLayout frameContentPaneLayout = new GroupLayout(frameContentPane);
             frameContentPane.setLayout(frameContentPaneLayout);
@@ -139,7 +153,7 @@ public class VistaAnteriorsImp {
                         .addGap(61, 61, 61)
                         .addComponent(button3)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(button4)
+                        .addComponent(filtra)
                         .addGap(23, 23, 23))
             );
             frameContentPaneLayout.setVerticalGroup(
@@ -155,7 +169,7 @@ public class VistaAnteriorsImp {
                         .addGroup(frameContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(info)
                             .addComponent(button3)
-                            .addComponent(button4))
+                            .addComponent(filtra))
                         .addContainerGap(15, Short.MAX_VALUE))
             );
             frame.pack();
@@ -167,7 +181,7 @@ public class VistaAnteriorsImp {
             Container resdetContentPane = resdet.getContentPane();
 
             //---- label2 ----
-            label2.setText("Resultat Important Detallat");
+            label2.setText("Resultat de Relaci\u00f3 Important Detallat");
 
             //======== scrollPane2 ========
             {
@@ -208,15 +222,39 @@ public class VistaAnteriorsImp {
         {
             Container dialog1ContentPane = dialog1.getContentPane();
 
+            //---- label3 ----
+            label3.setText("Resultat de Relaci\u00f3 Important Filtrat");
+
+            //======== scrollPane3 ========
+            {
+                scrollPane3.setViewportView(list1);
+            }
+
+            //---- button2 ----
+            button2.setText("OK");
+
             GroupLayout dialog1ContentPaneLayout = new GroupLayout(dialog1ContentPane);
             dialog1ContentPane.setLayout(dialog1ContentPaneLayout);
             dialog1ContentPaneLayout.setHorizontalGroup(
                 dialog1ContentPaneLayout.createParallelGroup()
-                    .addGap(0, 404, Short.MAX_VALUE)
+                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(dialog1ContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                            .addComponent(label3)
+                            .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button2))
+                        .addContainerGap(35, Short.MAX_VALUE))
             );
             dialog1ContentPaneLayout.setVerticalGroup(
                 dialog1ContentPaneLayout.createParallelGroup()
-                    .addGap(0, 261, Short.MAX_VALUE)
+                    .addGroup(dialog1ContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label3)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button2)
+                        .addContainerGap(12, Short.MAX_VALUE))
             );
             dialog1.pack();
             dialog1.setLocationRelativeTo(dialog1.getOwner());
@@ -233,12 +271,16 @@ public class VistaAnteriorsImp {
     private JList ultres;
     private JButton info;
     private JButton button3;
-    private JButton button4;
+    private JButton filtra;
     private JDialog resdet;
     private JLabel label2;
     private JScrollPane scrollPane2;
     private JList res;
     private JButton button1;
     private JDialog dialog1;
+    private JLabel label3;
+    private JScrollPane scrollPane3;
+    private JList list1;
+    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

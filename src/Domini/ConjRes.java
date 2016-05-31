@@ -18,7 +18,7 @@ public class ConjRes {
         return Clusts;
     }
     public void addRelImp(ResImportant r) {
-        if (RelImps.size() < 5) {
+        if (RelImps.size() < 10) {
             RelImps.add(r);
         }
         else{
@@ -27,7 +27,7 @@ public class ConjRes {
         }
     }
     public void addClust(ResClustering r) {
-        if (Clusts.size() < 5) {
+        if (Clusts.size() < 10) {
             Clusts.add(r);
         }
         else{

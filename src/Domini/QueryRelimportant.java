@@ -1,6 +1,5 @@
 package Domini;
 
-import org.la4j.Matrix;
 import org.la4j.vector.SparseVector;
 
 import java.util.Vector;
@@ -10,10 +9,9 @@ import java.util.Vector;
  */
 public class QueryRelimportant extends Query {
   //  private Integer entitat1;
-    public QueryRelimportant(String path, Vector<Integer> entitat1,CtrlMatrius cm) {
+    public QueryRelimportant(String path, Vector<Integer> entitat1, CtrlMatrius cm) {
         super(path,cm);
         this.vs = entitat1;
-        this.m1 = m1;
     }
     public Integer getID(){
         return vs.get(0);

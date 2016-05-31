@@ -12,7 +12,7 @@ import java.util.Vector;
 public class QueryClustering extends Query {
     private int ngrups;
     private int niteracions;
-    public QueryClustering(String path, int numgrups, Vector<Integer> vs, int niteracions,CtrlMatrius cm){
+    public QueryClustering(String path, int numgrups, Vector<Integer> vs, int niteracions, CtrlMatrius cm){
         super(path,vs,cm);
         this.ngrups = numgrups;
         this.niteracions = niteracions;
@@ -20,25 +20,25 @@ public class QueryClustering extends Query {
     }
 
     public Vector<Vector<Integer>> Cerca(){
-        mat =cm.getMatrix(path);
+        Matrix mat =cm.getMatrix(path);
         Vector<Vector<Integer>> vvs = new Vector<>();
         randommedioides(vvs);
-        assignagrups(vvs);
+        assignagrups(vvs,mat);
         for(int i=0;i<niteracions;++i) { // es podria fer un while escentren on fos una var bool retornada pel conjunt de centramedioide
-            for(int j=0;j<ngrups;++j) { System.out.println("En el grup "+j+" "); centramedioide(vvs.get(j));} //es podria fer que retornes un bool per si es recentren o ja no es mouen mes
-            reassigna(vvs);
+            for(int j=0;j<ngrups;++j) { System.out.println("En el grup "+j+" "); centramedioide(vvs.get(j),mat);} //es podria fer que retornes un bool per si es recentren o ja no es mouen mes
+            reassigna(vvs,mat);
         }
         return vvs;
     }
 
-    private void reassigna(Vector<Vector<Integer>> vvs) {
+    private void reassigna(Vector<Vector<Integer>> vvs,Matrix mat) {
         for (int i = 0; i < vvs.size(); i++) { //recorrem la tots els grups mes la fila d'elements que no s'han pogut agrupar
             int j=1;
             while(j<vvs.get(i).size()){
                 double relmedioide=0;
                 int num=ngrups;
                 for (int k = 0; k < ngrups ; k++) {
-                    double aux = dist(vvs.get(i).get(j), vvs.get(k).get(0)); // vs no conté els medioides
+                    double aux = dist(vvs.get(i).get(j), vvs.get(k).get(0),mat); // vs no conté els medioides
                     System.out.println(vvs.get(i).get(j)+" te una rellevancia amb medioide grup :"+k+" de :"+aux);
                     if (aux > relmedioide) {
                         num = k; //num es el grup on va
@@ -54,12 +54,12 @@ public class QueryClustering extends Query {
         }
     }
 
-    private void assignagrups(Vector<Vector<Integer>> vvs) {
+    private void assignagrups(Vector<Vector<Integer>> vvs,Matrix mat) {
         for (int i = 0; i < vs.size() ; i++) {
             double relmedioide=0;
             int num=ngrups; //si no superen la rellevancia 0 no es fiquen a cap grup que significa anar a una fila especial
             for (int j = 0; j < ngrups ; j++) {
-                double aux = dist(vs.get(i), vvs.get(j).get(0)); // vs no conté els medioides
+                double aux = dist(vs.get(i), vvs.get(j).get(0),mat); // vs no conté els medioides
                 System.out.println(vs.get(i)+" i "+vvs.get(j).get(0)+" amb rellevancia : "+aux);
                 if (aux > relmedioide) {
                     num = j;
@@ -71,7 +71,7 @@ public class QueryClustering extends Query {
         }
     }
 
-    private double dist(Integer s, Integer s1) {
+    private double dist(Integer s, Integer s1,Matrix mat) {
         return mat.get(s,s1);
     }
 
@@ -87,12 +87,12 @@ public class QueryClustering extends Query {
         vvs.add(new Vector<>()); // nova fila per a les entitats no agrupades
     }
 
-    private void centramedioide(Vector<Integer> vec) { // es podria fer que retornes un bool per si no ha fet falta recentrar i aixi no faria falta fer iteracions de centreig
+    private void centramedioide(Vector<Integer> vec,Matrix mat) { // es podria fer que retornes un bool per si no ha fet falta recentrar i aixi no faria falta fer iteracions de centreig
         int posmed = 0;
-        double dmitja = calculadistmitja(vec,0);
+        double dmitja = calculadistmitja(vec,0,mat);
 //        System.out.println("distmitja medioide :"+dmitja);  // dmitja del medioide
         for (int i = 1; i < vec.size() ; i++) {
-            double aux = calculadistmitja(vec,i);
+            double aux = calculadistmitja(vec,i,mat);
 //            System.out.println("distmitja del element :"+i+" és :"+aux);
             if(aux>dmitja){
                 posmed = i;
@@ -108,7 +108,7 @@ public class QueryClustering extends Query {
         //relevanciamitja = Erelevancies/ #elements-1 (no es fa amb ell mateix)
     }
 
-    private Double calculadistmitja(Vector<Integer> vec, int j) {
+    private Double calculadistmitja(Vector<Integer> vec, int j,Matrix mat) {
         double dmitja=0;
         for (int i = 0; i < vec.size() ; i++) {
             if(i!=j){

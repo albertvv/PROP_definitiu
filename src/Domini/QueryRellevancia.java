@@ -1,16 +1,13 @@
 package Domini;
 
-import org.la4j.Matrix;
-
 import java.util.Vector;
 
 /**
  * Created by Albert on 08/04/2016.
  */
-public class QueryRellevancia extends Query{
-    public QueryRellevancia(String path, Vector<Integer> vs,CtrlMatrius cm) {
+public class QueryRellevancia extends Query {
+    public QueryRellevancia(String path, Vector<Integer> vs, CtrlMatrius cm) {
         super(path, vs,cm);
-        this.m1 = m1;
     }
 
     public Double Cerca(){

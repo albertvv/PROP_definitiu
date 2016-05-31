@@ -6,6 +6,7 @@ package Presentacio;
 
 import com.sun.awt.AWTUtilities;
 import org.la4j.vector.SparseVector;
+import org.la4j.vector.sparse.CompressedVector;
 
 import java.awt.*;
 import java.awt.event.*;

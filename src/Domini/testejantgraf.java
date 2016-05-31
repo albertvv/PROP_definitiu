@@ -8,6 +8,7 @@ import java.util.Vector;
  */
 public class testejantgraf {
     public static void main (String[] args) {
+
         System.out.println("Escriu el tipus d'entitat per obtenir id: 'Paper', 'Autor', 'Conferencia' o 'Termino'");
         Scanner sc = new Scanner(System.in);
         String tipus = sc.nextLine();

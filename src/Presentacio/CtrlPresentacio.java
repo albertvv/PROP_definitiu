@@ -112,22 +112,34 @@ public class CtrlPresentacio {
         return v.toArray(new String[v.size()]);
     }
     public String[] MostraRelImp(SparseVector sv,String tipus) {
-        SortedMap map = new TreeMap(java.util.Collections.reverseOrder());
+        SortedMap<Double,Vector<Integer>> map = new TreeMap(java.util.Collections.reverseOrder());
         VectorIterator it = sv.nonZeroIterator();
         while(it.hasNext()) {
             Double rel = it.next();
             Integer id = it.index();
-            map.put(rel,id);
+            Vector<Integer> ids;
+            if(map.containsKey(rel)) {
+                ids = map.get(rel);
+                ids.add(id);
+                map.put(rel,ids);
+            }
+            else {
+                ids = new Vector<>();
+                ids.add(id);
+                map.put(rel,ids);
+            }
         }
         Vector<String> v = new Vector<>();
         Iterator it2 = map.keySet().iterator();
         while(it2.hasNext()) {
             Double r = ((Double) it2.next()).doubleValue();
-            Integer i = ((Integer) map.get(r)).intValue();
-            String nom = IDToNom(i,tipus);
-            v.add(nom);
-            v.add(" Rellevancia: " + Double.toString(r));
-            v.add("");
+            Vector<Integer> i = map.get(r);
+            for (int j = 0; j < i.size(); j++) {
+                String nom = IDToNom(i.get(j),tipus);
+                v.add(nom);
+                v.add("  Rellevancia: " + Double.toString(r));
+                v.add("");
+            }
         }
         return v.toArray(new String[v.size()]);
     }

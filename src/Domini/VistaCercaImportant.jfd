@@ -1,0 +1,96 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_73" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp panel1::t:::x}"
+			"$verticalGroup": "par l {comp panel1::l:::x}"
+		} ) {
+			name: "frame"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {seq l {space :::p, comp enrere:::p::p, space :p:43:p, comp label1:::p::p}, seq l {space :p:23:p, par l {comp label2::l:p::p, comp label3::l:p::p}, space s:::p, par l:::p {comp priment::::175:x, comp tiprel::::175:x}}}, space :0:60:x}, seq t {space ::295:x, comp cerca:::p::p, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :::p, par l {comp label1:::p::p, comp enrere:::p::p}, space :p:38:p, par b {comp label2::b:p::p, comp tiprel::b:p::p}, space ::31:x, par b {comp label3::b:p::p, comp priment::b:p::p}, space :p:48:p, comp cerca:::p::p, space :::p}}"
+			} ) {
+				name: "panel1"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "enrere"
+					"text": "Enrere"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrereActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "Cerca Relació Important"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "tiprel"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Tipus de relació:"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "priment"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Primera entitat:"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "cerca"
+					"text": "Cerca"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cercaActionPerformed", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 385, 260 )
+		} )
+		add( new FormWindow( "javax.swing.JWindow", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp label4::l::385:x}"
+			"$verticalGroup": "par l {comp label4::l::300:x}"
+		} ) {
+			name: "frame2"
+			"opacity": 0.5f
+			"focusable": false
+			"focusableWindowState": false
+			"cursor": &Cursor0 new java.awt.Cursor( 3 )
+			"alwaysOnTop": true
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentMoved", "framewComponentMoved", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Presentacio/ajax-loader.gif" )
+				"horizontalAlignment": 0
+				"focusable": false
+				"cursor": #Cursor0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 385, 300 )
+			"location": new java.awt.Point( 0, 276 )
+		} )
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp enrere2:::p::p, space :p:36:p, comp label5:::p::p}, seq l {space :p:34:p, comp scrollPane1:::p:310:p}}, space ::25:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l {comp enrere2:::p::p, comp label5:::p::p}, space s:::p, comp scrollPane1::::156:x, space :p:15:p}}"
+		} ) {
+			name: "resultat"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Resultat de Relació Important"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "enrere2"
+				"text": "Enrere"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrere2ActionPerformed", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "llistares"
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 410, 0 )
+			"size": new java.awt.Dimension( 385, 260 )
+		} )
+	}
+}

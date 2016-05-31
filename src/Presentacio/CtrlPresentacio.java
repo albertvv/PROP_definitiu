@@ -5,15 +5,14 @@ import Domini.ControladorGrafo;
 import Domini.CtrlMatrius;
 import Domini.ctr_usuari_dom;
 import javafx.util.Pair;
+import org.la4j.iterator.VectorIterator;
 import org.la4j.vector.SparseVector;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by albert.val.vila on 10/05/2016.
@@ -34,7 +33,7 @@ public class CtrlPresentacio {
       //  if(vcerques==null) vcerques = new VistaCerques(this);
 
     }
-    public void init() throws Exception {
+    public void init() {
 
         //vcerques.ferVisible();
         inici i = new inici(this);
@@ -43,16 +42,16 @@ public class CtrlPresentacio {
 
 
     //////////AccesControladorDomini
-    public Vector<Integer> NomToID(String nom,String tipus) throws Exception {
+    public Vector<Integer> NomToID(String nom,String tipus) {
         return cc.getIDs(nom, tipus);
     }
-    public Double CercaRellevancia(String path, Vector<Integer> vs) throws Exception {
+    public Double CercaRellevancia(String path, Vector<Integer> vs){
         return cc.CercaRellevancia(path,vs);
     }
     public String TipusEquilvalent(char c){
         return cc.Entitatequivalent(c);
     }
-    public Vector<Vector<Integer>> Clustering(String path,int numgrups,Vector<Integer> vs,int niteracions) throws Exception {
+    public Vector<Vector<Integer>> Clustering(String path,int numgrups,Vector<Integer> vs,int niteracions){
         return cc.Clustering(path,numgrups,vs,niteracions);
     }
     public Vector<Pair<String,SparseVector>> UltimsImp() {
@@ -61,13 +60,13 @@ public class CtrlPresentacio {
     public  Vector<Pair<String,Vector<Vector<Integer>>>> UltimsClust(){
         return cc.getListClust();
     }
-    public Vector<Vector<Integer>> FiltratClustering(int i,String etiq) throws Exception {
+    public Vector<Vector<Integer>> FiltratClustering(int i,String etiq){
        return cc.FilterClustering(i,etiq);
     }
-    public String IDToNom(Integer id,String tipus) throws Exception {
+    public String IDToNom(Integer id,String tipus){
         return cc.getnomEntitat(id,tipus);
     }
-    public SparseVector RelImportant(String path, Integer entitat) throws Exception {
+    public SparseVector RelImportant(String path, Integer entitat) {
         return cc.CercaRelimportant(path,entitat);
     }
 
@@ -101,7 +100,7 @@ public class CtrlPresentacio {
             ++i;
         }
     }
-    public String[] MostraClustering(Vector<Vector<Integer>> c,String tipus) throws Exception {
+    public String[] MostraClustering(Vector<Vector<Integer>> c,String tipus) {
         Vector<String> v= new Vector<>();
         for (int i = 0; i < c.size() ; i++) {
             for (int j = 0; j <c.get(i).size() ; j++) {
@@ -113,12 +112,37 @@ public class CtrlPresentacio {
         return v.toArray(new String[v.size()]);
     }
     public String[] MostraRelImp(SparseVector sv,String tipus) {
-        Vector<String> v = new Vector<>();
-        for (int i = 0; i < sv.length(); i++) {
-            System.out.println(sv.get(i));
+        SortedMap<Double,Vector<Integer>> map = new TreeMap(java.util.Collections.reverseOrder());
+        VectorIterator it = sv.nonZeroIterator();
+        while(it.hasNext()) {
+            Double rel = it.next();
+            Integer id = it.index();
+            Vector<Integer> ids;
+            if(map.containsKey(rel)) {
+                ids = map.get(rel);
+                ids.add(id);
+                map.put(rel,ids);
+            }
+            else {
+                ids = new Vector<>();
+                ids.add(id);
+                map.put(rel,ids);
+            }
         }
-        String s[] = {"hola", "hey", "deu", "eps"};
-        return s;
+        Vector<String> v = new Vector<>();
+        Iterator it2 = map.keySet().iterator();
+        while(it2.hasNext()) {
+            Double r = ((Double) it2.next()).doubleValue();
+            Vector<Integer> i = map.get(r);
+            for (int j = 0; j < i.size(); j++) {
+                String nom = IDToNom(i.get(j),tipus);
+                if(Double.toString(r).length() > 7) {
+                    v.add(nom + "  |  Rellevancia: " + Double.toString(r).substring(0,7));
+                }
+                else v.add(nom + "  |  Rellevancia: " + Double.toString(r));
+            }
+        }
+        return v.toArray(new String[v.size()]);
     }
     //MULTIUSUARI A CERQUES
 
@@ -144,10 +168,6 @@ public class CtrlPresentacio {
     private modificar_usuari_privilegiat modificar_usuari_privilegiat;
     private relacions_directes relacions_directes;
     private principal principal;
-    private VistaDADES VistaDADES;
-    private VistaDadesSETid VistaDadesSETid;
-    private VistaDadesSETnom VistaDadesSETnom;
-    private VistaDadesSETtag VistaDadesSETtag;
     private boolean first = true;
 
     boolean isFirst(){return first;}
@@ -188,16 +208,16 @@ public class CtrlPresentacio {
     ArrayList<ArrayList<String>> informacio_usuaris(){
         return ctr_dom.informacio_usuaris();
     }
-    void afegir_element(String nom, Integer id, String etiq, String tipus) throws Exception {
+    void afegir_element(String nom, Integer id, String etiq, String tipus){
         cg.afegir_element(nom, id, etiq, tipus);
     }
-    void afegir_relacio_graf(Integer primer, Integer segon, String tipus) throws Exception {
+    void afegir_relacio_graf(Integer primer, Integer segon, String tipus){
         cg.afegir_relacio_graf(primer, segon, tipus);
     }
-    void esborrar_element(String nom, Integer id, String tipus) throws Exception {
+    void esborrar_element(String nom, Integer id, String tipus){
         cg.esborrar_element(nom, id, tipus);
     }
-    void esborrar_relacio_graf(Integer primer, Integer segon, String tipus) throws Exception {
+    void esborrar_relacio_graf(Integer primer, Integer segon, String tipus){
         cg.esborrar_relacio_graf(primer, segon, tipus);
     }
     void carregar_usuaris() throws ParseException,NullPointerException,IOException{
@@ -229,7 +249,7 @@ public class CtrlPresentacio {
         if(gestio_usuari== null)gestio_usuari = new gestio_usuari(this);
         gestio_usuari.vista();
     }
-    void inici() throws Exception{
+    void inici(){
         if(inici==null)inici = new inici(this);
         inici.vista();
     }
@@ -249,22 +269,6 @@ public class CtrlPresentacio {
         if(modificar_usuari_privilegiat==null)modificar_usuari_privilegiat = new modificar_usuari_privilegiat(this);
         modificar_usuari_privilegiat.vista();
     }
-    void VistaDADES() {
-        if (VistaDADES == null) VistaDADES = new VistaDADES(this);
-        VistaDADES.ferVisible();
-    }
-    void VistaDadesSETid() {
-        if (VistaDadesSETid == null) VistaDadesSETid = new VistaDadesSETid(this);
-        VistaDadesSETid.ferVisible();
-    }
-    void VistaDadesSETnom() {
-        if (VistaDadesSETnom == null) VistaDadesSETnom = new VistaDadesSETnom(this);
-        VistaDadesSETnom.ferVisible();
-    }
-    void VistaDadesSETtag() {
-        if (VistaDadesSETtag == null) VistaDadesSETtag = new VistaDadesSETtag(this);
-        VistaDadesSETtag.ferVisible();
-    }
 //    void relacions_directes(){
 //        relacions_directes = new relacions_directes(this);
 //        relacions_directes.vista();
@@ -275,7 +279,7 @@ public class CtrlPresentacio {
         principal.vista();}
 
 
-    public boolean guardar_graf() throws Exception {
+    public boolean guardar_graf() {
         try {
             cg.guardarGrafo();
         } catch (IOException e) {
@@ -301,7 +305,7 @@ public class CtrlPresentacio {
         cc.recalcula_matriu(f);
     }
 
-    public void carregar_graf() throws /*IO*/Exception {
+    public void carregar_graf() throws IOException {
         cg.cargarGrafo();
     }
 }

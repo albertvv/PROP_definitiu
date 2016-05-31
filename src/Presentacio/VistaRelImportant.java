@@ -42,11 +42,7 @@ public class VistaRelImportant {
 
     private void ultrelimpActionPerformed(ActionEvent e) {
         frame.setVisible(false);
-        try {
-            vantimp = new VistaAnteriorsImp(cp);
-        } catch (Exception exc) {
-            System.out.println("error estrany");
-        }
+        vantimp = new VistaAnteriorsImp(cp);
         vantimp.ferVisible();
     }
 

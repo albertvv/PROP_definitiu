@@ -63,7 +63,7 @@ public class ControladorCerques {
         lr.addRelImp(r);
         return sv2;
     }
-    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat){ // s'hauria de canviar per id ja que fixat nom i tipus poden haver-hi repetits
+    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat) throws Exception { // s'hauria de canviar per id ja que fixat nom i tipus poden haver-hi repetits
         Vector<Entidad> ve= cg.getGrafo().getRelacion(id,tipusentitat);
         Vector<String> vs = new Vector<>(); //canviar a integer
         for (int i = 0; i <ve.size() ; i++) {

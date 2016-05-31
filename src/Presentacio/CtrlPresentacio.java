@@ -158,6 +158,10 @@ public class CtrlPresentacio {
         return cc.CercaCreuada(i1,i2);
     }
 
+    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat){
+        return cc.CercaRelDirecta(id,tipusentitat);
+    }
+
     //MULTIUSUARI A CERQUES
 
     public void vistacerques() {

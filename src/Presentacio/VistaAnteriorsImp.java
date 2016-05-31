@@ -4,6 +4,7 @@
 
 package Presentacio;
 
+import java.awt.event.*;
 import org.la4j.vector.SparseVector;
 import javafx.util.*;
 
@@ -17,6 +18,7 @@ import javax.swing.GroupLayout;
  */
 public class VistaAnteriorsImp {
     private CtrlPresentacio cp;
+
     public VistaAnteriorsImp(CtrlPresentacio ctrl) {
         initComponents();
         this.cp = ctrl;
@@ -47,11 +49,16 @@ public class VistaAnteriorsImp {
         ultres.setListData(res.toArray(new String[res.size()]));
     }
 
+    private void enrereActionPerformed(ActionEvent e) {
+        frame.setVisible(false);
+
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
         frame = new JFrame();
-        button1 = new JButton();
+        enrere = new JButton();
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
         ultres = new JList();
@@ -63,8 +70,9 @@ public class VistaAnteriorsImp {
         {
             Container frameContentPane = frame.getContentPane();
 
-            //---- button1 ----
-            button1.setText("Enrere");
+            //---- enrere ----
+            enrere.setText("Enrere");
+            enrere.addActionListener(e -> enrereActionPerformed(e));
 
             //---- label1 ----
             label1.setText("\u00daltims Resultats de Relacions Importants");
@@ -89,7 +97,7 @@ public class VistaAnteriorsImp {
                 frameContentPaneLayout.createParallelGroup()
                     .addGroup(frameContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(button1)
+                        .addComponent(enrere)
                         .addGap(26, 26, 26)
                         .addComponent(label1)
                         .addContainerGap(66, Short.MAX_VALUE))
@@ -111,7 +119,7 @@ public class VistaAnteriorsImp {
                     .addGroup(frameContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(frameContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(button1)
+                            .addComponent(enrere)
                             .addComponent(label1))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
@@ -131,7 +139,7 @@ public class VistaAnteriorsImp {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
     private JFrame frame;
-    private JButton button1;
+    private JButton enrere;
     private JLabel label1;
     private JScrollPane scrollPane1;
     private JList ultres;

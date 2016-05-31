@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, comp enrere:::p::p, space :p:26:p, comp label1:::p::p, space ::66:x}, seq t {space ::44:x, comp scrollPane1:::p:326:p, space :p:34:p}, seq t {space :p:32:p, comp info:::p::p, space :p:61:p, comp button3:::p::p, space ::46:x, comp filtra:::p::p, space :p:23:p}}"
-			"$verticalGroup": "par l {seq l {space :::p, par b {comp enrere::b:p::p, comp label1::b:p::p}, space u:::p, comp scrollPane1:::p:168:p, space s:::p, par b {comp info::b:p::p, comp button3::b:p::p, comp filtra::b:p::p}, space ::15:x}}"
+			"$horizontalGroup": "par l {seq {space :::p, comp enrere:::p::p, space :p:26:p, comp label1:::p::p, space ::66:x}, seq t {space ::44:x, comp scrollPane1:::p:326:p, space :p:34:p}, seq t {space :p:32:p, comp info:::p::p, space :p:61:p, comp creuar:::p::p, space ::46:x, comp filtra:::p::p, space :p:23:p}}"
+			"$verticalGroup": "par l {seq l {space :::p, par b {comp enrere::b:p::p, comp label1::b:p::p}, space u:::p, comp scrollPane1:::p:168:p, space s:::p, par b {comp info::b:p::p, comp creuar::b:p::p, comp filtra::b:p::p}, space ::15:x}}"
 		} ) {
 			name: "frame"
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -29,8 +29,9 @@ new FormModel {
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "infoActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button3"
+				name: "creuar"
 				"text": "Creua Resultats"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "creuarActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "filtra"

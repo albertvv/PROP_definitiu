@@ -123,6 +123,10 @@ public class VistaAnteriorsImp {
         listafiltrat.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
     }
 
+    private void creuarActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
@@ -132,7 +136,7 @@ public class VistaAnteriorsImp {
         scrollPane1 = new JScrollPane();
         ultres = new JList();
         info = new JButton();
-        button3 = new JButton();
+        creuar = new JButton();
         filtra = new JButton();
         resdet = new JDialog();
         label2 = new JLabel();
@@ -180,8 +184,9 @@ public class VistaAnteriorsImp {
                 }
             });
 
-            //---- button3 ----
-            button3.setText("Creua Resultats");
+            //---- creuar ----
+            creuar.setText("Creua Resultats");
+            creuar.addActionListener(e -> creuarActionPerformed(e));
 
             //---- filtra ----
             filtra.setText("Filtra");
@@ -205,7 +210,7 @@ public class VistaAnteriorsImp {
                         .addGap(32, 32, 32)
                         .addComponent(info)
                         .addGap(61, 61, 61)
-                        .addComponent(button3)
+                        .addComponent(creuar)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(filtra)
                         .addGap(23, 23, 23))
@@ -222,7 +227,7 @@ public class VistaAnteriorsImp {
                         .addGap(18, 18, 18)
                         .addGroup(frameContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(info)
-                            .addComponent(button3)
+                            .addComponent(creuar)
                             .addComponent(filtra))
                         .addContainerGap(15, Short.MAX_VALUE))
             );
@@ -405,7 +410,7 @@ public class VistaAnteriorsImp {
     private JScrollPane scrollPane1;
     private JList ultres;
     private JButton info;
-    private JButton button3;
+    private JButton creuar;
     private JButton filtra;
     private JDialog resdet;
     private JLabel label2;

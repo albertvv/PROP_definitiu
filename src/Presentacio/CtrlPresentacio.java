@@ -150,7 +150,7 @@ public class CtrlPresentacio {
         return v.toArray(new String[v.size()]);
     }
 
-    public SparseVector FiltraRelimportant (int i,double threshold,int numres,String etiq){
+    public SparseVector FiltraRelimportant (int i,double threshold,int numres,String etiq) throws Exception {
         return cc.FiltraRelimportant(i,threshold,numres,etiq);
     }
 
@@ -158,7 +158,7 @@ public class CtrlPresentacio {
         return cc.CercaCreuada(i1,i2);
     }
 
-    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat){
+    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat) throws Exception {
         return cc.CercaRelDirecta(id,tipusentitat);
     }
 
@@ -346,4 +346,10 @@ public class CtrlPresentacio {
     public void carregar_graf() throws /*IO*/Exception {
         cg.cargarGrafo();
     }
+
+    //setters
+
+    public void setId(Integer oldID, Integer newID, String tipus) throws Exception { cg.setID(oldID, tipus, newID); }
+    public void setNom(Integer id, String newNom, String tipus) throws Exception { cg.setNom(id, tipus, newNom); }
+    public void setTag(Integer id, String newTag, String tipus) throws Exception { cg.setTag(id, tipus, newTag); }
 }

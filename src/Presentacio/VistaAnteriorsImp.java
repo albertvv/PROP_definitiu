@@ -5,6 +5,8 @@
 package Presentacio;
 
 import java.awt.event.*;
+
+import org.la4j.iterator.VectorIterator;
 import org.la4j.vector.SparseVector;
 import javafx.util.*;
 import org.la4j.vector.sparse.CompressedVector;
@@ -114,6 +116,11 @@ public class VistaAnteriorsImp {
         }
         try {
             SparseVector sv = cp.FiltraRelimportant(index, thres, nr, etiq);
+            VectorIterator it = sv.nonZeroIterator();
+            while(it.hasNext()) {
+                Double rel = it.next();
+                System.out.println(rel);
+            }
             String id = new String();
             int i = 0;
             while (Character.isDigit(conjresimps.get(index).getKey().charAt(i))) {

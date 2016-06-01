@@ -62,7 +62,7 @@ public class VistaAnteriorsImp {
         vrelimp.ferVisible();
     }
 
-    private void infoActionPerformed(ActionEvent e) throws Exception {
+    private void infoActionPerformed(ActionEvent e) {
         if(ultres.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(frame, "Per a informació adicional has de seleccionar un resultat", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -77,8 +77,12 @@ public class VistaAnteriorsImp {
             Integer id = Integer.parseInt(conjresimps.get(index).getKey().substring(0,i));
             ++i;
             Character t = conjresimps.get(index).getKey().charAt(i);
-            res.setListData(cp.MostraRelImp(conjresimps.get(index).getValue(),
-                    cp.TipusEquilvalent(t),id));
+            try {
+                res.setListData(cp.MostraRelImp(conjresimps.get(index).getValue(),
+                        cp.TipusEquilvalent(t), id));
+            } catch (Exception exc) {
+                ;
+            }
         }
     }
 
@@ -95,7 +99,7 @@ public class VistaAnteriorsImp {
         }
     }
 
-    private void acceptarActionPerformed(ActionEvent e) throws Exception {
+    private void acceptarActionPerformed(ActionEvent e) {
         String etiq = (String)etiquetes.getSelectedItem();
         Double thres = 0.0;
         Integer nr = 0;
@@ -108,23 +112,27 @@ public class VistaAnteriorsImp {
             System.out.println("entrothres");
             thres = Double.parseDouble(threshold.getText());
         }
-        SparseVector sv = cp.FiltraRelimportant(index, thres, nr, etiq);
-        String id = new String();
-        int i = 0;
-        while(Character.isDigit(conjresimps.get(index).getKey().charAt(i))) {
-            id += conjresimps.get(index).getKey().charAt(i);
+        try {
+            SparseVector sv = cp.FiltraRelimportant(index, thres, nr, etiq);
+            String id = new String();
+            int i = 0;
+            while (Character.isDigit(conjresimps.get(index).getKey().charAt(i))) {
+                id += conjresimps.get(index).getKey().charAt(i);
+                ++i;
+            }
             ++i;
+            Character tip = conjresimps.get(index).getKey().charAt(i);
+            filtrat.setVisible(true);
+            filtrat.pack();
+            filtrat.setLocationRelativeTo(frame);
+            frame.setFocusable(false);
+            listafiltrat.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip), Integer.parseInt(id)));
+        } catch (Exception exc) {
+            ;
         }
-        ++i;
-        Character tip = conjresimps.get(index).getKey().charAt(i);
-        filtrat.setVisible(true);
-        filtrat.pack();
-        filtrat.setLocationRelativeTo(frame);
-        frame.setFocusable(false);
-        listafiltrat.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
     }
 
-    private void creuarActionPerformed(ActionEvent e) throws Exception {
+    private void creuarActionPerformed(ActionEvent e) {
         int[] indexs = ultres.getSelectedIndices();
         if(indexs.length!=2){
             JOptionPane.showMessageDialog(frame, "Has de seleccionar 2 resultats per poder creuar-los","Error", JOptionPane.ERROR_MESSAGE);
@@ -149,12 +157,16 @@ public class VistaAnteriorsImp {
         rescreuat.pack();
         rescreuat.setLocationRelativeTo(frame);
         frame.setFocusable(false);
-        listcreu.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
+        try {
+            listcreu.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip), Integer.parseInt(id)));
+        } catch (Exception exc) {
+            ;
+        }
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame = new JFrame();
         enrere = new JButton();
         label1 = new JLabel();
@@ -203,23 +215,11 @@ public class VistaAnteriorsImp {
 
             //---- info ----
             info.setText("Info");
-            info.addActionListener(e -> {
-                try {
-                    infoActionPerformed(e);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            });
+            info.addActionListener(e -> infoActionPerformed(e));
 
             //---- creuar ----
             creuar.setText("Creua Resultats");
-            creuar.addActionListener(e -> {
-                try {
-                    creuarActionPerformed(e);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            });
+            creuar.addActionListener(e -> creuarActionPerformed(e));
 
             //---- filtra ----
             filtra.setText("Filtra");
@@ -355,13 +355,7 @@ public class VistaAnteriorsImp {
 
             //---- acceptar ----
             acceptar.setText("Acceptar");
-            acceptar.addActionListener(e -> {
-                try {
-                    acceptarActionPerformed(e);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            });
+            acceptar.addActionListener(e -> acceptarActionPerformed(e));
 
             //---- label7 ----
             label7.setText("Etiqueta:*");
@@ -460,7 +454,7 @@ public class VistaAnteriorsImp {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame;
     private JButton enrere;
     private JLabel label1;

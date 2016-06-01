@@ -22,13 +22,6 @@ public class VistaDADES {
         this.cp = cp;
         initComponents();
         frame1.setVisible(true);
-        //IMPORTAR GRAF
-        carregarColLeccióDeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         //GESTIÓ ENTITATS
         afegirUnaEntitatButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

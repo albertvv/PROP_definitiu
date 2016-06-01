@@ -37,17 +37,21 @@ public class VistaRelDir {
         vcerques.ferVisible();
     }
 
-    private void cercaActionPerformed(ActionEvent e) throws Exception {
+    private void cercaActionPerformed(ActionEvent e) {
         String t = (String)tipus.getSelectedItem();
         String nom = nome.getText();
-        Integer id = obteid(nom,t);
-        Vector<String> v = cp.CercaRelDirecta(id,t);
-        resultat.setVisible(true);
-        resultat.pack();
-        resultat.setLocationRelativeTo(frame);
-        frame.setFocusable(false);
-        String s[] = v.toArray(new String[v.size()]);
-        listres.setListData(s);
+        try {
+            Integer id = obteid(nom, t);
+            Vector<String> v = cp.CercaRelDirecta(id, t);
+            resultat.setVisible(true);
+            resultat.pack();
+            resultat.setLocationRelativeTo(frame);
+            frame.setFocusable(false);
+            String s[] = v.toArray(new String[v.size()]);
+            listres.setListData(s);
+        } catch (Exception exc) {
+            System.out.println("hola radiola");
+        }
     }
 
     private Integer obteid(String nom, String tipus) throws Exception {

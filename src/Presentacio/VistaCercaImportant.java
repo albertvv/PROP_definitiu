@@ -116,7 +116,7 @@ public class VistaCercaImportant {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+        // Generated using JFormDesigner Evaluation license - Mariano Rajoy
         frame = new JFrame();
         panel1 = new JPanel();
         enrere = new JButton();
@@ -303,7 +303,7 @@ public class VistaCercaImportant {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JFrame frame;
     private JPanel panel1;
     private JButton enrere;

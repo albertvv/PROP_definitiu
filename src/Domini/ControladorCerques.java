@@ -15,25 +15,25 @@ import java.util.Vector;
  * Created by Albert on 15/04/2016.
  */
 public class ControladorCerques {
+    private Metrica m;
     private ConjRes lr;
     private ControladorGrafo cg;
     private Matrix[] m1;
-    private CtrlMatrius cm;
-    public ControladorCerques(ControladorGrafo cg) throws IOException {
-        this.cg = cg;
+    public ControladorCerques() throws IOException {
+        cg = new ControladorGrafo();
+        cg.cargarGrafo();
+        this.m= new Metrica();
         lr = new ConjRes();
         System.out.println("matrius");
         m1 = new Matrix[]{cg.getGrafo().getMatriz("Autor"),
                 cg.getGrafo().getMatriz("Conferencia"),cg.getGrafo().getMatriz("Termino")};
         System.out.println("fimatrius");
-        cm = new CtrlMatrius(m1);
     }
     public Double CercaRellevancia(String path, Vector<Integer> vs){
-        System.out.println("mida vector :"+vs.size()+ " i path :"+path+" vector :"+vs);
         for (int i = 0; i < vs.size() ; i++) {
-           if(vs.get(i)!=null) vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(i))));
+           if(!vs.get(i).equals(-1)) vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(i))));
         }
-        QueryRellevancia qr = new QueryRellevancia(path,vs,cm);
+        QueryRellevancia qr = new QueryRellevancia(path,vs,m,m1);
         return qr.Cerca();
     }
 
@@ -48,9 +48,7 @@ public class ControladorCerques {
 
     public SparseVector CercaRelimportant(String path, Integer entitat1){
         entitat1 = IDtoindex(entitat1,Entitatequivalent(path.charAt(0)));
-        Vector<Integer> entitats = new Vector<>();
-        entitats.add(entitat1);
-        QueryRelimportant qi= new QueryRelimportant(path,entitats,cm);
+        QueryRelimportant qi= new QueryRelimportant(path,entitat1,m,m1);
         SparseVector sv= qi.Cerca();
         SparseVector sv2= new CompressedVector(cg.getGrafo().getLastID()+1);
         VectorIterator it = sv.nonZeroIterator();
@@ -59,11 +57,10 @@ public class ControladorCerques {
             sv2.set(IndextoID(it.index(),Entitatequivalent(path.charAt(path.length()-1))),rel);
         }
         ResImportant r = new ResImportant(qi,sv2);
-        qi.setIndexToID(IndextoID(qi.getentitat(),Entitatequivalent(path.charAt(0))));
         lr.addRelImp(r);
         return sv2;
     }
-    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat) throws Exception { // s'hauria de canviar per id ja que fixat nom i tipus poden haver-hi repetits
+    public Vector<String> CercaRelDirecta(Integer id,String tipusentitat){ // s'hauria de canviar per id ja que fixat nom i tipus poden haver-hi repetits
         Vector<Entidad> ve= cg.getGrafo().getRelacion(id,tipusentitat);
         Vector<String> vs = new Vector<>(); //canviar a integer
         for (int i = 0; i <ve.size() ; i++) {
@@ -76,20 +73,8 @@ public class ControladorCerques {
         return creu.CreuaResultats();
     }
     public Vector<Vector<Integer>> Clustering(String path, int numgrups, Vector<Integer> vs, int niteracions){
-        System.out.println("mida vector :"+vs.size()+ " i path :"+path+" vector :"+vs);
-        for (int i = 0; i < vs.size() ; i++) {
-            vs.set(i,IDtoindex(vs.get(i),Entitatequivalent(path.charAt(0)))); //id -> index
-        }
-        QueryClustering c = new QueryClustering(path,numgrups,vs,niteracions,cm);
-        Vector<Vector<Integer>> v = c.Cerca();
-        for (int i = 0; i <v.size() ; i++) {
-            for (int j = 0; j <v.get(i).size(); j++) {
-                v.get(i).set(j,IndextoID(v.get(i).get(j),Entitatequivalent(path.charAt(path.length()-1))));
-            }
-        }
-        ResClustering r = new ResClustering(c,v);
-        lr.addClust(r);
-        return v;
+        QueryClustering c = new QueryClustering(path,numgrups,vs,m1,m,niteracions);
+        return c.Cerca();
     }
     public SparseVector FiltraRelimportant (int i1,double threshold,int numres,String etiq){ //id resultat que es vol filtrar , sino s'indica threshold es 0 per defecte
         ResImportant r = lr.getRelImp().get(i1);
@@ -124,18 +109,13 @@ public class ControladorCerques {
     }
     public Vector<Vector<Integer>> FilterClustering(int i1,String etiq){ //etiqueta a filtar
         ResClustering r = lr.getClust().get(i1);
-        Vector<Vector<Integer>> vs =  new Vector<>();
-        for (int i = 0; i <r.Resultat().size(); i++) { //copiem a mà el resultat per evitar aliasing
-            vs.add(new Vector<>());
-            for (int j = 0; j <r.Resultat().get(i).size() ; j++) vs.get(i).add(r.Resultat().get(i).get(j));
-            }
+        Vector<Vector<Integer>> vs = (Vector<Vector<Integer>>) r.Resultat().clone();
         for (int i = 0; i < vs.size() ; i++) {
             for (int j = 0; j <vs.get(i).size() ; j++) {
                 String p = Entitatequivalent(r.getQuery().getPath().charAt(0));
                 String etiqitem = getEntitat(vs.get(i).get(j),p).getEtiqueta();
                 if(etiqitem==null || !etiqitem.equals(etiq)){
                     vs.get(i).remove(j);
-                    --j;
                 }
             }
         }
@@ -147,13 +127,12 @@ public class ControladorCerques {
     public String getnomEntitat(int id,String tipus){
         return cg.getGrafo().getNombre_ID(id,tipus);
     }
-
     public Vector<Pair<String,SparseVector>>getListImp(){
         Vector<Pair<String,SparseVector>> vs = new Vector<>();
         Vector<ResImportant> v = lr.getRelImp();
         for (int i = 0; i < v.size() ; i++) {
             ResImportant r = v.get(i);
-            vs.add(new Pair<>(r.getQuery().getentitat()+"$"+r.getQuery().getPath(),r.Resultat())); // id entitat + path
+            vs.add(new Pair<>(r.getQuery().getID()+"$"+r.getQuery().getPath(),r.Resultat())); // id entitat + path
         }
         return vs;
     }
@@ -173,8 +152,8 @@ public class ControladorCerques {
     private Entidad getEntitat(Integer id, String tipus){
         return cg.getGrafo().getEntidad(id,tipus);
     }
-    public String Entitatequivalent(char c) { // exemple A -> Autor
-        switch (c) {
+    private String Entitatequivalent(char c){ // exemple A -> Autor
+        switch(c){
             case 'A':
                 return "Autor";
             case 'P':
@@ -185,12 +164,5 @@ public class ControladorCerques {
                 return "Termino";
         }
         return null;
-    }
-    public Vector<String> getLlistaMatrius(){
-        return cm.getLlistaMatrius();
-    }
-
-    public void recalcula_matriu(String f) throws IOException {
-       cm.recalcula_matriu(f);
     }
 }

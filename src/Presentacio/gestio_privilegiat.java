@@ -36,7 +36,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         crear = new JButton();
         modificar = new JButton();
@@ -49,30 +49,29 @@ public class gestio_privilegiat extends javax.swing.JFrame {
         resposta = new JLabel();
         sortir = new JButton();
         back = new JButton();
-        jButton3 = new JButton();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container contentPane = getContentPane();
 
         //---- crear ----
-        crear.setText("crear usuari");
+        crear.setText("Crear usuari");
         crear.addActionListener(e -> crearActionPerformed(e));
 
         //---- modificar ----
-        modificar.setText("modificar usuari");
+        modificar.setText("Modificar usuari");
         modificar.addActionListener(e -> modificarActionPerformed(e));
 
         //---- borrar ----
-        borrar.setText("esborrar usuari");
+        borrar.setText("Esborrar usuari");
         borrar.addActionListener(e -> borrarActionPerformed(e));
 
         //---- privilegis ----
-        privilegis.setText("donar privilegis");
+        privilegis.setText("Atorgar privilegis");
         privilegis.addActionListener(e -> privilegisActionPerformed(e));
 
         //---- informacio ----
-        informacio.setText("informacio usuaris");
+        informacio.setText("Informaci\u00f3 usuaris");
         informacio.addActionListener(e -> informacioActionPerformed(e));
 
         //======== jScrollPane1 ========
@@ -157,7 +156,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(introduir, GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addComponent(introduir, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                 .addComponent(resposta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
@@ -184,14 +183,11 @@ public class gestio_privilegiat extends javax.swing.JFrame {
                             .addComponent(introduir, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(resposta)
-                            .addGap(0, 21, Short.MAX_VALUE))
+                            .addGap(0, 94, Short.MAX_VALUE))
                         .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
         );
         pack();
         setLocationRelativeTo(getOwner());
-
-        //---- jButton3 ----
-        jButton3.setText("jButton3");
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
@@ -298,7 +294,7 @@ public class gestio_privilegiat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JButton crear;
     private JButton modificar;
     private JButton borrar;
@@ -310,6 +306,5 @@ public class gestio_privilegiat extends javax.swing.JFrame {
     private JLabel resposta;
     private JButton sortir;
     private JButton back;
-    private JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

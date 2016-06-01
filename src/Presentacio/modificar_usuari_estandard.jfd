@@ -1,10 +1,10 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_77" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp resposta::t:::x, seq {space :::p, par l {seq {par l {comp jLabel1::::166:x, comp jLabel2:::::x, comp jLabel3:::::x, comp jLabel4:::::x, comp jLabel5:::::x}, space :::p, par l:::p {comp boto:::p::p, comp name::l::200:x, comp sex::l::200:x, comp date::::200:x, comp oldPass::l::200:x, comp newPass::l::200:x}}, seq t {space :0:0:x, comp back:::p::p, space :::p, comp sortir:::p::p}}, space :::p}}"
+			"$horizontalGroup": "par l {comp resposta::t:::x, seq {space :::p, par l {seq {par l {comp jLabel1::::180:x, comp jLabel2:::::x, comp jLabel3:::::x, comp jLabel4:::::x, comp jLabel5:::::x}, space :::p, par l:::p {comp boto:::p::p, comp name::l::200:x, comp sex::l::200:x, comp date::::200:x, comp oldPass::l::200:x, comp newPass::l::200:x}}, seq t {comp back:::p::p, space ::285:x, comp sortir:::p::p}}, space :::p}}"
 			"$verticalGroup": "par l {seq l {par b {comp sortir::b:p::p, comp back::b:p::p}, space :p:17:p, par b {comp jLabel1::b:p::p, comp oldPass::b:p::p}, space :::p, par b {comp jLabel2::b:p::p, comp newPass::b:p::p}, space :::p, par b {comp name::b:p::p, comp jLabel3::b:p::p}, space :::p, par b {comp jLabel4::b:p::p, comp sex::b:p::p}, space :::p, par l {comp jLabel5:::p::p, comp date:::p::p}, space :p:13:p, comp boto:::p::p, space :::p, comp resposta:::p:60:p, space :::x}}"
 		} ) {
 			name: "this"
@@ -20,16 +20,16 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "boto"
-				"text": "Cambiar"
+				"text": "Canviar"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "botoActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel1"
-				"text": "Contrasenya antiga"
+				"text": "Contrassenya antiga"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel2"
-				"text": "Contrasenya nova"
+				"text": "Contrassenya nova"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel3"

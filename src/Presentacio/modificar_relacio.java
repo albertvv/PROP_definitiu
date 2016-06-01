@@ -34,7 +34,7 @@ public class modificar_relacio extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -51,13 +51,13 @@ public class modificar_relacio extends javax.swing.JFrame {
         Container contentPane = getContentPane();
 
         //---- jLabel1 ----
-        jLabel1.setText("Introdueix el nom antic");
+        jLabel1.setText("Introdu\u00efu el nom antic");
 
         //---- jLabel2 ----
-        jLabel2.setText("Introdueix el nom nou");
+        jLabel2.setText("Introdu\u00efu el nom nou");
 
         //---- jLabel3 ----
-        jLabel3.setText("Introdueix la descripcio");
+        jLabel3.setText("Introdu\u00efu la descripcio");
 
         //---- boto ----
         boto.setText("Modificar");
@@ -71,30 +71,30 @@ public class modificar_relacio extends javax.swing.JFrame {
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(back))
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addComponent(boto)
-                                    .addGap(0, 156, Short.MAX_VALUE))
-                                .addComponent(descripcio)))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel2))
-                            .addGap(18, 18, 18)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(nom_antic)
+                                .addComponent(nom_antic, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                                 .addComponent(nom_nou, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
-                            .addGap(0, 0, Short.MAX_VALUE))
+                            .addGap(0, 89, Short.MAX_VALUE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addComponent(boto)
+                                    .addGap(0, 171, Short.MAX_VALUE))
+                                .addComponent(descripcio)))
                         .addComponent(resposta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(back))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -116,7 +116,7 @@ public class modificar_relacio extends javax.swing.JFrame {
                     .addComponent(boto)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(resposta)
-                    .addContainerGap(20, Short.MAX_VALUE))
+                    .addContainerGap(53, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -191,7 +191,7 @@ public class modificar_relacio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;

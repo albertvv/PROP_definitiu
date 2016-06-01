@@ -1,25 +1,25 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_77" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq l {comp jLabel3:::p::p, space s:::p, par l {seq {comp boto:::p::p, space :0:156:x}, comp descripcio:::::x}}, seq {par l {comp jLabel1::l:p::p, comp jLabel2::l:p::p}, space s:::p, par l:::p {comp nom_antic:::::x, comp nom_nou::::151:x}, space :0:0:x}, comp resposta:::::x}, space :::p}, seq t {space :0:0:x, comp back:::p::p}}"
-			"$verticalGroup": "par l {seq l {comp back:::p::p, space :p:51:p, par b {comp jLabel1::b:p::p, comp nom_antic::b:p::p}, space u:::p, par b {comp jLabel2::b:p::p, comp nom_nou::b:p::p}, space u:::p, par b {comp jLabel3::b:p::p, comp descripcio::b:p::p}, space s:::p, comp boto:::p::p, space u:::p, comp resposta:::p::p, space ::20:x}}"
+			"$horizontalGroup": "par l {seq t {space :0:0:x, comp back:::p::p}, seq {par l {seq {par l {comp jLabel1::l:p::p, comp jLabel2::l:p::p}, space u:::p, par l:::p {comp nom_antic::::151:x, comp nom_nou::::151:x}, space :0:89:x}, seq l {comp jLabel3:::p::p, space :::p, par l {seq {comp boto:::p::p, space :0:171:x}, comp descripcio::l:::x}}, comp resposta:::::x}, space :::p}}"
+			"$verticalGroup": "par l {seq l {comp back:::p::p, space :p:51:p, par b {comp jLabel1::b:p::p, comp nom_antic::b:p::p}, space u:::p, par b {comp jLabel2::b:p::p, comp nom_nou::b:p::p}, space u:::p, par b {comp jLabel3::b:p::p, comp descripcio::b:p::p}, space s:::p, comp boto:::p::p, space u:::p, comp resposta:::p::p, space ::53:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel1"
-				"text": "Introdueix el nom antic"
+				"text": "Introduïu el nom antic"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel2"
-				"text": "Introdueix el nom nou"
+				"text": "Introduïu el nom nou"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel3"
-				"text": "Introdueix la descripcio"
+				"text": "Introduïu la descripcio"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "nom_antic"

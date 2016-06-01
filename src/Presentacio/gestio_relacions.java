@@ -38,7 +38,7 @@ public class gestio_relacions extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         crear = new JButton();
         modificar = new JButton();
@@ -68,7 +68,7 @@ public class gestio_relacions extends javax.swing.JFrame {
         borrar.addActionListener(e -> borrarActionPerformed(e));
 
         //---- info ----
-        info.setText("Informacio relacions");
+        info.setText("Informaci\u00f3 relacions");
         info.addActionListener(e -> infoActionPerformed(e));
 
         //======== jScrollPane1 ========
@@ -141,7 +141,7 @@ public class gestio_relacions extends javax.swing.JFrame {
                             .addComponent(back)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(sortir)))
-                    .addContainerGap(59, Short.MAX_VALUE))
+                    .addContainerGap(68, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -163,7 +163,7 @@ public class gestio_relacions extends javax.swing.JFrame {
                             .addComponent(introduir, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(resposta)
-                            .addGap(0, 61, Short.MAX_VALUE))
+                            .addGap(0, 122, Short.MAX_VALUE))
                         .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                     .addContainerGap())
         );
@@ -255,7 +255,7 @@ public class gestio_relacions extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JButton crear;
     private JButton modificar;
     private JButton borrar;

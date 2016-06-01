@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_60" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {par l:::p {comp jLabel2:::::x, comp jLabel1::l:p::p, comp tipus::l:::x, comp nom::l:::x, comp boto::t:p::p}, space :::p, comp jScrollPane1::::488:x}}"
-			"$verticalGroup": "par l {comp jScrollPane1::l::0:x, seq l {space :::p, comp jLabel1:::p::p, space :::p, comp nom:::p::p, space :::p, comp jLabel2:::p::p, space :::p, comp tipus:::p::p, space u:::p, comp boto:::p::p, space ::113:x}}"
+			"$horizontalGroup": "par l {seq t {par l:::p {comp jLabel2:::::x, comp jLabel1::l:p::p, comp tipus::l:::x, comp nom::l:::x, comp boto::t:p::p}, space :::p, comp jScrollPane1::::471:x}}"
+			"$verticalGroup": "par l {comp jScrollPane1::l::0:x, seq l {space :::p, comp jLabel1:::p::p, space :::p, comp nom:::p::p, space :::p, comp jLabel2:::p::p, space :::p, comp tipus:::p::p, space u:::p, comp boto:::p::p, space ::136:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -185,11 +185,11 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel1"
-				"text": "Introdueix el nom:"
+				"text": "Introduïu el nom:"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "jLabel2"
-				"text": "Introdueix el tipus d'entitat:"
+				"text": "Introduïu el tipus d'entitat:"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "nom"

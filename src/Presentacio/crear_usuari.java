@@ -33,7 +33,7 @@ public class crear_usuari extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -50,10 +50,10 @@ public class crear_usuari extends javax.swing.JFrame {
         Container contentPane = getContentPane();
 
         //---- jLabel1 ----
-        jLabel1.setText("Introdueix el nom");
+        jLabel1.setText("Introdu\u00efu el nom");
 
         //---- jLabel2 ----
-        jLabel2.setText("Introdueix la contrasenya");
+        jLabel2.setText("Introdu\u00efu la contrassenya");
 
         //---- username ----
         username.addActionListener(e -> usernameActionPerformed(e));
@@ -63,7 +63,7 @@ public class crear_usuari extends javax.swing.JFrame {
         boto.addActionListener(e -> botoActionPerformed(e));
 
         //---- privilegiat ----
-        privilegiat.setText("privilegiat");
+        privilegiat.setText("Privilegiat");
 
         //---- sortir ----
         sortir.setText("Sortir");
@@ -92,10 +92,10 @@ public class crear_usuari extends javax.swing.JFrame {
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addGroup(contentPaneLayout.createSequentialGroup()
                                     .addComponent(boto)
-                                    .addContainerGap(105, Short.MAX_VALUE))
+                                    .addContainerGap(95, Short.MAX_VALUE))
                                 .addGroup(contentPaneLayout.createSequentialGroup()
                                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                        .addComponent(password, GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                        .addComponent(password, GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                         .addComponent(username))
                                     .addGap(53, 53, 53))))))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
@@ -124,7 +124,7 @@ public class crear_usuari extends javax.swing.JFrame {
                         .addComponent(privilegiat))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(resultat)
-                    .addContainerGap(45, Short.MAX_VALUE))
+                    .addContainerGap(78, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -199,7 +199,7 @@ public class crear_usuari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JTextField username;

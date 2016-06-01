@@ -34,7 +34,7 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         name = new JTextField();
         sex = new JTextField();
@@ -56,14 +56,14 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
         Container contentPane = getContentPane();
 
         //---- boto ----
-        boto.setText("Cambiar");
+        boto.setText("Canviar");
         boto.addActionListener(e -> botoActionPerformed(e));
 
         //---- jLabel1 ----
-        jLabel1.setText("Contrasenya antiga");
+        jLabel1.setText("Contrassenya antiga");
 
         //---- jLabel2 ----
-        jLabel2.setText("Contrasenya nova");
+        jLabel2.setText("Contrassenya nova");
 
         //---- jLabel3 ----
         jLabel3.setText("Nom nou");
@@ -92,7 +92,7 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(jLabel1, GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                                .addComponent(jLabel1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                                 .addComponent(jLabel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -106,9 +106,8 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
                                 .addComponent(oldPass, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                 .addComponent(newPass, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
                             .addComponent(back)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                             .addComponent(sortir)))
                     .addContainerGap())
         );
@@ -235,7 +234,7 @@ public class modificar_usuari_estandard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JTextField name;
     private JTextField sex;
     private JTextField date;

@@ -29,7 +29,8 @@ public class CtrlMatrius {
             System.out.println("catch");
             Matrix  mat =  m.ComputarMetrica(path,m1);
             System.out.println("guarda");
-            System.out.println();
+            System.out.println(mat.getColumn(0).length());
+            System.out.println(mat.getRow(0).length());
             guardarMatriu(path,  mat); //problema :S
             System.out.println("figuarda");
             return mat;

@@ -107,7 +107,7 @@ public class VistaAnteriorsImp {
         Integer nr = 0;
         String t = threshold.getText();
         if(!(nres.getText().length()==0)) {
-            nr = Integer.parseInt(nres.getText());
+            nr = Integer.parseInt(nres.getText())+1;
         }
         else nr=-1;
         if(!(threshold.getText().length() == 0)) {

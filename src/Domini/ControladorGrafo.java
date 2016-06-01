@@ -14,7 +14,7 @@ public class ControladorGrafo {
 
     //METODOS PRIVADOS:
 
-    private void cargarPapers() throws IOException {
+    private void cargarPapers() throws /*IO*/Exception {
         Vector<Vector<String>> mP = cgp.getPapers();
         for (int i = 0; i < mP.size(); ++i) {
             Integer ValorId = Integer.parseInt(mP.get(i).get(0));
@@ -28,7 +28,7 @@ public class ControladorGrafo {
         }
     }
 
-    private void cargarAutores() throws IOException {
+    private void cargarAutores() throws /*IO*/Exception {
         Vector<Vector<String>> mA = cgp.getAutores();
         for (int i = 0; i < mA.size(); ++i) {
             Integer ValorId = Integer.parseInt(mA.get(i).get(0));
@@ -42,7 +42,7 @@ public class ControladorGrafo {
         }
     }
 
-    private void cargarConferencias() throws IOException {
+    private void cargarConferencias() throws /*IO*/Exception {
         Vector<Vector<String>> mC = cgp.getConferencias();
         for (int i = 0; i < mC.size(); ++i) {
             Integer ValorId = Integer.parseInt(mC.get(i).get(0));
@@ -56,7 +56,7 @@ public class ControladorGrafo {
         }
     }
 
-    private void cargarTerminos() throws IOException {
+    private void cargarTerminos() throws /*IO*/Exception {
         Vector<Vector<String>> mT = cgp.getTerminos();
         for (int i = 0; i < mT.size(); ++i) {
             Integer ValorId = Integer.parseInt(mT.get(i).get(0));
@@ -66,7 +66,7 @@ public class ControladorGrafo {
         }
     }
 
-    private void cargarRelaciones() throws IOException {
+    private void cargarRelaciones() throws /*IO*/Exception {
         Vector<Vector<String>> PA = cgp.getPA();
         for (int i = 0; i < PA.size(); ++i) {
             Integer P = Integer.parseInt(PA.get(i).get(0));
@@ -138,7 +138,7 @@ public class ControladorGrafo {
         return cgp.saveTerminos(Terminos);
     }
 
-    private boolean guardarRelPA() throws IOException {
+    private boolean guardarRelPA() throws /*IO*/Exception {
         Vector<Autor> vectorAutor = g.getAutors();
         Vector<Vector<String>> PA = new Vector<Vector<String>>();
         for (int i = 0; i < vectorAutor.size(); ++i) {
@@ -153,7 +153,7 @@ public class ControladorGrafo {
         return cgp.savePA(PA);
     }
 
-    private boolean guardarRelPC() throws IOException {
+    private boolean guardarRelPC() throws /*IO*/Exception {
         Vector<Conferencia> vectorConferencia = g.getConferencias();
         Vector<Vector<String>> PC = new Vector<Vector<String>>();
         for (int i = 0; i < vectorConferencia.size(); ++i) {
@@ -168,7 +168,7 @@ public class ControladorGrafo {
         return cgp.savePC(PC);
     }
 
-    private boolean guardarRelPT() throws IOException {
+    private boolean guardarRelPT() throws /*IO*/Exception {
         Vector<Termino> vectorTermino = g.getTerminos();
         Vector<Vector<String>> PT = new Vector<Vector<String>>();
         for (int i = 0; i < vectorTermino.size(); ++i) {
@@ -193,7 +193,7 @@ public class ControladorGrafo {
 
     //METODOS PUBLICOS
 
-    public void cargarGrafo() throws IOException {
+    public void cargarGrafo() throws /*IO*/Exception {
         cargarPapers();
         cargarAutores();
         cargarConferencias();
@@ -201,7 +201,7 @@ public class ControladorGrafo {
         cargarRelaciones();
     }
 
-    public boolean guardarGrafo() throws IOException {
+    public boolean guardarGrafo() throws /*IO*/Exception {
         boolean p = guardarPapers();
         boolean a = guardarAutores();
         boolean c = guardarConferencias();
@@ -216,31 +216,31 @@ public class ControladorGrafo {
         return g;
     }
 
-    public void afegir_element(String nom, Integer id, String etiq, String tipus) {
+    public void afegir_element(String nom, Integer id, String etiq, String tipus) throws Exception {
         g.addEntidad(nom,id,etiq, tipus);
     }
 
-    public void afegir_relacio_graf(Integer primer, Integer segon, String tipus) {
+    public void afegir_relacio_graf(Integer primer, Integer segon, String tipus) throws Exception {
         g.addRelacion(primer,segon,tipus);
     }
 
-    public void esborrar_element(String nom, Integer id, String tipus) {
+    public void esborrar_element(String nom, Integer id, String tipus) throws Exception {
         g.deleteEntidad(nom, id, tipus);
     }
 
-    public void esborrar_relacio_graf(Integer primer, Integer segon, String tipus) {
+    public void esborrar_relacio_graf(Integer primer, Integer segon, String tipus) throws Exception {
         g.deleteRelacion(primer, segon, tipus);
     }
 
-    public boolean setID(String nom, String tipus, Integer newID) {
-        return g.setID(nom,tipus,newID);
+    public boolean setID(Integer id, String tipus, Integer newID) throws Exception {
+        return g.setID(id, tipus, newID);
     }
 
-    public boolean setNom(String oldNom, String tipus, String newNom) {
-        return g.setNom(oldNom,tipus,newNom);
+    public boolean setNom(Integer id, String tipus, String newNom) throws Exception {
+        return g.setNom(id, tipus, newNom);
     }
 
-    public boolean setTag(String nom, String tipus, String newTag) {
-        return g.setTag(nom,tipus,newTag);
+    public boolean setTag(Integer id, String tipus, String newTag) throws Exception {
+        return g.setTag(id, tipus, newTag);
     }
 }

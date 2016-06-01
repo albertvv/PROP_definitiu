@@ -52,7 +52,7 @@ public class VistaDadesESBORRAR {
                         "No existeix cap '" + tipus + "' anomenat " + nom, "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(frame1,
-                        "ERROR", "Error", JOptionPane.ERROR_MESSAGE);
+                        "No s'ha esborrat cap entitat", "Informació", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }

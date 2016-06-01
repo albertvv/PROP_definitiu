@@ -13,6 +13,8 @@ public class VistaDADESesRel {
 
     private CtrlPresentacio cp;
 
+    private VistaDADES vd;
+
     private String rel;
     private String tipus1;
     private String tipus2;
@@ -28,7 +30,8 @@ public class VistaDADESesRel {
         enrereButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame1.setVisible(false);
-                VistaDADES vd = new VistaDADES(cp);
+                if (vd == null) vd = new VistaDADES(cp);
+                vd.ferVisible();
             }
         });
     }
@@ -46,33 +49,66 @@ public class VistaDADESesRel {
                         "Es requereixen les dues entitats","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(frame1,
-                    "ERROR","Error",JOptionPane.ERROR_MESSAGE);
+            if (exc.getMessage().equals("id negativa")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "La ID no pot ser negativa!", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix 1")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "No existeix cap '" + tipus1 + "' anomenat " + nom1, "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix 2")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "No existeix cap '" + tipus2 + "' anomenat " + nom2, "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "La relació entre aquestes dues entitats no existeix", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(frame1,
+                        "No s'ha realitzat cap canvi", "Informació", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 
     private void Esborra() throws Exception {
-        rel = comboBox1.getSelectedItem().toString();
+        rel = comboBox1.getSelectedItem().toString().charAt(0)+""+comboBox1.getSelectedItem().toString().charAt(1);
 
         nom1 = textField1.getText();
         switch (rel.charAt(0)) {
-            case 'A': tipus1 = "Autor";
-            case 'P': tipus1 = "Paper";
-            case 'C': tipus1 = "Conferencia";
-            case 'T': tipus1 = "Termino";
+            case 'A':
+                tipus1 = "Autor";
+                break;
+            case 'P':
+                tipus1 = "Paper";
+                break;
+            case 'C':
+                tipus1 = "Conferencia";
+                break;
+            case 'T':
+                tipus1 = "Termino";
+                break;
         }
-        id1 = NomtoID(nom1, tipus1);
+        if ((id1 = NomtoID(nom1, tipus1)) == null) throw new Exception("no existeix 1");
 
         nom2 = textField2.getText();
         switch (rel.charAt(1)) {
-            case 'A': tipus2 = "Autor";
-            case 'P': tipus2 = "Paper";
-            case 'C': tipus2 = "Conferencia";
-            case 'T': tipus2 = "Termino";
+            case 'A':
+                tipus2 = "Autor";
+                break;
+            case 'P':
+                tipus2 = "Paper";
+                break;
+            case 'C':
+                tipus2 = "Conferencia";
+                break;
+            case 'T':
+                tipus2 = "Termino";
+                break;
         }
-        id2 = NomtoID(nom2, tipus2);
+        if ((id2 = NomtoID(nom2, tipus2)) == null) throw new Exception("no existeix 2");
 
         cp.esborrar_relacio_graf(id1, id2, rel);
+
+        JOptionPane.showMessageDialog(frame1,
+                "La relació s'ha esborrat");
     }
 
     private String showOptDialog(String[] ids,String nom) {

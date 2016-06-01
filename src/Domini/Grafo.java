@@ -293,32 +293,40 @@ public class Grafo {
         switch (tipoRelacion) {
             case "AP":
                 index1 = idAIndex.get(id1);
+                System.out.println(index1);
                 index2 = idPIndex.get(id2);
+                System.out.println(index2);
+                if (matrizPaperAutor.get(index2, index1) == 1) throw new Exception("ja existeix");
                 matrizPaperAutor.set(index2, index1, 1);
                 return true;
             case "PA":
                 index1 = idPIndex.get(id1);
                 index2 = idAIndex.get(id2);
+                if (matrizPaperAutor.get(index1, index2) == 1) throw new Exception("ja existeix");
                 matrizPaperAutor.set(index1, index2, 1);
                 return true;
             case "CP":
                 index1 = idCIndex.get(id1);
                 index2 = idPIndex.get(id2);
+                if (matrizPaperConferencia.get(index2, index1) == 1) throw new Exception("ja existeix");
                 matrizPaperConferencia.set(index2, index1, 1);
                 return true;
             case "PC":
                 index1 = idPIndex.get(id1);
                 index2 = idCIndex.get(id2);
+                if (matrizPaperConferencia.get(index1, index2) == 1) throw new Exception("ja existeix");
                 matrizPaperConferencia.set(index1, index2, 1);
                 return true;
             case "TP":
                 index1 = idTIndex.get(id1);
                 index2 = idPIndex.get(id2);
+                if (matrizPaperTermino.get(index2, index1) == 1) throw new Exception("ja existeix");
                 matrizPaperTermino.set(index2, index1, 1);
                 return true;
             case "PT":
                 index1 = idPIndex.get(id1);
                 index2 = idTIndex.get(id2);
+                if (matrizPaperTermino.get(index1, index2) == 1) throw new Exception("ja existeix");
                 matrizPaperTermino.set(index1, index2, 1);
                 return true;
         }
@@ -333,31 +341,37 @@ public class Grafo {
             case "AP":
                 index1 = idAIndex.get(id1);
                 index2 = idPIndex.get(id2);
+                if (matrizPaperAutor.get(index2, index1) == 0) throw new Exception("no existeix");
                 matrizPaperAutor.set(index2, index1, 0);
                 return true;
             case "PA":
                 index1 = idPIndex.get(id1);
                 index2 = idAIndex.get(id2);
+                if (matrizPaperAutor.get(index1, index2) == 0) throw new Exception("no existeix");
                 matrizPaperAutor.set(index1, index2, 0);
                 return true;
             case "CP":
                 index1 = idCIndex.get(id1);
                 index2 = idPIndex.get(id2);
+                if (matrizPaperConferencia.get(index2, index1) == 0) throw new Exception("no existeix");
                 matrizPaperConferencia.set(index2, index1, 0);
                 return true;
             case "PC":
                 index1 = idPIndex.get(id1);
                 index2 = idCIndex.get(id2);
+                if (matrizPaperConferencia.get(index1, index2) == 0) throw new Exception("no existeix");
                 matrizPaperConferencia.set(index1, index2, 0);
                 return true;
             case "TP":
                 index1 = idTIndex.get(id1);
                 index2 = idPIndex.get(id2);
+                if (matrizPaperTermino.get(index2, index1) == 0) throw new Exception("no existeix");
                 matrizPaperTermino.set(index2, index1, 0);
                 return true;
             case "PT":
                 index1 = idPIndex.get(id1);
                 index2 = idTIndex.get(id2);
+                if (matrizPaperConferencia.get(index1, index2) == 0) throw new Exception("no existeix");
                 matrizPaperConferencia.set(index1, index2, 0);
                 return true;
         }

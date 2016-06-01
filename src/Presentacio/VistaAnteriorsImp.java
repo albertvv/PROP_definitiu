@@ -28,6 +28,11 @@ public class VistaAnteriorsImp {
         this.cp = ctrl;
         conjresimps = cp.UltimsImp();
         imprimeixResultats();
+        String etiqs[] = {"no","Database","Data Mining","AI","Information Retrieval"};
+        for (int i = 0; i < etiqs.length; i++) {
+            etiquetes.addItem(etiqs[i]);
+        }
+        etiquetes.setSelectedIndex(0);
     }
 
     public void ferVisible() {
@@ -87,11 +92,6 @@ public class VistaAnteriorsImp {
             parfil.pack();
             parfil.setLocationRelativeTo(frame);
             frame.setFocusable(false);
-            String etiqs[] = {"no","Database","Data Mining","AI","Information Retrieval"};
-            for (int i = 0; i < etiqs.length; i++) {
-                etiquetes.addItem(etiqs[i]);
-            }
-            etiquetes.setSelectedIndex(0);
         }
     }
 
@@ -150,6 +150,11 @@ public class VistaAnteriorsImp {
         rescreuat.setLocationRelativeTo(frame);
         frame.setFocusable(false);
         listcreu.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
+    }
+
+    private void button2ActionPerformed(ActionEvent e) {
+        button2.setVisible(false);
+        button2.setEnabled(false);
     }
 
     private void initComponents() {
@@ -327,17 +332,22 @@ public class VistaAnteriorsImp {
 
             //---- button2 ----
             button2.setText("OK");
+            button2.addActionListener(e -> button2ActionPerformed(e));
 
             GroupLayout filtratContentPaneLayout = new GroupLayout(filtratContentPane);
             filtratContentPane.setLayout(filtratContentPaneLayout);
             filtratContentPaneLayout.setHorizontalGroup(
                 filtratContentPaneLayout.createParallelGroup()
                     .addGroup(filtratContentPaneLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(filtratContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                            .addComponent(label3)
-                            .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button2))
+                        .addGroup(filtratContentPaneLayout.createParallelGroup()
+                            .addGroup(filtratContentPaneLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(filtratContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                    .addComponent(label3)
+                                    .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(filtratContentPaneLayout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(button2)))
                         .addContainerGap(35, Short.MAX_VALUE))
             );
             filtratContentPaneLayout.setVerticalGroup(
@@ -347,7 +357,7 @@ public class VistaAnteriorsImp {
                         .addComponent(label3)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(button2)
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );

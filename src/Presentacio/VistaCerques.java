@@ -108,12 +108,13 @@ public class VistaCerques  {
                 null,
                 m,
                 m[0]);
-        AWTUtilities.setWindowOpaque(framew, false);
-        framew.setVisible(true);
-        framew.setEnabled(true);
+        System.out.println(f);
         class Computa implements Runnable{
             @Override
             public void run() {
+                AWTUtilities.setWindowOpaque(framew, false);
+                framew.setVisible(true);
+                framew.setEnabled(true);
                 clustbutton.setEnabled(false);
                 enrere.setEnabled(false);
                 relbutton.setEnabled(false);
@@ -121,6 +122,7 @@ public class VistaCerques  {
                 impbutton.setEnabled(false);
                 recalcmat.setEnabled(false);
                 if(f.equals("Totes")){  //canviar try catch i el disable del loading
+                    System.out.println("totes");
                     for (int i = 1; i <m.length ; i++) {
                         try {
                             cp.recalcula_matriu(m[i]);
@@ -139,6 +141,7 @@ public class VistaCerques  {
                             "No hi ha cap Matriu guardada","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 else try {
+                        System.out.println("else");
                     cp.recalcula_matriu(f);
                     framew.setVisible(false);
                     framew.setEnabled(false);

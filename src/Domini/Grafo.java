@@ -383,6 +383,7 @@ public class Grafo {
         if (oldID < 0 || newID < 0) throw new Exception("id negativa");
         Integer i = getIndiceid(oldID, tipus);
         if (exists(null, newID, tipus)) throw new Exception("ja existeix");
+        if (!exists(null, oldID, tipus)) throw new Exception("no existeix");
         switch (tipus) {
             case "Paper":
                 oldID = vectorPaper.get(i).getId();
@@ -420,6 +421,7 @@ public class Grafo {
     public boolean setNom(Integer id, String tipus, String newNom) throws Exception {
         if (id == null || id < 0) throw new Exception("id erronia");
         if (newNom == null) throw new Exception("manca nom");
+        if (!exists(null, id, tipus)) throw new Exception("no existeix");
         Integer i = getIndiceid(id, tipus);
         switch (tipus) {
             case "Paper":
@@ -443,6 +445,7 @@ public class Grafo {
     public boolean setTag(Integer id, String tipus, String newTag) throws Exception {
         if (id < 0 || id == null) throw new Exception("id erronia");
         if (newTag == null) throw new Exception("manca tag");
+        if (!exists(null, id, tipus)) throw new Exception("no existeix");
         Integer i = getIndiceid(id, tipus);
         switch (tipus) {
             case "Paper":

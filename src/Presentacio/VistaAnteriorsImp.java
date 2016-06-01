@@ -53,7 +53,7 @@ public class VistaAnteriorsImp {
 
     private void enrereActionPerformed(ActionEvent e) {
         frame.setVisible(false);
-        vrelimp = new VistaRelImportant(cp);
+        if(vrelimp==null)vrelimp = new VistaRelImportant(cp);
         vrelimp.ferVisible();
     }
 
@@ -87,7 +87,7 @@ public class VistaAnteriorsImp {
             parfil.pack();
             parfil.setLocationRelativeTo(frame);
             frame.setFocusable(false);
-            String etiqs[] = {"Database","Data Mining","AI","Information Retrieval"};
+            String etiqs[] = {"no","Database","Data Mining","AI","Information Retrieval"};
             for (int i = 0; i < etiqs.length; i++) {
                 etiquetes.addItem(etiqs[i]);
             }
@@ -103,16 +103,16 @@ public class VistaAnteriorsImp {
         if(!(nres.getText().length()==0)) {
             nr = Integer.parseInt(nres.getText());
         }
-        else JOptionPane.showMessageDialog(frame, "Has d'inserir el nombre mínim de resultats que vols obtenir","Error", JOptionPane.ERROR_MESSAGE);
+        else nr=-1;
         if(!(threshold.getText().length() == 0)) {
             System.out.println("entrothres");
             thres = Double.parseDouble(threshold.getText());
         }
-        SparseVector sv = cp.FiltraRelimportant(index, 0.0, nr, etiq);
+        SparseVector sv = cp.FiltraRelimportant(index, thres, nr, etiq);
         String id = new String();
         int i = 0;
         while(Character.isDigit(conjresimps.get(index).getKey().charAt(i))) {
-            id += conjresimps.get(i).getKey().charAt(i);
+            id += conjresimps.get(index).getKey().charAt(i);
             ++i;
         }
         ++i;

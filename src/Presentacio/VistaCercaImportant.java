@@ -34,6 +34,7 @@ public class VistaCercaImportant {
 
     private void enrereActionPerformed(ActionEvent e) {
         frame.setVisible(false);
+        if(vrelimp==null)vrelimp = new VistaRelImportant(cp);
         vrelimp.ferVisible();
     }
 
@@ -96,7 +97,7 @@ public class VistaCercaImportant {
                     "Aquest tipus de relació no existeix", "Error", JOptionPane.ERROR_MESSAGE);
         }
         catch (Exception e1) {
-            JOptionPane.showMessageDialog(frame, "aquí hi ha algún problema","Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "Aquí hi ha algún problema","Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

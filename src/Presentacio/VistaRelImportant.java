@@ -32,20 +32,20 @@ public class VistaRelImportant {
 
     private void enrereActionPerformed(ActionEvent e) {
         frame.setVisible(false);
-        vcerques = new VistaCerques(cp);
+        if(vcerques==null)vcerques = new VistaCerques(cp);
         vcerques.ferVisible();
     }
 
     private void cercaActionPerformed(ActionEvent e) {
         frame.setVisible(false);
-        vcercimp = new VistaCercaImportant(cp);
+        if(vcercimp==null)vcercimp = new VistaCercaImportant(cp);
         vcercimp.ferVisible();
     }
 
     private void ultrelimpActionPerformed(ActionEvent e) {
         frame.setVisible(false);
         try {
-            vantimp = new VistaAnteriorsImp(cp);
+            if(vantimp==null)vantimp = new VistaAnteriorsImp(cp);
         } catch (Exception exc) {
             System.out.println("error estrany");
         }

@@ -48,17 +48,40 @@ public class VistaDadesSETnom {
                         "Cal saber quina entitat es vol modificar i el nou nom","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(frame1,
-                    "ERROR","Error",JOptionPane.ERROR_MESSAGE);
+            if (exc.getMessage().equals("id negativa")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "Les IDs no poden ser negatives", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "No existeix cap '" + tipus + "' anomenat " + nom1, "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(frame1,
+                        "No s'ha realitzat cap canvi", "Informació", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 
     private void setNom() throws Exception {
-        tipus = comboBox1.getSelectedItem().toString();
+        switch (comboBox1.getSelectedItem().toString()) {
+            case "Article":
+                tipus = "Paper";
+                break;
+            case "Autor":
+                tipus = "Autor";
+                break;
+            case "Congrés":
+                tipus = "Conferencia";
+                break;
+            case "Terme":
+                tipus = "Termino";
+                break;
+        }
         nom1 = textField3.getText();
-        id = NomtoID(nom1, tipus);
+        if ((id = NomtoID(nom1, tipus)) == null) throw new Exception("no existeix");
         nom2 = textField2.getText();
-        //cp.setNom(id, nom2, tipus);
+        cp.setNom(id, nom2, tipus);
+        JOptionPane.showMessageDialog(frame1,
+                "S'ha canviat el nom","",JOptionPane.INFORMATION_MESSAGE);
     }
 
     private String showOptDialog(String[] ids,String nom) {

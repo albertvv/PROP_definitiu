@@ -42,21 +42,27 @@ public class VistaDadesSETid {
         try {
             tipus = comboBox1.getSelectedItem().toString();
             if (!textField3.getText().equals("") && !textField2.getText().equals("")) {
+                if (Integer.parseInt(textField2.getText()) < 0) throw new Exception("id negativa");
                 setID();
             } else {
                 JOptionPane.showMessageDialog(frame1,
                         "Cal saber quina entitat es vol modificar i la nova ID","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
-            if (exc.getMessage().equals("id negativa"))
+            if (exc.getMessage().equals("id negativa")) {
                 JOptionPane.showMessageDialog(frame1,
-                        "Les IDs no poden ser negatives","Error",JOptionPane.ERROR_MESSAGE);
-            else if (exc.getMessage().equals("ja existeix"))
+                        "Les IDs no poden ser negatives", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("ja existeix")) {
                 JOptionPane.showMessageDialog(frame1,
                         "No es pot dur a terme el canvi perquè ja existeix una entitat '"
-                        +tipus+"' amb ID "+idNew,"Error",JOptionPane.ERROR_MESSAGE);
-            JOptionPane.showMessageDialog(frame1,
-                    "ERROR","Error",JOptionPane.ERROR_MESSAGE);
+                                + tipus + "' amb ID " + idNew, "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "No existeix cap '" + tipus + "' anomenat " + nom, "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(frame1,
+                        "No s'ha realitzat cap canvi", "Informació", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 

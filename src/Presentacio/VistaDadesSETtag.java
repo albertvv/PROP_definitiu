@@ -47,17 +47,40 @@ public class VistaDadesSETtag {
                         "Cal l'entitat a modificar i la nova etiqueta","Error",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(frame1,
-                    "ERROR","Error",JOptionPane.ERROR_MESSAGE);
+            if (exc.getMessage().equals("id negativa")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "Les IDs no poden ser negatives", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("no existeix")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "No existeix cap '" + tipus + "' anomenat " + nom, "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(frame1,
+                        "No s'ha realitzat cap canvi", "Informació", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 
     private void setTAG() throws Exception {
-        tipus = comboBox2.getSelectedItem().toString();
+        switch (comboBox2.getSelectedItem().toString()) {
+            case "Article":
+                tipus = "Paper";
+                break;
+            case "Autor":
+                tipus = "Autor";
+                break;
+            case "Congrés":
+                tipus = "Conferencia";
+                break;
+            case "Terme":
+                tipus = "Termino";
+                break;
+        }
         nom = textField6.getText();
-        id = NomtoID(nom, tipus);
+        if ((id = NomtoID(nom, tipus)) == null) throw new Exception("no existeix");
         tag = textField5.getText();
-        //cp.setTag(id, tag, tipus);
+        cp.setTag(id, tag, tipus);
+        JOptionPane.showMessageDialog(frame1,
+                "S'ha canviat l'etiqueta","",JOptionPane.INFORMATION_MESSAGE);
     }
 
     private String showOptDialog(String[] ids,String nom) {

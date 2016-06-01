@@ -92,6 +92,7 @@ public class ControladorCerques {
         return v;
     }
     public SparseVector FiltraRelimportant (int i1,double threshold,int numres,String etiq) throws Exception { //id resultat que es vol filtrar , sino s'indica threshold es 0 per defecte
+        System.out.println(threshold+" "+numres+" "+etiq);
         ResImportant r = lr.getRelImp().get(i1);
         SparseVector sv = (SparseVector) r.Resultat().copy(); //clonem
         //threshold
@@ -103,7 +104,7 @@ public class ControladorCerques {
              p=Entitatequivalent(p.charAt(p.length()-1));
             System.out.println("etiqueta de "+it.index()+" és : "+getEntitat(it.index(),p).getEtiqueta());
             String etiqitem = getEntitat(it.index(),p).getEtiqueta();
-            if(etiqitem == null||rel< threshold || ( !etiq.equals("no") && !etiqitem.equals(etiq))) {
+            if((etiqitem == null && !etiq.equals("no"))||rel< threshold || ( !etiq.equals("no") && !etiqitem.equals(etiq))) {
                 it.set(0);
             }
             else v.add(new Pair<>(it.index(),rel)); // ens quedem sol si estan o per sobre el threshold o mateix etiqueta
@@ -120,6 +121,7 @@ public class ControladorCerques {
                 v.removeElementAt(v.size() - 1);
             }
         }
+        System.out.println(sv.cardinality());
         return sv;
     }
     public Vector<Vector<Integer>> FilterClustering(int i1,String etiq) throws Exception { //etiqueta a filtar

@@ -23,7 +23,7 @@ public class VistaDadesAFEGIR {
         this.cp = cp;
         System.out.println
                 ("isEventDispatchThread: " + SwingUtilities.isEventDispatchThread());
-        //this.cp = ctrlPresentacio;
+        this.cp = cp;
         initComponents();
         frame1.setVisible(true);
         enrereButton.addActionListener(new ActionListener() {
@@ -55,8 +55,12 @@ public class VistaDadesAFEGIR {
                         if (!textField2.getText().equals(""))
                             id = Integer.parseInt(textField2.getText());
                         else id = null;
-                        if (!comboBox1.getSelectedItem().toString().equals("Terme") && !textField3.getText().equals(""))
+                        if (comboBox1.getSelectedItem().toString().equals("Terme")) throw new Exception("no cal tag");
+                        if (!comboBox1.getSelectedItem().toString().equals("Terme") && !textField3.getText().equals("")) {
                             tag = textField3.getText();
+                            if (tag != "Database" || tag != "Data Mining" || tag != "AI" || tag != "Information Retrieval")
+                                throw new Exception("tag incorrecte");
+                        }
                         else tag = null;
                         cp.afegir_element(nom, id, tag, tipus);
                         JOptionPane.showMessageDialog(frame1,
@@ -66,15 +70,22 @@ public class VistaDadesAFEGIR {
                                 "S'ha d'introduïr el nom de l'entitat","Error",JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (Exception exc) {
-                    if (exc.getMessage().equals("ja existeix"))
+                    if (exc.getMessage().equals("ja existeix")) {
                         JOptionPane.showMessageDialog(frame1,
-                                "Ja existeix una entitat '"+tipus+"' amb la ID "+id,"Error",JOptionPane.ERROR_MESSAGE);
-                    else if (exc.getMessage().equals("id negativa"))
+                                "Ja existeix una entitat '" + tipus + "' amb la ID " + id, "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (exc.getMessage().equals("no cal tag")) {
                         JOptionPane.showMessageDialog(frame1,
-                                "Les ID's no poden ser negatives!","Error",JOptionPane.ERROR_MESSAGE);
-                    else
+                                "Els termes no tenen etiqueta", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (exc.getMessage().equals("id negativa")) {
                         JOptionPane.showMessageDialog(frame1,
-                                "ERROR"+exc.getClass(),"Error",JOptionPane.ERROR_MESSAGE);
+                                "Les ID's no poden ser negatives!", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (exc.getMessage().equals("tag incorrecte")) {
+                        JOptionPane.showMessageDialog(frame1,
+                                "L'etiqueta introduïda és invàlida", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(frame1,
+                                "ERROR" + exc.getClass(), "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -121,12 +132,12 @@ public class VistaDadesAFEGIR {
             {
 
                 // JFormDesigner evaluation mark
-                panel1.setBorder(new javax.swing.border.CompoundBorder(
+                /*panel1.setBorder(new javax.swing.border.CompoundBorder(
                     new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
                         "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
                         javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                         java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
+*/
 
                 //======== panel2 ========
                 {

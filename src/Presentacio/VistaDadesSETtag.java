@@ -53,6 +53,9 @@ public class VistaDadesSETtag {
             } else if (exc.getMessage().equals("no existeix")) {
                 JOptionPane.showMessageDialog(frame1,
                         "No existeix cap '" + tipus + "' anomenat " + nom, "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (exc.getMessage().equals("tag incorrecte")) {
+                JOptionPane.showMessageDialog(frame1,
+                        "L'etiqueta introduïda és invàlida", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(frame1,
                         "No s'ha realitzat cap canvi", "Informació", JOptionPane.INFORMATION_MESSAGE);
@@ -78,6 +81,8 @@ public class VistaDadesSETtag {
         nom = textField6.getText();
         if ((id = NomtoID(nom, tipus)) == null) throw new Exception("no existeix");
         tag = textField5.getText();
+        if (tag != "Database" || tag != "Data Mining" || tag != "AI" || tag != "Information Retrieval")
+            throw new Exception("tag incorrecte");
         cp.setTag(id, tag, tipus);
         JOptionPane.showMessageDialog(frame1,
                 "S'ha canviat l'etiqueta","",JOptionPane.INFORMATION_MESSAGE);

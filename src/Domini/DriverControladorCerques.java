@@ -12,7 +12,7 @@ import java.util.Vector;
  * Created by Albert on 20/04/2016.
  */
 public class DriverControladorCerques {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         Scanner b = new Scanner(System.in);
         boolean exit = false;
         ControladorGrafo cg = new ControladorGrafo();

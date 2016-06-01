@@ -349,7 +349,7 @@ public class CtrlPresentacio {
 
     //setters
 
-    public void setId(Integer oldID, Integer newID, String tipus) throws Exception { cg.setID(Integer.toString(oldID), tipus, newID); }
-    public void setNom(Integer id, String newNom, String tipus) throws Exception { cg.setNom(Integer.toString(id), tipus, newNom); }
-    public void setTag(Integer id, String newTag, String tipus) throws Exception { cg.setTag(Integer.toString(id), tipus, newTag); }
+    public void setId(Integer oldID, Integer newID, String tipus) throws Exception { cg.setID(oldID, tipus, newID); }
+    public void setNom(Integer id, String newNom, String tipus) throws Exception { cg.setNom(id, tipus, newNom); }
+    public void setTag(Integer id, String newTag, String tipus) throws Exception { cg.setTag(id, tipus, newTag); }
 }

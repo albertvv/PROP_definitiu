@@ -48,11 +48,11 @@ public class principal extends javax.swing.JFrame {
         sortir.addActionListener(e -> sortirActionPerformed(e));
 
         //---- usuari ----
-        usuari.setText("Gestio usuari");
+        usuari.setText("Gesti\u00f3 usuari");
         usuari.addActionListener(e -> usuariActionPerformed(e));
 
         //---- graf ----
-        graf.setText("Gestio graf");
+        graf.setText("Gesti\u00f3 de dades");
         graf.addActionListener(e -> grafActionPerformed(e));
 
         //---- cerques ----
@@ -76,7 +76,7 @@ public class principal extends javax.swing.JFrame {
                         .addComponent(usuari, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(graf, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cerques, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(138, Short.MAX_VALUE))
+                    .addContainerGap(153, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -88,7 +88,7 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(graf)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(cerques)
-                    .addGap(0, 68, Short.MAX_VALUE))
+                    .addGap(0, 128, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -114,7 +114,7 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_grafActionPerformed
 
     private void cerquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerquesActionPerformed
-       ctr_pres.vistacerques();
+        ctr_pres.vistacerques();
         setVisible(false);
     }//GEN-LAST:event_cerquesActionPerformed
 

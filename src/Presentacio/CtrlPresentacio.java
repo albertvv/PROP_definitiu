@@ -295,18 +295,6 @@ public class CtrlPresentacio {
         if (VistaDADES == null) VistaDADES = new VistaDADES(this);
         VistaDADES.ferVisible();
     }
-    void VistaDadesSETid() {
-        if (VistaDadesSETid == null) VistaDadesSETid = new VistaDadesSETid(this);
-        VistaDadesSETid.ferVisible();
-    }
-    void VistaDadesSETnom() {
-        if (VistaDadesSETnom == null) VistaDadesSETnom = new VistaDadesSETnom(this);
-        VistaDadesSETnom.ferVisible();
-    }
-    void VistaDadesSETtag() {
-        if (VistaDadesSETtag == null) VistaDadesSETtag = new VistaDadesSETtag(this);
-        VistaDadesSETtag.ferVisible();
-    }
 //    void relacions_directes(){
 //        relacions_directes = new relacions_directes(this);
 //        relacions_directes.vista();
@@ -345,6 +333,11 @@ public class CtrlPresentacio {
 
     public void carregar_graf() throws /*IO*/Exception {
         cg.cargarGrafo();
+    }
+
+    //save
+    public void save() throws Exception {
+        cg.guardarGrafo();
     }
 
     //setters

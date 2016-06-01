@@ -34,7 +34,7 @@ public class relacions_directes extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         jScrollPane1 = new JScrollPane();
         taula = new JTable();
@@ -101,10 +101,10 @@ public class relacions_directes extends javax.swing.JFrame {
         }
 
         //---- jLabel1 ----
-        jLabel1.setText("Introdueix el nom:");
+        jLabel1.setText("Introdu\u00efu el nom:");
 
         //---- jLabel2 ----
-        jLabel2.setText("Introdueix el tipus d'entitat:");
+        jLabel2.setText("Introdu\u00efu el tipus d'entitat:");
 
         //---- boto ----
         boto.setText("OK");
@@ -122,7 +122,7 @@ public class relacions_directes extends javax.swing.JFrame {
                         .addComponent(nom)
                         .addComponent(boto, GroupLayout.Alignment.TRAILING))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -138,7 +138,7 @@ public class relacions_directes extends javax.swing.JFrame {
                     .addComponent(tipus, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(boto)
-                    .addContainerGap(113, Short.MAX_VALUE))
+                    .addContainerGap(136, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -191,7 +191,7 @@ public class relacions_directes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Albert Val
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JScrollPane jScrollPane1;
     private JTable taula;
     private JLabel jLabel1;

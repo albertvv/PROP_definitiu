@@ -1,32 +1,32 @@
-JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_77" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_40-release" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :::p, comp back:::p::p, space :p:58:p, par l {seq {comp relacions:::p::p, space ::67:x, comp sortir:::p::p}, seq {par l:::p {comp borrar::::128:x, comp modificar::::128:x, comp save::l::128:x, comp privilegiat::l::128:x}, space :::p, comp resposta::::113:x, space :::p}}}}"
-			"$verticalGroup": "par l {seq l {par l {par b {comp sortir::b:p::p, comp back::b:p::p}, seq l {space :p:29:p, comp relacions:::p::p}}, space :::p, comp modificar:::p::p, space :::p, par t {comp borrar:::p::p, comp resposta:::p::p}, space :::p, comp save:::p::p, space :::p, comp privilegiat:::p::p, space ::48:x}}"
+			"$horizontalGroup": "par l {seq l {space :::p, comp back:::p::p, space :p:58:p, par l {seq {comp relacions:::p::p, space ::99:x, comp sortir:::p::p}, seq {par l:::p {comp borrar::::128:x, comp modificar::::128:x, comp save::l::128:x, comp privilegiat::l::128:x}, space :::p, comp resposta::::141:x, space :::p}}}}"
+			"$verticalGroup": "par l {seq l {par l {par b {comp sortir::b:p::p, comp back::b:p::p}, seq l {space :p:29:p, comp relacions:::p::p}}, space :::p, comp modificar:::p::p, space :::p, par t {comp borrar:::p::p, comp resposta:::p::p}, space :::p, comp save:::p::p, space :::p, comp privilegiat:::p::p, space ::123:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "modificar"
-				"text": "modificar l'usuari"
+				"text": "Modificar l'usuari"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "modificarActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "borrar"
-				"text": "esborrar l'usuari"
+				"text": "Esborrar l'usuari"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "borrarActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "privilegiat"
-				"text": "gestió privilegiat"
+				"text": "Gestió privilegiat"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "privilegiatActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "relacions"
-				"text": "gestio de relacions"
+				"text": "Gestió de relacions"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "relacionsActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -41,7 +41,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "save"
-				"text": "Guardar canvis"
+				"text": "Desar canvis"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "saveActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {

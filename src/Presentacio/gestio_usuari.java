@@ -48,7 +48,7 @@ public class gestio_usuari extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         modificar = new JButton();
         borrar = new JButton();
@@ -64,19 +64,19 @@ public class gestio_usuari extends javax.swing.JFrame {
         Container contentPane = getContentPane();
 
         //---- modificar ----
-        modificar.setText("modificar l'usuari");
+        modificar.setText("Modificar l'usuari");
         modificar.addActionListener(e -> modificarActionPerformed(e));
 
         //---- borrar ----
-        borrar.setText("esborrar l'usuari");
+        borrar.setText("Esborrar l'usuari");
         borrar.addActionListener(e -> borrarActionPerformed(e));
 
         //---- privilegiat ----
-        privilegiat.setText("gesti\u00f3 privilegiat");
+        privilegiat.setText("Gesti\u00f3 privilegiat");
         privilegiat.addActionListener(e -> privilegiatActionPerformed(e));
 
         //---- relacions ----
-        relacions.setText("gestio de relacions");
+        relacions.setText("Gesti\u00f3 de relacions");
         relacions.addActionListener(e -> relacionsActionPerformed(e));
 
         //---- sortir ----
@@ -88,7 +88,7 @@ public class gestio_usuari extends javax.swing.JFrame {
         back.addActionListener(e -> backActionPerformed(e));
 
         //---- save ----
-        save.setText("Guardar canvis");
+        save.setText("Desar canvis");
         save.addActionListener(e -> saveActionPerformed(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
@@ -102,7 +102,7 @@ public class gestio_usuari extends javax.swing.JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(relacions)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                             .addComponent(sortir))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
@@ -111,7 +111,7 @@ public class gestio_usuari extends javax.swing.JFrame {
                                 .addComponent(save, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                                 .addComponent(privilegiat, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(resposta, GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(resposta, GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                             .addContainerGap())))
         );
         contentPaneLayout.setVerticalGroup(
@@ -134,7 +134,7 @@ public class gestio_usuari extends javax.swing.JFrame {
                     .addComponent(save)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(privilegiat)
-                    .addContainerGap(48, Short.MAX_VALUE))
+                    .addContainerGap(123, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -209,7 +209,7 @@ public class gestio_usuari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JButton modificar;
     private JButton borrar;
     private JButton privilegiat;

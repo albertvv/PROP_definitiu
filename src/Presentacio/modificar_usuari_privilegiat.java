@@ -36,7 +36,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private void initComponents() {
         user_modificar = new JTextField();
         name = new JTextField();
@@ -61,14 +61,14 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
         user_modificar.addActionListener(e -> user_modificarActionPerformed(e));
 
         //---- boto ----
-        boto.setText("Cambiar");
+        boto.setText("Canviar");
         boto.addActionListener(e -> botoActionPerformed(e));
 
         //---- jLabel1 ----
         jLabel1.setText("Usuari a modificar");
 
         //---- jLabel2 ----
-        jLabel2.setText("Contrasenya nova");
+        jLabel2.setText("Contrassenya nova");
 
         //---- jLabel3 ----
         jLabel3.setText("Nom nou");
@@ -101,7 +101,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel5))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(user_modificar)
                                 .addComponent(name)
@@ -110,13 +110,12 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
                                 .addComponent(newPass, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                         .addComponent(resposta, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(boto, GroupLayout.Alignment.TRAILING)
-                                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                                    .addComponent(back)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(sortir)))))
+                            .addGap(0, 320, Short.MAX_VALUE)
+                            .addComponent(boto))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addComponent(back)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
+                            .addComponent(sortir)))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
@@ -241,7 +240,7 @@ public class modificar_usuari_privilegiat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Bernat Diaz
+    // Generated using JFormDesigner Evaluation license - Mariano Rajoy
     private JTextField user_modificar;
     private JTextField name;
     private JTextField sex;

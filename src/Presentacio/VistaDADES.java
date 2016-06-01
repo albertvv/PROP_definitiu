@@ -71,15 +71,6 @@ public class VistaDADES {
                 ver.ferVisible();
             }
         });
-        //SORTIDA
-        desarElsCanvisIButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //desar canvis
-                cp.principal();
-                frame1.setVisible(false);
-            }
-        });
     }
 
     public void ferVisible() {
@@ -87,12 +78,31 @@ public class VistaDADES {
     }
 
     private void enrereButtonActionPerformed(ActionEvent e) {
-        cp.principal();
-        frame1.setVisible(false);
+        int reply = JOptionPane.showConfirmDialog(
+                null,
+                "Segur que vols sortir? Si has realitzat canvis no es desaran internament",
+                "Confirmar sortida",
+                JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            cp.principal();
+            frame1.setVisible(false);
+        }
     }
 
     private void afegirUnaEntitatButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
+    }
+
+    private void desarElsCanvisIButtonActionPerformed(ActionEvent e) {
+        try {
+            cp.save();
+            JOptionPane.showMessageDialog(frame1,
+                    "S'han desat els canvis", "Informació", JOptionPane.INFORMATION_MESSAGE);
+            cp.principal();
+            frame1.setVisible(false);
+        } catch (Exception exc) {
+            System.out.println("error estrany");
+        }
     }
 
     private void initComponents() {
@@ -305,6 +315,7 @@ public class VistaDADES {
 
                     //---- desarElsCanvisIButton ----
                     desarElsCanvisIButton.setText("Desar els canvis i sortir");
+                    desarElsCanvisIButton.addActionListener(e -> desarElsCanvisIButtonActionPerformed(e));
 
                     GroupLayout panel11Layout = new GroupLayout(panel11);
                     panel11.setLayout(panel11Layout);

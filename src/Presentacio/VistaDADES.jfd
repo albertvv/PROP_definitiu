@@ -143,6 +143,7 @@ new FormModel {
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "desarElsCanvisIButton"
 						"text": "Desar els canvis i sortir"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "desarElsCanvisIButtonActionPerformed", true ) )
 					} )
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {

@@ -33,8 +33,8 @@ public class CtrlMatrius {
             System.out.println(mat.getColumn(0).length());
             System.out.println(mat.getRow(0).length());
             System.out.println("------------");
-            guardarMatriu(path,  mat); //problema :S
-            System.out.println("figuarda");
+            if(mat.toSparseMatrix().density()<=0.002)
+            guardarMatriu(path,  mat);
             return mat;
         }
     }

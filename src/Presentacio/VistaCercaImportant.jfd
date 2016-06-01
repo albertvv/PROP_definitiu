@@ -69,18 +69,13 @@ new FormModel {
 			"location": new java.awt.Point( 0, 276 )
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp enrere2:::p::p, space :p:36:p, comp label5:::p::p}, seq l {space :p:34:p, comp scrollPane1:::p:310:p}}, space ::25:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, par l {comp enrere2:::p::p, comp label5:::p::p}, space s:::p, comp scrollPane1::::156:x, space :p:15:p}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:114:p, comp label5:::p::p}, seq l {space :p:34:p, comp scrollPane1:::p:310:p}}, space ::25:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label5:::p::p, space :p:28:p, comp scrollPane1::::150:x, space :p:15:p}}"
 		} ) {
 			name: "resultat"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
 				"text": "Resultat de Relació Important"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "enrere2"
-				"text": "Enrere"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "enrere2ActionPerformed", true ) )
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"

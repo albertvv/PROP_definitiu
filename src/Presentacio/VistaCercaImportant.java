@@ -130,7 +130,6 @@ public class VistaCercaImportant {
         label4 = new JLabel();
         resultat = new JDialog();
         label5 = new JLabel();
-        enrere2 = new JButton();
         scrollPane1 = new JScrollPane();
         llistares = new JList();
 
@@ -269,10 +268,6 @@ public class VistaCercaImportant {
             //---- label5 ----
             label5.setText("Resultat de Relaci\u00f3 Important");
 
-            //---- enrere2 ----
-            enrere2.setText("Enrere");
-            enrere2.addActionListener(e -> enrere2ActionPerformed(e));
-
             //======== scrollPane1 ========
             {
                 scrollPane1.setViewportView(llistares);
@@ -285,9 +280,7 @@ public class VistaCercaImportant {
                     .addGroup(resultatContentPaneLayout.createSequentialGroup()
                         .addGroup(resultatContentPaneLayout.createParallelGroup()
                             .addGroup(resultatContentPaneLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(enrere2)
-                                .addGap(36, 36, 36)
+                                .addGap(114, 114, 114)
                                 .addComponent(label5))
                             .addGroup(resultatContentPaneLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
@@ -298,11 +291,9 @@ public class VistaCercaImportant {
                 resultatContentPaneLayout.createParallelGroup()
                     .addGroup(resultatContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(resultatContentPaneLayout.createParallelGroup()
-                            .addComponent(enrere2)
-                            .addComponent(label5))
-                        .addGap(18, 18, 18)
-                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                        .addComponent(label5)
+                        .addGap(28, 28, 28)
+                        .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                         .addGap(15, 15, 15))
             );
             resultat.pack();
@@ -326,7 +317,6 @@ public class VistaCercaImportant {
     private JLabel label4;
     private JDialog resultat;
     private JLabel label5;
-    private JButton enrere2;
     private JScrollPane scrollPane1;
     private JList llistares;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

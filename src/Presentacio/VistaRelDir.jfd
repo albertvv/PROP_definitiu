@@ -41,27 +41,19 @@ new FormModel {
 			"size": new java.awt.Dimension( 400, 325 )
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp button2:::p::p, space ::70:x, comp label4:::p::p, space :p:144:p}, seq t {space :0:32:x, comp scrollPane1:::p:327:p, space :p:34:p}}}, seq l {space :p:174:p, comp button3:::p::p, space :0:174:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, par b {comp label4::b:p::p, comp button2::b:p::p}, space :p:26:p, comp scrollPane1:::p:182:p, space u:::p, comp button3:::p::p, space ::8:x}}"
+			"$horizontalGroup": "par l {seq {space :::x, par l {seq t {comp label4:::p::p, space :p:144:p}, seq t {comp scrollPane1:::p:327:p, space :p:34:p}}}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label4:::p::p, space :p:31:p, comp scrollPane1:::p:206:p, space ::21:x}}"
 		} ) {
 			name: "resultat"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Relacions Directes"
 			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
-				"text": "Enrere"
-			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "listres"
 				} )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button3"
-				"text": "OK"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 420, 0 )

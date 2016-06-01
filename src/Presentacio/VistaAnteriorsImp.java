@@ -152,11 +152,6 @@ public class VistaAnteriorsImp {
         listcreu.setListData(cp.MostraRelImp(sv, cp.TipusEquilvalent(tip),Integer.parseInt(id)));
     }
 
-    private void button2ActionPerformed(ActionEvent e) {
-        button2.setVisible(false);
-        button2.setEnabled(false);
-    }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ãlvar HernÃ¡ndez
@@ -172,12 +167,10 @@ public class VistaAnteriorsImp {
         label2 = new JLabel();
         scrollPane2 = new JScrollPane();
         res = new JList();
-        button1 = new JButton();
         filtrat = new JDialog();
         label3 = new JLabel();
         scrollPane3 = new JScrollPane();
         listafiltrat = new JList();
-        button2 = new JButton();
         parfil = new JDialog();
         label4 = new JLabel();
         threshold = new JTextField();
@@ -191,7 +184,6 @@ public class VistaAnteriorsImp {
         label8 = new JLabel();
         scrollPane4 = new JScrollPane();
         listcreu = new JList();
-        button3 = new JButton();
 
         //======== frame ========
         {
@@ -288,9 +280,6 @@ public class VistaAnteriorsImp {
                 scrollPane2.setViewportView(res);
             }
 
-            //---- button1 ----
-            button1.setText("OK");
-
             GroupLayout resdetContentPaneLayout = new GroupLayout(resdetContentPane);
             resdetContentPane.setLayout(resdetContentPaneLayout);
             resdetContentPaneLayout.setHorizontalGroup(
@@ -299,8 +288,7 @@ public class VistaAnteriorsImp {
                         .addGap(33, 33, 33)
                         .addGroup(resdetContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
                             .addComponent(label2)
-                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button1))
+                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(28, Short.MAX_VALUE))
             );
             resdetContentPaneLayout.setVerticalGroup(
@@ -309,10 +297,8 @@ public class VistaAnteriorsImp {
                         .addContainerGap()
                         .addComponent(label2)
                         .addGap(18, 18, 18)
-                        .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button1)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 207, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(24, Short.MAX_VALUE))
             );
             resdet.pack();
             resdet.setLocationRelativeTo(resdet.getOwner());
@@ -330,24 +316,15 @@ public class VistaAnteriorsImp {
                 scrollPane3.setViewportView(listafiltrat);
             }
 
-            //---- button2 ----
-            button2.setText("OK");
-            button2.addActionListener(e -> button2ActionPerformed(e));
-
             GroupLayout filtratContentPaneLayout = new GroupLayout(filtratContentPane);
             filtratContentPane.setLayout(filtratContentPaneLayout);
             filtratContentPaneLayout.setHorizontalGroup(
                 filtratContentPaneLayout.createParallelGroup()
                     .addGroup(filtratContentPaneLayout.createSequentialGroup()
-                        .addGroup(filtratContentPaneLayout.createParallelGroup()
-                            .addGroup(filtratContentPaneLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addGroup(filtratContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                    .addComponent(label3)
-                                    .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(filtratContentPaneLayout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(button2)))
+                        .addGap(36, 36, 36)
+                        .addGroup(filtratContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                            .addComponent(label3)
+                            .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 333, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(35, Short.MAX_VALUE))
             );
             filtratContentPaneLayout.setVerticalGroup(
@@ -356,10 +333,8 @@ public class VistaAnteriorsImp {
                         .addContainerGap()
                         .addComponent(label3)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(button2)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(scrollPane3, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(29, Short.MAX_VALUE))
             );
             filtrat.pack();
             filtrat.setLocationRelativeTo(filtrat.getOwner());
@@ -458,9 +433,6 @@ public class VistaAnteriorsImp {
                 scrollPane4.setViewportView(listcreu);
             }
 
-            //---- button3 ----
-            button3.setText("OK");
-
             GroupLayout rescreuatContentPaneLayout = new GroupLayout(rescreuatContentPane);
             rescreuatContentPane.setLayout(rescreuatContentPaneLayout);
             rescreuatContentPaneLayout.setHorizontalGroup(
@@ -468,9 +440,8 @@ public class VistaAnteriorsImp {
                     .addGroup(rescreuatContentPaneLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(rescreuatContentPaneLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                            .addComponent(button3)
-                            .addComponent(scrollPane4, GroupLayout.PREFERRED_SIZE, 344, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label8))
+                            .addComponent(label8)
+                            .addComponent(scrollPane4, GroupLayout.PREFERRED_SIZE, 344, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(39, Short.MAX_VALUE))
             );
             rescreuatContentPaneLayout.setVerticalGroup(
@@ -479,10 +450,8 @@ public class VistaAnteriorsImp {
                         .addContainerGap()
                         .addComponent(label8, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(scrollPane4, GroupLayout.PREFERRED_SIZE, 183, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button3)
-                        .addContainerGap(13, Short.MAX_VALUE))
+                        .addComponent(scrollPane4, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(26, Short.MAX_VALUE))
             );
             rescreuat.pack();
             rescreuat.setLocationRelativeTo(rescreuat.getOwner());
@@ -504,12 +473,10 @@ public class VistaAnteriorsImp {
     private JLabel label2;
     private JScrollPane scrollPane2;
     private JList res;
-    private JButton button1;
     private JDialog filtrat;
     private JLabel label3;
     private JScrollPane scrollPane3;
     private JList listafiltrat;
-    private JButton button2;
     private JDialog parfil;
     private JLabel label4;
     private JTextField threshold;
@@ -523,6 +490,5 @@ public class VistaAnteriorsImp {
     private JLabel label8;
     private JScrollPane scrollPane4;
     private JList listcreu;
-    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

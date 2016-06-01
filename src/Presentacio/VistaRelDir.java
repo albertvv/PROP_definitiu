@@ -74,10 +74,8 @@ public class VistaRelDir {
         cerca = new JButton();
         resultat = new JDialog();
         label4 = new JLabel();
-        button2 = new JButton();
         scrollPane1 = new JScrollPane();
         listres = new JList();
-        button3 = new JButton();
 
         //======== frame ========
         {
@@ -163,50 +161,33 @@ public class VistaRelDir {
             //---- label4 ----
             label4.setText("Relacions Directes");
 
-            //---- button2 ----
-            button2.setText("Enrere");
-
             //======== scrollPane1 ========
             {
                 scrollPane1.setViewportView(listres);
             }
-
-            //---- button3 ----
-            button3.setText("OK");
 
             GroupLayout resultatContentPaneLayout = new GroupLayout(resultatContentPane);
             resultatContentPane.setLayout(resultatContentPaneLayout);
             resultatContentPaneLayout.setHorizontalGroup(
                 resultatContentPaneLayout.createParallelGroup()
                     .addGroup(resultatContentPaneLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(resultatContentPaneLayout.createParallelGroup()
-                            .addGroup(resultatContentPaneLayout.createSequentialGroup()
-                                .addComponent(button2)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                            .addGroup(GroupLayout.Alignment.TRAILING, resultatContentPaneLayout.createSequentialGroup()
                                 .addComponent(label4)
                                 .addGap(144, 144, 144))
                             .addGroup(GroupLayout.Alignment.TRAILING, resultatContentPaneLayout.createSequentialGroup()
-                                .addGap(0, 32, Short.MAX_VALUE)
                                 .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 327, GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34))))
-                    .addGroup(resultatContentPaneLayout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(button3)
-                        .addGap(0, 174, Short.MAX_VALUE))
             );
             resultatContentPaneLayout.setVerticalGroup(
                 resultatContentPaneLayout.createParallelGroup()
                     .addGroup(resultatContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(resultatContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(label4)
-                            .addComponent(button2))
-                        .addGap(26, 26, 26)
-                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(button3)
-                        .addContainerGap(8, Short.MAX_VALUE))
+                        .addComponent(label4)
+                        .addGap(31, 31, 31)
+                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(21, Short.MAX_VALUE))
             );
             resultat.pack();
             resultat.setLocationRelativeTo(resultat.getOwner());
@@ -230,9 +211,7 @@ public class VistaRelDir {
     private JButton cerca;
     private JDialog resultat;
     private JLabel label4;
-    private JButton button2;
     private JScrollPane scrollPane1;
     private JList listres;
-    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

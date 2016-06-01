@@ -43,8 +43,8 @@ new FormModel {
 			"size": new java.awt.Dimension( 420, 310 )
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:33:p, par c {comp label2::c:p::p, comp scrollPane2::c:p:333:p, comp button1::c:p::p}, space ::28:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label2:::p::p, space s:::p, comp scrollPane2:::p:187:p, space :::p, comp button1:::p::p, space :::x}}"
+			"$horizontalGroup": "par l {seq {space :p:33:p, par c {comp label2::c:p::p, comp scrollPane2::c:p:333:p}, space ::28:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label2:::p::p, space s:::p, comp scrollPane2:::p:207:p, space ::24:x}}"
 		} ) {
 			name: "resdet"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -57,17 +57,13 @@ new FormModel {
 					name: "res"
 				} )
 			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
-				"text": "OK"
-			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 455, 0 )
 			"size": new java.awt.Dimension( 410, 310 )
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq l {space :p:36:p, par c {comp label3::c:p::p, comp scrollPane3::c:p:333:p}}, seq l {space :p:172:p, comp button2:::p::p}}, space ::35:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label3:::p::p, space u:::p, comp scrollPane3:::p:183:p, space u:::p, comp button2:::p::p, space :::x}}"
+			"$horizontalGroup": "par l {seq {space :p:36:p, par c {comp label3::c:p::p, comp scrollPane3::c:p:333:p}, space ::35:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label3:::p::p, space u:::p, comp scrollPane3:::p:198:p, space ::29:x}}"
 		} ) {
 			name: "filtrat"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -79,11 +75,6 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "listafiltrat"
 				} )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
-				"text": "OK"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 320 )
@@ -129,8 +120,8 @@ new FormModel {
 			"size": new java.awt.Dimension( 410, 300 )
 		} )
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:41:p, par c {comp button3::c:p::p, comp scrollPane4::c:p:344:p, comp label8::c:p::p}, space ::39:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp label8:::p:25:p, space u:::p, comp scrollPane4:::p:183:p, space :::p, comp button3:::p::p, space ::13:x}}"
+			"$horizontalGroup": "par l {seq {space :p:41:p, par c {comp label8::c:p::p, comp scrollPane4::c:p:344:p}, space ::39:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp label8:::p:25:p, space u:::p, comp scrollPane4:::p:202:p, space ::26:x}}"
 		} ) {
 			name: "rescreuat"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -142,10 +133,6 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "listcreu"
 				} )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button3"
-				"text": "OK"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 880, 0 )

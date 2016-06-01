@@ -193,7 +193,7 @@ public class ControladorGrafo {
 
     //METODOS PUBLICOS
 
-    public void cargarGrafo() throws /*IO*/Exception {
+    public void cargarGrafo() throws Exception {
         cargarPapers();
         cargarAutores();
         cargarConferencias();
@@ -201,7 +201,7 @@ public class ControladorGrafo {
         cargarRelaciones();
     }
 
-    public boolean guardarGrafo() throws /*IO*/Exception {
+    public boolean guardarGrafo() throws Exception {
         boolean p = guardarPapers();
         boolean a = guardarAutores();
         boolean c = guardarConferencias();
